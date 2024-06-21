@@ -1,0 +1,525 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+
+\examsetup{
+  page = {
+    size            = a3paper, 
+    show-columnline = true, 
+    foot-content    = {第;页（共~;页）}
+  }, 
+  solution = {
+    show-answer = true, 
+    % blank-type = manual, 
+    blank-type = none, 
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  }, 
+  fillin = {
+    no-answer-type = none, 
+    show-answer = true
+  }, 
+  style/fullwidth-stop = catcode, 
+  % sealline = {
+  %   show        = true, 
+  %   scope       = mod-2, 
+  %   circle-show = false, 
+  %   line-type   = solid, 
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}}, 
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}}, 
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}}, 
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}}, 
+  %   }, 
+  %   odd-info-xshift = 12mm, 
+  %   text = {此卷只装订不密封}, 
+  %   text-width = 0.98\textheight, 
+  %   text-format  = \zihao{-3}\sffamily, 
+  %   text-xshift = 20mm
+  % }, 
+  question/show-points = true, 
+  paren = {
+    show-answer = true
+  }, 
+  square = {
+    x-length = 1.8em, 
+    y-length = 1.6em
+  }
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-answer = true, 
+  fillin/show-answer = true, 
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-answer = false, 
+  fillin/show-answer = false, 
+  paren/show-answer = false,
+  page/size = a4paper
+}
+\fi
+
+
+\title{
+\larger[2]
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2023 $\sim*$ 2024学年秋季学期\\
+\textbf{\uline{\hspace{0.5cm}实变函数\hspace{0.5cm}}}课程期末考试试题
+}
+
+% \subject{\uline{数学分析II}}
+
+
+\begin{document}
+
+% \tableofcontents
+
+% \chapter{2021 年普通高等学校招生全国统一考试}
+
+% \information{
+%   姓名\underline{\hspace{6em}}, 
+%   座位号\underline{\hspace{15em}}
+% }
+% \warning{（在此卷上答题无效）}
+
+% \secret
+
+\maketitle
+
+% \begin{notice}
+%   \item 答题前, 先将自己的姓名、准考证号、考场号、座位号填写在试卷和答题卡上, 
+%     并将准考证号条形码粘贴在答题卡上的指定位置。
+%   \item 选择题的作答：每小题选出答案后, 用 2B 铅笔把答题卡上对应题目的答案标号涂黑。
+%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
+%   \item 填空题和解答题的作答：用黑色签字笔直接答在答题卡上对应的答题区域内。
+%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
+%   \item 考试结束后, 请将本试卷和答题卡一并上交。
+% \end{notice}
+
+\ifShowAnswer
+\noindent \textbf{考生诚信承诺}\\
+1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
+2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
+\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
+}
+\else
+% do nothing
+\fi
+
+\noindent
+% 本试卷共 4 页, 22 题。
+全卷满分 100 分。考试用时 120 分钟。
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\[2pt] \hline
+得分 & & & & & \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{%
+  证明题：本题共 2 小题，第1题 7 分，第 2 题 8 分，共 15 分。请写出证明详细过程。
+}
+
+% \noindent\scoringbox
+
+\begin{question}[points = 7]
+  定义集合$A, B$的对称差为$A \triangle B = (A \setminus B) \cup (B \setminus A).$ 证明集合的交与对称差满足分配律, 即任取三个集合$A, B, C,$ 有$(A \triangle B) \cap C = (A \cap C) \triangle (B \cap C).$
+\end{question}
+
+\begin{solution}
+  可以直接通过集合的运算律证明：
+  \[\begin{aligned}
+  (A \triangle B) \cap C & = ((A \setminus B) \cup (B \setminus A)) \cap C = ((A \setminus B) \cap C) \cup ((B \setminus A) \cap C) \\
+  & = ((A \cap C) \setminus (B \cap C)) \cup ((B \cap C) \setminus (A \cap C)) = (A \cap C) \triangle (B \cap C).
+  \end{aligned}\]
+
+  也可以通过集合元素来证明相互包含关系。
+\end{solution}
+
+\begin{question}[points = 8]
+  证明可列多个零测集的并仍是零测集.
+\end{question}
+
+\begin{solution}
+  设 \(E_1, E_2, \cdots\) 是可列多个零测集, 令 \(E = \bigcup\limits_{n=1}^{\infty} E_n\), 对任意 \(\varepsilon > 0\), 由 \(E_n\) 是零测集, 存在开集 \(G_n \supset E_n\), 使得 \(m G_n < \dfrac{\varepsilon}{2^n}\). 于是由外测度的单调性以及次可加性, 有
+  \[m^* E = m^* \left( \bigcup\limits_{n=1}^{\infty} E_n \right) \leqslant m^* \left( \bigcup\limits_{n=1}^{\infty} G_n \right) \leqslant \sum\limits_{n=1}^{\infty} m^* G_n = \sum\limits_{n=1}^{\infty} m G_n < \varepsilon.\]
+  由 \(\varepsilon\) 的任意性, 知 \(E\) 是零测集.
+
+  或者直接由外测度的次可加性得到结论：
+  \[m^* E \leqslant \sum\limits_{n=1}^{\infty} m^* E_n = 0.\]
+
+  或者先由每个\(E_n\)是零测集（可测集）得到他们的并集\(E\)是可测集, 然后由测度的次可加性得到结论：
+  \[m E \leqslant \sum\limits_{n=1}^{\infty} m E_n = 0.\]
+\end{solution}
+
+
+\section{简答题：本题共 2 小题, 第 1 题 15 分，第 2 题 10 分，共 25 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}[points = 15]
+  请叙述对集合$E\subset \mathbb{R}$可测性进行判别的卡拉泰奥多里 (C. Carathéodory) 条件, 并对集合$E$有界 ($E \subset (a, b)$ (区间)) 的情况进行证明.
+\end{question}
+
+\begin{solution}
+  卡拉泰奥多里条件：（7分）
+
+  \begin{quote}
+  设 \(E \subset \mathbb{R}\), 则 \(E\) 可测的充分必要条件是：对任意 \(A \subset \mathbb{R}\), 有
+  \[m^* A = m^*(A \cap E) + m^*(A \cap \mathscr{C} E).\]
+  \end{quote}
+
+  证明如下：（充分性, 必要性各4分）
+
+  \begin{quote}
+  充分性：取 \(A = (a, b)\), 那么由卡拉泰奥多里条件有
+  \[b - a = m^* E + m^* \mathscr{C} E.\]
+  另一方面, 对一般的有界集 \(E\), 有 \(m_* E + m^* \mathscr{C} E = b - a\), 于是 \(m^* E = m_* E\), 即 \(E\) 可测。
+
+  必要性：设 \(E\) 可测, 由外测度的次可加性, 对任意 \(A \subset \mathbb{R}\), 有
+  \begin{equation}
+  \label{eq:cau-real-analysis-exam2024-caratheodory-1}
+  m^* A \leqslant m^*(A \cap E) + m^*(A \cap \mathscr{C} E).
+  \end{equation}
+
+  另一方面, 由外测度定义, 对任意 \(\varepsilon > 0\), 存在开集 \(G \supset A\), 使得 \(m^* G < m^* A + \varepsilon\). 此时有
+  \[G \cap E \supset A \cap E, ~ G \cap \mathscr{C} E \supset A \cap \mathscr{C} E,\]
+  于是由外测度的单调性, 有
+  \[m^* (A \cap E) \leqslant m^* (G \cap E), ~ m^* (A \cap \mathscr{C} E) \leqslant m^* (G \cap \mathscr{C} E),\]
+  进而有
+  \[m^* (A \cap E) + m^* (A \cap \mathscr{C} E) \leqslant m^* (G \cap E) + m^* (G \cap \mathscr{C} E) = m^* G < m^* A + \varepsilon,\]
+  上式中的等号是由于开集的可测性。由 \(\varepsilon\) 的任意性, 有
+  \begin{equation}
+  \label{eq:cau-real-analysis-exam2024-caratheodory-2}
+  m^* (A \cap E) + m^* (A \cap \mathscr{C} E) \leqslant m^* A.
+  \end{equation}
+
+  由 \eqref{eq:cau-real-analysis-exam2024-caratheodory-1} 和 \eqref{eq:cau-real-analysis-exam2024-caratheodory-2}, 知满足卡拉泰奥多里条件成立.
+  \end{quote}
+\end{solution}
+
+\begin{question}[points = 10]
+  Vitali 覆盖引理是证明变上限积分及其微分相关结论的有力工具. 请叙述 $E\subset \mathbb{R}$ 的 Vitali 覆盖的定义, 以及当$E$有界时的 Vitali 覆盖引理 (不需要证明).
+\end{question}
+
+\begin{solution}
+  \(E\subset \mathbb{R}\) 的 Vitali 覆盖的定义：（5分）
+
+  \begin{quote}
+  设 \(\mathscr{M}\) 是由长度为正的（闭）区间构成的类, \(E \subset \mathbb{R}\), 若对任意 \(x \in E\), 总存在 \(\mathscr{M}\)中的区间列 \(\{d_n\}\), 使得
+  \[x \in d_n, ~ \lim\limits_{n\to\infty} m d_n = 0,\]
+  则称 \(\mathscr{M}\) 是 \(E\) 的一个 Vitali 覆盖.
+  \end{quote}
+
+  \(E\subset \mathbb{R}\) 的 Vitali 覆盖的定义也可叙述为：
+
+  \begin{quote}
+  设 \(\mathscr{M}\) 是由长度为正的（闭）区间构成的类, \(E \subset \mathbb{R}\), 若对任意 \(x \in E\) 以及任意的 \(\varepsilon > 0\), 总存在 \(\mathscr{M}\) 中的区间 \(d\), 使得
+  \[x \in d, ~ m d < \varepsilon,\]
+  则称 \(\mathscr{M}\) 是 \(E\) 的一个 Vitali 覆盖.
+  \end{quote}
+
+  当 \(E\) 有界时的 Vitali 覆盖引理：（5分）
+
+  \begin{quote}
+  设 \(E \subset \mathbb{R}\) 有界, \(\mathscr{M}\) 是 \(E\) 的一个 Vitali 覆盖, 则可从 \(\mathscr{M}\) 中选出至多可列个区间\(\{d_n\}_{n \in I}\), 其中 \(I\) 是某个至多可列的指标集合, 使得
+  \[m \left( E \setminus \bigcup\limits_{n \in I} d_n \right) = 0, ~ d_n \cap d_{n'} = \emptyset, ~ n \neq n'.\]
+  \end{quote}
+
+  \(E\) 有界时的 Vitali 覆盖引理也可叙述为：
+
+  \begin{quote}
+  设 \(E \subset \mathbb{R}\) 有界, \(\mathscr{M}\) 是 \(E\) 的一个 Vitali 覆盖, 那么对任意的 \(\varepsilon > 0\), 可从 \(\mathscr{M}\) 中选出有限个区间 \(d_1, d_2, \cdots, d_n\), 使得
+  \[m \left( E \setminus \bigcup\limits_{i=1}^n d_i \right) < \varepsilon, ~ d_i \cap d_j = \emptyset, ~ i \neq j.\]
+  \end{quote}
+\end{solution}
+
+
+\section{解答题：本题共 4 小题, 每小题 10 分, 共 40 分。请写出具体解题步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+  设$F_1, F_2$为$\mathbb{R}$中两个非空有界闭集, 且$F_1 \cap F_2 = \emptyset.$
+  \begin{enumerate}
+    \item 证明$\rho(F_1, F_2) := \inf\limits_{x\in F_1, y\in F_2} \lvert x - y \rvert > 0.$
+    \item 证明存在开集$G_1 \supset F_1, G_2 \supset F_2,$ 满足$G_1 \cap G_2 = \emptyset.$
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+    \item 假设 \(\rho(F_1, F_2) = 0\), 那么对任意 \(n \in \mathbb{N}\), 总存在 \(x_n \in F_1, y_n \in F_2\), 使得
+
+    \begin{equation}
+    \label{eq:cau-real-analysis-exam2024-3-1}
+    \lvert x_n - y_n \rvert < \rho(F_1, F_2) + \dfrac{1}{n} = \dfrac{1}{n}.
+    \end{equation}
+
+    由于 \(F_1, F_2\) 都是有界集，所以 \(\{x_n\}, \{y_n\}\) 都是有界数列，故存在收敛子列 \(\{x_{n_k}\}, \{y_{n_k}\}\), 即 \(x_{n_k} \to x, y_{n_k} \to y\), 当 \(k \to \infty\). 由于 \(F_1, F_2\) 都是闭集，所以 \(x \in F_1, y \in F_2\), 且有
+    \begin{equation}
+    \label{eq:cau-real-analysis-exam2024-3-2}
+    \lvert x - y \rvert = \lim\limits_{k\to\infty} \lvert x_{n_k} - y_{n_k} \rvert = 0,
+    \end{equation}
+    从而有 \(x = y,\) 这与 \(F_1 \cap F_2 = \emptyset\) 矛盾，故 \(\rho(F_1, F_2) > 0\).
+
+    也可以直接由 \(F_1 \cap F_2 = \emptyset\) 得 \(x \neq y\), 从而    \(\lvert x - y \rvert > 0\). 再由 \eqref{eq:cau-real-analysis-exam2024-3-1} 和 \eqref{eq:cau-real-analysis-exam2024-3-2} 得
+    \[0 < \lvert x - y \rvert = \lim\limits_{k\to\infty} \lvert x_{n_k} - y_{n_k} \rvert = \rho(F_1, F_2).\]
+    \item 由 (1) 知 \(\rho(F_1, F_2) > 0\), 于是取 \(r = \dfrac{\rho(F_1, F_2)}{3}\), 并令
+    \[
+    G_1 = \bigcup\limits_{x\in F_1} B(x, r), ~ G_2 = \bigcup\limits_{x\in F_2} B(x, r),
+    \]
+    其中 \(B(x, r)\) 表示以 \(x\) 为中心， \(r\) 为半径的开球（开区间）。以上都是开集的并，所以 \(G_1, G_2\) 都是开集，并且满足
+    \[G_1 \cap G_2 = \emptyset, ~ F_1 \subset G_1, ~ F_2 \subset G_2.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+  设 $f$ 是可测集 $E$ 上的函数, $D$是 $\mathbb{R}$ 的稠密子集, 若对任意 $\alpha\in D,$ $E(f > \alpha)$ 都是可测集, 请问 $f$ 是否必然是可测函数? 若是, 请给出证明; 若否, 请给出反例.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \(f\) 必然是可测函数。证明如下：（结论5分，证明5分）
+
+  \begin{quote}
+  任取实数 \(r \in \mathbb{R}\)，由于 \(D\) 是 \(\mathbb{R}\) 中稠密集, 所以存在 \(D\) 中点列 \(\{\alpha_k\}_{k \in \mathbb{N}}\) 使得 \(\alpha_k > r\), 且 \(\displaystyle \lim_{k \to \infty} \alpha_k = r\). 那么可以断言有（断言3分，断言的证明2分）
+  \[E(f > r) = \bigcup_{k \in \mathbb{N}} E(f > \alpha_k).\]
+  首先，由于 \(\alpha_k > r\)，所以 \(E(f > r) \supset E(f > \alpha_k)\), 从而知上式左边包含右边。 另一方面， \(\forall x \in E(f > r)\), 有 \(f(x) > r\)，所以存在 \(k_0 \in \mathbb{N}\) 使得 \(f(x) \geqslant \alpha_{k_0} \geqslant r\)，从而 \(x \in E(f > \alpha_{k_0})\)，所以上式右边包含左边。
+
+  由于 \(E(f > \alpha_k)\) 都是可测集，所以 \(E(f > r)\) 也是可测集，这说明 \(f\) 是可测函数。
+  \end{quote}
+\end{solution}
+
+\begin{question}[points = 10]
+  叙述可测集上的可测函数列 $\{f_n\}$ 依测度收敛到可测函数 $f$ 的定义, 并给出依测度收敛, 但不几乎处处收敛的可测函数列的例子.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  可测函数列 \(\{f_n\}\) 依测度收敛到可测函数 \(f\) 的定义：（5分）
+
+  \begin{quote}
+  设 \(E \subset \mathbb{R}\) 可测, \(\{f_n\}\) 是定义在 \(E\) 上的可测函数列, \(f\) 是定义在 \(E\) 上的可测函数. 若对任意 \(\varepsilon > 0\), 总有
+  \[\lim\limits_{n\to\infty} m E (\lvert f_n - f \rvert \geqslant \varepsilon) = \lim\limits_{n\to\infty} m \{ x \in E \colon \lvert f_n(x) - f(x) \rvert \geqslant \varepsilon \} = 0,\]
+  则称 \(\{f_n\}\) 依测度收敛到 \(f\).
+  \end{quote}
+
+  依测度收敛, 但不几乎处处收敛的可测函数列的例子：（5分）
+
+  任意 \(n \in \mathbb{N}\) 可以唯一表示为 \(n = 2^k + i\), 其中 \(k \in \mathbb{Z}_{\geqslant 0}\), \(i \in \{0, 1, \cdots, 2^k - 1\}\), 于是可以定义 \([0, 1]\) 区间上的函数 \(f_n\) 如下：
+  \[\begin{aligned}
+  f_n(x) = \chi_{\left[ \dfrac{i}{2^k}, \dfrac{i+1}{2^k} \right]}(x) = \begin{cases}
+    1, & x \in \left[ \dfrac{i}{2^k}, \dfrac{i+1}{2^k} \right], \\
+    0, & x \notin \left[ \dfrac{i}{2^k}, \dfrac{i+1}{2^k} \right].
+  \end{cases}
+  \end{aligned}\]
+  由于 \(f_n\) 是简单函数，所以是可测函数。函数列 \(\{f_n\}\) 依测度收敛到函数 \(f(x) = 0\)，但在 \([0, 1]\) 上任何一点处都不收敛。
+\end{solution}
+
+\begin{question}[points = 10]
+  积分序列的 Levi 定理说的是: 对于定义在可测集 $E \subset \mathbb{R}$ 上的渐升非负可测函数列 $\{f_n\},$ 若存在可测函数 $f,$ 使得 $\lim\limits_{n\to\infty} f_n(x) = f(x)$ 在 $E$ 上恒成立, 那么积分和极限可交换次序, 即 $\displaystyle \int_E f \mathrm{d} m = \lim_{n \to \infty} \int_E f_n \mathrm{d} m.$ 若去掉函数列 $\{f_n\}$ 非负性这一条件, 请问 Levi 定理是否仍成立? 若是, 请给出证明; 若否, 请给出反例, 并添加上一条使之成立的条件 (不能添加“渐升函数列 $\{f_n\}$ 从某一项开始都非负“的条件).
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  去掉函数列 \(\{f_n\}\) 非负性的 Levi 定理不成立。（5分）
+
+  反例如下：（3分）
+
+  当\(f_n\)的正部与负部积分都是 \(\infty\) 时， \(f_n\) 的积分不存在。 即使当\(f_n\) 的积分有定义时，Levi 定理也不一定成立，例如 \(E = [0, \infty)\), \(f_n(x) = - \chi_{[n, \infty)}\), 则 \(f_n\) 的积分为 \(- \infty\), 但是 \(f_n\) 逐点收敛于 \(f = 0\), \(f\) 的积分为 \(0\), 此时
+  \[\int_E f \mathrm{d} m = 0 \neq - \infty = \lim_{n \to \infty} \int_E f_n \mathrm{d} m.\]
+
+  可以添加的条件：（只要一条就可以，2分）
+  \begin{itemize}
+    \item \(f_n\) 的积分都有定义，且
+    \(\displaystyle \int_E f_1 \mathrm{d} m > - \infty\);
+    \item 存在可积函数\(g\)使得\(\lvert f_n \rvert \leqslant g, n \in \mathbb{N}\);
+    \item 存在可积函数\(g\)使得\(g \geqslant f_n, n \in \mathbb{N}\);
+    \item \(\cdots\cdots\)
+  \end{itemize}
+\end{solution}
+
+
+\ifShowAnswer
+% do nothing
+\else
+\noindent \textbf{考生诚信承诺}\\
+1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
+2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
+\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
+}
+\fi
+
+
+\section{证明题：本题共 2 小题, 每题 10 分，共 20 分。请写出详细证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+  设$E \subset \mathbb{R}$可测, $1 \leqslant p \leqslant \infty,$ $L^p$空间为$E$上$p$幂可积函数全体构成的空间.
+  \begin{enumerate}
+    \item 证明$L^p$空间是线性空间.
+    \item 设$m E < \infty,$ 且$1 \leqslant p_1 < p_2 \leqslant \infty,$ 证明$L^{p_2} \subset L^{p_1}.$
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+    \item 对于 \(1 \leqslant p < \infty\) 的情况：（4分）
+
+    设 \(f, g \in L^p\), \(a, b \in \mathbb{R}\), 那么
+    \[\begin{aligned}
+    \int_E \lvert af + bg \rvert^p \mathrm{d} m & \leqslant \int_E \left( 2 \cdot \dfrac{\lvert af \rvert + \lvert bg \rvert}{2} \right)^p \mathrm{d} m \\
+    & \leqslant 2^p \int_E \left( \dfrac{\lvert af \rvert^p + \lvert bg \rvert^p}{2} \right) \mathrm{d} m < \infty,
+    \end{aligned}\]
+    第二个不等式是由于定义在\(\mathbb{R}_{\geqslant 0}\)上的函数 \(\phi(t) = t^p\) 当 \(p \geqslant 1\) 时是凸函数。所以 \(af + bg \in L^p\)，这说明 \(L^p\) 是线性空间。
+
+    对于 \(p = \infty\) 的情况：（1分）
+
+    设 \(f, g \in L^\infty\), \(a, b \in \mathbb{R}\), 那么存在 \(M_1, M_2 \geqslant 0\) 使得
+    \[\lvert f(x) \rvert \leqslant M_1, ~ \lvert g(x) \rvert \leqslant M_2, ~ a.e. x \in E,\]
+    那么有
+    \[\lvert af(x) + bg(x) \rvert \leqslant \lvert a \rvert \lvert f(x) \rvert + \lvert b \rvert \lvert g(x) \rvert \leqslant \lvert a \rvert M_1 + \lvert b \rvert M_2, ~ a.e. x \in E,\]
+    这说明 \(\lvert a \rvert M_1 + \lvert b \rvert M_2\) 是函数 \(af + bg\) 的一个本性上界，所以 \(af + bg \in L^\infty\), 这说明 \(L^\infty\) 是线性空间。
+    \item 对于 \(1 \leqslant p_1 < p_2 < \infty\) 的情况：（4分）
+
+    设\(f \in L^{p_2}\), 令 \(A = E(\lvert f \rvert \geqslant 1)\), 那么
+    \[\begin{aligned}
+    \int_E \lvert f \rvert^{p_1} \mathrm{d} m & = \int_A \lvert f \rvert^{p_1} \mathrm{d} m + \int_{E \setminus A} \lvert f \rvert^{p_1} \mathrm{d} m \\
+    & \leqslant \int_A \lvert f \rvert^{p_2} \mathrm{d} m + \int_{E \setminus A} \mathrm{d} m \leqslant \int_E \lvert f \rvert^{p_2} \mathrm{d} m + m E < \infty,
+    \end{aligned}\]
+    所以 \(f \in L^{p_1}\), 从而 \(L^{p_2} \subset L^{p_1}\).
+
+    对于\(p_2 = \infty\) 的情况：（1分）
+
+    设 \(f \in L^\infty\), 那么存在 \(M \geqslant 0\) 使得 \(\lvert f(x) \rvert \leqslant M\), \(a.e. x \in E\), 令 \(Z = E(\lvert f \rvert \geqslant M)\), 那么 \(Z\) 是零测集，且
+    \[\begin{aligned}
+    \int_E \lvert f \rvert^{p_1} \mathrm{d} m & = \int_Z \lvert f \rvert^{p_1} \mathrm{d} m + \int_{E \setminus Z} \lvert f \rvert^{p_1} \mathrm{d} m \\
+    & \leqslant 0 + \int_E \lvert f \rvert^{p_1} \mathrm{d} m \leqslant \int_E M^{p_1} \mathrm{d} m = M^{p_1} m E < \infty,
+    \end{aligned}\]
+    所以 \(f \in L^{p_1}\), 从而 \(L^\infty \subset L^{p_1}\).
+  \end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+  设$P_0$为 Cantor 三分集，它是从$[0, 1]$区间归纳地构造得来的: 第1步从$[0, 1]$区间中去掉正中间长为$\dfrac{1}{3}$的开区间$\left( \dfrac{1}{3}, \dfrac{2}{3} \right),$ 得到两个闭区间$\left[ 0, \dfrac{1}{3} \right]$与$\left[ \dfrac{2}{3}, 1 \right];$ 此后的第$k + 1$步, 对上一步得到的个闭区间, 去掉每个闭区间正中间长为$\dfrac{1}{3^{k+1}}$的开区间. 最终我们得到的集合为 Cantor 三分集.
+  \begin{enumerate}
+    \item 证明$P_0$是闭集, 不可列, 并且具有零测度.
+    \item 已知$P_0$中的元素可以唯一地表示为$\displaystyle \sum\limits_{n=1}^{\infty} \dfrac{2a_n}{3^n}, a_n \in \{0, 1\},$ 定义函数
+    $$
+    \phi: ~ P_0 \rightarrow [0, 1], ~ \sum\limits_{n=1}^{\infty} \dfrac{2a_n}{3^n} \mapsto \sum\limits_{n=1}^{\infty} \dfrac{a_n}{2^n},
+    $$
+    以及 Cantor 函数
+    $$
+    \Phi: ~ [0, 1] \rightarrow [0, 1], ~ x \mapsto \sup\limits_{P_0 \ni y \leqslant x} \phi(y).
+    $$
+    证明 Cantor 函数$\Phi$连续, 有几乎处处为0的导数, 但不是绝对连续函数.
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+    \item （ \(P_0\) 是闭集, 不可列, 具有零测度，这三个结论每个2分，全对5分 ）
+
+    记第 \(k\) 步得到的闭区间为 \(F_{k, 1}, F_{k, 2}, \cdots, F_{k, 2^k}\), 去掉的开区间为 \(G_{k, 1}, G_{k, 2}, \cdots, G_{k, 2^{k-1}}\), 那么有
+    \[\begin{aligned}
+    P_0 & = \bigcap\limits_{k=1}^{\infty} \bigcup\limits_{i=1}^{2^k} F_{k, i} = [0, 1] \setminus G_0, \\
+    G_0 & = \bigcup\limits_{k=1}^{\infty} \bigcup\limits_{i=1}^{2^{k-1}} G_{k, i}.
+    \end{aligned}\]
+    也就是说， \(P_0\) 是闭集的交，或者说 \(P_0\) 是闭区间 \([0, 1]\) 中开集 \(G_0\) 的补集，所以 \(P_0\) 是闭集。
+
+    假设 \(P_0\) 是可列集，那么 \(P_0\) 可以写成 \(P_0 = \{ x_1, x_2, \cdots \}\)，其中 \(x_i \in P_0\), \(i \in \mathbb{N}\). 对于 \(x_1\), 由于 \(F_{1, 1}, F_{1, 2}\) 是不交的闭区间，所以 \(F_{1, 1}, F_{1, 2}\) 中有一个不包含 \(x_1\), 记为 \(I_1\). 从 \(I_1\) 去掉正中间长为 \(\dfrac{1}{3^2}\) 的开区间得到两个闭区间至少有一个不包含 \(x_2\), 记为 \(I_2\). 由此可以归纳地构造出一个闭区间套 \(I_1 \supset I_2 \supset \cdots\), 使得 \(x_n \notin I_n\), \(n \in \mathbb{N}\). 由闭区间套定理，知存在唯一的点 \(x \in \bigcap\limits_{n=1}^{\infty} I_n\), 且 \(x_n \to x\), 当 \(n \to \infty\). 由于 \(x_n \in P_0\) 且 \(P_0\) 是闭集，所以 \(x \in P_0\). 另一方面，由于 \(x_n \notin I_n\), 所以 \(x \neq x_n\), \(n \in \mathbb{N}\), 这说明 \(x\) 不是 \(P_0\) 中的点，这与 \(x \in P_0\) 矛盾，所以 \(P_0\) 不是可列集。
+
+    很容易计算 \(G_0\) 的测度：
+    \[m G_0 = m \left( \bigcup\limits_{k=1}^{\infty} \bigcup\limits_{i=1}^{2^{k-1}} G_{k, i} \right) \leqslant \sum\limits_{k=1}^{\infty} \sum\limits_{i=1}^{2^{k-1}} m G_{k, i} = \sum\limits_{k=1}^{\infty} 2^{k-1} \cdot \dfrac{1}{3^k} = \dfrac{1}{3} \sum\limits_{k=1}^{\infty} \left( \dfrac{2}{3} \right)^{k-1} = 1,\]
+    所以 \(P_0\) 的测度为 \(m P_0 = m ([0, 1]) - m G_0 = 1 - 1 = 0\).
+    \item （ \(\Phi\) 连续, 有几乎处处为0的导数, 但不是绝对连续函数，这三个结论每个2分，全对5分 ）
+
+    首先，很容易观察到 Cantor 函数 \(\Phi\) 在开集 \(G_0\) 的每个构成区间 \(G_{k, i}\) 上都是常值函数，这是因为任取 \(x_1, x_2 \in G_{k, i}\), 有集合的相等关系：
+    \[\{y \in P_0 ~ \colon y \leqslant x_1\} = \{y \in P_0 ~ \colon y \leqslant x_2\}\]
+    从而 \(\Phi\) 在开集 \(G_0\) 上连续。
+
+    其次，对于 \(P_0\) 中的任意两点 \(x_k = \displaystyle \sum\limits_{n=1}^{\infty} \dfrac{2a_n(k)}{3^n}, ~ k = 1, 2\), 若 \(x_1 < x_2\), 那么存在 \(N_0 \in \mathbb{N}\) 使得 \(a_{N_0}(1) = 0, a_{N_0}(2) = 1\), 并且对任意的 \(n < N_0\), 有 \(a_n(1) = a_n(2)\). 于是
+    \[\begin{aligned}
+    \phi(x_2) - \phi(x_1) & = \sum\limits_{n=1}^{\infty} \dfrac{a_n(2)}{2^n} - \sum\limits_{n=1}^{\infty} \dfrac{a_n(1)}{2^n} \\
+    & = \sum\limits_{n=N_0}^{\infty} \dfrac{a_n(2)}{2^n} - \sum\limits_{n=N_0}^{\infty} \dfrac{a_n(1)}{2^n} > 0,
+    \end{aligned}\]
+    所以 \(\Phi\) 在 \(P_0\) 上单调递增，从而在区间 \([0, 1]\) 上单调递增。
+
+    对于任意的 \(\displaystyle x = \sum\limits_{n=1}^{\infty} \dfrac{2a_n(x)}{3^n} \in P_0\), 以及任意的 \(\varepsilon > 0\), 令 \(N = \lceil \log_2 \dfrac{1}{\varepsilon} \rceil + 1\) (假设 \(\varepsilon\) 充分小，使得 \(N \geqslant 1\)), 并取 \(\delta = \dfrac{1}{3^{N+1}}\), 那么
+    \[\sup_{y \in B(x, \delta)} \lvert \Phi(x) - \Phi(y) \rvert \leqslant \sup_{y \in B(x, 2\delta) \cap P_0} \lvert \Phi(x) - \Phi(y) \rvert = \sup_{y \in B(x, 2\delta) \cap P_0} \lvert \phi(x) - \phi(y) \rvert.\]
+    对于任意 \(\displaystyle y = \sum\limits_{n=1}^{\infty} \dfrac{2a_n(y)}{3^n} \in B(x, 2\delta) \cap P_0\), 有
+    \[a_n(y) = a_n(x), ~ n = 1, 2, \cdots, N,\]
+    于是
+    \[\begin{aligned}
+    \lvert \phi(x) - \phi(y) \rvert & = \left\lvert \sum\limits_{n=1}^{\infty} \dfrac{a_n(x)}{2^n} - \sum\limits_{n=1}^{\infty} \dfrac{a_n(y)}{2^n} \right\rvert = \left\lvert \sum\limits_{n=N+1}^{\infty} \dfrac{a_n(x)}{2^n} - \sum\limits_{n=N+1}^{\infty} \dfrac{a_n(y)}{2^n} \right\rvert \\
+    & \leqslant \sum\limits_{n=N+1}^{\infty} \dfrac{1}{2^n} = \dfrac{1}{2^{N}} < \varepsilon.
+    \end{aligned}\]
+    这就证明了 \(\displaystyle \sup_{y \in B(x, \delta)} \lvert \Phi(x) - \Phi(y) \rvert \leqslant \varepsilon\), 即 \(\Phi\) 在 \(P_0\) 的每个点处都是连续的。 所以 \(\Phi\) 在 \([0, 1]\) 的每个点处都是连续的。
+
+    由于 \(\Phi\) 在开集 \(G_0\) 的每个构成区间 \(G_{k, i}\) 上都是常值函数，因此它在开集 \(G_0\) 的每点处的导数值都是 \(0\). 又由于开集 \(G_0\) 的测度为 \(m G_0 = 1 = m ([0, 1])\), 所以 \(\Phi\) 几乎处处为0的导数。
+
+    最后，我们证明 \(\Phi\) 不是绝对连续函数。假设 \(\Phi\) 是绝对连续函数，那么由于它有几乎处处为0的导数，所以它必须是常值函数。但是
+    \[\Phi(0) = \phi(0) = 0, ~ \Phi(1) = \phi(1) = 1,\]
+    这与 \(\Phi\) 是常值函数矛盾，所以 \(\Phi\) 不是绝对连续函数。
+
+    \(\Phi\) 不是绝对连续函数也可以利用定义进行证明。同样利用反证法，假设 \(\Phi\) 是绝对连续的， 那么对于任意的 \(\varepsilon > 0\), 存在 \(\delta > 0\), 使得对于任意有限多个互不相交的开区间 \((a_i, b_i), i = 1, \dots, n\), 只要
+    \[\sum\limits_{i=1}^{n} (b_i - a_i) < \delta,\]
+    就有
+    \[\sum\limits_{i=1}^{n} (\Phi(b_i) - \Phi(a_i)) = \sum\limits_{i=1}^{n} \lvert \Phi(b_i) - \Phi(a_i) \rvert < \varepsilon.\]
+    不妨把 \(\Phi\) 延拓到 \(\mathbb{R}\) 上，其中 \(\Phi(x) = 0\) 当 \(x < 0\), \(\Phi(x) = 1\) 当 \(x > 1\). 我们已经证明了 Cantor 三分集 \(P_0\) 是一个零测集，也就是说对于 \(\delta\), 总存在开集 \(G\), 使得 \(m(G) < \delta\), 且 \(P_0 \subset G\). 令 \(G\) 的结构表示为 \(G = \bigcup\limits_{i} I_i\), 其中 \(I_i = (a_i, b_i)\) 是互不相交的开区间。 又由于 \(P_0\) 是有界闭集，那么可以从它的开覆盖 \(G\) 中选出有限个开区间 \(I_1, \dots, I_n\), 使得 \(P_0 \subset \bigcup\limits_{i=1}^{n} I_i\). 那么有
+    \[\sum\limits_{i=1}^{n} (b_i - a_i) \leqslant m(G) < \delta,\]
+    从而有
+    \begin{equation}
+    \label{eq:cau-real-analysis-exam2024-4-2-1}
+    \sum\limits_{i=1}^{n} (\Phi(b_i) - \Phi(a_i)) < \varepsilon.
+    \end{equation}
+    另一方面，每一个闭区间 \([b_i, a_{i+1}], i = 1, \dots, n-1\), 都包含于 \(G_0\) 的某个构成区间中，而 Cantor 函数在这些构成区间上是常值函数，于是
+    \[\begin{aligned}
+    \sum\limits_{i=1}^{n} (\Phi(b_i) - \Phi(a_i)) & = -\Phi(a_1) + (\Phi(b_1) - \Phi(a_2)) + \cdots + (\Phi(b_{n-1}) - \Phi(a_n)) + \Phi(b_n) \\
+    & = \Phi(b_n) - \Phi(a_1)
+    \end{aligned}\]
+    由于 \(\{I_i = (a_i, b_i)\}_{i = 1, \dots, n}\) 覆盖了 \(P_0\), 不妨设 \(a_1 < b_1 < a_2 < b_2 < \cdots < a_n < b_n\), 因此 \(a_1 < 0, b_n > 1\), 从而有 \(\Phi(a_1) = 0, \Phi(b_n) = 1\). 于是有
+    \[\sum\limits_{i=1}^{n} (\Phi(b_i) - \Phi(a_i)) = \Phi(b_n) - \Phi(a_1) = 1.\]
+    这与式 \eqref{eq:cau-real-analysis-exam2024-4-2-1} 矛盾，因此 \(\Phi\) 不是绝对连续的。
+  \end{enumerate}
+\end{solution}
+
+\end{document}

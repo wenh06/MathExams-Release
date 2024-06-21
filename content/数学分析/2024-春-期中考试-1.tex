@@ -1,0 +1,511 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+
+\examsetup{
+  page = {
+    size            = a4paper, 
+    show-columnline = true, 
+    foot-content    = {第;页（共~;页）}
+  }, 
+  solution = {
+    show-answer = true, 
+    % blank-type = manual, 
+    blank-type = none, 
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  }, 
+  fillin = {
+    no-answer-type = none, 
+    show-answer = true
+  }, 
+  style/fullwidth-stop = catcode, 
+  % sealline = {
+  %   show        = true, 
+  %   scope       = mod-2, 
+  %   circle-show = false, 
+  %   line-type   = solid, 
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}}, 
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}}, 
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}}, 
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}}, 
+  %   }, 
+  %   odd-info-xshift = 12mm, 
+  %   text = {此卷只装订不密封}, 
+  %   text-width = 0.98\textheight, 
+  %   text-format  = \zihao{-3}\sffamily, 
+  %   text-xshift = 20mm
+  % }, 
+  question/show-points = true, 
+  paren = {
+    show-answer = true
+  }, 
+  square = {
+    x-length = 1.8em, 
+    y-length = 1.6em
+  }
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-answer = true, 
+  fillin/show-answer = true, 
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-answer = false, 
+  fillin/show-answer = false, 
+  paren/show-answer = false,
+  page/size = a4paper
+}
+\fi
+
+
+\title{
+\larger[2]
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2023 $\sim*$ 2024学年春季学期\\
+\textbf{\uline{\hspace{0.5cm}数学分析II\hspace{0.5cm}}}课程期中考试试题
+}
+
+% \subject{\uline{数学分析II}}
+
+
+\begin{document}
+
+% \tableofcontents
+
+% \chapter{2021 年普通高等学校招生全国统一考试}
+
+% \information{
+%   姓名\underline{\hspace{6em}}, 
+%   座位号\underline{\hspace{15em}}
+% }
+% \warning{（在此卷上答题无效）}
+
+% \secret
+
+\maketitle
+
+% \begin{notice}
+%   \item 答题前, 先将自己的姓名、准考证号、考场号、座位号填写在试卷和答题卡上, 
+%     并将准考证号条形码粘贴在答题卡上的指定位置。
+%   \item 选择题的作答：每小题选出答案后, 用 2B 铅笔把答题卡上对应题目的答案标号涂黑。
+%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
+%   \item 填空题和解答题的作答：用黑色签字笔直接答在答题卡上对应的答题区域内。
+%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
+%   \item 考试结束后, 请将本试卷和答题卡一并上交。
+% \end{notice}
+
+\ifShowAnswer
+\noindent \textbf{考生诚信承诺}\\
+1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
+2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
+\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
+}
+\else
+% do nothing
+\fi
+
+
+\noindent
+% 本试卷共 4 页, 22 题。
+全卷满分 100 分。考试用时 120 分钟。
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\[2pt] \hline
+得分 & & & & & \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{%
+  选择题：本题共 5 小题, 每小题 4 分, 共 20 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+  下列函数哪一个不一定是黎曼可积的 \paren[D]
+
+  \begin{choices}
+    \item 闭区间 $[a, b]$ 上的单调函数.
+    \item $g(f(x)),$ 其中 $f$ 是闭区间 $[a, b]$ 上的黎曼可积函数, $A \leqslant f(x) \leqslant B,$ $g$ 在 $[A, B]$ 上连续.
+    \item $\max\{f(x), g(x)\},$ 其中 $f(x), g(x)$ 都是闭区间 $[a, b]$ 上的黎曼可积函数.
+    \item $\dfrac{f(x)}{g(x)},$ 其中 $f(x), g(x)$ 都是闭区间 $[a, b]$ 上的黎曼可积函数, $g(x)$ 恒不等于 $0.$
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  D 的反例： $a = 0, b = 1,$ $f(x) = 1,$ $g(x) = \begin{cases}
+    1, & x = 0 \\ x, & 0 < x \leqslant 1.
+  \end{cases}$ 那么 $\dfrac{f(x)}{g(x)}$ 在 $[0, 1]$ 上无界, 不满足黎曼可积的必要条件.
+
+  其余选项都能直接用函数黎曼可积的勒贝格判别法进行验证 (用其它方法也可以).
+\end{solution}
+
+\begin{question}
+  下列命题正确的是 \paren[A]
+
+  \begin{choices}
+    \item 设反常积分 $\int_a^{+\infty} f(x) \mathrm{d} x$ 收敛, 且函数 $f$ 在 $[a, +\infty)$ 上一致连续, 则必有 $\lim\limits_{x \to +\infty} f(x) = 0.$
+    \item 设定义在闭区间 $[a, b]$ 上的函数 $f(x)$ 黎曼可积, 改变 $f(x)$ 在所有有理点处 (即$x \in \mathbb{Q} \cap [a, b]$) 的值, 新得到的函数必定仍是黎曼可积的.
+    \item 设无穷乘积 $\prod\limits_{n=1}^{\infty} p_n$ 的部分积序列 $\left\{ P_n = \prod\limits_{k=1}^{n} p_k \right\}$ 收敛到一个有限实数, 则无穷乘积必收敛.
+    \item 设 $\sum\limits_{n=1}^{\infty} a_n, \sum\limits_{n=1}^{\infty} b_n$ 为两个数项级数, 满足 $\lim\limits_{n\to\infty} \dfrac{a_n}{b_n} = 1,$ 则这两个数项级数必具有相同的敛散性.
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  B 的反例：将$[0, 1]$ 上常值函数 $f(x) = 0$ 改变为 Dirichlet 函数.
+
+  C 的反例：收敛到 $0$ 的部分积序列, 例如 $p_n = \dfrac{n}{n+1}.$
+
+  D 的反例：$a_n = (-1)^{n+1} \dfrac{1}{n^s}, b_n = (-1)^{n+1} \dfrac{1}{n^s} + \dfrac{1}{n}, 0 < s < 1.$ 那么 $\sum\limits_{n=1}^{\infty} a_n$ 收敛, $\sum\limits_{n=1}^{\infty} b_n$发散, 但有 $\lim\limits_{n\to\infty} \dfrac{a_n}{b_n} = 1.$
+\end{solution}
+
+\begin{question}
+  反常积分 $\int_0^{+\infty} \dfrac{\sin x}{x} dx =$ \paren[C]
+
+  \begin{choices}
+    \item $-1$
+    \item $0$
+    \item $\dfrac{\pi}{2}$
+    \item 发散
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  这题可以直接用排除法. 首先根据 Dirichlet 判别法知这个反常积分收敛. 其次, 它是正的, 因为在每个形如 $[2k\pi, 2(k+1)\pi]$ 的闭区间上, 关于被积函数 $\dfrac{\sin x}{x}$ 的积分值都是正的.
+\end{solution}
+
+\begin{question}
+  设数项级数 $\sum\limits_{n=1}^{\infty} a_n$ 收敛, 则下列级数一定也收敛的是 \paren[A]
+
+  \begin{choices}
+    \item $\sum\limits_{n=1}^{\infty} \dfrac{2n}{n + 1} a_n$
+    \item $\sum\limits_{n=1}^{\infty} (-1)^{n+1} a_n$
+    \item $\sum\limits_{n=1}^{\infty} \dfrac{\lvert a_n \rvert}{1 + \lvert a_n \rvert}$
+    \item $\sum\limits_{n=1}^{\infty} a_n^2$
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  $\dfrac{2n}{n + 1}$ 单调有界, 所以根据 Abel 判别法, $\sum\limits_{n=1}^{\infty} \dfrac{2n}{n + 1} a_n$ 收敛. 其余的反例可统一取为 $a_n = (-1)^{n+1} \dfrac{1}{n^s}, 0 < s < \dfrac{1}{2}.$
+\end{solution}
+
+\ifShowAnswer
+% do nothing
+\else
+\noindent \textbf{考生诚信承诺}\\
+1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
+2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
+\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
+}
+\fi
+
+\begin{question}
+  设$p_n = 1 + a_n > 0$是一列正的实数, $n = 1, 2, \dots,$ 以下情况不可能发生的是 \paren[B]
+
+  \begin{choices}
+    \item 数项级数$\displaystyle \sum\limits_{n=1}^{\infty} a_n, \sum\limits_{n=1}^{\infty} a_n^2,$ 以及无穷乘积$\displaystyle \prod\limits_{n=1}^{\infty} (1 + a_n)$ 都发散
+    \item 数项级数$\displaystyle \sum\limits_{n=1}^{\infty} a_n, \sum\limits_{n=1}^{\infty} a_n^2$ 都收敛, 但无穷乘积$\displaystyle \prod\limits_{n=1}^{\infty} (1 + a_n)$ 发散
+    \item 数项级数$\displaystyle \sum\limits_{n=1}^{\infty} a_n, \sum\limits_{n=1}^{\infty} a_n^2$ 都发散, 但无穷乘积$\displaystyle \prod\limits_{n=1}^{\infty} (1 + a_n)$ 收敛
+    \item 数项级数$\displaystyle \sum\limits_{n=1}^{\infty} a_n$与无穷乘积$\displaystyle \prod\limits_{n=1}^{\infty} (1 + a_n)$ 都发散, 但数项级数$\displaystyle \sum\limits_{n=1}^{\infty} a_n^2$ 收敛
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  考虑正项级数 $\sum\limits_{n=1}^{\infty} b_n = \sum\limits_{n=1}^{\infty} a_n - \log(1 + a_n)$ 与 $\sum\limits_{n=1}^{\infty} a_n^2,$ 关于他们的通项有
+  \begin{align*}
+    \lim\limits_{n\to\infty} \dfrac{b_n}{a_n^2} & = \lim\limits_{n\to\infty} \dfrac{b_n}{a_n^2} = \lim\limits_{n\to\infty} \dfrac{a_n - \log(1 + a_n)}{a_n^2} \\
+    & = \lim\limits_{n\to\infty} \dfrac{a_n - a_n + \dfrac{a_n^2}{2} + o(a_n^2)}{a_n^2} = \dfrac{1}{2} \\
+  \end{align*}
+  于是由正项级数的比较定理, 正项级数 $\sum\limits_{n=1}^{\infty} b_n$ 与 $\sum\limits_{n=1}^{\infty} a_n$ 有相同的敛散性.
+  
+  另一方面, 根据 $\sum\limits_{n=1}^{\infty} b_n = \sum\limits_{n=1}^{\infty} a_n - \log(1 + a_n)$ 知, 当 $\sum\limits_{n=1}^{\infty} b_n$ 收敛时, $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} \log(1 + a_n)$ 要么都收敛, 要么都发散；$\sum\limits_{n=1}^{\infty} b_n$ 发散时, $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} \log(1 + a_n)$ 要么都发散, 要么一个收敛一个发散. 总之, $\sum\limits_{n=1}^{\infty} b_n$ (与 $\sum\limits_{n=1}^{\infty} a_n^2$ 同敛散), $\sum\limits_{n=1}^{\infty} a_n,$ $\sum\limits_{n=1}^{\infty} \log(1 + a_n)$ (与 $\prod\limits_{n=1}^{\infty} (1 + a_n)$ 同敛散) 这三个数项级数, 要么都收敛, 要么都发散, 要么其中一个收敛, 另外两个发散.
+
+  A 的例子：$a_n = 1$
+
+  C 的例子：$a_n = \begin{cases}
+    -\dfrac{1}{\sqrt{k}}, & n = 2k -1, \\
+    \dfrac{1}{\sqrt{k}} + \dfrac{1}{k} \left( 1 + \dfrac{1}{\sqrt{k}} \right), & n = 2k
+  \end{cases}$
+
+  D 的例子：$a_n = \dfrac{1}{n}$
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 4 分, 共 20 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+  计算定积分的值 $\int_{0}^{2} \sqrt{4 - x^2} \mathrm{d} x = $ \fillin[$\pi$].
+\end{question}
+
+\begin{solution}
+  这个定积分是以原点为圆心, $2$ 为半径的圆在第一象限的面积, 等于 $\dfrac{1}{4} \cdot \pi \cdot 2^2.$ 这题也可以利用 Newton-Leibniz 公式, 先求原函数, 再代入积分上下限相减.
+\end{solution}
+
+\begin{question}
+  设 $n$ 为正整数, 计算定积分的值 $\int_{-\pi/2}^{\pi/2} \sin^{2n+1} x \mathrm{d} x = $ \fillin[$0$].
+\end{question}
+
+\begin{solution}
+  直接利用对称性.
+\end{solution}
+
+\begin{question}
+  计算Cauchy主值积分 $(\text{cpv}) \int_{-1}^{3} \dfrac{\mathrm{d}x}{x} = $ \fillin[$\ln 3$].
+\end{question}
+
+\begin{solution}
+  $(\text{cpv}) \int_{-1}^{3} \dfrac{\mathrm{d}x}{x} = \lim\limits_{A \to 0+} \left( \int_{-1}^{-A} \dfrac{\mathrm{d}x}{x} + \int_{A}^{3} \dfrac{\mathrm{d}x}{x} \right) = \ln 3.$
+\end{solution}
+
+\begin{question}
+  数项级数 $\sum\limits_{n=2}^\infty \sum\limits_{k=1}^{n-1} \left(-\dfrac{1}{2}\right)^k \left(\dfrac{1}{3}\right)^{n-k}$ 的值等于\fillin[$-\dfrac{1}{6}$].
+\end{question}
+
+\begin{solution}
+  这是两个数项级数 $\sum\limits_{n=1}^\infty \left(-\dfrac{1}{2}\right)^n$ 与 $\sum\limits_{n=1}^\infty \left(\dfrac{1}{3}\right)^n$ 的 Cauchy 乘积. 这两个都是绝对收敛的级数, 所以它们的Cauchy 乘积等于它们的和相乘, 即 $\dfrac{-\dfrac{1}{2}}{1 + \dfrac{1}{2}} \cdot \dfrac{\dfrac{1}{3}}{1 - \dfrac{1}{3}} = -\dfrac{1}{6}.$
+\end{solution}
+
+\begin{question}
+  若无穷乘积 $\prod\limits_{n=1}^\infty \left( 1 + (-1)^{n+1} \dfrac{1}{n^s} \right)$ 绝对收敛, 则 $s$ 的取值范围为 \fillin[$s > 1$]. 如果只要求它收敛, 那么则 $s$ 的取值范围为 \fillin[$s > \dfrac{1}{2}$].
+\end{question}
+
+\begin{solution}
+  记 $a_n = (-1)^{n+1} \dfrac{1}{n^s}.$
+
+  无穷乘积 $\prod\limits_{n=1}^\infty (1 + a_n)$ 绝对收敛的充要条件是级数 $\sum\limits_{n=1}^\infty \lvert a_n \rvert$ 收敛, 这等价于 $s > 1.$
+
+  $s \leqslant 0$ 时 $a_n \nrightarrow 0,$ 故发散.
+
+  $s > 0$ 时 $\sum\limits_{n=1}^\infty a_n$ 为 Leibniz 级数, 收敛. 此时 (即在 $\sum\limits_{n=1}^\infty a_n$ 收敛的前提下), 无穷乘积 $\prod\limits_{n=1}^\infty (1 + a_n)$ 收敛的充要条件是级数 $\sum\limits_{n=1}^\infty a_n^2$ 收敛, 这等价于 $s > \dfrac{1}{2}.$
+\end{solution}
+
+\section{计算题：本题共 2 小题, 共 12 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 6]
+  计算由椭圆 $1 = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2}, 0 < b < a,$ 所围图形绕 $x$ 轴旋转而成的旋转椭球体的体积.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  利用直角坐标方程 $y = \dfrac{b}{a} \sqrt{a^2 - x^2}, -a \leqslant x \leqslant a,$ 得旋转椭球体的体积为
+  \begin{align*}
+    V & = \int_{-a}^a \pi y^2 \mathrm{d} x = 2 \int_0^a \pi y^2 \mathrm{d} x = 2 \pi \dfrac{b^2}{a^2} \int_0^a (a^2 - x^2) \mathrm{d} x \\
+    & = 2 \pi \dfrac{b^2}{a^2} \left. \left( a^2x - \dfrac{x^2}{3} \right) \right|_0^a = \dfrac{4}{3} \pi ab^2
+  \end{align*}
+\end{solution}
+
+\begin{question}[points = 6]
+  已知 $\sin \pi x$ 的无穷乘积表达为 $\sin \pi x = \pi x \prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right).$ 请由此计算 $\sum\limits_{n=1}^{\infty} \dfrac{1}{n^2}$ 的值.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  由 $\sin \pi x = \pi x \prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right)$ 知 $\dfrac{\sin \pi x}{\pi x} = \prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right).$
+
+  上式左边在 $0$ 处的Taylor展式为
+  $$\dfrac{\sin \pi x}{\pi x} = \dfrac{\pi x - \dfrac{(\pi x)^3}{3!} + O(x^5)}{\pi x} = 1 - \dfrac{\pi^2}{6} x^2 + O(x^4), $$
+  右边展开有 $\prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right) = 1 - \left( \sum\limits_{n=1}^{\infty} \dfrac{1}{n^2} \right) x^2 + O(x^4).$ 比较 $x^2$ 的系数有 $\sum\limits_{n=1}^{\infty} \dfrac{1}{n^2} = \dfrac{\pi^2}{6}.$
+\end{solution}
+
+
+\section{解答题：本题共 5 小题, 共 48 分。解答应写出文字说明或者证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 6]
+  设 $g(x)$ 是定义在区间 $[a, b]$ 上的实值函数, 称它是$[a, b]$ 上的绝对连续函数, 若对任意 $\varepsilon > 0,$ 都存在 $\delta > 0,$ 使得任取 $[a, b]$ 中任意有限个互不交叠的子区间 $[a_1, b_1],$ $[a_2, b_2],$ $\dots,$ $[a_n, b_n],$ 只要 $\sum\limits_{k=1}^n (b_k - a_k) < \delta,$ 就有 $\sum\limits_{k=1}^n \lvert g(b_k) - g(a_k) \rvert < \varepsilon.$
+
+  设 $f(x)$ 是区间 $[a, b]$ 上的黎曼可积函数, $F(x) : = \int_{a}^{x} f(t) dt,$ $x \in [a, b],$ 为 $f(x)$ 的变上限积分, 请证明 $F(x)$ 是 $[a, b]$ 上的绝对连续函数.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  由于 $f(x)$ 是区间 $[a, b]$ 上的黎曼可积函数, 那么它在 $[a, b]$ 上有界, 即存在 $M > 0,$ 使得 $\lvert f(x) \rvert < M$ 对所有 $x \in [a, b]$ 都成立. 对任意 $\varepsilon > 0,$ 取 $\delta = \dfrac{\varepsilon}{M} > 0,$ 那么对任取的 $[a, b]$ 中的有限个互不交叠的子区间 $[a_1, b_1],$ $[a_2, b_2],$ $\dots,$ $[a_n, b_n],$ 有
+  \begin{align*}
+    \sum\limits_{k=1}^n \lvert F(b_k) - F(a_k) \rvert & = \sum\limits_{k=1}^n \left\lvert \int_{a_k}^{b_k} f(x) \mathrm{d}x \right\rvert \leqslant \sum\limits_{k=1}^n \int_{a_k}^{b_k} \lvert f(x) \rvert \mathrm{d}x \\
+    & \leqslant \sum\limits_{k=1}^n \int_{a_k}^{b_k} M \mathrm{d}x = M \sum\limits_{k=1}^n (b_k - a_k).
+  \end{align*}
+  于是, 只要这有限个互不交叠的子区间长度之和满足 $\sum\limits_{k=1}^n (b_k - a_k) < \delta = \dfrac{\varepsilon}{M},$ 就有
+  $$\sum\limits_{k=1}^n \lvert F(b_k) - F(a_k) \rvert \leqslant M \sum\limits_{k=1}^n (b_k - a_k) < M \cdot \dfrac{\varepsilon}{M} = \varepsilon.$$
+  这就证明了区间 $[a, b]$ 上的黎曼可积函数 $f(x)$ 的变上限积分函数$F(x) : = \int_{a}^{x} f(t) dt$ 是 $[a, b]$ 上的绝对连续函数.
+
+  这题主要考察了闭区间上黎曼可积函数的必要条件: 函数有界. 之后学实分析, 勒贝格可积函数 (不一定有界) 的变上限积分仍然是绝对连续的.
+\end{solution}
+
+\begin{question}[points = 10]
+  设 $y = f(x)$ 和 $x = g(y)$ 是互逆的连续、非负、单调递增的函数, 并且满足 $f(0) = g(0) = 0.$ 
+  \begin{enumerate}
+    \item 证明对任意 $x \geqslant 0,$ 有如下的等式成立：
+    $$xf(x) = \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t.$$
+    \item 证明对任意 $x, y \geqslant 0,$ 有如下的不等式成立：
+    $$xy \leqslant \int_0^x f(t) \mathrm{d}t + \int_0^y g(t) \mathrm{d}t.$$
+    \item 证明对任意 $x, y \geqslant 0,$ 以及 $p, q > 0, \dfrac{1}{p} + \dfrac{1}{q} = 1,$ 有
+    $$xy \leqslant \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.$$
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+  \item 考虑闭区间 $[0, x],$ 那么函数 $f$ 在其上一致连续, 且黎曼可积. 类似地, 函数 $g$ 在闭区间 $[0, f(x)]$ 上一致连续且黎曼可积. 设
+  $$P: ~ 0 = t_0 < t_1 < t_2 < \cdots < t_n = x$$
+  为 $[0, x]$ 的一个划分, 
+  $$\widetilde{P}: ~ 0 = f(t_0) < f(t_1) < f(t_2) < \cdots < f(t_n) = f(x)$$
+  为对应的 $[0, f(x)]$ 的划分, 那么当 $\lambda(P) \to 0$ 时, 有 $\lambda(\widetilde{P}) \to 0.$ 由于 $f, g$ 都黎曼可积, 所以有
+  \begin{align*}
+    \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t & = \lim\limits_{\lambda(P) \to 0} \sum\limits_{i=1}^n f(t_{i - 1}) (t_i - t_{i-1}) + \lim\limits_{\lambda(\widetilde{P}) \to 0} \sum\limits_{i=1}^n g(f(t_i)) (f(t_i) - f(t_{i - 1})) \\
+    & = \lim\limits_{\lambda(P) \to 0} \sum\limits_{i=1}^n \left( f(t_{i - 1}) (t_i - t_{i - 1}) + t_i (f(t_i) - f(t_{i - 1})) \right) \\
+    & = \lim\limits_{\lambda(P) \to 0} \sum\limits_{i=1}^n \left( t_i f(t_i) - t_{i - 1}f(t_{i - 1}) \right) \\
+    & = \lim\limits_{\lambda(P) \to 0} \left( t_n f(t_n) - t_0f(t_0) \right) \\
+    & = xf(x) - 0 = xf(x).
+  \end{align*}
+  注：这题不能通过 $F(x) := \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t - xf(x)$ 导数恒等于零来推导, 因为函数 $f, g$ 只是连续, 并不一定可导.
+  \item 对于一般的 $x, y,$ 当 $y > f(x)$ 时有
+  \begin{align*}
+  \int_0^x f(t) \mathrm{d}t + \int_0^y g(t) \mathrm{d}t & = \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t + \int_{f(x)}^y g(t) \mathrm{d}t = xf(x) + \int_{f(x)}^y g(t) \mathrm{d}t \\
+  & \geqslant xf(x) + g(f(x)) (y - f(x)) = xf(x) + x (y - f(x)) \\
+  & = xy
+  \end{align*}
+  当 $y < f(x)$ 时类似可证. 结合第(1)问即有 $xy \leqslant \int_0^x f(t) \mathrm{d}t + \int_0^y g(t) \mathrm{d}t.$
+  \item 由于 $\dfrac{1}{p} + \dfrac{1}{q} = 1, p, q > 0,$ 所以 $(p - 1) (q - 1) = 1,$ 故 $f(t) = t^{p-1}$ 与 $g(t) = t^{q-1}$ 互为反函数, 于是根据第 (2) 问有
+  $$xy \leqslant \int_0^x t^{p-1} \mathrm{d}t + \int_0^y t^{q-1} \mathrm{d}t = \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.$$
+  \end{enumerate}
+  
+\end{solution}
+
+\begin{question}[points = 10]
+  设 $f(x)$ 是次数大于1的多项式, 求证反常积分 $\int_{0}^{+\infty} \sin(f(x)) \mathrm{d}x$ 收敛.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  设 $f(x)$ 是 $n$ 次多项式, $n \geqslant 2.$ 那么 $f(x), f'(x), \dots, f^{(n-1)}(x)$ 都是非常数多项式, 这些多项式所有实根构成一个有限集, 从而存在足够大的实数 $a,$ 使得 $a$ 大于所有的这些根. 于是, 反常积分 $\int_{0}^{+\infty} \sin(f(x)) \mathrm{d}x$ 收敛性的证明归结到反常积分 $\int_{a}^{+\infty} \sin(f(x)) \mathrm{d}x$ 收敛性的证明. 在 $[a, +\infty)$ 上, 由于多项式 $f(x), f'(x), \dots, f^{(n-1)}(x)$ 都没有根, 因此他们要么都是恒正的, 要么都是恒负的（依赖于 $f(x)$ 的最高次项系数的符号）, 并且有
+  $$\lim\limits_{x \to +\infty} \lvert f^{(k)}(x) \rvert = +\infty, \quad k = 0, 1, \dots, n-1$$
+
+  利用分部积分计算反常积分 $\int_{a}^{+\infty} \sin(f(x)) \mathrm{d}x:$
+  \begin{align*}
+    \int_{a}^{+\infty} \sin(f(x)) \mathrm{d}x & = -\int_{a}^{+\infty} \dfrac{1}{f'(x)} \mathrm{d} \cos(f(x)) \\
+    & = - \left. \dfrac{\cos(f(x))}{f'(x)} \right|_{a}^{+\infty} - \int_{a}^{+\infty} \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \mathrm{d}x.
+  \end{align*}
+  由于 $\lim\limits_{x \to +\infty} \lvert f'(x) \rvert = +\infty, \lvert \cos(f(x)) \rvert \leqslant 1,$ 因此有
+  $$- \left. \dfrac{\cos(f(x))}{f'(x)} \right|_{a}^{+\infty} = 0 + \dfrac{\cos(f(a))}{f'(a)} = \dfrac{\cos(f(a))}{f'(a)}.$$
+  于是我们又归结到反常积分 $\int_{a}^{+\infty} \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \mathrm{d}x$ 收敛性的证明. 不妨设 $f'(x), f''(x)$ 在 $[a, +\infty)$ 上恒正, 那么有
+  $$\left\lvert \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \right\rvert \leqslant \dfrac{f''(x)}{\left(f'(x)\right)^2}.$$
+  又由于有
+  $$\int_{a}^{+\infty} \dfrac{f''(x)}{\left(f'(x)\right)^2} \mathrm{d}x = - \left. \dfrac{1}{f'(x)} \right|_{a}^{+\infty} = \dfrac{1}{f'(a)}, $$
+  知反常积分 $\int_{a}^{+\infty} \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \mathrm{d}x$ 是绝对收敛的, 从而也是收敛的.
+\end{solution}
+
+\begin{question}[points = 10]
+  设正项级数 $\sum\limits_{n=1}^{\infty} a_n$ 发散, 记 $s_n = \sum\limits_{k=1}^n a_k$ 为级数的前 $n$ 项和.
+  \begin{enumerate}
+    \item 证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{1 + a_n}$ 发散.
+    % \item 证明不等式
+    % $$\sum\limits_{i=1}^{k} \dfrac{a_{n+i}}{s_{n+i}} = \dfrac{a_{n+1}}{s_{n+1}} + \cdots + \dfrac{a_{n+k}}{s_{n+k}}$$
+    % 对任意的正整数 $n, k$ 成立。由此, 进一步证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 发散。
+    \item 证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 发散.
+    \item 证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n^2}$ 收敛.
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+    \item 用反证法. 记 $b_n = \dfrac{a_n}{1 + a_n},$ 那么有 $0 < b_n < a_n,$ 并且有 $b_n < 1.$ 假设正项级数 $\sum\limits_{n=1}^{\infty} b_n$ 收敛, 那么 $\lim\limits_{n \to \infty} b_n = 0,$ 从而有 $\lim\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} \dfrac{b_n}{1 - b_n} = 0.$ 所以有
+    $$\lim\limits_{n \to \infty} \dfrac{b_n}{a_n} = \lim\limits_{n \to \infty} \dfrac{a_n}{1 + a_n} \cdot \dfrac{1}{a_n} = \lim\limits_{n \to \infty} \dfrac{1}{1 + a_n} = 1.$$
+    根据正项级数的比较定理, $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} b_n$ 具有相同的敛散性, 这与 $\sum\limits_{n=1}^{\infty} a_n$ 发散的条件矛盾.
+    \item 记 $c_n = \dfrac{a_n}{s_n},$ 我们来考察 $c_{n + 1} + \cdots + c_{n + k}.$ 由于 $\sum\limits_{n=1}^{\infty} a_n$ 是正项级数, $a_n \geqslant 0,$ 那么 $\{s_n\}$ 是递增数列, 于是有
+    \begin{align*}
+      c_{n + 1} + \cdots + c_{n + k} & = \dfrac{a_{n + 1}}{s_{n + 1}} + \cdots + \dfrac{a_{n + k}}{s_{n + k}} \\
+      & \geqslant \dfrac{a_{n + 1}}{s_{n + k}} + \cdots + \dfrac{a_{n + k}}{s_{n + k}}= \dfrac{a_{n + 1} + \cdots + a_{n + k}}{s_{n + k}} = \dfrac{s_{n + k} - s_{n}}{s_{n + k}} = 1 - \dfrac{s_{n}}{s_{n + k}}.
+    \end{align*}
+    由于 $s_n$ 发散到无穷, 因此对于固定的 $n$ 有 $\lim\limits_{k \to \infty} \dfrac{s_{n}}{s_{n + k}} = 0,$ 因此存在 $k$ (与 $n$ 相关) 使得 $\dfrac{s_{n}}{s_{n + k}} < \dfrac{1}{2},$ 从而有 $c_{n + 1} + \cdots + c_{n + k} > 1 - \dfrac{1}{2} = \dfrac{1}{2}.$ 这就证明了级数 $\sum\limits_{n=1}^{\infty} c_n = \sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 是发散的.
+    \item 记 $d_n = \dfrac{a_n}{s_n^2},$ 那么有
+    $$0 < d_n = \dfrac{s_n - s_{n - 1}}{s_n^2} < \dfrac{s_n - s_{n - 1}}{s_n s_{n - 1}} = \dfrac{1}{s_{n - 1}} - \dfrac{1}{s_n}.$$
+    以上式右端为通项的级数前 $n$ 项和为 $\dfrac{1}{s_1} - \dfrac{1}{s_{n + 1}} \to \dfrac{1}{s_1} = \dfrac{1}{a_1}$, 当 $n \to \infty.$ 由正项级数的比较定理知级数 $\sum\limits_{n=1}^{\infty} d_n = \sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n^2}$ 收敛.
+  \end{enumerate}
+\end{solution}
+
+\begin{question}[points = 12]
+  考虑数项级数 $\sum\limits_{n=1}^{\infty} a_n,$ 记 $s_n = \sum\limits_{k=1}^n a_k$ 为它的部分和（前 $n$ 项和）. 令
+  $$\sigma_n = \dfrac{1}{n} \sum\limits_{k=1}^n s_k = \dfrac{s_1 + s_2 + \cdots + s_n}{n}$$
+  为级数 $\sum\limits_{n=1}^{\infty} a_n$ 部分和序列 $\{s_n\}$ 的前 $n$ 项均值. 我们称级数 $\sum\limits_{n=1}^{\infty} a_n$ 是 $(c, 1)$ 可和的, 若序列$\sigma_n$收敛到一个有限的实数$A,$ 即 $\lim\limits_{n \to \infty} \sigma_n = A,$ 并记为 $\sum\limits_{n=1}^{\infty} a_n = A~(c, 1).$ 实数 $A$ 称作是级数 $\sum\limits_{n=1}^{\infty} a_n$ 在 $(c, 1)$ 意义下的和.
+  \begin{enumerate}
+  \item 求级数 $\sum\limits_{n=1}^{\infty} (-1)^{n+1}$ 在 $(c, 1)$ 意义下的和.
+  \item 设级数 $\sum\limits_{n=1}^{\infty} a_n$ 在通常意义下收敛到有限实数 $A,$ 即 $\lim\limits_{n \to \infty} s_n = A,$ 求证：级数 $\sum\limits_{n=1}^{\infty} a_n$ 是 $(c, 1)$ 可和, 而且有 $\sum\limits_{n=1}^{\infty} a_n = A~(c, 1).$
+  \item 设 $\sum\limits_{n=1}^{\infty} a_n = A~(c, 1),$ $A$ 为一个有限实数, 并且满足当 $n \to \infty$ 时有 $a_n = \mathrm{o}\left( \dfrac{1}{n} \right),$ 求证：在通常的意义下有 $\sum\limits_{n=1}^{\infty} a_n = A.$
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+    \item 记 $a_n = (-1)^{n+1},$ 那么有
+    $$s_n = \sum\limits_{i=1}^n a_i = \begin{cases}
+      1, & n = 2k - 1\\
+      0, & n = 2k
+    \end{cases} \quad k = 1, 2, \dots$$
+    进而有
+    $$\sigma_n = \sum\limits_{i=1}^n s_i = \begin{cases}
+      \dfrac{k}{2k - 1}, & n = 2k - 1\\
+      \dfrac{1}{2}, & n = 2k
+      \end{cases} \quad k = 1, 2, \dots$$
+      于是, $\lim\limits_{n \to \infty} \sigma_n = \dfrac{1}{2},$ 即级数 $\sum\limits_{n=1}^{\infty} (-1)^{n+1}$ 在 $(c, 1)$ 意义下的和为 $\dfrac{1}{2}.$
+     \item 若 $\sum\limits_{n=1}^{\infty} a_n$ 在通常意义下收敛到有限实数 $A,$ 那么
+    $$A = \lim\limits_{n \to \infty} s_n = \lim\limits_{n \to \infty} \dfrac{n\sigma_n - (n-1)\sigma_{n-1}}{n - (n-1)}, $$
+    于是根据Stolz公式, 有
+    $$\lim\limits_{n \to \infty} \sigma_n = \lim\limits_{n \to \infty} \dfrac{n\sigma_n}{n} = \lim\limits_{n \to \infty} \dfrac{n\sigma_n - (n-1)\sigma_{n-1}}{n - (n-1)} = A.$$
+    这表明了 $\sum\limits_{n=1}^{\infty} a_n = A~(c, 1).$
+    \item 我们考察 $s_n - \sigma_n,$ 有
+    $$s_n - \sigma_n = \sum\limits_{k=1}^n a_k - \sum\limits_{k=1}^n \left( 1 - \dfrac{k-1}{n} \right) a_k = \dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n}.$$
+    由于 $n \to \infty$ 时有 $a_n = \mathrm{o}\left( \dfrac{1}{n} \right),$ 那么 $\lim\limits_{n \to \infty} n a_n = 0,$ 这也等价于 $\lim\limits_{n \to \infty} (n - 1) a_n = 0.$ 于是可以对 $\dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n}$ 使用Stolz公式：
+    \begin{align*}
+      \lim\limits_{n \to \infty} (s_n - \sigma_n) & = \lim\limits_{n \to \infty} \dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n} = \lim\limits_{n \to \infty} \dfrac{\sum\limits_{k=1}^n (k-1)a_k - \sum\limits_{k=1}^{n-1} (k-1)a_k}{n - (n-1)} \\
+      & = \lim\limits_{n \to \infty} \dfrac{(n-1)a_n}{1} = 0.
+    \end{align*}
+    这表明 $\sum\limits_{n=1}^{\infty} a_n = \lim\limits_{n \to \infty} s_n = \lim\limits_{n \to \infty} \sigma_n = A.$
+  \end{enumerate}
+\end{solution}
+
+\end{document}

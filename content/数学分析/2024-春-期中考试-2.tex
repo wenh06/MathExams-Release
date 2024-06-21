@@ -1,0 +1,543 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+
+\examsetup{
+  page = {
+    size            = a3paper,
+    show-columnline = true,
+    foot-content    = {第;页（共~;页）}
+  },
+  solution = {
+    show-answer = true,
+    % blank-type = manual,
+    blank-type = none,
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  },
+  fillin = {
+    no-answer-type = none,
+    show-answer = true
+  }, 
+  style/fullwidth-stop = catcode,
+  % sealline = {
+  %   show        = true, 
+  %   scope       = mod-2, 
+  %   circle-show = false, 
+  %   line-type   = solid, 
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}}, 
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}}, 
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}}, 
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}}, 
+  %   }, 
+  %   odd-info-xshift = 12mm, 
+  %   text = {此卷只装订不密封}, 
+  %   text-width = 0.98\textheight, 
+  %   text-format  = \zihao{-3}\sffamily, 
+  %   text-xshift = 20mm
+  % }, 
+  question/show-points = true, 
+  paren = {
+    show-answer = true
+  }, 
+  square = {
+    x-length = 1.8em, 
+    y-length = 1.6em
+  }
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-answer = true, 
+  fillin/show-answer = true, 
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-answer = false, 
+  fillin/show-answer = false, 
+  paren/show-answer = false,
+  page/size = a4paper
+}
+\fi
+
+
+\title{
+\larger[2]
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2023 $\sim*$ 2024学年春季学期\\
+\textbf{\uline{\hspace{0.5cm}数学分析II\hspace{0.5cm}}}课程第二次期中考试试题
+}
+
+% \subject{\uline{数学分析II}}
+
+
+\begin{document}
+
+% \tableofcontents
+
+% \chapter{2021 年普通高等学校招生全国统一考试}
+
+% \information{
+%   姓名\underline{\hspace{6em}}, 
+%   座位号\underline{\hspace{15em}}
+% }
+% \warning{（在此卷上答题无效）}
+
+% \secret
+
+\maketitle
+
+% \begin{notice}
+%   \item 答题前, 先将自己的姓名、准考证号、考场号、座位号填写在试卷和答题卡上, 
+%     并将准考证号条形码粘贴在答题卡上的指定位置。
+%   \item 选择题的作答：每小题选出答案后, 用 2B 铅笔把答题卡上对应题目的答案标号涂黑。
+%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
+%   \item 填空题和解答题的作答：用黑色签字笔直接答在答题卡上对应的答题区域内。
+%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
+%   \item 考试结束后, 请将本试卷和答题卡一并上交。
+% \end{notice}
+
+\ifShowAnswer
+\noindent \textbf{考生诚信承诺}\\
+1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
+2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
+\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
+}
+\else
+% do nothing
+\fi
+
+\noindent
+% 本试卷共 4 页, 22 题。
+全卷满分 100 分。考试用时 120 分钟。
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\[2pt] \hline
+得分 & & & & & \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{%
+  选择题：本题共 5 小题, 每小题 3 分, 共 15 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+  以下说法正确的是 \paren[D]
+
+  \begin{choices}
+    \item 无穷乘积 $\prod\limits_{n=1}^{\infty} (1 + a_n)$ 收敛当且仅当数项级数 $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} a_n^2$ 都收敛.
+    \item 若数列 $a_n$ 满足 $\lim\limits_{n \to \infty} a_n = 0,$ 级数 $\sum\limits_{n=1}^{\infty} b_n$ 收敛, 那么级数 $\sum\limits_{n=1}^{\infty} a_n b_n$ 必定收敛.
+    \item 若函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 与 $\sum\limits_{n=1}^{\infty} \dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x}$ 在开区间 $(a, b)$ 上都点态收敛, 但不一致收敛, 那么必有 $\dfrac{\mathrm{d}}{\mathrm{d} x} \left( \sum\limits_{n=1}^{\infty} u_n(x) \right) \neq \sum\limits_{n=1}^{\infty} \dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x}$ 对所有 $x \in (a, b)$ 都成立.
+    \item 若函数列 $\{S_n(x)\}$ 在开区间 $(a, b)$ 上内闭一致收敛于函数 $S(x)$, 并且每一项 $S_n(x)$ 都是 $(a, b)$ 上的连续函数, 那么 $S(x)$ 也必定是 $(a, b)$ 上的连续函数.
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  A. 的反例: $a_n = \begin{cases}
+    -\dfrac{1}{\sqrt{k}}, & n = 2k -1, \\
+    \dfrac{1}{\sqrt{k}} + \dfrac{1}{k} \left( 1 + \dfrac{1}{\sqrt{k}} \right), & n = 2k
+  \end{cases}$ A. 的正确提法是: 在 $\sum\limits_{n=1}^{\infty} a_n$ 收敛的前提下, 无穷乘积 $\prod\limits_{n=1}^{\infty} (1 + a_n)$ 收敛当且仅当 $\sum\limits_{n=1}^{\infty} a_n^2$ 收敛.
+
+  B. 的反例 $a_n = b_n = \dfrac{(-1)^n}{n^{1/3}}.$ 若 $a_n$还有单调性, 则B. 的命题正确.
+
+  C. 的反例 $S_n(x) = \dfrac{1}{2n} \ln{\left( 1 + n^2x^2 \right)},$ 并约定$S_0(x) = 0.$ 令 $u_n(x) = S_{n}(x) - S_{n-1}(x).$ 那么 $\{S_n(x)\}$ 与 $\left\{\dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x} = \dfrac{nx}{1 + n^2x^2}\right\}$ 在 $[0,1]$ 上都点态收敛于常值函数 $f(x) = 0,$ 并且都不是一致收敛, 但仍有
+  $$\dfrac{\mathrm{d}}{\mathrm{d} x} \left( \sum\limits_{n=1}^{\infty} u_n(x) \right) = \dfrac{\mathrm{d}}{\mathrm{d} x} \left( \lim\limits_{n\to\infty} S_n \right) = 0 = \lim\limits_{n\to\infty} \dfrac{\mathrm{d} S_n(x)}{\mathrm{d} x} = \sum\limits_{n=1}^{\infty} \dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x}.$$
+\end{solution}
+
+\begin{question}
+  反常积分 $\int_0^{+\infty} \dfrac{\lvert \sin x \rvert}{x} \mathrm{d} x =$ \paren[A]
+
+  \begin{choices}
+    \item 发散
+    \item $\dfrac{\pi}{2}$
+    \item $0$
+    \item $-1$
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  由 Dirichlet 判别法知 $\int_1^{+\infty} \dfrac{\cos 2x}{x} \mathrm{d} x$ 收敛, 同时又有
+  \begin{align*}
+    \int_0^{+\infty} \dfrac{\lvert \sin x \rvert}{x} \mathrm{d} x & \geqslant \int_0^{+\infty} \dfrac{\sin^2 x}{x} \mathrm{d} x \geqslant \int_1^{+\infty} \dfrac{\sin^2 x}{x} \mathrm{d} x = \int_1^{+\infty} \dfrac{1 - \cos 2x}{2x} \mathrm{d} x \\
+    & = \int_1^{+\infty} \dfrac{1}{2x} \mathrm{d} x - \int_1^{+\infty} \dfrac{\cos 2x}{2x} \mathrm{d} x
+  \end{align*}
+  由于 $\int_1^{+\infty} \dfrac{1}{2x} \mathrm{d} x$ 发散, 故 $\int_0^{+\infty} \dfrac{\lvert \sin x \rvert}{x} \mathrm{d} x$ 发散
+\end{solution}
+
+\begin{question}
+  设幂级数 $S(x) = \sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径为 $R,$ 满足 $0 < R < +\infty.$ 下列关于函数项级数 $\sigma (x) = \sum\limits_{n=0}^\infty (n + 1) a_{n+1} x^n$ 说法错误的是 \paren[C]
+
+  \begin{choices}
+    \item $\sigma (x)$ 的收敛半径也是 $R.$
+    \item $\sigma (x)$ 的收敛域可能真包含于 $S (x)$ 的收敛域.
+    \item $S (x)$ 的收敛域可能真包含于 $\sigma (x)$ 的收敛域.
+    \item $S(x)$ 在区间 $(-R, R)$ 上可导, 且有 $S'(x) = \sigma (x).$
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  见幂级数的逐项可导性定理. 若在一点 $x \neq 0$ 处 $\sum\limits_{n=0}^\infty (n + 1) a_{n+1} x^n$ 收敛, 那么由 Dirichlet 判别法, 通项为
+  $$a_n x^n = x\cdot \left(\dfrac{1}{n} \cdot n a_n x^{n-1}\right)$$
+  的级数也是收敛的. 反之不一定成立, 例如 $\sum\limits_{n=0}^\infty \dfrac{1}{n} x^n$ 的收敛域为 $[-1, 1),$ 而 $\sum\limits_{n=0}^\infty (n+1) \cdot \dfrac{1}{n+1} x^n = \sum\limits_{n=0}^\infty x^n$ 的收敛域为 $(-1, 1),$
+\end{solution}
+
+\ifShowAnswer
+% do nothing
+\else
+\noindent \textbf{考生诚信承诺}\\
+1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
+2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
+\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
+}
+\fi
+
+\begin{question}
+  设 $f(x)$ 是闭区间 $[0, 1]$ 上恒正的 Riemann 可积函数, 则以下定义在 $[0, 1]$ 区间上的函数中, 必然也是 Riemann 可积函数的是 \paren[A]
+
+  \begin{choices}
+    \item $e^{f(x)}$
+    \item $\ln{f(x)}$
+    \item $\dfrac{1}{f(x)}$
+    \item $F(x) = \begin{cases}
+        f(x), & x ~ \text{是有理数}, \\
+        f^2(x), & x ~ \text{是无理数}, \\
+    \end{cases}$
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  B. C. 都可能是无界函数, 例如 $f(x) = \begin{cases}
+    1 / x, & 0 < x \leqslant 1, \\
+    1, & x = 0
+  \end{cases}$
+
+  D. 可取反例 $f(x) = -1,$ 则 $F(x) = \begin{cases}
+    -1, & x ~ \text{是有理数}, \\
+    1, & x ~ \text{是无理数}, \\
+  \end{cases}$
+\end{solution}
+
+\begin{question}
+  设数项级数 $\sum\limits_{n=0}^\infty a_n$ 发散, 则以下说法正确的是 \paren[D]
+
+  \begin{choices}
+    \item 幂级数 $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径必小于 $1.$
+    \item 幂级数 $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛域必包含于开区间 $(-1, 1).$
+    \item 设幂级数 $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径为 $r > 0,$ 则左极限 $\lim\limits_{x \to r-} \sum\limits_{n=0}^\infty a_n x^n$ 必发散.
+    \item 设幂级数 $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径为 $r > 0,$ 则 $\forall x \in (-r, r),$ $\sum\limits_{n=0}^\infty a_n x^n$ 必绝对收敛.
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  A. B. 的反例可取为 $a_n = \dfrac{1}{n},$ 则幂级数 $\sum\limits_{n=0}^\infty a_n x^n = \sum\limits_{n=0}^\infty \dfrac{1}{n} x^n$ 的收敛半径等于 $1,$ 收敛域为 $[-1, 1).$
+
+  C. 的反例可取为 $a_n = (-1)^n,$ 那么幂级数 $\sum\limits_{n=0}^\infty a_n x^n = \sum\limits_{n=0}^\infty (-1)^n x^n = \dfrac{1}{1+x}$ 的收敛半径等于 $1,$ 而 $\lim\limits_{x \to r-} \sum\limits_{n=0}^\infty a_n x^n = \lim\limits_{x \to r-} \dfrac{1}{1+x} = \dfrac{1}{2}.$
+
+  D. 就是幂级数的 Cauchy-Hadamard 定理.
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 3 分, 共 15 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+  求极限 $\lim\limits_{n\to\infty} \dfrac{1}{n} \left( \sin\dfrac{\pi}{n} + \sin\dfrac{2\pi}{n} + \cdots + \sin\dfrac{(n-1)\pi}{n} \right) = $ \fillin[$\dfrac{2}{\pi}$].
+\end{question}
+
+\begin{solution}
+  极限 $\lim\limits_{n\to\infty} \dfrac{1}{n} \left( \sin\dfrac{\pi}{n} + \sin\dfrac{2\pi}{n} + \cdots + \sin\dfrac{(n-1)\pi}{n} \right) = \int_0^1 \sin \pi x \mathrm{d} x = \dfrac{2}{\pi}$
+\end{solution}
+
+\begin{question}
+  求定积分 $\dfrac{1}{\sqrt{2\pi}}\int_{-\pi}^{\pi} \sin (2023 x) \cdot \sin (2024 x) \mathrm{d} x$ = \fillin[0].
+\end{question}
+
+\begin{solution}
+  $\cos nx, n = 0, 1, 2, \dots; \sin m x, m = 1, 2, \dots$ 在 $[-\pi, \pi]$ 上构成一个关于 $\langle f, g \rangle = \int_{-\pi}^{\pi} fg (x) \mathrm{d} x$ 正交函数系.
+\end{solution}
+
+\begin{question}
+  幂级数 $\sum\limits_{n=0}^{\infty} \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{n^2 + 1} (x - 2)^n$ 的收敛域为 \fillin[$\left[\dfrac{9}{5}, \dfrac{11}{5}\right]$].
+\end{question}
+
+\begin{solution}
+  记 $a_n = \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{n^2 + 1},$ 直接利用 Cauchy-Hadamard 定理:
+  $$\varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} = \varlimsup_{n\to\infty} \left( 3 + 2 \cdot (-1)^n \right) \cdot \lim\limits_{n\to\infty} \dfrac{1}{\nroot[n]{n^2 + 1}} = 5,$$
+  于是幂级数 $\sum\limits_{n=0}^{\infty} \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{n^2 + 1} (x - 2)^n$ 的收敛半径为 $\dfrac{1}{5}.$ 在边界上, 由于
+  $$\lvert a_n (\pm R)^n \rvert = \left\lvert \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{(\pm 5)^n} \cdot \dfrac{1}{n^2 + 1} \right\rvert \leqslant \dfrac{1}{n^2 + 1},$$
+  由比较判别法知幂级数在收敛域边界上都是绝对收敛的, 故收敛域等于 $\left[2 - \dfrac{1}{5}, 2 + \dfrac{1}{5}\right] = \left[ \dfrac{9}{5}, \dfrac{11}{5} \right]$
+\end{solution}
+
+\begin{question}
+  无穷乘积 $\prod\limits_{n = 1}^\infty \left( 1 - \dfrac{x^2}{n^2} \right)$ 的收敛域为 \fillin[$\mathbb{R} \setminus \mathbb{Z}$].
+\end{question}
+
+\begin{solution}
+  无穷乘积 $\prod\limits_{n = 1}^\infty \left( 1 - \dfrac{x^2}{n^2} \right)$ 收敛的充要条件为 $\sum\limits_{n = 1}^\infty \left( - \dfrac{x^2}{n^2} \right) = -x^2 \sum\limits_{n = 1}^\infty \dfrac{1}{n^2}$ 收敛. 这对于任意固定的 $x$ 都是成立的, 但是要排除无穷乘积某些通项取$0$ 从而发散到 $0$ 的情况, 这对应了 $x \in \mathbb{Z}$ 的情况. 所以收敛域为 $\mathbb{R} \setminus \mathbb{Z}.$
+\end{solution}
+
+\begin{question}
+  已知 $\int_0^{+\infty} \dfrac{\sin x}{x} \mathrm{d} x = \dfrac{\pi}{2},$ 求Cauchy主值积分 $(\text{cpv}) \int_{-\infty}^{+\infty} \dfrac{\sin x}{x} \mathrm{d} x = $ \fillin[$\pi$].
+\end{question}
+
+\begin{solution}
+  $(\text{cpv}) \int_{-\infty}^{+\infty} \dfrac{\sin x}{x} \mathrm{d} x = \lim\limits_{A\to+\infty} \int_{-A}^{A} \dfrac{\sin x}{x} \mathrm{d} x = \lim\limits_{A\to+\infty} 2 \int_{0}^{A} \dfrac{\sin x}{x} \mathrm{d} x = \pi.$ 注意, 这题普通的反常积分值也是 $\pi.$
+\end{solution}
+
+
+\section{计算题：本题共 2 小题, 共 20 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+  计算反常积分 $\int_0^{+\infty} \dfrac{\mathrm{d} x}{(1+x^2)(1+x^{\alpha})},$ 其中 $\alpha \in \mathbb{R}$ 为常数.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  这是 (上册) 课本例 8.1.12
+
+  由于 $0 \leqslant \dfrac{1}{(1 + x^2)(1 + x^a)} \leqslant \dfrac{1}{1 + x^2},$ 而 $\int_0^{+\infty} \dfrac{\mathrm{d} x}{1 + x^2} = \dfrac{\pi}{2},$ 由比较判别法知原反常积分收敛. 那么有
+  \begin{align*}
+    \int_0^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} & = \int_0^1 \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} \\
+    & = \int_{+\infty}^1 \dfrac{\mathrm{d} \frac{1}{x}}{(1 + \frac{1}{x^2})(1 + \frac{1}{x^a})} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} \\
+    & = -\int_1^{+\infty} \dfrac{\mathrm{d} \frac{1}{x}}{(1 + \frac{1}{x^2})(1 + \frac{1}{x^a})} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} \\
+    & = \int_1^{+\infty} \dfrac{x^a \mathrm{d} x}{(1 + x^2)(1 + x^a)} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} \\
+    & = \int_1^{+\infty} \dfrac{(1 + x^a) \mathrm{d} x}{(1 + x^2)(1 + x^a)} = \int_1^{+\infty} \dfrac{\mathrm{d} x}{1 + x^2} \\
+    & = \dfrac{\pi}{2} - \arctan 1 = \dfrac{\pi}{4}.
+  \end{align*}
+\end{solution}
+
+\begin{question}[points = 10]
+  设正项级数 $\sum\limits_{n=1}^{\infty} a_n$ 发散, $S_n = \sum\limits_{k=1}^{n} a_k,$ 满足 $\lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = 0,$ 求幂级数 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  这是 (下册) 课本 \S 10.3 习题 8
+
+  由于$\lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = 0,$ 所以有
+  $$0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfrac{S_n - S_{n-1}}{S_n} = \lim\limits_{n\to\infty} \left( 1 - \dfrac{S_{n-1}}{S_n} \right) = 1 - \lim\limits_{n\to\infty} \dfrac{S_{n-1}}{S_n},$$
+  即知 $\lim\limits_{n\to\infty} \dfrac{S_n}{S_{n-1}} = 1 \left/ \lim\limits_{n\to\infty} \dfrac{S_{n-1}}{S_n} \right. = 1.$ 由 d'Alembert 定理知幂级数 $\sum\limits_{n=1}^{\infty} S_n x^n$ 收敛半径为 $1.$
+
+  由于 $\sum\limits_{n=1}^{\infty} a_n$ 为正项级数, 即 $a_n \geqslant 0,$ 因此有 $a_n \leqslant S_n,$ 从而有
+  $$\varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert S_n \rvert},$$
+  于是幂级数 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径大于等于幂级数 $\sum\limits_{n=1}^{\infty} S_n x^n$ 的收敛半径.
+
+  另一方面, 由于 $\sum\limits_{n=1}^{\infty} a_n$ 发散, 所以 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径要小于等于 $1.$ 综上知 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径等于 $1.$
+
+  另一种解法: 由于 $\sum\limits_{n=1}^{\infty} a_n$ 是正项级数且发散, 所以数列 $\{S_n\}$ 单调趋于无穷, 于是由 Stolz 公式, 有
+  $$0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfrac{a_n-a_{n-1}}{S_n-S_{n-1}} = \lim\limits_{n\to\infty} \dfrac{a_n-a_{n-1}}{a_n} = 1 -\lim\limits_{n\to\infty} \dfrac{a_{n-1}}{a_n},$$
+  因此 $\lim\limits_{n\to\infty} \dfrac{a_{n+1}}{a_n} = 1,$ 由 d'Alembert 定理知 $\sum\limits_{n=1}^{\infty} a_n$ 收敛半径为 $1.$
+\end{solution}
+
+
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 8]
+  设函数 $f(x)$ 在闭区间 $[a, b]$ 上 Riemann 可积, $A \leqslant f(x) \leqslant B,$ 函数 $g(u)$ 在闭区间 $[A, B]$ 上连续, 证明复合函数 $g(f(x))$ 在 $[a, b]$ 上 Riemann 可积.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  这是 (上册) 课本 \S 7.1 习题 9
+
+  方法一：利用有界函数 Riemann 可积的勒贝格判别法. 设 $x_0$ 为 $f(x)$ 的连续点, 由于 $g(u)$ 在 $u=f(x_0)$ 点处连续, 因此 $x_0$ 为 $g(f(x))$ 的连续点. 所以 $f(x)$ 的连续点集为 $g(f(x))$ 连续点集的子集, 也就是说, $g(f(x))$ 的不连续点集是 $f(x)$ 的不连续点集的子集. 由于 $f(x)$ 在闭区间 $[a, b]$ 上 Riemann 可积, 因此 $f(x)$ 在 $[a, b]$ 上的不连续点集是零测集, 而零测集的子集都是零测集. 这就说明了 $g(f(x))$ 的不连续点集也是零测集, 故 $g(f(x))$ 在 $[a, b]$ 上 Riemann 可积.
+
+  方法二: 由于 $g(x)$ 在闭区间 $[A, B]$ 上连续, 从而是一致连续的, 从而 $\forall \varepsilon > 0,$ 存在 $\delta > 0,$ 对所有 $u, v \in [A, B],$ 只要 $\lvert u - v \rvert < \delta,$ 就有 $\lvert g(u) - g(v) \rvert < \varepsilon.$ 又由于 $f(x)$ 在闭区间 $[a, b]$ 上 Riemann 可积, 根据由振幅给出的闭区间上有界函数 Riemann 可积的等价条件, 对于已给定的 $\varepsilon, \delta,$ 存在 $\tau > 0,$ 使得对任意的 $[a, b]$ 区间的划分 $P: a = x_0 < x_1 < \cdots < x_n = b,$ 只要 $\lambda(P) < \tau,$ 即有
+  $$\sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,$$
+  其中 $\Delta x_i = x_i - x_{i-1}, \Delta_i = [x_{i-1}, x_i], \omega(f; \Delta_i) = \sup\limits_{t_1, t_2 \in \Delta_i} \lvert f(t_1) - f(t_2) \rvert.$
+  
+  若 $\omega(f, \Delta_i) < \delta,$ 则有 $\forall t_1, t_2 \in \Delta_i, \lvert f(t_1) - f(t_2) \rvert < \delta,$ 进而有 $\lvert g(f(t_1)) - g(f(t_2)) \rvert < \varepsilon.$ 另一方面, 记集合 $T = \{ i: ~ \omega(f, \Delta_i) \geqslant \delta \},$ 有
+  $$\sum\limits_{i \in T} \omega(f; \Delta_i) \Delta x_i \leqslant \sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,$$
+  即知
+  $$\sum\limits_{i \in T} \delta \Delta x_i \leqslant \sum\limits_{i \in T} \omega(f; \Delta_i) \Delta x_i \leqslant \sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,$$
+  由上式可得 $\sum\limits_{i \in T} \Delta x_i < \varepsilon.$
+  
+  设 $M > 0$ 为连续函数 $g(u)$ 在闭区间 $[A, B]$ 上的一个界, 那么有
+  \begin{align*}
+    \sum\limits_{i=1}^n \omega(g\circ f; \Delta_i) \Delta x_i & = \sum\limits_{i=1}^n \sup\limits_{t_1, t_2 \in \Delta_i} \lvert g(f(t_1)) - g(f(t_2)) \rvert \cdot \Delta x_i \\
+    & = \sum\limits_{i \in T} \sup\limits_{t_1, t_2 \in \Delta_i} \lvert g(f(t_1)) - g(f(t_2)) \rvert \cdot \Delta x_i + \sum\limits_{i \not\in T} \sup\limits_{t_1, t_2 \in \Delta_i} \lvert g(f(t_1)) - g(f(t_2)) \rvert \cdot \Delta x_i \\
+    & \leqslant \sum\limits_{i \in T} 2M \Delta x_i + \sum\limits_{i \not\in T} \varepsilon  \Delta x_i = 2M \cdot \sum\limits_{i \in T} \Delta x_i + \varepsilon \cdot \sum\limits_{i \not\in T} \Delta x_i \\
+    & < 2M \varepsilon + \varepsilon (b-a) = (2M + (b-a)) \varepsilon,
+  \end{align*}
+  这就证明了 $g(f(x))$ 也是在 $[a, b]$ 上 Riemann 可积的函数.
+\end{solution}
+
+\begin{question}[points = 10]
+  设幂级数 $\sum\limits_{n=0}^\infty a_n x^n$ 与 $\sum\limits_{n=0}^\infty b_n x^n$ 的收敛半径分别为 $R_1$ 和 $R_2.$
+  \begin{enumerate}
+    \item 求幂级数 $\sum\limits_{n=0}^\infty a_n x^{2n}$ 的收敛半径;
+    \item 设幂级数 $\sum\limits_{n=0}^\infty (a_n + b_n) x^n$ 的收敛半径为 $R,$ 证明 $R \geqslant \min\{R_1, R_2\},$ 并给出一个 $R > \min\{R_1, R_2\}$ 成立的例子.
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  这是 (下册) 课本 \S 10.3 习题 3
+
+  \begin{enumerate}
+    \item 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 的收敛半径可由 Cauchy-Hadamard 定理计算:
+    $$\dfrac{1}{R} = \varlimsup_{n\to\infty} \nroot[2n]{\lvert a_{n} \rvert} = \varlimsup_{n\to\infty} \left( \nroot[n]{\lvert a_{n} \rvert} \right)^{1/2} = \left( \varlimsup_{n\to\infty} \nroot[n]{\lvert a_{n} \rvert} \right)^{1/2} = \dfrac{1}{\sqrt{R_1}}.$$
+    于是 $R = \sqrt{R_1}.$
+    \item 任取 $r < \min\{R_1, R_2\},$ 由 Cauchy-Hadamard 定理知 $\sum\limits_{n=0}^\infty a_n r^n$ 与 $\sum\limits_{n=0}^\infty b_n r^n$ 都是 (绝对) 收敛, 因此
+    $$\sum\limits_{n=0}^\infty (a_n + b_n) r^n = \sum\limits_{n=0}^\infty a_n r^n + \sum\limits_{n=0}^\infty b_n r^n$$
+    也收敛. 那么由 Abel 第一定理知幂级数 $\sum\limits_{n=0}^\infty (a_n + b_n) x^n$ 的收敛半径 $R$ 必须满足
+    $$R \geqslant r.$$
+    由于上式对任意的满足 $r < \min\{R_1, R_2\}$ 的 $r$ 都成立, 因此必须有 $$R \geqslant \min\{R_1, R_2\}.$$
+
+    使得 $R > \min\{R_1, R_2\}$ 成立的例子 (其他例子也可以):
+    $$a_n = \dfrac{1}{n}, b_n = -\dfrac{1}{n} + \dfrac{1}{n!},$$
+    那么 $\sum\limits_{n=0}^\infty a_n x^n$ 与 $\sum\limits_{n=0}^\infty b_n x^n$ 的收敛半径都是 $1,$ 但 $\sum\limits_{n=0}^\infty (a_n + b_n) x^n = \sum\limits_{n=0}^\infty \dfrac{1}{n!} x^n$ 的收敛半径为 $+\infty.$
+  \end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+  考虑函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x) = \sum\limits_{n=1}^{\infty} n \left( x + \dfrac{1}{n} \right)^n.$
+  \begin{enumerate}
+    \item 求函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 的收敛域 $D.$
+    \item 判断函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在其收敛域 $D$ 上是否一致收敛, 并给出证明.
+    \item 判断函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在其收敛域 $D$ 上是否内闭一致收敛, 并给出证明.
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  这是 (下册) 课本例 10.1.13
+
+  \begin{enumerate}
+    \item 由正项级数敛散性的 Cauchy 判别法, 由于
+    $$\varlimsup_{n\to\infty} \nroot[n]{\lvert u_n(x) \rvert} = \varlimsup_{n\to\infty} \nroot[n]{n} \cdot \left\lvert x + \dfrac{1}{n} \right\rvert = \lvert x \rvert,$$
+    于是 $\lvert x \rvert < 1$ 时函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x) = \sum\limits_{n=1}^{\infty} n \left( x + \dfrac{1}{n} \right)^n$ (绝对) 收敛; $x > 1$ 时发散. 当 $x = 1$ 时, 通项 $u_n(1) = n \left( 1 + \dfrac{1}{n} \right)^n \to +\infty,$ 当 $n \to \infty,$ 级数发散. 当 $x \leqslant -1$ 时, 通项绝对值 $\lvert u_n(x) \rvert = n \left( -x - \dfrac{1}{n} \right)^n \geqslant n \left( 1 - \dfrac{1}{n} \right)^n \to +\infty,$ 当 $n \to \infty,$ 级数发散.
+
+    综上知, 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 的收敛域 $D = (-1, 1).$
+    \item 在 $D = (-1, 1)$ 中取一个数列 $x_n = 1 - \dfrac{1}{n},$ 那么
+    $$u_n(x_n) = n \left( 1 - \dfrac{1}{n} + \dfrac{1}{n} \right)^n = n,$$
+    $u_n(x_n)$ 不一致收敛于 $0,$ 故函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在 $D$ 上一致收敛的必要性条件不满足, 因此 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在 $D$ 上不一致收敛.
+    \item 任取闭区间 $[a, b] \subset D = (-1, 1),$ 那么可取实数 $r$ 满足 $\max\{\lvert a \rvert, \lvert b \rvert\} < r < 1.$ 于是 $\forall x \in [a, b],$ 有
+    $$\lvert u_n(x) \rvert = n \left\lvert x + \dfrac{1}{n} \right\rvert^n < n \left( r + \dfrac{1}{n} \right)^n.$$
+    在第 (1) 问中已经看到, 正项级数 $\sum\limits_{n=1}^{\infty} n \left( r + \dfrac{1}{n} \right)^n$ 是收敛的, 于是根据 Weierstra\ss 判别法, 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在闭区间 $[a, b]$ 上一致收敛, 从而在收敛域 $D = (-1, 1)$ 上内闭一致收敛.
+  \end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+  设 $f(x) = \sum\limits_{n=1}^\infty \dfrac{1}{2^n + x}.$
+  \begin{enumerate}
+    \item 证明 $f(x)$ 在 $[0, +\infty)$ 上一致连续;
+    \item 证明 $f(x)$ 在 $[0, +\infty)$ 上可导;
+    \item 证明反常积分 $\int_0^{+\infty} f(x) \mathrm{d} x$ 发散.
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  这是 (下册) 课本 \S 10.2 习题 13
+
+  \begin{enumerate}
+    \item 记 $u_n(x) = \dfrac{1}{2^n + x}.$ 由于在 $[0, +\infty)$ 上有
+    $$0 < u_n(x) < \dfrac{1}{2^n},$$
+    那么由 Weierstra\ss 判别法知 $f(x)$ 在 $[0, +\infty)$ 上一致收敛. 现任取 $x, y \in [0, +\infty),$ 有
+    \begin{align*}
+      \lvert f(x) - f(y) \rvert & = \left\lvert \sum\limits_{n=1}^\infty \dfrac{1}{2^n + x} - \sum\limits_{n=1}^\infty \dfrac{1}{2^n + y} \right\rvert = \left\lvert \sum\limits_{n=1}^\infty \dfrac{x - y}{(2^n + x)(2^n + y)} \right\rvert \\
+      & \leqslant \sum\limits_{n=1}^\infty \dfrac{\lvert x - y \rvert}{(2^n + x)(2^n + y)} \leqslant \sum\limits_{n=1}^\infty \dfrac{\lvert x - y \rvert}{4^n} \\
+      & \leqslant \lvert x - y \rvert,
+    \end{align*}
+    这便证明了 $f(x)$ 在 $[0, +\infty)$ 上的一致连续性.
+    \item $u_n'(x) = -\dfrac{1}{\left(2^n + x\right)^2},$ 那么在 $[0, +\infty)$ 上有 $\lvert u_n'(x) \rvert = \dfrac{1}{\left(2^n + x\right)^2} \leqslant \dfrac{1}{4^n},$ 同样由 Weierstra\ss 判别法可知函数项级数 $\sum\limits_{n=1}^\infty u_n'(x)$ 在 $[0, +\infty)$ 上一致收敛. 那么由函数项级数的逐项求导定理知 $f(x)$ 在 $[0, +\infty)$ 上可导, 且有
+    $$f'(x) = \sum\limits_{n=1}^\infty u_n'(x).$$
+    \item 任取闭区间 $[0, A] \subset [0, +\infty),$ 由一致收敛函数项级数的逐项积分定理有
+    $$\int_0^{A} f(x) \mathrm{d} x = \sum\limits_{n=1}^\infty \int_0^{A} \dfrac{1}{2^n + x} \mathrm{d} x = \sum\limits_{n=1}^\infty \ln \left( 1 + \dfrac{A}{2^n} \right) \geqslant \ln \left( 1 + \dfrac{A}{2} \right) \to +\infty, ~~ A \to +\infty,$$
+    于是, 反常积分 $\int_0^{+\infty} f(x) \mathrm{d} x := \lim\limits_{A \to +\infty} \int_0^{A} f(x) \mathrm{d} x$ 发散.
+  \end{enumerate}
+\end{solution}
+
+\begin{question}[points = 12]
+  \begin{enumerate}
+    \item 设 $f(x)$ 是闭区间 $[a, b]$ 上的有界函数, 请叙述由达布 (Darboux) 和给出的 $f(x)$ 在 $[a, b]$ 上 Riemann 可积的充要条件. (不需要证明)
+    \item 设函数列 $\{f_n(x)\}$ 的每一项 $f_n(x)$ 都是 $[a, b]$ 上 Riemann 可积的函数, 且在 $[a, b]$ 上一致收敛于函数 $f(x),$ 求证: $f(x)$ 也是 $[a, b]$ 区间上 Riemann 可积的函数, 并且有
+    $$\int_a^b f(x) \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) \mathrm{d} x.$$
+    \item 在第 (2) 问中, 设 $\{f_n(x)\}$ 在 $[a, b]$ 上点态收敛于函数 $f(x),$ 但不是一致收敛的, 并假设 $f(x)$ 在 $[a, b]$ 上 Riemann 可积, 其余条件保持不变, 请问积分和极限可交换次序的结论 $\int_a^b f(x) \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) \mathrm{d} x$ 是否仍然成立? 若是, 请给出证明; 若否, 请给出反例, 并添加一个你认为可以使原结论仍成立的条件 (除“$\{f_n(x)\}$ 在 $[a, b]$ 上一致收敛于 $f(x)$”之外的条件), 不需要证明.
+  \end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  \begin{enumerate}
+    \item 任取闭区间 $[a, b]$ 的一个划分 $P: a = x_0 < x_1 < \cdots < x_n = b,$ 记 $\Delta x_i = x_i - x_{i-1}, \Delta_i = [x_{i-1}, x_i], m_i = \inf\limits_{x\in \Delta_i} f(x), M_i = \sup\limits_{x\in \Delta_i} f(x).$ 对应于划分 $P$ 以及函数 $f$ 的达布大和, 达布小和分别定义为
+    \begin{align*}
+      S(f; P) & := \sum\limits_{i = 1}^n M_i \Delta x_i, \\
+      s(f; P) & := \sum\limits_{i = 1}^n m_i \Delta x_i.
+    \end{align*}
+    记 $\lambda(P) = \max\limits_{1\leqslant i \leqslant n} \Delta x_i,$ 那么有界函数 $f(x)$ 在 $[a, b]$ 上 Riemann 可积的充要条件为
+    $$\lim\limits_{\lambda(P) \to 0} S(f; P) =: \overline{\int}_a^b f(x) \mathrm{d} x = \underline{\int}_a^b f(x) \mathrm{d} x := \lim\limits_{\lambda(P) \to 0} s(f; P).$$
+    \item 由 $f_n(x)$ 在 $[a, b]$ 上 Riemann 可积知, $f_n(x)$ 在 $[a, b]$ 上有界. 设 $M_n > 0$ 为它的一个界. 又由 $\{f_n(x)\}$ 在 $[a, b]$ 上一致收敛于函数 $f(x)$ 知 $\forall \varepsilon > 0,$ 存在 $N(\varepsilon),$ 使得 $\forall n > N(\varepsilon),$ 以及 $\forall x \in [a, b],$ 有 $\lvert f(x) - f_n(x) \rvert < \varepsilon,$ 从而有
+    $$\lvert f(x) \rvert < \lvert f_n(x) \rvert + \varepsilon,$$
+    特别地有 $\lvert f(x) \rvert < \lvert f_{N(\varepsilon) + 1}(x) \rvert + \varepsilon \leqslant M_{N(\varepsilon) + 1} + \varepsilon,$ 故 $f(x)$ 有界.
+
+    另一方面, 可以由 $\lvert f(x) - f_n(x) \rvert < \varepsilon$ 知 $f_n(x) - \varepsilon < f(x) < f_n(x) +\varepsilon,$ 因此有
+    \begin{gather*}
+      \int_a^b (f_n(x) - \varepsilon) \mathrm{d} x = \overline{\int}_a^b (f_n(x) - \varepsilon) \mathrm{d} x \leqslant \overline{\int}_a^b f(x) \mathrm{d} x \leqslant \overline{\int}_a^b (f_n(x) + \varepsilon) \mathrm{d} x = \int_a^b (f_n(x) + \varepsilon) \mathrm{d} x, \\
+      \int_a^b (f_n(x) - \varepsilon) \mathrm{d} x = \underline{\int}_a^b (f_n(x) - \varepsilon) \mathrm{d} x \leqslant \underline{\int}_a^b f(x) \mathrm{d} x \leqslant \underline{\int}_a^b (f_n(x) + \varepsilon) \mathrm{d} x = \int_a^b (f_n(x) + \varepsilon) \mathrm{d} x,
+    \end{gather*}
+    于是有
+    $$0 \leqslant \overline{\int}_a^b f(x) \mathrm{d} x - \underline{\int}_a^b f(x) \mathrm{d} x \leqslant \int_a^b 2\varepsilon \mathrm{d} x = 2\varepsilon (b-a).$$
+    由于 $\varepsilon > 0$ 是任取的, 所以有 $\overline{\int}_a^b f(x) \mathrm{d} x - \underline{\int}_a^b f(x) \mathrm{d} x = 0,$ 即
+    $$\overline{\int}_a^b f(x) \mathrm{d} x = \underline{\int}_a^b f(x) \mathrm{d} x.$$
+    由第 (1) 问知 $f(x)$ Riemann 可积.
+
+    又由 $\lvert f(x) - f_n(x) \rvert < \varepsilon$ 知 $\int_a^b \lvert f(x) - f_n(x) \rvert ~ \mathrm{d} x < \varepsilon (b - a).$ 这表明了 $\int_a^b f(x) ~ \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) ~ \mathrm{d} x.$
+    \item 不一定成立. 反例可取为: 区间 $[a, b] = [0, 1],$ Riemann 可积函数列
+    $$f_n(x) = \begin{cases}
+    n^2, & x \in \left[ \dfrac{1}{5n}, \dfrac{1}{4n} \right], \\
+    0, & x \in \left[0, \dfrac{1}{5n} \right) \cup \left(\dfrac{1}{4n}, 1 \right]
+    \end{cases}$$
+    点态收敛到 $f(x) = 0,$ 但不是一致收敛. 有
+    $$\int_0^1 f(x) \mathrm{d} x = 0, ~~ \int_0^1 f(x) \mathrm{d} x = \dfrac{n}{20} \to +\infty ~ (n \to \infty).$$
+    分和极限可交换次序的结论仍然成立可以取的条件为 (不局限以下几个. 注意, 第 (2) 问中已有 $f$ 在 $[a, b]$ 上 Riemann 可积这个条件, 此问不需要再添加这个条件)
+    \begin{itemize}
+      \item 存在 $[a, b]$ 上 Riemann 可积的非负函数 $g(x),$ 使得 $\lvert f_n(x) \rvert \leqslant g(x)$ 对所有 $n$ 以及所有 $x \in [a, b]$ 都成立.
+      \item $\{f_n(x)\}$ 在 $[a, b]$ 上一致有界, 即存在正的实数 $M > 0,$ 使得 $\lvert f_n(x) \rvert \leqslant M$ 对所有 $n$ 以及所有 $x \in [a, b]$ 都成立.
+    \end{itemize}
+  \end{enumerate}
+\end{solution}
+
+\end{document}
