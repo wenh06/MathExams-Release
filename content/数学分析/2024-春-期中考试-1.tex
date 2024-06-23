@@ -460,6 +460,14 @@
       & \geqslant \dfrac{a_{n + 1}}{s_{n + k}} + \cdots + \dfrac{a_{n + k}}{s_{n + k}}= \dfrac{a_{n + 1} + \cdots + a_{n + k}}{s_{n + k}} = \dfrac{s_{n + k} - s_{n}}{s_{n + k}} = 1 - \dfrac{s_{n}}{s_{n + k}}.
     \end{align*}
     由于 $s_n$ 发散到无穷, 因此对于固定的 $n$ 有 $\lim\limits_{k \to \infty} \dfrac{s_{n}}{s_{n + k}} = 0,$ 因此存在 $k$ (与 $n$ 相关) 使得 $\dfrac{s_{n}}{s_{n + k}} < \dfrac{1}{2},$ 从而有 $c_{n + 1} + \cdots + c_{n + k} > 1 - \dfrac{1}{2} = \dfrac{1}{2}.$ 这就证明了级数 $\sum\limits_{n=1}^{\infty} c_n = \sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 是发散的.
+
+    另一种证明方法: 利用如下结论:
+    
+    设 $\sum\limits_{n=1}^\infty d_n$ 收敛, $\{ p_n \}_{n \in \mathbb{N}}$ 是一个单增且趋于正无穷的数列, 那么 $\lim\limits_{n\to\infty} \dfrac{p_1d_1 + \cdots + p_nd_n}{p_n} = 0.$
+
+    那么可以使用反证法, 假设 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 收敛, 那么可以利用上面的结论, 取 $d_n = \dfrac{a_n}{s_n}, p_n = s_n,$ 那么有
+    $$0 = \lim\limits_{n\to\infty} \dfrac{s_1 \dfrac{a_1}{s_1} + \cdots + s_n \dfrac{a_n}{s_n}}{s_n} = \lim\limits_{n\to\infty} \dfrac{s_n}{s_n} = 1,$$
+    从而产生矛盾.
     \item 记 $d_n = \dfrac{a_n}{s_n^2},$ 那么有
     $$0 < d_n = \dfrac{s_n - s_{n - 1}}{s_n^2} < \dfrac{s_n - s_{n - 1}}{s_n s_{n - 1}} = \dfrac{1}{s_{n - 1}} - \dfrac{1}{s_n}.$$
     以上式右端为通项的级数前 $n$ 项和为 $\dfrac{1}{s_1} - \dfrac{1}{s_{n + 1}} \to \dfrac{1}{s_1} = \dfrac{1}{a_1}$, 当 $n \to \infty.$ 由正项级数的比较定理知级数 $\sum\limits_{n=1}^{\infty} d_n = \sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n^2}$ 收敛.
