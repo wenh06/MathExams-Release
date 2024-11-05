@@ -7,133 +7,150 @@
 % \ShowAnswerfalse
 % \ShowAnswertrue
 
-
 \examsetup{
   page = {
-    size            = a4paper, 
-    show-columnline = true, 
-    foot-content    = {第;页（共~;页）}
-  }, 
+    size            = a4paper,
+    show-columnline = true,
+    foot-content    = {第~;~页~~共~;页\quad 数学分析II\quad 中国农业大学制}
+  },
   solution = {
-    show-answer = true, 
-    % blank-type = manual, 
-    blank-type = none, 
+    show-solution = show-stay,
+    % blank-type = manual,
+    blank-type = none,
     % blank-vsep = 120ex plus 1ex minus 1ex
     blank-vsep = 15cm
-  }, 
+  },
   fillin = {
-    no-answer-type = none, 
+    no-answer-type = none,
     show-answer = true
-  }, 
-  style/fullwidth-stop = catcode, 
+  },
+  style/fullwidth-stop = catcode,
   % sealline = {
-  %   show        = true, 
-  %   scope       = mod-2, 
-  %   circle-show = false, 
-  %   line-type   = solid, 
+  %   show        = true,
+  %   scope       = mod-2,
+  %   circle-show = false,
+  %   line-type   = solid,
   %   odd-info-content = {
-  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}}, 
-  %     {\heiti \zihao{4}准考证号} {\examsquare{9}}, 
-  %     {\heiti \zihao{4}考场号} {\examsquare{2}}, 
-  %     {\heiti \zihao{4}座位号} {\examsquare{2}}, 
-  %   }, 
-  %   odd-info-xshift = 12mm, 
-  %   text = {此卷只装订不密封}, 
-  %   text-width = 0.98\textheight, 
-  %   text-format  = \zihao{-3}\sffamily, 
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
+  %   },
+  %   odd-info-xshift = 12mm,
+  %   text = {此卷只装订不密封},
+  %   text-width = 0.98\textheight,
+  %   text-format  = \zihao{-3}\sffamily,
   %   text-xshift = 20mm
-  % }, 
-  question/show-points = true, 
+  % },
+  question/show-points = true,
   paren = {
     show-answer = true
-  }, 
+  },
   square = {
-    x-length = 1.8em, 
+    x-length = 1.8em,
     y-length = 1.6em
-  }
+  },
+  font = times
 }
 
 \ifShowAnswer
 \examsetup{
-  solution/show-answer = true, 
-  fillin/show-answer = true, 
+  solution/show-solution = show-stay,
+  fillin/show-answer = true,
   paren/show-answer = true,
   page/size = a3paper
 }
 \else
 \examsetup{
-  solution/show-answer = false, 
-  fillin/show-answer = false, 
+  solution/show-solution = hide,
+  fillin/show-answer = false,
   paren/show-answer = false,
-  page/size = a4paper
+  page/size = a4paper,
+  page/show-head = true,
+  page/head-content = {
+  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
+  }
+}
+\fi
+
+
+\ifShowAnswer
+% do nothing
+\else
+\AtEndPreamble{%
+\geometry{
+left=20mm,
+right=20mm,
+top=20mm,
+bottom=20mm,
+% includehead=true,
+% includefoot=true,
+% heightrounded,
+% showframe,% <--- just for debugging
+% verbose,% <--- just for debugging
+headsep=8pt
+}
 }
 \fi
 
 
 \title{
-\larger[2]
+\erhao
+\simli
 \ifUseImageTitle
 {\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
 \else
 中国农业大学\\
 \fi
 2023 $\sim*$ 2024学年春季学期\\
-\textbf{\uline{\hspace{0.5cm}数学分析II\hspace{0.5cm}}}课程期中考试试题
+\textbf{%
+% \uline{\hspace{1.5cm}数学分析II\hspace{1.5cm}}}
+\dunderline[-1pt]{1.2pt}{\hspace{1.5cm}数学分析II\hspace{1.5cm}}}
+课程期中考试试题
 }
-
-% \subject{\uline{数学分析II}}
-
 
 \begin{document}
 
-% \tableofcontents
-
-% \chapter{2021 年普通高等学校招生全国统一考试}
-
-% \information{
-%   姓名\underline{\hspace{6em}}, 
-%   座位号\underline{\hspace{15em}}
-% }
-% \warning{（在此卷上答题无效）}
-
-% \secret
-
 \maketitle
 
-% \begin{notice}
-%   \item 答题前, 先将自己的姓名、准考证号、考场号、座位号填写在试卷和答题卡上, 
-%     并将准考证号条形码粘贴在答题卡上的指定位置。
-%   \item 选择题的作答：每小题选出答案后, 用 2B 铅笔把答题卡上对应题目的答案标号涂黑。
-%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
-%   \item 填空题和解答题的作答：用黑色签字笔直接答在答题卡上对应的答题区域内。
-%     写在试卷、草稿纸和答题卡上的非答题区域均无效。
-%   \item 考试结束后, 请将本试卷和答题卡一并上交。
-% \end{notice}
-
 \ifShowAnswer
-\noindent \textbf{考生诚信承诺}\\
-1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
-2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
-\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
-}
-\else
 % do nothing
-\fi
+\else
+\vspace{-0.9cm}
 
-
-\noindent
-% 本试卷共 4 页, 22 题。
-全卷满分 100 分。考试用时 120 分钟。
-
-
+{
 \begin{table}[H]
+\sihao
 \centering
 \begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
 \hline
-题号 & 一 & 二 & 三 & 四 & 总分 \\[2pt] \hline
-得分 & & & & & \\ \hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
+分数 & & & & & \\[12pt] \hline
 \end{tabular}
 \end{table}
+}
+
+\vspace{-0.9cm}
+
+\begin{center}
+% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
+{\sihao （本试卷共~4~道大题）}
+\end{center}
+
+\vspace{-0.9cm}
+\begin{center}
+\textbf{\sihao 考生诚信承诺}
+\end{center}
+\vspace{-0.4cm}
+% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
+\noindent\begin{minipage}[t]{1.05\linewidth}
+{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+\end{minipage}
+
+\fi
 
 
 \section{%
@@ -211,16 +228,6 @@
   $\dfrac{2n}{n + 1}$ 单调有界, 所以根据 Abel 判别法, $\sum\limits_{n=1}^{\infty} \dfrac{2n}{n + 1} a_n$ 收敛. 其余的反例可统一取为 $a_n = (-1)^{n+1} \dfrac{1}{n^s}, 0 < s < \dfrac{1}{2}.$
 \end{solution}
 
-\ifShowAnswer
-% do nothing
-\else
-\noindent \textbf{考生诚信承诺}\\
-1. \textbf{本人清楚学校关于考试管理、考场规则、考试作弊处理的规定, 并严格遵照执行。}\\
-2. \textbf{本人承诺在考试过程中没有作弊行为, 所做试卷的内容真实可信。}\\[6pt]
-\textbf{学院：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 班级：\rule[-0.45mm]{2cm}{0.15mm} \hspace{0.5cm} 学号：\rule[-0.45mm]{3cm}{0.15mm} \hspace{0.5cm} 姓名：\rule[-0.45mm]{2cm}{0.15mm}
-}
-\fi
-
 \begin{question}
   设$p_n = 1 + a_n > 0$是一列正的实数, $n = 1, 2, \dots,$ 以下情况不可能发生的是 \paren[B]
 
@@ -239,7 +246,7 @@
     & = \lim\limits_{n\to\infty} \dfrac{a_n - a_n + \dfrac{a_n^2}{2} + o(a_n^2)}{a_n^2} = \dfrac{1}{2} \\
   \end{align*}
   于是由正项级数的比较定理, 正项级数 $\sum\limits_{n=1}^{\infty} b_n$ 与 $\sum\limits_{n=1}^{\infty} a_n$ 有相同的敛散性.
-  
+
   另一方面, 根据 $\sum\limits_{n=1}^{\infty} b_n = \sum\limits_{n=1}^{\infty} a_n - \log(1 + a_n)$ 知, 当 $\sum\limits_{n=1}^{\infty} b_n$ 收敛时, $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} \log(1 + a_n)$ 要么都收敛, 要么都发散；$\sum\limits_{n=1}^{\infty} b_n$ 发散时, $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} \log(1 + a_n)$ 要么都发散, 要么一个收敛一个发散. 总之, $\sum\limits_{n=1}^{\infty} b_n$ (与 $\sum\limits_{n=1}^{\infty} a_n^2$ 同敛散), $\sum\limits_{n=1}^{\infty} a_n,$ $\sum\limits_{n=1}^{\infty} \log(1 + a_n)$ (与 $\prod\limits_{n=1}^{\infty} (1 + a_n)$ 同敛散) 这三个数项级数, 要么都收敛, 要么都发散, 要么其中一个收敛, 另外两个发散.
 
   A 的例子：$a_n = 1$
@@ -370,7 +377,7 @@
 \end{solution}
 
 \begin{question}[points = 10]
-  设 $y = f(x)$ 和 $x = g(y)$ 是互逆的连续、非负、单调递增的函数, 并且满足 $f(0) = g(0) = 0.$ 
+  设 $y = f(x)$ 和 $x = g(y)$ 是互逆的连续、非负、单调递增的函数, 并且满足 $f(0) = g(0) = 0.$
   \begin{enumerate}
     \item 证明对任意 $x \geqslant 0,$ 有如下的等式成立：
     $$xf(x) = \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t.$$
@@ -387,7 +394,7 @@
   \begin{enumerate}
   \item 考虑闭区间 $[0, x],$ 那么函数 $f$ 在其上一致连续, 且黎曼可积. 类似地, 函数 $g$ 在闭区间 $[0, f(x)]$ 上一致连续且黎曼可积. 设
   $$P: ~ 0 = t_0 < t_1 < t_2 < \cdots < t_n = x$$
-  为 $[0, x]$ 的一个划分, 
+  为 $[0, x]$ 的一个划分,
   $$\widetilde{P}: ~ 0 = f(t_0) < f(t_1) < f(t_2) < \cdots < f(t_n) = f(x)$$
   为对应的 $[0, f(x)]$ 的划分, 那么当 $\lambda(P) \to 0$ 时, 有 $\lambda(\widetilde{P}) \to 0.$ 由于 $f, g$ 都黎曼可积, 所以有
   \begin{align*}
@@ -408,7 +415,7 @@
   \item 由于 $\dfrac{1}{p} + \dfrac{1}{q} = 1, p, q > 0,$ 所以 $(p - 1) (q - 1) = 1,$ 故 $f(t) = t^{p-1}$ 与 $g(t) = t^{q-1}$ 互为反函数, 于是根据第 (2) 问有
   $$xy \leqslant \int_0^x t^{p-1} \mathrm{d}t + \int_0^y t^{q-1} \mathrm{d}t = \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.$$
   \end{enumerate}
-  
+
 \end{solution}
 
 \begin{question}[points = 10]
@@ -462,7 +469,7 @@
     由于 $s_n$ 发散到无穷, 因此对于固定的 $n$ 有 $\lim\limits_{k \to \infty} \dfrac{s_{n}}{s_{n + k}} = 0,$ 因此存在 $k$ (与 $n$ 相关) 使得 $\dfrac{s_{n}}{s_{n + k}} < \dfrac{1}{2},$ 从而有 $c_{n + 1} + \cdots + c_{n + k} > 1 - \dfrac{1}{2} = \dfrac{1}{2}.$ 这就证明了级数 $\sum\limits_{n=1}^{\infty} c_n = \sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 是发散的.
 
     另一种证明方法: 利用如下结论:
-    
+
     设 $\sum\limits_{n=1}^\infty d_n$ 收敛, $\{ p_n \}_{n \in \mathbb{N}}$ 是一个单增且趋于正无穷的数列, 那么 $\lim\limits_{n\to\infty} \dfrac{p_1d_1 + \cdots + p_nd_n}{p_n} = 0.$
 
     那么可以使用反证法, 假设 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 收敛, 那么可以利用上面的结论, 取 $d_n = \dfrac{a_n}{s_n}, p_n = s_n,$ 那么有

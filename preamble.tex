@@ -9,6 +9,16 @@
 \stackMath
 
 \usepackage{pifont}
+% \usepackage{fontsize}
+
+\newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, Path=fonts/]
+\newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, Path=fonts/]
+\newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, Path=fonts/]
+\newCJKfontfamily\simsun{simsun.ttc}[Extension = .ttc, Path=fonts/]
+\newCJKfontfamily\simli{SIMLI.TTF}[Extension = .TTF, Path=fonts/]
+
+\setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf, Mapping = full-stop]{simsun.ttc}
+\setCJKsansfont[Path = fonts/, BoldFont = simhei.ttf, Mapping = full-stop]{simsun.ttc}
 
 \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
@@ -20,12 +30,24 @@
 \newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
 \newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
 \newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
-\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}
-\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoliuhao}{\fontsize{6.5pt}{\baselineskip}\selectfont}
+\newcommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}
+\newcommand{\bahao}{\fontsize{5pt}{\baselineskip}\selectfont}
 
 % \usepackage[fontsize=13pt]{fontsize}
 
 \newcommand*{\nroot}[2][2]{\sqrt[\leftroot{-3}\uproot{3}#1]{#2}}
+
+% \newcommand{\chemph}[1]{\CJKunderanysymbol[textformat=\bfseries, sep=0.1em]{0.2em}{\tiny$\triangle$}{#1}}
+
+\newcommand{\chemph}[2][$\triangle$]{\CJKunderanysymbol[textformat=\bfseries, sep=0.1em]{0.2em}{\tiny#1}{#2}}
+
+% https://tex.stackexchange.com/a/443445/163881
+% \dunderline[<offset of line top>]{<thickness>}{<content>}
+\newcommand\dunderline[3][-1pt]{{%
+\sbox0{#3}%
+\ooalign{\copy0\cr\rule[\dimexpr#1-#2\relax]{\wd0}{#2}}}}
 
 % 行内公式统一按照行间的样式
 \everymath{\displaystyle}

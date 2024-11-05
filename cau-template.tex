@@ -1,0 +1,376 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+\examsetup{
+  page = {
+    size            = a4paper,
+    show-columnline = true,
+    foot-content    = {第~;~页~~共~;页\quad 数学分析II\quad 中国农业大学制}
+  },
+  solution = {
+    show-solution = show-stay,
+    % blank-type = manual,
+    blank-type = none,
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  },
+  fillin = {
+    no-answer-type = none,
+    show-answer = true
+  },
+  style/fullwidth-stop = catcode,
+  % sealline = {
+  %   show        = true,
+  %   scope       = mod-2,
+  %   circle-show = false,
+  %   line-type   = solid,
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
+  %   },
+  %   odd-info-xshift = 12mm,
+  %   text = {此卷只装订不密封},
+  %   text-width = 0.98\textheight,
+  %   text-format  = \zihao{-3}\sffamily,
+  %   text-xshift = 20mm
+  % },
+  question/show-points = true,
+  paren = {
+    show-answer = true
+  },
+  square = {
+    x-length = 1.8em,
+    y-length = 1.6em
+  },
+  font = times
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-solution = show-stay,
+  fillin/show-answer = true,
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-solution = hide,
+  fillin/show-answer = false,
+  paren/show-answer = false,
+  page/size = a4paper,
+  page/show-head = true,
+  page/head-content = {
+  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
+  }
+}
+\fi
+
+
+\ifShowAnswer
+% do nothing
+\else
+\AtEndPreamble{%
+\geometry{
+left=20mm,
+right=20mm,
+top=20mm,
+bottom=20mm,
+% includehead=true,
+% includefoot=true,
+% heightrounded,
+% showframe,% <--- just for debugging
+% verbose,% <--- just for debugging
+headsep=8pt
+}
+}
+\fi
+
+
+\title{
+\erhao
+\simli
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2024 $\sim*$ 2025学年秋季学期\\
+\textbf{%
+% \uline{\hspace{1.5cm}数学分析II\hspace{1.5cm}}}
+\dunderline[-1pt]{1.2pt}{\hspace{1.5cm}数学分析II\hspace{1.5cm}}}
+课程期末考试试题
+}
+
+\begin{document}
+
+\maketitle
+
+\ifShowAnswer
+% do nothing
+\else
+\vspace{-0.9cm}
+
+{
+\begin{table}[H]
+\sihao
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
+分数 & & & & & \\[12pt] \hline
+\end{tabular}
+\end{table}
+}
+
+\vspace{-0.69cm}
+
+\begin{center}
+% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
+{\sihao （本试卷共~4~道大题）}
+\end{center}
+
+\vspace{-0.9cm}
+\begin{center}
+\textbf{\sihao 考生诚信承诺}
+\end{center}
+\vspace{-0.4cm}
+% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
+\noindent\begin{minipage}[t]{1.05\linewidth}
+{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+\end{minipage}
+
+\fi
+
+
+% \begin{xiaosihao}
+
+
+\section{%
+  选择题：本题共 5 小题, 每小题 4 分, 共 20 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+  待写 \paren[]
+
+  \begin{choices}
+    \item 待写
+    \item 待写
+    \item 待写
+    \item 待写
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \paren[]
+
+  \begin{choices}
+    \item 待写
+    \item 待写
+    \item 待写
+    \item 待写
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \paren[]
+
+  \begin{choices}
+    \item 待写
+    \item 待写
+    \item 待写
+    \item 待写
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \paren[]
+
+  \begin{choices}
+    \item 待写
+    \item 待写
+    \item 待写
+    \item 待写
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \paren[]
+
+  \begin{choices}
+    \item 待写
+    \item 待写
+    \item 待写
+    \item 待写
+  \end{choices}
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 4 分, 共 20 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+  待写 \fillin[].
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \fillin[].
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \fillin[].
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \fillin[].
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}
+  待写 \fillin[].
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+
+\section{计算题：本题共 2 小题, 共 12 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 6]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}[points = 6]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+
+\section{解答题：本题共 5 小题, 共 48 分。解答应写出文字说明或者证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 6]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}[points = 10]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}[points = 10]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}[points = 10]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+\begin{question}[points = 12]
+  待写
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+  待写
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}
