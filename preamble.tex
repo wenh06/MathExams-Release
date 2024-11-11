@@ -11,14 +11,30 @@
 \usepackage{pifont}
 % \usepackage{fontsize}
 
-\newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, Path=fonts/]
-\newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, Path=fonts/]
-\newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, Path=fonts/]
-\newCJKfontfamily\simsun{simsun.ttc}[Extension = .ttc, Path=fonts/]
+\newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simsun{simsun.ttc}[Extension = .ttc, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
 \newCJKfontfamily\simli{SIMLI.TTF}[Extension = .TTF, Path=fonts/]
 
-\setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf, Mapping = full-stop]{simsun.ttc}
-\setCJKsansfont[Path = fonts/, BoldFont = simhei.ttf, Mapping = full-stop]{simsun.ttc}
+\setCJKmainfont[Path = fonts/, AutoFakeBold=3.5, ItalicFont=simkai.ttf, Mapping = full-stop]{simsun.ttc}
+\setCJKsansfont[Path = fonts/, AutoFakeBold=3.5, Mapping = full-stop]{simhei.ttf}
+
+% \defaultfontfeatures{Path=fonts/, Mapping=tex-text}
+% \setCJKmainfont[AutoFakeBold=2.5, ItalicFont=simkai.ttf]{simsun.ttc}
+% \setCJKsansfont[AutoFakeBold=2.5]{simhei.ttf}
+% \setCJKmonofont{simfang.ttf}
+% \setCJKfamilyfont{zhsong}[AutoFakeBold=2.5]{simsun.ttc}
+% \setCJKfamilyfont{zhhei}{simhei.ttf}
+% \setCJKfamilyfont{zhfs}{simfang.ttf}
+% \setCJKfamilyfont{zhkai}{simkai.ttf}
+% \setCJKfamilyfont{zhli}{SIMLI.TTF}
+
+% \NewDocumentCommand\songti{}{\CJKfamily{zhsong}}
+% \NewDocumentCommand\heiti{}{\CJKfamily{zhhei}}
+% \NewDocumentCommand\fangsong{}{\CJKfamily{zhfs}}
+% \NewDocumentCommand\kaishu{}{\CJKfamily{zhkai}}
+% \NewDocumentCommand\lishu{}{\CJKfamily{zhli}}
 
 \newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
