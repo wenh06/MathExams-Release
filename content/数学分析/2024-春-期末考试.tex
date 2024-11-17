@@ -185,10 +185,10 @@ headsep=8pt
   设 $f: \mathbb{R}^n \to \mathbb{R}^m$ 是一个连续映射, 以下说法不正确的是 \paren[B]
 
   \begin{choices}
-    \item 若 $K \subset \mathbb{R}^n$是紧集, 则它的像集 $f(K)$ 必然也是 $\mathbb{R}^m$ 中的紧集
-    \item 若 $K \subset \mathbb{R}^n$是闭集, 则它的像集 $f(K)$ 必然也是 $\mathbb{R}^m$ 中的闭集
-    \item 若 $E \subset \mathbb{R}^m$是闭集, 则它的原像集 $f^{-1}(E)$ 必然也是 $\mathbb{R}^n$ 中的闭集
-    \item 若 $E \subset \mathbb{R}^m$是开集, 则它的原像集 $f^{-1}(E)$ 必然也是 $\mathbb{R}^n$ 中的开集
+    \item 若 $K \subset* \mathbb{R}^n$是紧集, 则它的像集 $f(K)$ 必然也是 $\mathbb{R}^m$ 中的紧集
+    \item 若 $K \subset* \mathbb{R}^n$是闭集, 则它的像集 $f(K)$ 必然也是 $\mathbb{R}^m$ 中的闭集
+    \item 若 $E \subset* \mathbb{R}^m$是闭集, 则它的原像集 $f^{-1}(E)$ 必然也是 $\mathbb{R}^n$ 中的闭集
+    \item 若 $E \subset* \mathbb{R}^m$是开集, 则它的原像集 $f^{-1}(E)$ 必然也是 $\mathbb{R}^n$ 中的开集
   \end{choices}
 \end{question}
 
@@ -496,14 +496,14 @@ headsep=8pt
 
 \begin{solution}
   Cantor 闭区域套定理: 设
-  $$D_1 \supset D_2 \supset \cdots \supset D_k \supset D_{k+1} \supset \cdots$$
+  $$D_1 \supset* D_2 \supset* \cdots \supset* D_k \supset* D_{k+1} \supset* \cdots$$
   为 $\mathbb{R}^n$ 中的闭集 (闭区域) 套, 且满足 $\lim\limits_{k \to \infty} \operatorname{diam} D_k = 0,$ 其中
   $$\operatorname{diam} D_k = \sup\limits_{x_1, x_2 \in D_k} \lVert x_1 - x_2 \rVert,$$
   那么存在唯一一点 $x \in \bigcap\limits_{k=1}^\infty D_k.$
 
   Cantor 闭区域套定理的证明: 首先证明 $x$ 的存在性, 即 $\bigcap\limits_{k=1}^{\infty} E_k \neq \emptyset.$
 
-  由于每个 $E_k$ 都是非空闭集, 于是可以取到点列 $x_k \in E_k.$ 由于对任意 $p \geqslant 1,$ 有 $E_{k+p} \subset E_k,$ 于是 $x_{k+p} \in E_{k+p} \subset E_k,$ 从而有 $d(x_k, x_{k+p}) \leqslant \operatorname{diam} E_k,$ 这表明 $\{ x_k \}_{k\in\mathbb{N}}$ 是 $\mathbb{R}^n$ 中的一个 Cauchy 列, 从而存在 $x \in \mathbb{R}^n,$ 使得 $\lim\limits_{k\to\infty} x_k = x.$
+  由于每个 $E_k$ 都是非空闭集, 于是可以取到点列 $x_k \in E_k.$ 由于对任意 $p \geqslant 1,$ 有 $E_{k+p} \subset* E_k,$ 于是 $x_{k+p} \in E_{k+p} \subset* E_k,$ 从而有 $d(x_k, x_{k+p}) \leqslant \operatorname{diam} E_k,$ 这表明 $\{ x_k \}_{k\in\mathbb{N}}$ 是 $\mathbb{R}^n$ 中的一个 Cauchy 列, 从而存在 $x \in \mathbb{R}^n,$ 使得 $\lim\limits_{k\to\infty} x_k = x.$
 
   由于对任意 $p \geqslant 1,$ 有 $x_{k+p} \in E_k,$ 那么 $x$ 是每个闭集 $E_k$ 的聚点, 从而 $x \in \overline{E}_k = E_k,$ 即 $x \in \bigcap\limits_{k=1}^{\infty} E_k.$
 
@@ -542,7 +542,7 @@ headsep=8pt
 
 \begin{solution}
   \begin{enumerate}
-    \item 由题设知幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 在 $x = 1$ 处收敛, 于是由幂级数的 Abel 第二定理知幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 在任意闭区间 $[a, b] \subset (-1, 1]$ 上一致收敛, 特别地在 $[0, 1]$ 上一致收敛, 从而和函数在 $[0, 1]$ 上连续.
+    \item 由题设知幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 在 $x = 1$ 处收敛, 于是由幂级数的 Abel 第二定理知幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 在任意闭区间 $[a, b] \subset* (-1, 1]$ 上一致收敛, 特别地在 $[0, 1]$ 上一致收敛, 从而和函数在 $[0, 1]$ 上连续.
     \item 由于 $\lim\limits_{n\to\infty} \sigma_n = A \in \mathbb{R}, A \neq 0,$ 所以当 $n$ 充分大时有
     $$\dfrac{\lvert A \rvert}{2} \leqslant \lvert \sigma_n \rvert \leqslant \dfrac{3\lvert A \rvert}{2},$$
     由夹逼准则知 $\lim\limits_{n\to\infty} \nroot[n]{\lvert \sigma_n \rvert} = 1.$ 另一方面, 有 $\lim\limits_{n\to\infty} \nroot[n]{n} = 1,$ 于是

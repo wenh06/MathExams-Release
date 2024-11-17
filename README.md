@@ -16,7 +16,7 @@
 xelatex main.tex && xelatex main.tex
 ```
 
-或者使用 `compile.py` 脚本（生成的文件在 [`build`](build) 目录下）：
+或者使用 [`compile.py`](compile.py) 脚本（生成的文件在 [`build`](build) 目录下）：
 
 ```bash
 python compile.py

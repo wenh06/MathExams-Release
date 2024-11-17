@@ -459,7 +459,7 @@ headsep=8pt
     \item 在 $D = (-1, 1)$ 中取一个数列 $x_n = 1 - \dfrac{1}{n},$ 那么
     $$u_n(x_n) = n \left( 1 - \dfrac{1}{n} + \dfrac{1}{n} \right)^n = n,$$
     $u_n(x_n)$ 不一致收敛于 $0,$ 故函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在 $D$ 上一致收敛的必要性条件不满足, 因此 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在 $D$ 上不一致收敛.
-    \item 任取闭区间 $[a, b] \subset D = (-1, 1),$ 那么可取实数 $r$ 满足 $\max\{\lvert a \rvert, \lvert b \rvert\} < r < 1.$ 于是 $\forall ~ x \in [a, b],$ 有
+    \item 任取闭区间 $[a, b] \subset* D = (-1, 1),$ 那么可取实数 $r$ 满足 $\max\{\lvert a \rvert, \lvert b \rvert\} < r < 1.$ 于是 $\forall ~ x \in [a, b],$ 有
     $$\lvert u_n(x) \rvert = n \left\lvert x + \dfrac{1}{n} \right\rvert^n < n \left( r + \dfrac{1}{n} \right)^n.$$
     在第 (1) 问中已经看到, 正项级数 $\sum\limits_{n=1}^{\infty} n \left( r + \dfrac{1}{n} \right)^n$ 是收敛的, 于是根据 Weierstra\ss 判别法, 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在闭区间 $[a, b]$ 上一致收敛, 从而在收敛域 $D = (-1, 1)$ 上内闭一致收敛.
   \end{enumerate}
@@ -491,7 +491,7 @@ headsep=8pt
     这便证明了 $f(x)$ 在 $[0, +\infty)$ 上的一致连续性.
     \item $u_n'(x) = -\dfrac{1}{\left(2^n + x\right)^2},$ 那么在 $[0, +\infty)$ 上有 $\lvert u_n'(x) \rvert = \dfrac{1}{\left(2^n + x\right)^2} \leqslant \dfrac{1}{4^n},$ 同样由 Weierstra\ss 判别法可知函数项级数 $\sum\limits_{n=1}^\infty u_n'(x)$ 在 $[0, +\infty)$ 上一致收敛. 那么由函数项级数的逐项求导定理知 $f(x)$ 在 $[0, +\infty)$ 上可导, 且有
     $$f'(x) = \sum\limits_{n=1}^\infty u_n'(x).$$
-    \item 任取闭区间 $[0, A] \subset [0, +\infty),$ 由一致收敛函数项级数的逐项积分定理有
+    \item 任取闭区间 $[0, A] \subset* [0, +\infty),$ 由一致收敛函数项级数的逐项积分定理有
     $$\int_0^{A} f(x) \mathrm{d} x = \sum\limits_{n=1}^\infty \int_0^{A} \dfrac{1}{2^n + x} \mathrm{d} x = \sum\limits_{n=1}^\infty \ln \left( 1 + \dfrac{A}{2^n} \right) \geqslant \ln \left( 1 + \dfrac{A}{2} \right) \to +\infty, ~~ A \to +\infty,$$
     于是, 反常积分 $\int_0^{+\infty} f(x) \mathrm{d} x := \lim\limits_{A \to +\infty} \int_0^{A} f(x) \mathrm{d} x$ 发散.
   \end{enumerate}
@@ -536,7 +536,7 @@ headsep=8pt
     \item 不一定成立. 反例可取为: 区间 $[a, b] = [0, 1],$ Riemann 可积函数列
     $$f_n(x) = \begin{cases}
     n^2, & x \in \left[ \dfrac{1}{5n}, \dfrac{1}{4n} \right], \\
-    0, & x \in \left[0, \dfrac{1}{5n} \right) \cup \left(\dfrac{1}{4n}, 1 \right]
+    0, & x \in \left[0, \dfrac{1}{5n} \right) \cup* \left(\dfrac{1}{4n}, 1 \right]
     \end{cases}$$
     点态收敛到 $f(x) = 0,$ 但不是一致收敛. 有
     $$\int_0^1 f(x) \mathrm{d} x = 0, ~~ \int_0^1 f(x) \mathrm{d} x = \dfrac{n}{20} \to +\infty ~ (n \to \infty).$$
