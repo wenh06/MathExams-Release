@@ -11,6 +11,13 @@
 \usepackage{pifont}
 % \usepackage{fontsize}
 
+% change default CJK font features
+\defaultCJKfontfeatures{
+Script=CJK,
+% Mapping=fullwidth-stop
+Mapping=full-stop
+}
+
 \newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
 \newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
 \newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
