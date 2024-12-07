@@ -1,0 +1,655 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+\examsetup{
+  page = {
+    size            = a4paper,
+    show-columnline = true,
+    foot-content    = {第~;~页~~共~;页\quad 微积分I\quad 中国农业大学制}
+  },
+  solution = {
+    show-solution = show-stay,
+    % blank-type = manual,
+    blank-type = none,
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  },
+  fillin = {
+    no-answer-type = none,
+    show-answer = true
+  },
+  % style/fullwidth-stop = catcode,
+  style/fullwidth-stop = false,
+  % sealline = {
+  %   show        = true,
+  %   scope       = mod-2,
+  %   circle-show = false,
+  %   line-type   = solid,
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
+  %   },
+  %   odd-info-xshift = 12mm,
+  %   text = {此卷只装订不密封},
+  %   text-width = 0.98\textheight,
+  %   text-format  = \zihao{-3}\sffamily,
+  %   text-xshift = 20mm
+  % },
+  question/show-points = true,
+  paren = {
+    show-answer = true
+  },
+  square = {
+    x-length = 1.8em,
+    y-length = 1.6em
+  },
+  font = times
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-solution = show-stay,
+  fillin/show-answer = true,
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-solution = hide,
+  fillin/show-answer = false,
+  paren/show-answer = false,
+  page/size = a4paper,
+  page/show-head = true,
+  page/head-content = {
+  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
+  }
+}
+\fi
+
+
+\ifShowAnswer
+% do nothing
+\else
+\AtEndPreamble{%
+\geometry{
+left=20mm,
+right=20mm,
+top=20mm,
+bottom=20mm,
+% includehead=true,
+% includefoot=true,
+% heightrounded,
+% showframe,% <--- just for debugging
+% verbose,% <--- just for debugging
+headsep=8pt
+}
+}
+\fi
+
+
+\title{
+\erhao
+\simli
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2024\textasciitilde 2025学年秋季学期\\
+\textbf{%
+% \uline{\hspace{1.5cm}微积分I\hspace{1.5cm}}}
+\dunderline[-1pt]{0.9pt}{\hspace{0.5cm}微积分I\hspace{0.5cm}}}
+课程考试试题
+}
+
+\begin{document}
+
+\maketitle
+
+\ifShowAnswer
+% do nothing
+\else
+\vspace{-1.1cm}
+
+{
+\begin{table}[H]
+\sihao
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
+分数 & & & & & \\[12pt] \hline
+\end{tabular}
+\end{table}
+}
+
+\vspace{-1.1cm}
+
+\begin{center}
+% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
+{\sihao （本试卷共~4~道大题）}
+\end{center}
+
+\vspace{-1.1cm}
+\begin{center}
+\textbf{\sihao 考生诚信承诺}
+\end{center}
+\vspace{-0.5cm}
+% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
+\noindent\begin{minipage}[t]{1.05\linewidth}
+{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+\end{minipage}
+
+\fi
+
+
+% \begin{xiaosihao}
+
+\section{%
+  选择题：本题共 5 小题, 每小题 3 分, 共 15 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+\begin{question}
+设数列 $\{x_n\}, \{y_n\}, \{z_n\}$ 满足 $y_n \leqslant x_n < z_n$ 对所有 $n \in \mathbb{N}$ 成立, 并且 $\{y_n\}$ 单调递增, $\{z_n\}$单调递减, 那么以下情况\chemph{不可能}发生的是 \paren[D]
+
+\begin{choices}
+\item $\lim\limits_{n\to\infty} y_n = \lim\limits_{n\to\infty} x_n = \lim\limits_{n\to\infty} z_n = a,$ $a$ 为某个实数.
+\item $\lim\limits_{n\to\infty} y_n = a, \lim\limits_{n\to\infty} x_n = b, \lim\limits_{n\to\infty} z_n = c,$ $a < b < c$ 为三个不同的实数.
+\item $\lim\limits_{n\to\infty} y_n = a, \lim\limits_{n\to\infty} z_n = c,$ $a < c$ 为两个不同的实数, $\{x_n\}$ 发散.
+\item $\lim\limits_{n\to\infty} x_n = a,$ $a$ 为某个实数, $\{y_n\}, \{z_n\}$ 都发散.
+\end{choices}
+\end{question}
+
+\begin{solution}
+对任意 $n$ 有 $y_1 \leqslant y_n < z_n \leqslant z_1,$ 那么由单调有界收敛定理, 数列 $\{y_n\}, \{z_n\}$ 都有极限, 分别记为 $a, c.$ 若 $a = c$ 则由夹逼定理知 $\{x_n\}$ 也有极限, 且极限为 $a.$ 若 $a < c,$ 则 $\{x_n\}$ 可能收敛到闭区间 $[a, c]$ 中的任何一个值, 也有可能是发散的.
+\end{solution}
+
+
+\begin{question}
+设 $f(x)$ 是定义在闭区间 $[a, b]$ 上的实值函数, $a < b.$ 那么以下说法\chemph{正确}的是 \paren[A]
+
+\begin{choices}
+  \item 若 $f(x)$ 在闭区间 $[a, b]$ 上可导, 那么 $f(x)$ 在闭区间 $[a, b]$ 上可积.
+  \item 若 $f(x)$ 在开区间 $(a, b)$ 上可导, 那么 $f(x)$ 在闭区间 $[a, b]$ 上连续.
+  \item 若 $f(x)$ 在闭区间 $[a, b]$ 上可积, 那么 $f(x)$ 在开区间 $(a, b)$ 上连续.
+  \item 若 $f(x)$ 在开区间 $(a, b)$ 上连续, 那么 $f(x)$ 在开区间 $(a, b)$ 上可导.
+\end{choices}
+\end{question}
+
+\begin{solution}
+B: 函数在端点 $a, b$ 处可能不连续.
+
+C: 函数可积不能推出连续.
+
+D: 函数连续不能推出可导.
+
+这题原本 A 选项是``若 $f(x)$ 在开区间 $(a, b)$ 上可导, 那么 $f(x)$ 在闭区间 $[a, b]$ 上可积'', 这个命题是错误的, 反例如下:
+$$
+f(x) = \begin{cases}
+0, & x = 0, \\
+\frac{1}{x}, & 0 < x \leqslant 1.
+\end{cases}
+$$
+\end{solution}
+
+
+\begin{question}
+以下函数哪一个\chemph{不是}周期函数 \paren[B]
+
+\begin{choices}
+  \item $f(x) = e^{\sin x}$
+  \item $f(x) = \sin x + \cos \pi x$
+  % \item 狄利克雷函数 $D(x) = \begin{cases} 1, & x ~ \text{是有理数}, \\ 0, & x ~ \text{是无理数} \end{cases}$
+  \item 常值函数 $f(x) = 1$
+  \item $\displaystyle g(x) = f'(x),$ 其中 $f(x)$ 是 $\mathbb{R}$ 上某个处处可导的周期函数
+\end{choices}
+\end{question}
+
+\begin{solution}
+容易直接验证得到 A 的周期为 $2k\pi, k \neq 0,$ C 的周期为任意非零实数.
+
+这题 C 选线原本是狄利克雷函数 $D(x) = \begin{cases} 1, & x ~ \text{是有理数}, \\ 0, & x ~ \text{是无理数} \end{cases},$ 这也是一个周期函数, 其周期是任意非零有理数.
+
+对于 B, 一般地对于两个周期函数 $f(x), g(x),$ 设其周期分别为 $T_1, T_2,$ 若 $\displaystyle \dfrac{T_1}{T_2} \not\in \mathbb{Q},$ 则 $f(x) + g(x)$ 不是周期函数.
+
+D 可直接通过定义得:
+$$f'(x + T) = \lim_{h\to 0} \dfrac{f(x+T+h) - f(x+T)}{h} = \lim_{h\to 0} \dfrac{f(x+h) - f(x)}{h} = f'(x).$$
+\end{solution}
+
+
+\begin{question}
+函数 $f(x) = x^{\frac{1}{x}}$ 在 $(0, +\infty)$ 上的最大值等于 \paren[B]
+
+\begin{choices}
+  \item $1$
+  \item $e^{\frac{1}{e}}$
+  \item $2\sqrt{2}$
+  \item $f(x)$ 在 $(0, +\infty)$ 上没有最大值
+\end{choices}
+\end{question}
+
+\begin{solution}
+  可算得 $\displaystyle f'(x) = \dfrac{1 - \ln x}{x^2} x^{\frac{1}{x}}.$ 那么当 $0 < x < e$ 时 $f'(x) > 0;$ 当 $x > e$ 时 $f'(x) < 0.$ 故 $x = e$ 是 $f(x)$ 在 $(0, +\infty)$ 上的唯一极大值点, 从而在这点取到最大值 $f(e) = e^{\frac{1}{e}}.$
+\end{solution}
+
+
+% \begin{question}
+%   设 $f(x)$ 是定义在 $\mathbb{R}$ 上的连续函数, $F(x)$ 是 $f(x)$ 的一个原函数, 以下说法\chemph{正确}的是 \paren[D]
+
+%   \begin{choices}
+%       \item 当 $f(x)$ 是单调增函数时, $F(x)$ 必是单调增函数.
+%       \item 当 $f(x)$ 是周期函数时, $F(x)$ 必是周期函数.
+%       \item 当 $f(x)$ 是偶函数时, $F(x)$ 必是奇函数.
+%       \item 当 $f(x)$ 是奇函数时, $F(x)$ 必是偶函数.
+%   \end{choices}
+% \end{question}
+
+% \begin{solution}
+% A 的反例: 只要 $f(x)$ 取了负值即是反例, 例如 $f(x) = -1 + e^x,$ $F(x) = -x + e^x.$
+
+% B 的反例: $f(x) = 1,$ $F(x) = x.$
+
+% 对于 C, D, 有
+% \begin{align*}
+% F(-x) & = \int_0^{-x} f(t) ~ \mathrm{d}t + C = \int_0^{x} f(-t) ~ \mathrm{d}(-t) + C \\
+% & = \begin{cases}
+% \int_0^{x} f(t) ~ \mathrm{d}t + C, & f ~ \text{是奇函数}, \\
+% -\int_0^{x} f(t) ~ \mathrm{d}t + C, & f ~ \text{是偶函数}.
+% \end{cases} \\
+% & = \begin{cases}
+% F(x), & f ~ \text{是奇函数}, \\
+% -F(x) + 2C, & f ~ \text{是偶函数}.
+% \end{cases}
+% \end{align*}
+% \end{solution}
+
+
+\begin{question}
+  $y = e^{\sin \frac{1}{x}}$ 的微分 $\mathrm{d} y =$ \paren[D]
+
+  \begin{choices}
+      \item $e^{\cos \frac{1}{x}} \mathrm{d} x$
+      \item $e^{\sin \frac{1}{x}} \cos \frac{1}{x} \mathrm{d} x$
+      \item $-e^{\cos \frac{1}{x}} \frac{1}{x^2} \mathrm{d} x$
+      \item $-e^{\sin \frac{1}{x}} \frac{1}{x^2} \cos \frac{1}{x} \mathrm{d} x$
+  \end{choices}
+\end{question}
+
+\begin{solution}
+直接由复合函数求导的链式法则
+$$
+\mathrm{d} \left( e^{\sin \frac{1}{x}} \right) = e^{\sin \frac{1}{x}} \mathrm{d} \left( \sin \frac{1}{x} \right) = e^{\sin \frac{1}{x}} \cos \frac{1}{x} \mathrm{d} \left( \frac{1}{x} \right) = -e^{\sin \frac{1}{x}} \frac{1}{x^2} \cos \frac{1}{x} \mathrm{d} x.
+$$
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 3 分, 共 15 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}
+计算定积分的值 $\int_{1}^{2} \sqrt{4 - x^2} ~ \mathrm{d} x = $ \fillin[$\dfrac{2\pi}{3} - \dfrac{\sqrt{3}}{2}$]
+\end{question}
+
+\begin{solution}
+这个定积分是以原点为圆心, $2$ 为半径的圆在第一象限 $0 - 60^\circ$ 扇形的面积 $\dfrac{60}{360} \cdot \pi \cdot 2^2,$ 减去相应直角三角形面积 $\dfrac{1}{2} \cdot \sqrt{3} \cdot 1.$
+
+这题也可以利用 Newton-Leibniz 公式, 先求原函数
+\begin{align*}
+\int \sqrt{4 - x^2} ~ \mathrm{d} x & = x \sqrt{4 - x^2} - \int x ~ \mathrm{d} \sqrt{4 - x^2} = x \sqrt{4 - x^2} - \int x \dfrac{-2x}{2\sqrt{4 - x^2}} ~ \mathrm{d} x \\
+& = x \sqrt{4 - x^2} + \int \dfrac{x^2}{\sqrt{4 - x^2}} ~ \mathrm{d} x = x \sqrt{4 - x^2} - \int \sqrt{4 - x^2} ~ \mathrm{d} x + \int  \dfrac{4}{\sqrt{4 - x^2}} ~ \mathrm{d} x,
+\end{align*}
+得 $\int \sqrt{4 - x^2} ~ \mathrm{d} x = \dfrac{x \sqrt{4 - x^2}}{2} + 2 \arcsin \dfrac{x}{2} + C,$ 再代入积分上下限相减.
+\end{solution}
+
+
+\begin{question}
+  设 $n$ 为正整数, 计算定积分的值 $\int_{-\pi/2}^{\pi/2} \sin^{2n+1} x \mathrm{d} x = $ \fillin[$0$]
+\end{question}
+
+\begin{solution}
+  直接利用奇函数在关于原点对称的闭区间上积分等于零这一性质.
+\end{solution}
+
+
+\begin{question}
+  计算不定积分 $\displaystyle \int \dfrac{\mathrm{d}x}{(x^2+1) \arctan x} =$ \fillin[$\ln\lvert \arctan x \rvert + C$]
+\end{question}
+
+\begin{solution}
+  $\displaystyle \int \dfrac{\mathrm{d}x}{(x^2+1) \arctan x} = \int \dfrac{\mathrm{d} (\arctan x)}{\arctan x} = \ln\lvert \arctan x \rvert + C.$
+\end{solution}
+
+
+\begin{question}
+  由曲线 $y = x^3$ 和 $y = \sqrt[3]{x}$ 围成的区域面积等于 \fillin[$1$]
+\end{question}
+
+\begin{solution}
+  曲线 $y = x^3$ 和 $y = \sqrt[3]{x}$ 的交点为 $(-1, -1), (0, 0), (1, 1),$ 所围成的图形在第一和第三象限中是对称的, 所以面积
+  $$S = 2\int_0^1 (\sqrt[3]{x} - x^3) ~ \mathrm{d}x = 2 \left. \left(\dfrac{3}{4}x^{\frac{4}{3}} - \dfrac{x^4}{4} \right) \right|_0^1 = 1.$$
+
+  这题写 $1/2$ 的可以考虑给 1 分.
+\end{solution}
+
+
+% \begin{question}
+%   设 $f(x) = e^{3x-x^2},$ 则 $f(x)$ 在 $x = 1$ 处带皮亚诺余项的泰勒公式 (展开到 $(x-1)^3$ 即可) \fillin[$e^2 \left( 1 + (x-1) - \frac{1}{2}(x-1)^2 - \frac{5}{6}(x-1)^3 \right) + o((x-1)^3)$]
+% \end{question}
+
+% \begin{solution}
+% \begin{align*}
+%     f(x) & = e^{3x-x^2} = e^{2 + (x-1) - (x-1)^2} \\
+%     & = e^2 \left( 1 + \left[(x-1) - (x-1)^2\right] + \dfrac{\left[(x-1) - (x-1)^2\right]^2}{2!} + \dfrac{\left[(x-1) - (x-1)^2\right]^3}{3!} \right) + o((x-1)^3) \\
+%     & = e^2 \left( 1 + (x-1) - \frac{1}{2}(x-1)^2 - \frac{5}{6}(x-1)^3 \right) + o((x-1)^3)
+% \end{align*}
+% \end{solution}
+
+
+\begin{question}
+  函数 $\dfrac{e^{x}}{1-x}$ 带皮亚诺余项的麦克劳林展开式为 (展开到 $x^3$ 即可) \fillin[$1 + 2x + \dfrac{5}{2} x^2 + \dfrac{8}{3} x^3 + o(x^3)$]
+\end{question}
+
+\begin{solution}
+$e^{x}$ 的麦克劳林展开式为
+$$1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + o(x^3),$$
+$\dfrac{1}{1-x}$ 的麦克劳林展开式为
+$$1 + x + x^2 + x^3 + o(x^3),$$
+所以 $\dfrac{e^{x}}{1-x}$ 的麦克劳林展开式为
+\begin{equation*}
+(1 + x + \dfrac{x^2}{2} + \dfrac{x^3}{6} + o(x^3)) \cdot (1 + x + x^2 + x^3 + o(x^3)) = 1 + 2x + \dfrac{5}{2} x^2 + \dfrac{8}{3} x^3 + o(x^3)
+\end{equation*}
+\end{solution}
+
+\section{计算题：本题共 4 小题, 共 26 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \begin{question}[points = 4]
+% 设 $y = (x + 1)^{\ln x},$ 计算导数 $y'.$
+
+% % \noindent\scoringbox
+% \end{question}
+
+% \begin{solution}
+% 对 $y = (x + 1)^{\ln x}$ 两边取对数, 有 $\ln y = \ln x \cdot \ln(x + 1)$. \score{1}
+% 两边同时对 $x$ 求导, 得 $\displaystyle \dfrac{y'}{y} = \dfrac{\ln(x + 1)}{x} + \dfrac{\ln x}{x + 1},$ \score{2}
+% 再将 $y = (x + 1)^{\ln x}$ 代入得 $y' = (x + 1)^{\ln x} \left( \dfrac{\ln(x + 1)}{x} + \dfrac{\ln x}{x + 1} \right).$ \score{1}
+% \end{solution}
+
+
+\begin{question}[points = 8]
+设 $y = xe^{-x},$ 计算 $y$ 的一阶导函数 $y',$ 以及二阶导函数 $y''.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+$y' = (xe^{-x})' = e^{-x} - xe^{-x}$ \score{4}
+
+$y'' = (e^{-x} - xe^{-x})' = -e^{-x} - (e^{-x} - xe^{-x}) = -2e^{-x} + xe^{-x}$ \score{4}
+\end{solution}
+
+
+\begin{question}[points = 6]
+求由方程 $\sqrt{x} + \sqrt{y} = 2$ 给出的隐函数的导函数 $\displaystyle \dfrac{\mathrm{d}y}{\mathrm{d}x}.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+对 $x$ 微分得
+\begin{equation*}
+\dfrac{\mathrm{d}x}{2\sqrt{x}} + \dfrac{\mathrm{d}y}{2\sqrt{y}} = 0, \score{3}
+\end{equation*}
+所以
+\begin{equation*}
+\dfrac{\mathrm{d}y}{\mathrm{d}x} = -\sqrt{\dfrac{y}{x}}, ~ x > 0, y > 0. \score{3}
+\end{equation*}
+\end{solution}
+
+
+\begin{question}[points = 6]
+设 $\displaystyle f(x) = \int_{-x^2}^{e^{\cos x}} \dfrac{1}{\sqrt{1 + t^2}} ~ \mathrm{d}t,$ 计算导数 $f'(x).$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+一般地, 对于函数 $\displaystyle f(x) = \int_{h_2(x)}^{h_1(x)} \varphi(t) ~ \mathrm{d}t,$ 它的导数
+\begin{equation*}
+f'(x) = \varphi(h_1(x)) \cdot h_1'(x) - \varphi(h_2(x)) \cdot h_2'(x). \score{2}
+\end{equation*}
+所以, 对于 $\displaystyle f(x) = \int_{-x^2}^{e^{\cos x}} \dfrac{1}{\sqrt{1 + t^2}} ~ \mathrm{d}t,$ 有
+\begin{align*}
+f'(x) & = \dfrac{1}{\sqrt{1 + (e^{\cos x})^2}}(e^{\cos x})' - \dfrac{1}{\sqrt{1 + (-x^2)^2}} (-x^2)' \score{2} \\
+& = \dfrac{-\sin x \cdot e^{\cos x}}{\sqrt{1 + e^{2\cos x}}} - \dfrac{-2x}{\sqrt{1 + x^4}}. \score{2}
+\end{align*}
+\end{solution}
+
+
+\begin{question}[points = 6]
+设函数 $f(x) = \int_0^x \lvert \cos t \rvert \mathrm{d} t,$ 计算极限 $\lim\limits_{x\to+\infty} \dfrac{f(x)}{x}.$\newline
+(\chemph{提示}: 考察函数 $\lvert \cos t \rvert$ 在形如 $[k\pi, (k+1)\pi],$ $k \in \mathbb{N},$ 的区间上的积分值)
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+对任意非负整数 $k,$ $\int_{k\pi}^{(k+1)\pi} \lvert \cos t \rvert ~ \mathrm{d} t = 2.$ \score{1}
+令 $n = \left[ \dfrac{x}{\pi} \right],$ 那么
+\begin{equation*}
+2n = \int_0^{n\pi} \lvert \cos t \rvert \mathrm{d} t \leqslant \int_0^x \lvert \cos t \rvert \mathrm{d} t \leqslant \int_0^{(n+1)\pi} \lvert \cos t \rvert \mathrm{d} t = 2(n+1). \score{2}
+\end{equation*}
+那么在区间 $[n\pi, (n+1)\pi]$ 上有
+\begin{equation*}
+\dfrac{2n}{(n+1)\pi} \leqslant \dfrac{\int_0^x \lvert \cos t \rvert \mathrm{d} t}{x} \leqslant \dfrac{2(n+1)}{n\pi}. \score{2}
+\end{equation*}
+由夹逼准则知
+\begin{equation*}
+\lim\limits_{x\to+\infty} \dfrac{f(x)}{x} = \lim\limits_{x\to+\infty} \dfrac{\int_0^x \lvert \cos t \rvert \mathrm{d} t}{x} = \dfrac{2}{\pi}. \score{1}
+\end{equation*}
+\end{solution}
+
+
+% \begin{question}[points = 8]
+% 计算广义积分 $\displaystyle \int_0^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)}.$
+
+% % \noindent\scoringbox
+% \end{question}
+
+% \begin{solution}
+% 由于 $0 \leqslant \dfrac{1}{(1 + x^2)(1 + x^a)} \leqslant \dfrac{1}{1 + x^2},$ 而 $\displaystyle \int_0^{+\infty} \dfrac{\mathrm{d} x}{1 + x^2} = \dfrac{\pi}{2}$ 收敛, 由比较判别法知原积分收敛. \score{1}
+
+% 那么有
+% \begin{align*}
+% \int_0^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} & = \int_0^1 \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)}  \score{2} \\
+% & = \int_{+\infty}^1 \dfrac{\mathrm{d} \frac{1}{x}}{(1 + \frac{1}{x^2})(1 + \frac{1}{x^a})} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)}  \score{2} \\
+% & = -\int_1^{+\infty} \dfrac{\mathrm{d} \frac{1}{x}}{(1 + \frac{1}{x^2})(1 + \frac{1}{x^a})} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)} \\
+% & = \int_1^{+\infty} \dfrac{x^a \mathrm{d} x}{(1 + x^2)(1 + x^a)} + \int_1^{+\infty} \dfrac{\mathrm{d} x}{(1 + x^2)(1 + x^a)}  \score{2} \\
+% & = \int_1^{+\infty} \dfrac{(1 + x^a) \mathrm{d} x}{(1 + x^2)(1 + x^a)} \\
+% & = \int_1^{+\infty} \dfrac{\mathrm{d} x}{1 + x^2} \\
+% & = \dfrac{\pi}{2} - \arctan 1 \\
+% & = \dfrac{\pi}{4}.  \score{1}
+% \end{align*}
+
+% \end{solution}
+
+\section{解答题：本题共 5 小题, 共 44 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
+
+\examsetup{
+  question/index = 1
+}
+
+
+\begin{question}[points = 8]
+设 $\displaystyle f(x) = \begin{cases}
+  e^{-\frac{1}{x^2}}, & x \neq 0, \\
+  a, & x = 0.
+\end{cases}$ 若 $f(x)$ 是 $\mathbb{R}$ 上处处连续的函数, 请确定 $a$ 的取值. 进一步, 请判断此时 $f(x)$ 是否是 $\mathbb{R}$ 上处处可导的函数, \chemph{并证明你的结论}.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+$e^{-\frac{1}{x^2}}$ 是 $\mathbb{R}^*$ 上的初等函数, 在它的定义区间上连续, 所以要使 $f(x)$ 在 $\mathbb{R}$ 上处处连续, 只要 $\lim_{x \to 0} f(x) = f(0) = a$ 即可. \score{1}
+由于$\displaystyle \lim_{x \to 0} e^{-\frac{1}{x^2}} = 0,$ \score{2}
+所以 $a = 0.$ \score{1}
+
+此时, $f(x)$ 是 $\mathbb{R}$ 上处处可导的函数. \score{2}
+只要验证 $f(x)$ 是否在 $x = 0$ 处可导即可. 依定义有
+\begin{align*}
+f'(0) & = \lim_{x \to 0} \dfrac{f(x) - f(0)}{x} = \lim_{x \to 0} \dfrac{e^{-\frac{1}{x^2}}}{x} \\
+(\text{令 $t = \frac{1}{x}$}) & = \lim_{t \to \infty} \dfrac{t}{e^{t^2}} = 0, \score{2}
+\end{align*}
+所以 $f(x)$ 在 $x = 0$ 处可导, 且 $f'(0) = 0.$
+\end{solution}
+
+
+% \begin{question}[points = 8]
+% 设函数 $f(x)$ 是开区间 $I = (a_0, b_0)$ 上的函数且处处可导. 设闭区间 $[a, b] \subset* I$ 包含于该开区间, 即 $a_0 < a < b < b_0.$ 请证明 $f(x)$ 的导函数 $f'(x)$ (\chemph{注意, 导函数未必连续}) 在闭区间 $[a, b]$ 上可取遍 $f'(a)$ 与 $f'(b)$ 之间的所有值.
+
+% % \noindent\scoringbox
+% \end{question}
+
+% \begin{solution}
+% 不妨设 $f'(a) < f'(b).$ 任取 $f'(a)$ 与 $f'(b)$ 之间的实数 $t,$ 即 $f'(a) < t < f'(b),$ 令 $g(x) = f(x) - tx,$ 那么 $g(x)$ 是开区间 $I = (a_0, b_0)$ 上处处可导的函数, 且 $g'(x) = f'(x) - t.$ \score{2}
+% 由闭区间上连续函数 ($g(x)$ 可导, 从而连续) 的最大最小值定理知, 存在 $\xi \in [a, b],$ 使得 $g(\xi)$ 取到闭区间 $[a, b]$ 上的最小值. \score{2}
+% 由于 $g'(a) < 0, g'(b) > 0,$ 所以 $\xi$ 不能是 $a, b$ 中任何一个, \score{2}
+% 由费马引理知, $g'(\xi) = 0,$ 即 $f'(\xi) = t.$ \score{2}
+
+% 这题如果假设 $f'(a) > f'(b),$ 则相应地要取 $\xi$ 为 $g(x)$ 在闭区间 $[a, b]$ 上的最大值.
+% \end{solution}
+
+
+\begin{question}[points = 8]
+设函数 $f(x)$ 在闭区间 $[a, b]$ 上有定义, 且有直到 $n - 1$ 阶的连续导函数, 在开区间 $(a, b)$ 内有 $n$ 阶导函数. 设开区间 $(a, b)$ 内有 $n + 1$ 个点 $a < x_0 < x_1 < \cdots < x_n < b,$ 使得
+$$f(x_0) = f(x_1) = \cdots = f(x_n),$$
+请证明在开区间 $(a, b)$ 内至少存在一点 $\xi,$ 使得 $f^{(n)}(\xi) = 0.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+在每个闭区间 $[x_0, x_1], [x_1, x_2], \dots, [x_{n-1}, x_n]$ 上, 函数 $f(x)$ 满足罗尔定理的条件, 从而存在 $n$ 个点
+$$\eta_0 < \eta_1 < \cdots < \eta_{n-1},$$
+使得 $x_k < \eta_k < x_{k+1},$ $k = 0, 1, \dots, n - 1,$ 并且
+\begin{equation*}
+f'(\eta_0) = \cdots = f'(\eta_{n-1}) = 0. \score{3}
+\end{equation*}
+
+重复 $n - 1$ 步之后, 可以得到一个区间 $[\tau_0, \tau_1] \subset* (a, b),$ 使得
+\begin{equation*}
+f^{(n-1)}(\tau_0) = f^{(n-1)}(\tau_1) = 0, \score{3}
+\end{equation*}
+在此区间上再次利用罗尔定理, 至少存在一个点 $\xi \in (\tau_0, \tau_1),$ 使得 $f^{(n)}(\xi) = 0.$ \score{2}
+\end{solution}
+
+
+\begin{question}[points = 8]
+找出函数 $\displaystyle f(x) = \dfrac{(x - 1) \sin(x - 2)}{ \lvert x - 1 \rvert (x - 2)} e^{-\frac{1}{x}}$ 所有的间断点, 并判断其类型.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+间断点: $0, 1, 2$ \score{2}
+间断点类型:
+\begin{itemize}
+    \item $0:$ $\displaystyle \lim_{x \to 0^-} f(x) = +\infty, \lim_{x \to 0^+} f(x) = 0$ \score{1}
+    为第二类 (无穷) 间断点  \score{1}
+    \item $1:$ $\displaystyle \lim_{x \to 1^-} f(x) = -\dfrac{\sin 1}{e}, \lim_{x \to 1^+} f(x) = \dfrac{\sin 1}{e}$ \score{1}
+    为第一类 (跳跃) 间断点  \score{1}
+    \item $2:$ $\displaystyle \lim_{x \to 2} f(x) = e^{-\frac{1}{2}}$ \score{1}
+    为第一类 (可去) 间断点  \score{1}
+\end{itemize}
+\end{solution}
+
+
+\begin{question}[points = 10]
+% 设 $\displaystyle f(x) = \lvert x + 2 \rvert e^{-\frac{1}{x}}$
+求函数 $\displaystyle f(x) = \dfrac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$ 的单调区间, 极值, 凹凸区间, 拐点及渐近线.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+可求得函数 $f(x)$ 的一阶以及二阶导函数分别为
+\begin{align*}
+    f'(x) & = -\dfrac{x}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}, \score{1} \\
+    f''(x) & = \dfrac{x^2-1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}. \score{1}
+\end{align*}
+可求得
+\begin{itemize}
+    \item 极大值点: $\left( 0, \dfrac{1}{\sqrt{2\pi}} \right)$ \score{1}
+    \item 单调区间:
+    \begin{itemize}
+        \item $(-\infty, 0):$ 单调递增 \score{1}
+        \item $(0, +\infty):$ 单调递减 \score{1}
+    \end{itemize}
+    \item 拐点: $\left( -1, \dfrac{1}{\sqrt{2\pi e}} \right), \left( 1, \dfrac{1}{\sqrt{2\pi e}} \right)$ \score{2}
+    \item 凹凸区间:
+    \begin{itemize}
+        \item 凹 (下凸) 区间: $(-\infty, -1)$ 以及 $(1, +\infty)$ \score{1}
+        \item 凸 (上凸) 区间: $(-1, 1)$ \score{1}
+    \end{itemize}
+    \item 渐近线: $y = 0$ \score{1}
+\end{itemize}
+\end{solution}
+
+
+\begin{question}[points = 10]
+设 $f(x)$ 为定义在 $\mathbb{R}$ 上的处处可导的实值函数.
+\begin{enumerate}
+\item 证明: 若 $f(x)$ 为奇函数, 则它的导函数 $f'(x)$ 是偶函数; 若 $f(x)$ 为偶函数, 则它的导函数 $f'(x)$ 是奇函数.
+\item 对 $\displaystyle f(x) = \dfrac{x^{2025} e^{-x^2}}{\sqrt{1 + \sin^{2024} x}},$ 求 $f^{(2024)}(0)$ 以及 $\displaystyle \int_{-2025}^{2025} f^{(2024)}(x) ~ \mathrm{d} x$ 的值. (\chemph{注意利用第 (1) 问的结论})
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 任取 $x \in \mathbb{R},$ 若 $f(x)$ 为奇函数, 那么
+\begin{align*}
+f'(-x) & = \lim_{h\to 0} \dfrac{f(-x+h) - f(-x)}{h} \\
+& = \lim_{h\to 0} \dfrac{-f(x-h) + f(x)}{h} \\
+& = \lim_{h\to 0} \dfrac{f(x-h) - f(x)}{-h} \\
+& = f'(x), \score{2}
+\end{align*}
+所以 $f(x)$ 的导函数 $f'(x)$ 是偶函数.
+
+类似地, 若 $f(x)$ 为偶函数, 则有
+\begin{align*}
+f'(-x) & = \lim_{h\to 0} \dfrac{f(-x+h) - f(-x)}{h} \\
+& = \lim_{h\to 0} \dfrac{f(x-h) - f(x)}{h} \\
+& = - \lim_{h\to 0} \dfrac{f(x-h) - f(x)}{-h} \\
+& = -f'(x), \score{2}
+\end{align*}
+这种情况下, $f(x)$ 的导函数 $f'(x)$ 是奇函数.
+\item 容易看出 $\displaystyle f(x) = \dfrac{x^{2025} e^{-x^2}}{\sqrt{1 + \sin^{2024} x}}$ 是奇函数, \score{2}
+那么 $f'(x)$ 是偶函数, 进而有 $f''(x)$ 是奇函数. 进一步可以归纳得知 $f^{(2n)}(x)$ 是奇函数, \score{1}
+奇函数在 $x = 0$ 处的值为 $0,$ 在关于原点对称的闭区间上的积分值也为 $0,$ \score{1}
+因此 $f^{(2024)}(0) = 0,,$ $\displaystyle \int_{-2025}^{2025} f^{(2024)}(x) ~ \mathrm{d} x = 0.$ \score{2}
+\end{enumerate}
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}
