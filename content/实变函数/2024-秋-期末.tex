@@ -1,0 +1,547 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+\examsetup{
+  page = {
+    size            = a4paper,
+    show-columnline = true,
+    foot-content    = {第~;~页~~共~;页\quad 实变函数\quad 中国农业大学制}
+  },
+  solution = {
+    show-solution = show-stay,
+    % blank-type = manual,
+    blank-type = none,
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  },
+  fillin = {
+    no-answer-type = none,
+    show-answer = true
+  },
+  % style/fullwidth-stop = catcode,
+  style/fullwidth-stop = false,
+  % sealline = {
+  %   show        = true,
+  %   scope       = mod-2,
+  %   circle-show = false,
+  %   line-type   = solid,
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
+  %   },
+  %   odd-info-xshift = 12mm,
+  %   text = {此卷只装订不密封},
+  %   text-width = 0.98\textheight,
+  %   text-format  = \zihao{-3}\sffamily,
+  %   text-xshift = 20mm
+  % },
+  question/show-points = true,
+  paren = {
+    show-answer = true
+  },
+  square = {
+    x-length = 1.8em,
+    y-length = 1.6em
+  },
+  font = times
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-solution = show-stay,
+  fillin/show-answer = true,
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-solution = hide,
+  fillin/show-answer = false,
+  paren/show-answer = false,
+  page/size = a4paper,
+  page/show-head = true,
+  page/head-content = {
+  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
+  }
+}
+\fi
+
+
+\ifShowAnswer
+% do nothing
+\else
+\AtEndPreamble{%
+\geometry{
+left=20mm,
+right=20mm,
+top=20mm,
+bottom=20mm,
+% includehead=true,
+% includefoot=true,
+% heightrounded,
+% showframe,% <--- just for debugging
+% verbose,% <--- just for debugging
+headsep=8pt
+}
+}
+\fi
+
+
+\title{
+\erhao
+\simli
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2024\textasciitilde 2025学年秋季学期\\
+\textbf{%
+% \uline{\hspace{1.5cm}实变函数\hspace{1.5cm}}}
+\dunderline[-1pt]{0.9pt}{\hspace{0.5cm}实变函数\hspace{0.5cm}}}
+\ifShowAnswer
+课程考试试题解答
+\else
+课程考试试题
+\fi
+}
+
+\begin{document}
+
+\maketitle
+
+\ifShowAnswer
+% do nothing
+\else
+\vspace{-0.6cm}
+
+{
+\begin{table}[H]
+\sihao
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
+分数 & & & & & \\[12pt] \hline
+\end{tabular}
+\end{table}
+}
+
+\vspace{-0.6cm}
+
+\begin{center}
+% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
+{\sihao （本试卷共~4~道大题）}
+\end{center}
+
+\vspace{-0.5cm}
+\begin{center}
+\textbf{\sihao 考生诚信承诺}
+\end{center}
+\vspace{-0.3cm}
+% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
+\noindent\begin{minipage}[t]{1.05\linewidth}
+{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+\end{minipage}
+
+\fi
+
+
+% \begin{xiaosihao}
+
+
+\section{%
+  证明题：本题共 2 小题，第 1 题 7 分，第 2 题 8 分，共 15 分。请写出证明详细过程。
+}
+
+% \noindent\scoringbox
+
+\begin{question}[points = 7]
+设 $f: [0, 1] \to \mathbb{R}$ 为黎曼可积函数, 证明$\lim\limits_{n\to\infty} \int_0^1 f(x) x^n \mathrm{d} x = 0.$
+\end{question}
+
+\begin{solution}
+由函数黎曼可积的勒贝格判别法知, $f$ 在定义域 $[0, 1]$ 上有界且几乎处处连续. 由于 $f$ 有界, 不妨设 $\lvert f(x) \rvert \leqslant M, ~ \forall ~ x \in [0, 1].$
+于是在 $[0, 1]$ 上, $f(x) x^n$ 也有界, 即 $|f(x) x^n| \leqslant M,$ 且几乎处处连续, 从而是黎曼可积的. 黎曼可积函数的黎曼积分与勒贝格积分相等,
+于是我们对勒贝格积分证明 $\lim\limits_{n\to\infty} \int_{[0, 1]} f(x) x^n \mathrm{d} x = 0$ 即可. \score{2}
+
+由于 $f$ 在 $[0, 1]$ 上勒贝格可积当且仅当 $\lvert f \rvert$勒贝格可积. \score{2}
+另一方面, 在 $[0, 1]$ 上恒有
+$$\lvert f(x) x^n \rvert \leqslant \lvert f(x) \rvert \leqslant M,$$
+于是由勒贝格控制收敛定理 (或者有界收敛定理) 知 \score{3}
+$$\lim\limits_{n\to\infty} \int_{[0, 1]} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \lim\limits_{n\to\infty} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \begin{cases}
+0, & x \in [0, 1), \\
+f(1), & x = 1.
+\end{cases} ~ \mathrm{d} x = 0.$$
+\end{solution}
+
+\begin{question}[points = 8]
+请证明 $\mathbb{R}$ 中非空有界开集 $G$ 的结构表示定理, 即它能被表示为至多可列多个互不相交的构成区间之并: $G = \bigcup\limits_{k} (\alpha_k, \beta_k).$
+\end{question}
+
+\begin{solution}
+任取 $x_0 \in G,$ 考虑
+\begin{equation*}
+\begin{aligned}
+\alpha & = \inf \{ x \in G ~ : ~ (x, x_0) \subset* G \}, \\
+\beta & = \sup \{ y \in G ~ : ~ (x_0, y) \subset* G \}.
+\end{aligned} \score{2}
+\end{equation*}
+由于 $G$ 是开集, $x_0$ 是内点, 以上集合非空, 从而 $\alpha, \beta$ 都是良定义的. \score{2}
+容易证明 $(\alpha, \beta) \subset* G,$ 于是 $G$ 可表示为这样的开区间之并, 并且这些开区间互不相交. \score{2}
+从每一个这样的开区间中取一个有理数, 那么得到了这些开区间之集到有理数集的一个单射, 从而这些开区间至多可列. \score{2}
+\end{solution}
+
+
+\section{简答题：本题共 2 小题，第 1 题 10 分，第 2 题 15 分，共 25 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+请问 $\mathbb{R}$ 中勒贝格\chemph{不可测集}是否存在? 如果不存在, 请给出证明; 如果存在, 请给一个具体的例子 (\chemph{不需要}进一步证明它是勒贝格不可测的).
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+存在. \score{5}
+
+具体例子 (任写一个即可, 包括但不限于如下): \score{5}
+\begin{itemize}
+\item[(1).] 考虑等价类 $[0, 1) / \sim*,$ 其中等价关系 $\sim*$ 定义为 $x \sim* y \Leftrightarrow x - y \in \mathbb{Q}.$
+从每一类中取一个代表元, 那么这些代表元构成的集合 $E$ 就是一个勒贝格不可测集.
+\end{itemize}
+\end{solution}
+
+\begin{question}[points = 15]
+设 $x = (x_1, \dots, x_n) \in \mathbb{R}^n,$ $E$ 是 $\mathbb{R}^n$ 中的非空点集, 定义点 $x$ 到 $E$ 的距离为
+$$\rho(x, E) = \inf \{ \lVert x - y \rVert: ~ y \in E \},$$
+其中 $\lVert x - y \rVert = \sqrt{(x_1 - y_1)^2 + \cdots + (x_n - y_n)^2}.$
+\begin{enumerate}
+\item 设 $F$ 为 $\mathbb{R}^n$ 中的非空闭集, 证明存在 $y_0 \in F,$ 使得 $\rho(x, F) = \lVert x - y_0 \rVert.$
+\item 设 $F_1, F_2$ 为 $\mathbb{R}^n$ 中两个不交的非空闭集, 请构造一个 $\mathbb{R}^n$ 上的\chemph{连续函数} $f(x),$ 同时满足以下两个条件
+\begin{enumerate}
+\item $0 \leqslant f(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n;$
+\item $f(x)$ 在 $F_1$ 上取值恒等于 $0,$ 在 $F_2$ 上取值恒等于 $1.$
+\end{enumerate}
+\item 设 $F_1, F_2, F_3$ 为 $\mathbb{R}^n$ 中三个互不相交的非空闭集, 请构造一个 $\mathbb{R}^n$ 上的\chemph{连续函数} $f(x),$ 同时满足以下两个条件
+\begin{enumerate}
+\item $0 \leqslant f(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n;$
+\item $f(x)$ 在 $F_1$ 上取值恒等于 $0,$ 在 $F_2$ 上取值恒等于 $\dfrac{1}{2025},$ 在 $F_3$ 上取值恒等于 $1.$
+\end{enumerate}
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 若 $x \in F,$ 则取 $y_0 = x$ 即可. 下设 $x \not\in F$.
+
+取闭球 $\overline{B} = \overline{B}(x, \delta)$ 使得 $\overline{B} \cap* F \neq \emptyset.$ 这样的 $\delta > 0$ 总是可以取到的. 这是因为 $F$ 是非空集合, 可以任取其中一点 $y \in F,$ 并令 $\delta = \lVert x - y \rVert > 0.$ 容易看出
+\begin{equation*}
+\begin{gathered}
+\rho(x, y) \geqslant \delta, ~~ \forall y \in F \setminus \overline{B}, \\
+\rho(x, y) \leqslant \delta, ~~ \forall y \in F \cap \overline{B}. \\
+\end{gathered}
+\end{equation*}
+$\overline{B} \cap* F$ 是有界闭集, 从而是紧集, 关于 $x$ 的连续函数 $\rho(x, F)$ 在其上能取到最小值, 即存在 $y_0 \in F,$ 使得 $\rho(x, F) = \rho(x, F \cap \overline{B}) = \lVert x - y_0 \rVert.$ \score{5}
+
+这题也可以利用书上的证明方法, 即取 $F$ 点列 $\{y_n\},$ 使得 $\lim\limits_{n\to\infty} \rho(x, y_n) = \rho(x, F).$ 这可以说明 $\{y_n\}$ 是有界点列, 从而存在收敛子列, 而 $F$ 是闭集, 该收敛子列收敛到 $F$ 中的某点, $y_0$ 即取为该点.
+
+\item 由于 $F_1, F_2$ 为 $\mathbb{R}^n$ 中两个不交的非空闭集, 那么 $\forall ~ x \in \mathbb{R}^n,$ $\rho(x, F_1), \rho(x, F_2)$ 不同时为 $0,$ 否则根据第 (1) 问, 存在 $y_1 \in F_1, y_2 \in F_2,$ 使得
+$$0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,$$
+那么会有 $x = y_1$ 以及 $x = y_2,$ 于是 $x \in F_1 \cap* F_2,$ 这与 $F_1, F_2$ 不交的已知条件矛盾.
+
+定义 $\mathbb{R}^n$ 上的函数
+\begin{equation*}
+f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)}, ~~ x \in \mathbb{R}^n \score{5}
+\end{equation*}
+由于 $\rho(x, F_1), \rho(x, F_2)$ 都是关于 $x$ 的连续非负函数, 且分母恒大于 $0,$ 因此$f(x)$ 是 $\mathbb{R}^n$ 上的连续函数. 由于
+$$0 \leqslant \rho(x, F_1) \leqslant \rho(x, F_1) + \rho(x, F_2),$$
+因此 $0 \leqslant f(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n.$
+
+对于 $x \in F_1,$ 有 $\rho(x, F_1) = 0,$ 从而有
+$$f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{0}{0 + \rho(x, F_2)} = 0;$$
+对于 $x \in F_2,$ 有 $\rho(x, F_2) = 0,$ 从而有
+$$f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + 0} = 1.$$
+\item 由于 $F_2, F_3$ 为 $\mathbb{R}^n$ 中不交的非空闭集, 由第 (2) 问知, 存在 $\mathbb{R}^n$ 上的连续函数 $g(x),$ 满足
+\begin{align*}
+& 0 \leqslant g(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n; \\
+& \text{$g(x)$ 在 $F_2$ 上取值恒等于 $0,$ 在 $F_3$ 上取值恒等于 $1.$}
+\end{align*}
+考虑 $F_1$ 与 $F_2 \cup* F_3,$ 由已知条件, 他们是 $\mathbb{R}^n$ 中两个不交的非空闭集, 那么再次利用第 (2) 问, 存在 $\mathbb{R}^n$ 上的连续函数 $h(x),$ 满足
+\begin{align*}
+& 0 \leqslant h(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n; \\
+& \text{$h(x)$ 在 $F_1$ 上取值恒等于 $0,$ 在 $F_2 \cup* F_3$ 上取值恒等于 $1.$}
+\end{align*}
+定义 $\mathbb{R}^n$ 上的函数 $f(x)$ 如下
+\begin{align*}
+f(x) & = \dfrac{1}{2025} h(x) (1 + 2024 \cdot g(x)) \score{5} \\
+& = \dfrac{1}{2025} \cdot \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2 \cup* F_3)} \cdot \left( 1 + \dfrac{2024 \cdot \rho(x, F_2)}{\rho(x, F_2) + \rho(x, F_3)} \right)
+\end{align*}
+容易验证函数 $f(x)$ 满足题设条件.
+\end{enumerate}
+\end{solution}
+
+
+\section{解答题：本题共 4 小题，每小题 10 分，共 40 分。请写出具体解题步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]设 $f$ 是闭区间 $[a, b]$ 上的绝对连续函数.
+\begin{enumerate}
+\item 请叙述闭区间 $[a, b]$ 上绝对连续函数的定义.
+\item 任取 $Z \subset* [a, b]$ 为零测集, 请问 $Z$ 的像集 $f(Z)$ 是否必然也是零测集? 若是, 请给出证明; 若否, 请给出反例.
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 闭区间 $[a, b]$ 上绝对连续函数的定义: 称定义在闭区间 $[a, b]$ 上的函数 $f$ 是绝对连续的, 若对任意 $\varepsilon > 0,$ 总存在 $\delta > 0,$ 使得对 $[a, b]$ 中任意有限个互不相叠的闭区间 $[a_1, b_1], \dots, [a_n, b_n],$ 只要 $\displaystyle m \left( \bigcup_{k=1}^n [a_k, b_k] \right) < \delta,$ 总有 $\displaystyle \sum_{k=1}^n \left\lvert f(b_k) - f(a_k) \right\rvert < \varepsilon.$ \score{6}
+
+\item $f(Z)$ 必然也是零测集. \score{2}
+原因如下: \score{2}
+对任意给定的 $\varepsilon > 0,$ 令 $\delta$ 为以上定义中 (由 $\varepsilon/2$ 以及 $f$ 确定) 的常数. 由 (外) 测度定义, 可以找到开集 $Z \subset* \displaystyle G = \bigcup_{n=1}^{\infty} (a_n, b_n) \subset* [a, b]$ 使得 $m G < \delta,$ 其中 $(a_n, b_n)$ 是开集 $G$ 的构成区间. 有
+\begin{equation*}
+f(Z) \subset* f(G) = f \left( \bigcup_{n=1}^{\infty} (a_n, b_n) \right) \subset* f \left( \bigcup_{n=1}^{\infty} [a_n, b_n] \right) = \bigcup_{n=1}^{\infty} f ( [a_n, b_n] ).
+\end{equation*}
+由外测度的单调性以及次可加性, 相应地有关于外测度的不等式
+\begin{equation*}
+m^* (f(Z)) \leqslant \sum_{n=1}^{\infty} m^* (f ( [a_n, b_n] ))
+\end{equation*}
+由闭区间上连续函数的最大最小值定理, 存在 $c_{n, min}, c_{n, max} \in [a_n, b_n],$ 使得
+$$f ( [a_n, b_n] ) = [f(c_{n, min}), f(c_{n, max})],$$
+从而知 $f ( [a_n, b_n] )$ 实际是可测集.
+
+记 $I_n = [a_n, b_n],$ $J_n$ 为以 $c_{n, min}, c_{n, max}$ 为端点的闭区间, 那么 $J_n \subset* I_n.$ 由于 $\{I_n\}_{n \in \mathbb{N}}$ 互不相交, 所以对任意 $n \in \mathbb{N},$ $J_1, \dots, J_n$ 构成 $n$ 个互不交叠的闭区间, 并且满足
+$$m \left( \bigcup_{k=1}^n J_k \right) \leqslant m \left( \bigcup_{k=1}^n I_k \right) \leqslant m \left( \bigcup_{k=1}^{\infty} I_k \right) = m G \leqslant \delta,$$
+由 $f$ 的绝对连续性, 有
+$$
+\varepsilon/2 > \sum_{k=1}^n (f(c_{k, max}) - f(c_{k, mmin})) = \sum_{k=1}^n m (f ( [a_k, b_k] )).
+$$
+由 $n$ 的任意性 (或者说令 $n \to \infty$) 有
+$$\varepsilon > \varepsilon / 2 \geqslant \sum_{k=1}^{\infty} m (f ( [a_k, b_k] )) \geqslant m^* (f(Z)) \geqslant 0.$$
+由 $\varepsilon$ 的任意性, 得 $0 = m^* (f(Z)) = m (f(Z)),$ 即 $f(Z)$ 是零测集.
+\end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+请叙述可测集 $E$ 上可测函数的定义, 并证明: 若 $f(x), g(x)$ 是 $E$ 上可测函数, 并且 $f(x) > 0,$ 那么 $h(x) := f(x)^{g(x)}$ 也是可测函数.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+可测集 $E$ 上可测函数的定义: 称定义在可测集 $E$ 上的实值函数 $f$ 是可测的, 若对任意 $\alpha \in \mathbb{R},$ 集合
+$$
+E(f > \alpha) = \left\{ x \in \mathbb{R} ~ : ~ f(x) > \alpha \right\}
+$$
+都是可测集. \score{6}
+
+对一个一般的取值恒正的函数 $F(x),$ 由于有
+$$
+E(F > \alpha) = E( \ln F > \ln \alpha),
+$$
+所以 $F$ 与 $\ln F$ 有相同的可测性. 故要证明 $h(x) = f(x)^{g(x)}$ 是可测函数, 只要证明 $\ln h(x) = g(x) \cdot \ln f(x)$ 可测即可. \score{2}
+由于 $f$ 可测, 所以 $\ln f(x)$ 也是可测的. 由于两个可测函数的代数运算所得的函数也是可测的, 所以 $\ln h(x)$ 是可测函数. \score{2}
+\end{solution}
+
+\begin{question}[points = 10]
+设 $E \subset* \mathbb{R}$ 为可测集, $1 \leqslant p < q \leqslant \infty,$ 请问两个关系式
+$$
+L^p(E) \subset* L^q(E), \quad L^q(E) \subset* L^p(E)
+$$
+是否必成立其一? 若是, 请证明; 若否, 请举反例.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+不一定. \score{4}
+
+反例每个3分, 包括但不限于下面的例子: \score{6}
+
+取 $E = (0, +\infty),$ $\displaystyle f(x) = \dfrac{1}{1 + x},$ 那么对于$1 = p < q,$ 有
+$$
+f \in L^q, \quad f \not\in L^1,
+$$
+即有 $L^1 \not\subset* L^q.$
+
+而对于 $\displaystyle g(x) = \begin{cases}
+x^{-1/q}, & x \in (0, 1), \\
+0, & x \in [1, +\infty)
+\end{cases},$ 那么
+$$
+g \in L^1, \quad g \not\in L^q,
+$$
+从而有 $L^q \not\subset* L^1.$
+\end{solution}
+
+\begin{question}[points = 10]
+设 $f, f_n \in L^p (E),$ $n \in \mathbb{N},$ $1 < p < \infty,$ $E$ 是可测集. 请分别叙述
+\begin{enumerate}
+\item $\{ f_n \}$ 依测度收敛于 $f;$
+\item $\{ f_n \}$ 依范数收敛于 $f$
+\end{enumerate}
+的定义. 请问这两个概念是否有包含关系? 若有, 请给出证明; 若无, 请给出反例.
+
+注意, 这里说的某概念 (相关事物的全体记作 $A$) 包含另一个概念 (相关事物的全体记作 $B$) 指的是, $A \supset* B.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+$\{ f_n \}$ 依测度收敛于 $f$ 指的是: 对任意 $\varepsilon > 0$ 都有
+\begin{equation*}
+\lim\limits_{n \to \infty} m E(\lvert f_n - f\rvert \geqslant \varepsilon) = 0. \score{3}
+\end{equation*}
+$\{ f_n \}$ 依范数收敛于 $f$ 指的是:
+\begin{equation*}
+\lim\limits_{n\to\infty} \lVert f_n - f \rVert_p = \lim\limits_{n\to\infty} \left(\int_E \lvert f_n - f \rvert^p ~ \mathrm{d} m \right)^{1/p} = 0. \score{3}
+\end{equation*}
+
+依范数收敛的概念包含了依测度收敛, 即若$\{ f_n \}$ 依范数收敛于 $f,$ 则必然有 $\{ f_n \}$ 依测度收敛于 $f$. \score{2}
+
+证明如下: 对任意 $\varepsilon > 0$ 有
+
+\begin{equation*}
+\begin{aligned}
+m E ( \lvert f_n - f \rvert \geqslant \varepsilon) & = m E ( \lvert f_n - f \rvert^p \geqslant \varepsilon^p) \\
+& = \dfrac{1}{\varepsilon^p} \int_E \varepsilon^p \cdot \chi_{E ( \lvert f_n - f \rvert^p \geqslant \varepsilon^p)} ~ \mathrm{d} m \\
+& \leqslant \dfrac{1}{\varepsilon^p} \int_E \lvert f_n - f \rvert^p \cdot \chi_{E ( \lvert f_n - f \rvert^p \geqslant \varepsilon^p)} ~ \mathrm{d} m \\
+& \leqslant \dfrac{1}{\varepsilon^p} \int_E \lvert f_n - f \rvert^p ~ \mathrm{d} m = \dfrac{\lVert f_n - f \rVert_p^p}{\varepsilon^p}.
+\end{aligned} \score{2}
+\end{equation*}
+所以, 若 $\{ f_n \}$ 依范数收敛于 $f,$ 则$\lim\limits_{n \to\infty} \lVert f_n - f \rVert_p = 0,$ 从而有
+$$
+0 \leqslant \lim\limits_{n \to\infty} m E ( \lvert f_n - f \rvert \geqslant \varepsilon) \leqslant \lim\limits_{n \to\infty} \dfrac{\lVert f_n - f \rVert_p^p}{\varepsilon^p} = 0.
+$$
+
+以下不计分. 但如果本小问的分数没有拿满, 以下可最高赋2分.
+
+反过来是不成立的. 例如, 取 $E = [0, 1],$ $f = 0.$ 对于 $L^2 (E)$ 中的函数列
+\begin{equation*}
+f_n(x) = \begin{cases}
+n, & x \in (0, 1/n), \\
+0, & x \in [1/n, 1] \text{ 或 } x = 0
+\end{cases}
+\end{equation*}
+容易看出 $\{ f_n \}$ 依测度收敛于 $f,$ 但不依范数收敛于 $f.$
+\end{solution}
+
+
+\section{证明题：本题共 2 小题，每题 10 分，共 20 分。请写出详细证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+已知对于任意非奇异线性变换 $T: \mathbb{R}^n \to \mathbb{R}^n,$ 以及任意可测集 $E \subset* \mathbb{R}^n,$ 有 $m(T(E)) = \lvert \det T \rvert \cdot m E,$ 这里的 $m$ 是 $\mathbb{R}^n$ 上的勒贝格测度 (\chemph{注意, 这是题目给的已知结论, 不需要你证明}).
+
+现设 $f \in L^1(\mathbb{R}),$ 即 $f$ 是 $\mathbb{R}$ 上勒贝格可积函数, $a > 0$ 为常数.
+\begin{enumerate}
+\item 证明非负数项级数 $\sum_{n = 1}^\infty \int_{\mathbb{R}} n^{-a} \lvert f(nx) \rvert ~ \mathrm{d} x$ 收敛.
+\item 证明 $\lim\limits_{n\to\infty} n^{-a} f(nx) = 0$ 在 $\mathbb{R}$ 上几乎处处成立.
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 由于 $f$ 是 $\mathbb{R}$ 上勒贝格可积函数, 所以 $\lvert f \rvert$ 也是 $\mathbb{R}$ 上勒贝格可积函数. \score{1}
+考虑 $\mathbb{R} \to \mathbb{R}$ 的非奇异线性变换 $x \mapsto y = nx,$ 那么 $\mathrm{d} y = n \mathrm{d} x,$ \score{1}
+于是有
+\begin{equation*}
+\int_{\mathbb{R}} n^{-a} \lvert f(nx) \rvert ~ \mathrm{d} x = n^{-a} \int_{\mathbb{R}} \lvert f(y) \rvert ~ \dfrac{1}{n} ~ \mathrm{d} y
+= \dfrac{1}{n^{1 + a}} \int_{\mathbb{R}} \lvert f \rvert ~ \mathrm{d} m. \score{2}
+\end{equation*}
+对上式关于 $n$ 求和, 有
+\begin{equation*}
+\sum_{n = 1}^\infty \int_{\mathbb{R}} n^{-a} \lvert f(nx) \rvert ~ \mathrm{d} x
+= \sum_{n = 1}^\infty \dfrac{1}{n^{1 + a}} \int_{\mathbb{R}} \lvert f \rvert ~ \mathrm{d} m
+= \lVert f \rVert_1 \sum_{n = 1}^\infty \dfrac{1}{n^{1 + a}}. \score{2}
+\end{equation*}
+由于 $a > 0,$ 上述等式右边的级数收敛, 亦即等式左边的数项级数 $\sum_{n = 1}^\infty \int_{\mathbb{R}} n^{-a} \lvert f(nx) \rvert ~ \mathrm{d} x$ 收敛.
+
+\item 记这个级数的和为 $C.$ 对于上述等式左边的级数, 由非负可测函数项级数的逐项积分定理知
+\begin{equation*}
+C = \sum_{n = 1}^\infty \int_{\mathbb{R}} n^{-a} \lvert f(nx) \rvert ~ \mathrm{d} x
+= \int_{\mathbb{R}} \sum_{n = 1}^\infty n^{-a} \lvert f(nx) \rvert ~ \mathrm{d} x. \score{2}
+\end{equation*}
+于是 $\displaystyle g(x) := \sum_{n = 1}^\infty n^{-a} \lvert f(nx) \rvert$ 是 $\mathbb{R}$ 上的非负可积函数, 从而几乎处处有限, \score{1}
+在这些点上, 非负项级数 $\displaystyle \sum_{n = 1}^\infty n^{-a} \lvert f(nx) \rvert$ 的通项必须趋于零, 即
+\begin{equation*}
+n^{-a} \lvert f(nx) \rvert \xrightarrow{\text{~a.e.~}} 0 ~ (n \to \infty),
+\end{equation*}
+亦即 $\displaystyle n^{-a} f(nx) \xrightarrow{\text{~a.e.~}} 0 ~ (n \to \infty).$ \score{1}
+\end{enumerate}
+\end{solution}
+
+
+\begin{question}[points = 10]
+设基本集为 $X = \mathbb{R}^n,$ 以下我们考虑的集合都是它的子集.
+\begin{enumerate}
+\item 请证明勒贝格外测度的正则性: 对任意集合 $E \subset* X,$ 存在 $G_{\delta}$-集 $A,$ 使得 $A \supset* E$ 且 $m A = m^* E.$
+\item 对于某个集合 $E \subset* X,$ 若存在勒贝格可测集 $E_0 \supset* E,$ 满足 $m E_0 < \infty$ 与 $m E_0 = m^* E + m^* (E_0 \setminus E),$ 请证明 $E$ 必然也是勒贝格可测集.
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 由外测度定义, 对任意 $n \in \mathbb{N},$ 存在开集 $G_n$ 使得 $E \subset* G_n,$ 且 $m G_n \leqslant m^* E + \frac{1}{n}.$ \score{2}
+令 $A = \bigcap\limits_{n=1}^{\infty} G_n,$ 则 $A$ 为一个 $G_{\delta}$-集, 且 $E \subset* A.$ 由（外）测度的单调性, 有
+\begin{equation*}
+m^* E \leqslant m^* A \leqslant m A \leqslant m G_n \leqslant m^* E + \frac{1}{n}. \score{2}
+\end{equation*}
+令 $n \to \infty,$ 则有 $m^* E = m^* A = m A.$ \score{1}
+
+\item 由第 (1) 问知, 对于集合 $E, E_0 \setminus E,$ 分别存在 $G_{\delta}$-集 $A_1 \supset* E,$ $A_2 \supset* E_0 \setminus E,$ 使得
+\begin{equation*}
+\begin{aligned}
+m A_1 & = m^* E \leqslant m E_0 < \infty, \\
+m A_2 & = m^* (E_0 \setminus E) \leqslant m E_0 < \infty.
+\end{aligned} \score{1}
+\end{equation*}
+那么 $A_1 \cup* A_2 \supset* E_0,$ 并且有
+\begin{equation*}
+m E_0 \leqslant m (A_1 \cup* A_2) \leqslant m A_1 + m A_2 = m^* E + m^* (E_0 \setminus E) = m E_0.
+\end{equation*}
+故上式中的不等号都必须是等号, 即有
+\begin{equation*}
+m E_0 = m (A_1 \cup* A_2) = m A_1 + m A_2. \score{2}
+\end{equation*}
+由 $m (A_1 \cup* A_2) = m A_1 + m A_2,$ 以及他们测度都有限知 $m (A_1 \cap* A_2) = 0,$ 即 $A_1 \cap* A_2$ 是零测度集. 又由 $m E_0 = m (A_1 \cup* A_2)$ 以及 $E_0 \subset* A_1 \cup* A_2$ 有 $A_1 \cup* A_2 = E_0 \cup* F,$
+其中 $F = (A_1 \cup* A_2) \setminus E_0$ 为零测度集. 于是,
+\begin{equation*}
+A_1 \setminus E \subset* ((A_1 \cup* A_2) \setminus E_0) \cup* (A_1 \cap* A_2)
+\end{equation*}
+为零测度集, 从而 $E = A_1 \setminus (A_1 \setminus E)$ 为可测集. \score{2}
+\end{enumerate}
+
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}
