@@ -27,6 +27,8 @@ python compile.py
 Linux (Ubuntu) 系统下编译可能遇到例如 `Arial` 等字体缺失问题，需要执行如下命令安装：
 
 ```bash
-sudo apt install ttf-mscorefonts-installer
+sudo apt install ttf-mscorefonts-installer fontconfig
 sudo fc-cache -f
 ```
+
+参考 [StackExchange](https://askubuntu.com/a/651442/980818).
