@@ -21,3 +21,12 @@ xelatex main.tex && xelatex main.tex
 ```bash
 python compile.py
 ```
+
+## Linux (Ubuntu) 系统下字体缺失问题
+
+Linux (Ubuntu) 系统下编译可能遇到例如 `Arial` 等字体缺失问题，需要执行如下命令安装：
+
+```bash
+sudo apt install ttf-mscorefonts-installer
+sudo fc-cache -f
+```
