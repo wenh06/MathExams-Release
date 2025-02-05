@@ -8,6 +8,10 @@
 \usepackage{stackengine}
 \stackMath
 
+% \usepackage{fontspec}
+% \usepackage{unicode-math}
+% \setmathfont{Cambria Math}
+
 \usepackage{pifont}
 % \usepackage{fontsize}
 
@@ -18,15 +22,16 @@ Script=CJK,
 Mapping=full-stop
 }
 
-\newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
-\newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
-\newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
-\newCJKfontfamily\simsun{simsun.ttc}[Extension = .ttc, AutoFakeBold=3.5, Mapping = full-stop, Path=fonts/]
-\newCJKfontfamily\simli{SIMLI.TTF}[Extension = .TTF, Path=fonts/]
+\newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, AutoFakeBold=3.5, BoldFont=simfang.ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\boldhei{boldhei.ttf}[Extension = .ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, BoldFont=boldhei.ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, AutoFakeBold=3.5, BoldFont=simkai.ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simsun{simsun.ttc}[Extension = .ttc, AutoFakeBold=3.5, BoldFont=simsun.ttc, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simli{SIMLI.TTF}[Extension = .TTF, AutoFakeBold=3.5, BoldFont=SIMLI.TTF, Mapping = full-stop, Path=fonts/]
 
-\setCJKmainfont[Path = fonts/, AutoFakeBold=3.5, ItalicFont=simkai.ttf, Mapping = full-stop]{simsun.ttc}
-\setCJKsansfont[Path = fonts/, AutoFakeBold=3.5, Mapping = full-stop]{simhei.ttf}
-\setCJKmonofont[Path = fonts/]{simfang.ttf}
+\setCJKmainfont[Path = fonts/, Extension = .ttc, AutoFakeBold=3.5, BoldFont=simsun.ttc, ItalicFont=simkai.ttf, Mapping = full-stop]{simsun.ttc}
+\setCJKsansfont[Path = fonts/, Extension = .ttf, BoldFont=boldhei.ttf, AutoFakeBold=3.5, Mapping = full-stop]{simhei.ttf}
+\setCJKmonofont[Path = fonts/, Extension = .ttf, BoldFont=simfang.ttf]{simfang.ttf}
 
 % \defaultfontfeatures{Path=fonts/, Mapping=tex-text}
 % \setCJKmainfont[AutoFakeBold=2.5, ItalicFont=simkai.ttf]{simsun.ttc}

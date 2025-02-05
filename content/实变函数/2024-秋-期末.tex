@@ -179,7 +179,7 @@ headsep=8pt
 由于 $f$ 在 $[0, 1]$ 上勒贝格可积当且仅当 $\lvert f \rvert$勒贝格可积. \score{2}
 另一方面, 在 $[0, 1]$ 上恒有
 $$\lvert f(x) x^n \rvert \leqslant \lvert f(x) \rvert \leqslant M,$$
-于是由勒贝格控制收敛定理 (或者有界收敛定理) 知 \score{3}
+于是由勒贝格控制收敛定理 (或者由界收敛定理) 知 \score{3}
 $$\lim\limits_{n\to\infty} \int_{[0, 1]} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \lim\limits_{n\to\infty} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \begin{cases}
 0, & x \in [0, 1), \\
 f(1), & x = 1.
@@ -255,7 +255,7 @@ $$\rho(x, E) = \inf \{ \lVert x - y \rVert: ~ y \in E \},$$
 \begin{equation*}
 \begin{gathered}
 \rho(x, y) \geqslant \delta, ~~ \forall y \in F \setminus \overline{B}, \\
-\rho(x, y) \leqslant \delta, ~~ \forall y \in F \cap \overline{B}. \\
+\rho(x, y) \leqslant \delta, ~~ \forall y \in F \cap* \overline{B}. \\
 \end{gathered}
 \end{equation*}
 $\overline{B} \cap* F$ 是有界闭集, 从而是紧集, 关于 $x$ 的连续函数 $\rho(x, F)$ 在其上能取到最小值, 即存在 $y_0 \in F,$ 使得 $\rho(x, F) = \rho(x, F \cap \overline{B}) = \lVert x - y_0 \rVert.$ \score{5}
@@ -294,6 +294,13 @@ f(x) & = \dfrac{1}{2025} h(x) (1 + 2024 \cdot g(x)) \score{5} \\
 & = \dfrac{1}{2025} \cdot \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2 \cup* F_3)} \cdot \left( 1 + \dfrac{2024 \cdot \rho(x, F_2)}{\rho(x, F_2) + \rho(x, F_3)} \right)
 \end{align*}
 容易验证函数 $f(x)$ 满足题设条件.
+
+注意, 这题不要忘了 $0 \leqslant f(x) \leqslant 1$ 的前提条件.
+
+$f(x)$ 其他可行的例子包括:
+\begin{equation*}
+f(x) = \dfrac{\rho(x, F_1\cup* F_2) + \rho(x, F_1\cup* F_3)}{\rho(x, F_1\cup* F_2) + 2025 \rho(x, F_1\cup* F_3) + \rho(x, F_2\cup* F_3)}
+\end{equation*}
 \end{enumerate}
 \end{solution}
 
@@ -358,7 +365,10 @@ $$
 
 对一个一般的取值恒正的函数 $F(x),$ 由于有
 $$
-E(F > \alpha) = E( \ln F > \ln \alpha),
+E(F > \alpha) = \begin{cases}
+E( \ln F > \ln \alpha), & \alpha > 0, \\
+E, & \alpha \leqslant 0,
+\end{cases}
 $$
 所以 $F$ 与 $\ln F$ 有相同的可测性. 故要证明 $h(x) = f(x)^{g(x)}$ 是可测函数, 只要证明 $\ln h(x) = g(x) \cdot \ln f(x)$ 可测即可. \score{2}
 由于 $f$ 可测, 所以 $\ln f(x)$ 也是可测的. 由于两个可测函数的代数运算所得的函数也是可测的, 所以 $\ln h(x)$ 是可测函数. \score{2}
@@ -379,20 +389,17 @@ $$
 
 反例每个3分, 包括但不限于下面的例子: \score{6}
 
-取 $E = (0, +\infty),$ $\displaystyle f(x) = \dfrac{1}{1 + x},$ 那么对于$1 = p < q,$ 有
+取 $E = (0, +\infty),$ $\displaystyle f(x) = x^{-1/p} \chi_{(1, \infty)},$ 那么对于$p < q,$ 有
 $$
-f \in L^q, \quad f \not\in L^1,
+f \in L^q, \quad f \not\in L^p,
 $$
-即有 $L^1 \not\subset* L^q.$
+即有 $L^p \not\subset* L^q.$
 
-而对于 $\displaystyle g(x) = \begin{cases}
-x^{-1/q}, & x \in (0, 1), \\
-0, & x \in [1, +\infty)
-\end{cases},$ 那么
+而对于 $\displaystyle g(x) = x^{-1/q} \chi_{(0,1)}$ 那么
 $$
-g \in L^1, \quad g \not\in L^q,
+g \in L^p, \quad g \not\in L^q,
 $$
-从而有 $L^q \not\subset* L^1.$
+从而有 $L^q \not\subset* L^p.$
 \end{solution}
 
 \begin{question}[points = 10]
@@ -441,7 +448,7 @@ $$
 \begin{equation*}
 f_n(x) = \begin{cases}
 n, & x \in (0, 1/n), \\
-0, & x \in [1/n, 1] \text{ 或 } x = 0
+0, & x \in [1/n, 1] \cup* \{0\}.
 \end{cases}
 \end{equation*}
 容易看出 $\{ f_n \}$ 依测度收敛于 $f,$ 但不依范数收敛于 $f.$
@@ -513,9 +520,9 @@ n^{-a} \lvert f(nx) \rvert \xrightarrow{\text{~a.e.~}} 0 ~ (n \to \infty),
 \item 由外测度定义, 对任意 $n \in \mathbb{N},$ 存在开集 $G_n$ 使得 $E \subset* G_n,$ 且 $m G_n \leqslant m^* E + \frac{1}{n}.$ \score{2}
 令 $A = \bigcap\limits_{n=1}^{\infty} G_n,$ 则 $A$ 为一个 $G_{\delta}$-集, 且 $E \subset* A.$ 由（外）测度的单调性, 有
 \begin{equation*}
-m^* E \leqslant m^* A \leqslant m A \leqslant m G_n \leqslant m^* E + \frac{1}{n}. \score{2}
+m^* E \leqslant m^* A = m A \leqslant m G_n \leqslant m^* E + \frac{1}{n}. \score{2}
 \end{equation*}
-令 $n \to \infty,$ 则有 $m^* E = m^* A = m A.$ \score{1}
+令 $n \to \infty,$ 则有 $m^* E = m A.$ \score{1}
 
 \item 由第 (1) 问知, 对于集合 $E, E_0 \setminus E,$ 分别存在 $G_{\delta}$-集 $A_1 \supset* E,$ $A_2 \supset* E_0 \setminus E,$ 使得
 \begin{equation*}
