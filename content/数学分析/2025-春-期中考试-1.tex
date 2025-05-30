@@ -458,7 +458,6 @@ D(x) = \begin{cases} 1, & x \in \mathbb{Q} \cap [0, 1], \\ 0, & x \in [0, 1] \se
 \begin{question}[points = 10]
 设函数 $f(x)$ 在闭区间 $[a - 1, b + 1]$ 上黎曼可积, 并且对于所有 $-1 \leqslant h \leqslant 1,$ 记 $f_h(x) = f(x + h)$ 为定义在闭区间 $[a, b]$ 上的函数. 证明:
 $$\lim_{h \to 0} \int_a^b |f_h(x) - f(x)| ~ \mathrm{d} x = 0.$$
-
 % \noindent\scoringbox
 \end{question}
 
@@ -523,16 +522,19 @@ f(x) = \dfrac{1}{2\sqrt{x^2}} \int_{x^2}^{\xi} \sin u ~ \mathrm{d} u = \dfrac{1}
 如果继续分析, 由分部积分法有
 \begin{align*}
 f(x) & = \int_{x^2}^{(x+1)^2} \dfrac{\sin u}{2\sqrt{u}} ~ \mathrm{d} u = -\dfrac{\cos u}{2\sqrt{u}} \bigg|_{x^2}^{(x+1)^2} - \int_{x^2}^{(x+1)^2} \dfrac{\cos u}{4 u^{3/2}} ~ \mathrm{d} u \\
-& = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} - \dfrac{1}{4x^3} (\sin \tau - \sin (x^2)),
+& = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} - \int_{x^2}^{(x+1)^2} \dfrac{\cos u}{4 u^{3/2}} ~ \mathrm{d} u.
 \end{align*}
-其中 $\tau \in [x^2, (x+1)^2].$ 于是
+对于上式最后一项, 有估计
 \begin{align*}
-| f(x) | & = \left\lvert \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} - \dfrac{1}{4x^3} (\sin \tau - \sin (x^2)) \right\rvert \\
-& \leqslant \dfrac{1}{2x} + \dfrac{1}{2(x+1)} + \dfrac{1}{2x^3} \\
-& = \dfrac{1}{x} - \dfrac{1}{2x} + \dfrac{1}{2(x+1)} + \dfrac{1}{2x^3} \\
-& = \dfrac{1}{x} + \dfrac{-x^2 + x + 1}{2(x+1)x^3},
+\left\lvert \int_{x^2}^{(x+1)^2} \dfrac{\cos u}{4 u^{3/2}} ~ \mathrm{d} u \right\rvert & \leqslant \int_{x^2}^{(x+1)^2} \dfrac{|\cos u|}{4 u^{3/2}} ~ \mathrm{d} u \\
+& < \int_{x^2}^{(x+1)^2} \dfrac{1}{4 u^{3/2}} ~ \mathrm{d} u = -\dfrac{1}{2\sqrt{u}} \bigg|_{x^2}^{(x+1)^2} = \dfrac{1}{2x} - \dfrac{1}{2(x+1)}.
 \end{align*}
-可以说当 $x$ 充分大时, 例如 $x > 2$ 时, 有 $| f(x) | < \dfrac{1}{x}.$ 进一步用分部积分法, 可以得到更精细的估计.
+于是
+\begin{align*}
+| f(x) | & = \left\lvert \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} - \int_{x^2}^{(x+1)^2} \dfrac{\cos u}{4 u^{3/2}} ~ \mathrm{d} u \right\rvert \\
+& \leqslant \left\lvert \dfrac{\cos(x^2)}{2x} \right\rvert + \left\lvert \dfrac{\cos((x+1)^2)}{2(x+1)} \right\rvert + \left\rvert \int_{x^2}^{(x+1)^2} \dfrac{\cos u}{4 u^{3/2}} ~ \mathrm{d} u \right\rvert \\
+& < \dfrac{1}{2x} + \dfrac{1}{2(x+1)} + \dfrac{1}{2x} - \dfrac{1}{2(x+1)} = \dfrac{1}{x}.
+\end{align*}
 
 \item 令
 \begin{align*}

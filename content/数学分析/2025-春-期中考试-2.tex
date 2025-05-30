@@ -1,0 +1,555 @@
+\makeatletter
+\@ifundefined{ifShowAnswer}{%
+  \newif\ifShowAnswer
+}{}
+\makeatother
+
+% \ShowAnswerfalse
+% \ShowAnswertrue
+
+\examsetup{
+  page = {
+    size            = a4paper,
+    show-columnline = true,
+    foot-content    = {第~;~页~~共~;页\quad 数学分析II\quad 中国农业大学制}
+  },
+  solution = {
+    show-solution = show-stay,
+    % blank-type = manual,
+    blank-type = none,
+    % blank-vsep = 120ex plus 1ex minus 1ex
+    blank-vsep = 15cm
+  },
+  fillin = {
+    no-answer-type = none,
+    show-answer = true
+  },
+  % style/fullwidth-stop = catcode,
+  style/fullwidth-stop = false,
+  % sealline = {
+  %   show        = true,
+  %   scope       = mod-2,
+  %   circle-show = false,
+  %   line-type   = solid,
+  %   odd-info-content = {
+  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
+  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
+  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
+  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
+  %   },
+  %   odd-info-xshift = 12mm,
+  %   text = {此卷只装订不密封},
+  %   text-width = 0.98\textheight,
+  %   text-format  = \zihao{-3}\sffamily,
+  %   text-xshift = 20mm
+  % },
+  question/show-points = true,
+  paren = {
+    show-answer = true
+  },
+  square = {
+    x-length = 1.8em,
+    y-length = 1.6em
+  },
+  font = times
+}
+
+\ifShowAnswer
+\examsetup{
+  solution/show-solution = show-stay,
+  fillin/show-answer = true,
+  paren/show-answer = true,
+  page/size = a3paper
+}
+\else
+\examsetup{
+  solution/show-solution = hide,
+  fillin/show-answer = false,
+  paren/show-answer = false,
+  page/size = a4paper,
+  page/show-head = true,
+  page/head-content = {
+  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
+  }
+}
+\fi
+
+
+\ifShowAnswer
+% do nothing
+\else
+\AtEndPreamble{%
+\geometry{
+left=20mm,
+right=20mm,
+top=20mm,
+bottom=20mm,
+% includehead=true,
+% includefoot=true,
+% heightrounded,
+% showframe,% <--- just for debugging
+% verbose,% <--- just for debugging
+headsep=8pt
+}
+}
+\fi
+
+
+\title{
+\erhao
+\simli
+\ifUseImageTitle
+{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
+\else
+中国农业大学\\
+\fi
+2024\textasciitilde 2025学年春季学期\\
+\textbf{%
+% \uline{\hspace{1.5cm}数学分析II\hspace{1.5cm}}}
+\dunderline[-1pt]{0.9pt}{\hspace{0.5cm}数学分析II\hspace{0.5cm}}}
+\ifShowAnswer
+课程第二次期中考试试题解答
+\else
+课程第二次期中考试试题
+\fi
+}
+
+\begin{document}
+
+\maketitle
+
+\ifShowAnswer
+% do nothing
+\else
+\vspace{-1.1cm}
+
+{
+\begin{table}[H]
+\sihao
+\centering
+\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
+\hline
+题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
+分数 & & & & & \\[12pt] \hline
+\end{tabular}
+\end{table}
+}
+
+\vspace{-1.1cm}
+
+\begin{center}
+% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
+{\sihao （本试卷共~4~道大题）}
+\end{center}
+
+\vspace{-1.1cm}
+\begin{center}
+\textbf{\sihao 考生诚信承诺}
+\end{center}
+\vspace{-0.5cm}
+% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
+\noindent\begin{minipage}[t]{1.05\linewidth}
+{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+\end{minipage}
+
+\fi
+
+
+% \begin{xiaosihao}
+
+
+\section{%
+  选择题：本题共 5 小题, 每小题 3 分, 共 15 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+对于定义在闭区间 $[a, b]$ 上的函数, 下面哪类函数有\chemph{可能是黎曼不可积}的 \paren[D]
+
+\begin{choices}
+\item 连续函数
+\item 有有限个间断点的有界函数
+\item 单调有界函数
+\item 简单函数 (即值域是有限集的函数)
+\end{choices}
+\end{question}
+
+\begin{solution}
+D 的反例: 狄利克雷函数
+\end{solution}
+
+\begin{question}
+以下反常积分收敛的是 \paren[C]
+
+\begin{choices}
+\item $\displaystyle \int_0^{+\infty} \sin x ~ \mathrm{d} x$
+\item $\displaystyle \int_0^{+\infty} |\sin x| ~ \mathrm{d} x$
+\item $\displaystyle \int_0^{+\infty} \sin (x^2) ~ \mathrm{d} x$
+\item $\displaystyle \int_0^{+\infty} \sin^2 x ~ \mathrm{d} x$
+\end{choices}
+\end{question}
+
+\begin{solution}
+A, B, D 都可以通过在一个最小正周期上的积分值判断出不可积.
+
+对于 C, 有
+$$\int_0^{+\infty} \sin (x^2) ~ \mathrm{d} x = \int_0^1 \sin (x^2) ~ \mathrm{d} x + \int_1^{+\infty} \dfrac{\sin (u)}{2\sqrt{u}} ~ \mathrm{d} u,$$
+后者可以通过狄利克雷判别法知道是收敛的.
+\end{solution}
+
+\begin{question}
+以下的论断\chemph{正确}的是 \paren[D]
+
+\begin{choices}
+\item 若闭区间 $[a, b]$ 上黎曼可积函数列 $\{ f_n(x) \}_{n \in \mathbb{N}}$ 点态收敛到 $[a, b]$ 上黎曼可积函数 $f(x),$ 但不是一致收敛, 则必然有 $\displaystyle \lim_{n\to\infty} \int_a^b f_n(x) ~ \mathrm{d}x \neq \int_a^b f(x) ~ \mathrm{d}x$
+\item 设级数 $\displaystyle \sum_{n=1}^{\infty} x_n$ 收敛, 数列 $\{ \alpha_n \}_{n \in \mathbb{N}}$ 满足 $\displaystyle \lim_{n \to \infty} \alpha_n = 0,$ 则级数 $\displaystyle \sum_{n=1}^{\infty} \alpha_n x_n$ 必定收敛
+\item 设 $f(x), g(x)$ 是定义在 $[0, +\infty)$ 上的连续函数. 假设反常积分 $\displaystyle \int_0^{+\infty} f(x) ~ \mathrm{d} x$ 收敛, 并且有 $\displaystyle \lim_{n\to+\infty} g(x) = 0,$ 则反常积分 $\displaystyle \int_0^{+\infty} f(x)g(x) ~ \mathrm{d} x$ 必定收敛
+\item 以上说法都不对
+\end{choices}
+\end{question}
+
+\begin{solution}
+A 的反例: 任何一个一致有界的黎曼可积函数列 $\{ f_n(x) \}_{n \in \mathbb{N}}$ 都是反例.
+
+B 的反例: $\displaystyle x_n = (-1)^n \dfrac{1}{n + 1}; \quad \alpha_n = (-1)^n \dfrac{1}{\ln^q (n + 1)}, ~ 0 < q \leqslant 1.$
+
+C 的反例: $\displaystyle f(x) = \dfrac{\sin x}{x}; \quad g(x) = \begin{cases}
+\dfrac{\sin e}{e} x, & 0 \leqslant x \leqslant e, \\
+\dfrac{\sin x}{\ln^q x}, & x > e,
+\end{cases} \quad 0 < q \leqslant 1.$
+\end{solution}
+
+\begin{question}
+设数项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛, $a_n \neq -1,$ 但 $\displaystyle \sum_{n=1}^{\infty} a_n^2$ 发散, 则以下说法正确的是 \paren[A]
+
+\begin{choices}
+\item 级数 $\displaystyle \sum_{n=1}^{\infty} \dfrac{a_n}{n + a_n^2}$ 必然收敛
+\item 级数 $\displaystyle \sum_{n=1}^{\infty} |a_n|$ 可能收敛也可能发散
+\item 无穷乘积 $\displaystyle \prod_{n=1}^{\infty} (1 + a_n)$ 可能收敛也可能发散
+\item 无穷乘积 $\displaystyle \prod_{n=1}^{\infty} (1 + a_n^2)$ 可能收敛也可能发散
+\end{choices}
+\end{question}
+
+\begin{solution}
+由 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛知 $a_n \to 0.$ 于是当 $n$ 充分大时, $\displaystyle \dfrac{1}{n + a_n^2}$ 是单调递减趋于 $0$ 的, 于是由 A-D 判别法知 $\displaystyle \sum_{n=1}^{\infty} \dfrac{a_n}{n + a_n^2}$ 必然收敛.
+
+由于 $a_n \to 0,$ 那么当 $n$ 充分大时, $|a_n| < 1,$ 从而有 $|a_n| > |a_n| \cdot |a_n| = a_n^2,$ 由正项级数的比较判别法知 $\displaystyle \sum_{n=1}^{\infty} |a_n|$ 必然发散.
+
+在 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛的前提下, $\displaystyle \sum_{n=1}^{\infty} a_n^2$ 与 $\displaystyle \prod_{n=1}^{\infty} (1 + a_n)$ 敛散性相同, 故 $\displaystyle \prod_{n=1}^{\infty} (1 + a_n)$ 必然是发散的.
+
+$\displaystyle \sum_{n=1}^{\infty} a_n^2$ 为正项级数, 它的敛散性与 $\displaystyle \prod_{n=1}^{\infty} (1 + a_n^2)$ 相同, 故 $\displaystyle \prod_{n=1}^{\infty} (1 + a_n^2)$ 必然是发散的.
+\end{solution}
+
+\begin{question}
+设幂级数 $\sum\limits_{n=0}^\infty a_n x^n$ 满足上极限 $\varlimsup_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert = A,$ $0 < A < +\infty,$ 那么下面正确的论断是 \paren[B]
+
+\begin{choices}
+\item $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径必定等于 $\dfrac{1}{A}$
+\item $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径可能大于 $\dfrac{1}{A}.$
+\item $\sum\limits_{n=0}^\infty a_n x^n$ 的收敛半径可能小于 $\dfrac{1}{A}.$
+\item 以上说法都不对
+\end{choices}
+\end{question}
+
+\begin{solution}
+有不等式
+$$\varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert \leqslant \varliminf_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty}  \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert = A,$$
+而收敛半径等于 $1 / \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert},$ 因此而收敛半径大于 $\dfrac{1}{A},$ 等于 $\dfrac{1}{A}$ 都是可能的.
+
+等于 $\dfrac{1}{A}$ 的例子: $a_n = \dfrac{1}{n},$ 那么 $1 = \varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert = \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert}.$
+
+大于 $\dfrac{1}{A}$ 的例子: $a_n = \dfrac{3^{n}}{5^{n + (n \mod 2)}},$ 那么 $3 = \varlimsup_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert > \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} = \dfrac{3}{5}.$
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 3 分, 共 15 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+求柯西主值 $\displaystyle (\operatorname{cpv})\int_{-\infty}^{+\infty} \cos x ~ \mathrm{d}x =$ \fillin[0].
+\end{question}
+
+\begin{solution}
+直接计算极限 $\displaystyle \lim_{c\to+\infty} \int_{-c}^{c} \cos x ~ \mathrm{d}x = 0.$
+\end{solution}
+
+\begin{question}
+已知 $\displaystyle \int_0^{+\infty} \dfrac{\sin x}{x} \mathrm{d}x = \dfrac{\pi}{2},$ 那么 $\displaystyle \int_0^{+\infty} \dfrac{\sin^2 x}{x^2} \mathrm{d}x =$ \fillin[$\dfrac{\pi}{2}$].
+\end{question}
+
+\begin{solution}
+容易判断 $\displaystyle \int_0^{+\infty} \dfrac{\sin^2 x}{x^2} \mathrm{d}x$ 收敛. 由分部积分法有
+\begin{align*}
+\int_0^{+\infty} \dfrac{\sin^2 x}{x^2} \mathrm{d}x & = - \int_0^{+\infty} \sin^2 x ~\mathrm{d} \left(\frac{1}{x}\right) = - \dfrac{\sin^2 x}{x} \bigg|_0^{+\infty} + \int_0^{+\infty} \dfrac{2\sin x \cos x}{x} \mathrm{d}x \\
+& = \int_0^{+\infty} \dfrac{\sin 2x}{2x} \mathrm{d}(2x) = \int_0^{+\infty} \dfrac{\sin x}{x} \mathrm{d}x = \dfrac{\pi}{2}
+\end{align*}
+\end{solution}
+
+\begin{question}
+若正项级数 $\displaystyle \sum_{n=2}^\infty \dfrac{1}{n \ln^q n}$ 收敛, 则实数 $q$ 的取值范围为 \fillin[$q > 1$].
+\end{question}
+
+\begin{solution}
+直接由正项级数的积分判别法进行判断.
+\end{solution}
+
+\begin{question}
+幂级数 $\displaystyle \sum\limits_{n=1}^{\infty} \dfrac{\left( 2 + (-1)^n \right)^n}{2^n + \sin nx} x^n$ 的收敛半径等于 \fillin[$\dfrac{2}{3}$].
+\end{question}
+
+\begin{solution}
+记 $\displaystyle a_n = \dfrac{\left( 2 + (-1)^n \right)^n}{2^n + \sin nx} > 0,$ 那么 $\displaystyle \varlimsup_{n\to\infty} \nroot[n]{a_n} = \dfrac{3}{2},$ 所以收敛半径等于 $\dfrac{2}{3}$
+\end{solution}
+
+\begin{question}
+函数项级数 $\displaystyle \sum_{n=1}^{\infty} \dfrac{\sin nx}{n}$ 的收敛域为 \fillin[$\mathbb{R}$].
+\end{question}
+
+\begin{solution}
+由于 $x \not\in 2\pi\mathbb{Z}$ 时有 (见 (下册) 课本例 9.4.2)
+\begin{equation*}
+2\sin\dfrac{x}{2} \sum_{n=1}^{\infty} \sin nx = \cos\dfrac{x}{2} - \cos\dfrac{2n+1}{2}x,
+\end{equation*}
+而$\frac{1}{n} \searrow 0,$ 由狄利克雷判别法知收敛. 对于 $x \in 2\pi\mathbb{Z},$ 原级数每一项都是 $0,$ 从而也是收敛的.
+\end{solution}
+
+
+\section{计算题：本题共 2 小题, 共 20 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+请计算椭圆 $\displaystyle \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1, ~ a > b > 0,$ 绕 $x$ 轴旋转一周形成的椭球的表面积.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+用参数方程形式求解: $\begin{cases} x(t) = a \sin t, \\ y(t) = b \cos t,\end{cases}$ $t \in \left[ -\frac{\pi}{2}, \frac{\pi}{2} \right],$ 那么表面积 $S$ 有
+\begin{align*}
+S & = 2\pi \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} y(t) \sqrt{(x'(t))^2 + (y'(t))^2} ~ \mathrm{d} t = 2\pi \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} b \cos t \sqrt{a^2 \cos^2 t + b^2 \sin^2 t} ~ \mathrm{d} t \\
+& = 2 \pi ab \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos t \sqrt{1 - k^2\sin^2 t} ~ \mathrm{d} t = \dfrac{2 \pi ab}{k} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sqrt{1 - k^2\sin^2 t} ~ \mathrm{d} (k \sin t) \\
+& = \dfrac{2 \pi ab}{k} \int_{-k}^{k} \sqrt{1 - u^2} ~ \mathrm{d} u = \dfrac{2 \pi ab}{k} \left( u\sqrt{1-u^2} + \arcsin u \right) \bigg|_0^k \\
+& = \dfrac{2 \pi ab}{k} \left( k\sqrt{1-k^2} + \arcsin k \right) \\
+& = 2\pi b^2 + \dfrac{2\pi a^2b}{\sqrt{a^2 - b^2}} \arcsin\dfrac{\sqrt{a^2 - b^2}}{a}.
+\end{align*}
+上式中的 $k = \dfrac{\sqrt{a^2 - b^2}}{a}$ 为离心率.
+\end{solution}
+
+\begin{question}[points = 10]
+求定积分 $\displaystyle \int_{-\pi/2}^{\pi/2} \dfrac{\cos x}{1 + 2^x} ~ \mathrm{d}x.$ (提示: 将积分区间分为对称的两部分).
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{align*}
+\int_{-\pi/2}^{\pi/2} \dfrac{\cos x}{1 + 2^x} ~ \mathrm{d}x & = \int_{-\pi/2}^{0} \dfrac{\cos x}{1 + 2^x} ~ \mathrm{d}x + \int_{0}^{\pi/2} \dfrac{\cos x}{1 + 2^x} ~ \mathrm{d}x \\
+& = \int_{0}^{\pi/2} \dfrac{\cos (-x)}{1 + 2^{-x}} ~ \mathrm{d}x + \int_{0}^{\pi/2} \dfrac{\cos x}{1 + 2^x} ~ \mathrm{d}x \\
+& = \int_{0}^{\pi/2} \dfrac{2^{x} \cos x}{1 + 2^{x}} ~ \mathrm{d}x + \int_{0}^{\pi/2} \dfrac{\cos x}{1 + 2^x} ~ \mathrm{d}x \\
+& = \int_{0}^{\pi/2} \dfrac{(1 + 2^{x}) \cos x}{1 + 2^{x}} ~ \mathrm{d}x \\
+& = \int_{0}^{\pi/2} \cos x ~ \mathrm{d}x = 1.
+\end{align*}
+\end{solution}
+
+
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 8]
+设函数 $f(x)$ 是 $[a, b]$ 区间上的\chemph{非负}连续函数, 并且满足 $\displaystyle \int_a^b f(x) ~ \mathrm{d}x = 0,$ 请证明 $f(x)$ 在 $[a, b]$ 上恒等于 $0.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (上册) 课本 \S 7.2 习题 5 的等价变形.
+
+用反证法. 假设非负函数 $f(x)$ 不恒等于 $0,$ 即存在 $x_0 \in [a,b],$ 使得 $f(x_0) > 0.$ 由 $f(x)$ 的连续性知存在 $x_0$ 在 $[a, b]$ 中的非平凡闭邻域 $[c, d],$ 满足 $x_0 \in [c, d] \subset* [a, b],$ $c < d,$ 且 $\forall ~ x \in [c, d],$ 有 $f(x) > \frac{f(x_0)}{2}.$ 于是
+\begin{equation*}
+\int_a^b f(x) ~ \mathrm{d}x \geqslant \int_c^d f(x) ~ \mathrm{d}x \geqslant \int_c^d \frac{f(x_0)}{2} ~ \mathrm{d}x = \frac{f(x_0)}{2}(d - c) > 0,
+\end{equation*}
+这与已知条件 $\displaystyle \int_a^b f(x) ~ \mathrm{d}x = 0$ 矛盾.
+\end{solution}
+
+
+\begin{question}[points = 10]
+设无穷乘积 $\displaystyle \prod_{n=1}^\infty (1+a_n)$ 收敛, 请问数项级数 $\displaystyle \sum_{n=1}^\infty a_n$ 是否必收敛? 若是, 请证明这个结论; 若否, 请给出反例.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+不一定.
+
+可以举 (下册) 课本 \S 9.5 习题 7 中的反例:
+\begin{equation*}
+a_1 = 0, \quad a_{2n+1} = -\dfrac{1}{\sqrt{n}}, \quad a_{2n} = \dfrac{1}{\sqrt{n}} + \dfrac{1}{n} \left( 1 + \dfrac{1}{\sqrt{n}} \right)
+\end{equation*}
+\end{solution}
+
+
+\begin{question}[points = 10]
+设函数 $S(x)$ 在闭区间 $[0,1]$ 上连续, 且 $S(1) = 0.$ 请证明: $\{x^n S(x)\}$ 在 $[0,1]$ 上一致收敛.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (下册) 课本 \S 10.1 习题 8
+
+由于 $S(x)$ 在闭区间 $[0,1]$ 上连续, 那么 $S(x)$ 在 $[0,1]$ 上有界, 可以设 $M$ 为 $|S(x)|$ 的一个上界. 又由于 $S(1) = 0,$ 所以 $\forall ~ \varepsilon > 0,$ $\exists ~ \delta > 0,$ 使得 $\forall ~ x \in (1-\delta, 1]$ 有 $|S(x)| < \varepsilon,$ 从而有
+\begin{equation*}
+|x^nS(x)| \leqslant |S(x)| < \varepsilon, \quad \forall ~ x \in (1-\delta, 1], ~ \forall ~ n \in \mathbb{N}.
+\end{equation*}
+另一方面, 取 $N = \left\lceil \log_{1-\delta} \left( \frac{\varepsilon}{M} \right) + 1 \right\rceil,$ 那么在区间 $[0, 1 - \delta]$ 上有
+\begin{equation*}
+|x^nS(x)| \leqslant (1 - \delta)^n M < \varepsilon, \quad \forall~x \in [0, 1 - \delta], ~ \forall n > N.
+\end{equation*}
+综上即有 $\forall ~ n > N = \left\lceil \log_{1-\delta} \left( \frac{\varepsilon}{M} \right) + 1 \right\rceil,$ $\forall ~ x \in [0, 1]$ 有 $|x^nS(x)| < \varepsilon,$ 这就证明了 $\{x^n S(x)\}$ 在 $[0,1]$ 上一致收敛到常值函数 $0.$
+\end{solution}
+
+
+\begin{question}[points = 10]
+设 $\displaystyle f(x) = \sum\limits_{n=1}^{\infty} \dfrac{\cos nx}{\sqrt{n^3 + n}},$
+\begin{enumerate}
+\item 求证: $f(x)$ 在 $\mathbb{R}$ 上连续;
+\item 记 $\displaystyle F(x) = \int_0^x f(t) ~ \mathrm{d} t,$ 求证: $\dfrac{\sqrt{2}}{2} - \dfrac{1}{15} < F \left( \dfrac{\pi}{2} \right) < \dfrac{\sqrt{2}}{2}.$
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+
+本题是 (下册) 课本 §10.2 习题 12
+
+\begin{enumerate}
+\item 由于 $\displaystyle \left\lvert \dfrac{\cos nx}{\sqrt{n^3 + n}} \right\rvert \leqslant \dfrac{1}{\sqrt{n^3 + n}} < n^{-3/2},$ 而正项级数 $\displaystyle \sum\limits_{n=1}^{\infty} n^{-3/2}$ 收敛, 所以由 Weierstraß 判别法知函数项级数 $\displaystyle f(x) = \sum\limits_{n=1}^{\infty} \dfrac{\cos nx}{\sqrt{n^3 + n}}$ 一致收敛. 由一致收敛函数项级数的连续性定理知, 和函数连续.
+\item 由一致收敛函数项级数的逐项积分定理知
+\begin{align*}
+F(x) & = \int_0^x f(t) ~ \mathrm{d} t = \int_0^x \sum\limits_{n=1}^{\infty} \dfrac{\cos nt}{\sqrt{n^3 + n}} ~ \mathrm{d} t = \sum\limits_{n=1}^{\infty} \int_0^x \dfrac{\cos nt}{\sqrt{n^3 + n}} ~ \mathrm{d} t \\
+& = \sum\limits_{n=1}^{\infty} \left. \dfrac{\sin nt}{n\sqrt{n^3 + n}} \right|_0^x = \sum\limits_{n=1}^{\infty} \dfrac{\sin nx}{n\sqrt{n^3 + n}},
+\end{align*}
+将 $x = \dfrac{\pi}{2}$ 代入上式得
+\begin{align*}
+F \left( \dfrac{\pi}{2} \right) & = \sum\limits_{n=1}^{\infty} \dfrac{\sin \dfrac{n\pi}{2}}{n\sqrt{n^3 + n}} = \sum\limits_{k=0}^{\infty} \dfrac{(-1)^k}{(2k+1)\sqrt{(2k+1)^3 + (2k+1)}} = : \sum\limits_{k=0}^{\infty} (-1)^k a_k
+\end{align*}
+上述关于 $k$ 的级数是 Leibniz 级数, 而且 $a_k$ 是严格单调递减的, 所以
+\begin{align*}
+F \left( \dfrac{\pi}{2} \right) & < a_0 = \dfrac{1}{\sqrt{2}} = \dfrac{\sqrt{2}}{2}, \\
+F \left( \dfrac{\pi}{2} \right) & > a_0 - a_1 = \dfrac{\sqrt{2}}{2} - \dfrac{1}{3 \cdot \sqrt{3^3 + 3}} > \dfrac{\sqrt{2}}{2} - \dfrac{1}{15}.
+\end{align*}
+\end{enumerate}
+
+\end{solution}
+
+
+\begin{question}[points = 12]
+考虑定义在 $\mathbb{R}$ 上的函数 $\varphi(x) = d(x, \mathbb{Z}) = \min\limits_{n \in \mathbb{Z}} |x - n|.$ $\varphi(x)$ 是周期为 $1$ 的函数, 在 $[0, 1)$ 区间上的定义为
+$$
+\varphi(x) = \begin{cases}
+x, & 0 \leqslant x < 1/2, \\ 1 - x, & 1/2 \leqslant x < 1.
+\end{cases}
+$$
+定义 Generalized Van der Waerden-Takagi 函数为
+$$
+f(x) = \sum_{n=0}^{\infty} a^n \varphi(b^n x),
+$$
+其中 $a,b \in \mathbb{R}$ 为常数.
+\begin{enumerate}
+\item 若 $0 < a < 1,$ 请证明: $f(x)$ 在 $\mathbb{R}$ 上连续.
+\item 设 $g(x)$ 为定义在 $\mathbb{R}$ 上任一函数, 请证明: 若 $g(x)$ 在某点 $x_0$ 处可导, 导数值等于 $A,$ 那么对于任意的序列 $u_n, v_n,$ 若满足 $u_n \leqslant x_0 \leqslant v_n,$ 且 $\displaystyle \lim_{n\to\infty} u_n = \lim_{n\to\infty} v_n = x_0,$ 那么必有
+$$
+\displaystyle \lim_{n\to\infty} \dfrac{g(u_n) - g(v_n)}{u_n - v_n} = A.
+$$
+\item 若 $0 < a < 1,$ $b \in 2 \mathbb{N}$ 为正偶数, 且满足 $ab \geqslant 1,$ 请证明: $f(x)$ 在 $\mathbb{R}$ 中任意点处都不可导.
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 由于 $0 \leqslant \varphi(x) \leqslant 1/2,$
+所以 $0 \leqslant a^n \varphi(b^n x) \leqslant a^n/2.$ 由于正项级数 $\displaystyle \sum_{n=0}^{\infty} a^n$ 收敛,
+于是由 Weierstraß 判别法, 函数项级数 $\displaystyle \sum_{n=0}^{\infty} a^n \varphi(b^n x)$ 一致收敛.
+进一步由一致收敛函数项级数和函数的连续性定理知, 和函数 $f(x)$ 在 $\mathbb{R}$ 上连续.
+\item 记 $h_{1,n} = x_0 - u_n,$ $h_{2,n} = v_n - x_0,$ 那么 $h_{1,n}, h_{2,n} \geqslant 0$ 且 $h_{1,n} \to 0,$ $h_{2,n} \to 0.$ 由于 $g(x)$ 在点 $x_0$ 处可导, 所以在 $x_0$ 附近有
+\begin{equation*}
+g(x) = g(x_0) + A (x - x_0) + o(|x - x_0|),
+\end{equation*}
+那么
+\begin{align*}
+\lim_{n\to\infty} \dfrac{g(u_n) - g(v_n)}{u_n - v_n} & = \lim_{n\to\infty} \dfrac{A (h_{1,n} + h_{2,n}) + o(h_{1,n}) + o(h_{1,n})}{h_{1,n} + h_{2,n}} \\
+& = A + \lim_{n\to\infty} \dfrac{o(h_{1,n}) + o(h_{1,n})}{h_{1,n} + h_{2,n}} \\
+& = A + 0 = A.
+\end{align*}
+\item 由于 $\varphi(x)$ 是周期为 $1$ 的函数, 所以 $f$ 也以 $1$ 为周期, 所以只要对任意 $x \in [0, 1)$ 证明 $f$ 在 $x$ 处不可导即可. 由第 (2) 问, 希望可以选取序列 $u_n \rightarrow x \leftarrow v_n,$ 使得
+\begin{equation*}
+\dfrac{f(u_n) - f(v_n)}{u_n - v_n}
+= \dfrac{\sum\limits_{m=0}^{\infty} a^m (\varphi(b^m u_n) - \varphi(b^m v_n))}{u_n - v_n}
+\end{equation*} 
+发散. 由于 $2 b^n x$ 是非负实数, 所以存在非负整数 $k_n,$ 使得 $k_n \leqslant 2 b^n x < k_n + 1,$ 即
+\begin{equation*}
+\dfrac{k_n}{2 b^n} \leqslant x < \dfrac{k_n + 1}{2 b^n}.
+\end{equation*}
+取 $u_n = \dfrac{k_n}{2 b^n}, v_n = \dfrac{k_n + 1}{2 b^n}.$ 对于和式 $\displaystyle \sum\limits_{m=0}^{\infty} a^m (\varphi(b^m u_n) - \varphi(b^m v_n)),$ 分为两部分讨论:
+
+$1^{\circ}$ 当 $0 \leqslant m < n$ 时, 由于
+\begin{equation*}
+b^m u_n = \dfrac{k_n}{2} \cdot \dfrac{1}{b^{n-m}}, ~~ b^m v_n = \dfrac{k_n + 1}{2} \cdot \dfrac{1}{b^{n-m}},
+\end{equation*}
+从而存在非负整数 $z \in \mathbb{Z}_{\geqslant 0},$ 使得 $b^m u_n, b^m v_n$ 同时属于 $[z, z+1/2]$ 或 $[z+1/2, z+1],$ 那么
+\begin{equation*}
+\varphi(b^m u_n) - \varphi(b^m v_n) = \pm (b^m u_n - b^m v_n) = \pm \dfrac{1}{2 b^{n-m}},
+\end{equation*}
+从而有
+\begin{equation*}
+\dfrac{a^m (\varphi(b^m u_n) - \varphi(b^m v_n))}{u_n - v_n}
+= \pm a^m \dfrac{1}{2 b^{n-m}} \left/ \left( \dfrac{1}{2 b^n}\right) \right.
+= \pm (ab)^m.
+\end{equation*}
+
+$2^{\circ}$ 当 $m \geqslant n$ 时, 有
+\begin{equation*}
+b^m u_n = \dfrac{b^{m-n} \cdot k_n}{2}, ~~ b^m v_n = \dfrac{b^{m-n} \cdot (k_n+1)}{2}.
+\end{equation*}
+由于 $b$ 为偶数, 若 $m > n,$ 则 $b^m u_n, b^m v_n$ 都是整数;
+若 $m = n,$ 则 $b^m u_n = \dfrac{k_n}{2}, b^m v_n = \dfrac{k_n + 1}{2}$ 其中一个为整数,
+另一个为半整数 (即 $\dfrac{1}{2} +$ 整数). 于是
+\begin{equation*}
+\dfrac{a^m (\varphi(b^m u_n) - \varphi(b^m v_n))}{u_n - v_n}
+= \begin{cases}
+    0, & \text{当 } m > n \text{ 时}, \\
+    \dfrac{\pm a^m / 2}{1 / (2 b^{m})} = \pm (ab)^m, & \text{当 } m = n \text{ 时}.
+\end{cases}
+\end{equation*}
+于是
+\begin{equation*}
+\dfrac{f(u_n) - f(v_n)}{u_n - v_n}
+= \dfrac{\sum\limits_{m=0}^{\infty} a^m (\varphi(b^m u_n) - \varphi(b^m v_n))}{u_n - v_n}
+= \sum\limits_{m=1}^n \left( \pm (ab)^m \right).
+\end{equation*}
+由于 $ab \geqslant 1,$ 所以 $\displaystyle \lim\limits_{n\to\infty} \sum\limits_{m=1}^n \left( \pm (ab)^m \right) = \sum\limits_{m=1}^{\infty} \left( \pm (ab)^m \right)$ 发散.
+\end{enumerate}
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}
