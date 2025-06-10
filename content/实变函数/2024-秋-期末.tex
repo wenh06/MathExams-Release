@@ -258,9 +258,9 @@ $$\rho(x, E) = \inf \{ \lVert x - y \rVert: ~ y \in E \},$$
 \rho(x, y) \leqslant \delta, ~~ \forall y \in F \cap* \overline{B}. \\
 \end{gathered}
 \end{equation*}
-$\overline{B} \cap* F$ 是有界闭集, 从而是紧集, 关于 $x$ 的连续函数 $\rho(x, F)$ 在其上能取到最小值, 即存在 $y_0 \in F,$ 使得 $\rho(x, F) = \rho(x, F \cap \overline{B}) = \lVert x - y_0 \rVert.$ \score{5}
+$\overline{B} \cap* F$ 是有界闭集, 从而是紧集, 关于 $x$ 的连续函数 $\rho(x, F)$ 在其上能取到最小值, 即存在 $y_0 \in F,$ 使得 $\rho(x, F) = \rho(x, F \cap* \overline{B}) = \lVert x - y_0 \rVert.$ \score{5}
 
-这题也可以利用书上的证明方法, 即取 $F$ 点列 $\{y_n\},$ 使得 $\lim\limits_{n\to\infty} \rho(x, y_n) = \rho(x, F).$ 这可以说明 $\{y_n\}$ 是有界点列, 从而存在收敛子列, 而 $F$ 是闭集, 该收敛子列收敛到 $F$ 中的某点, $y_0$ 即取为该点.
+这题也可以利用书上的证明方法, 即取 $F$ 中点列 $\{y_n\},$ 使得 $\lim\limits_{n\to\infty} \rho(x, y_n) = \rho(x, F).$ 这可以说明 $\{y_n\}$ 是有界点列, 从而存在收敛子列, 而 $F$ 是闭集, 该收敛子列收敛到 $F$ 中的某点, $y_0$ 即取为该点.
 
 \item 由于 $F_1, F_2$ 为 $\mathbb{R}^n$ 中两个不交的非空闭集, 那么 $\forall ~ x \in \mathbb{R}^n,$ $\rho(x, F_1), \rho(x, F_2)$ 不同时为 $0,$ 否则根据第 (1) 问, 存在 $y_1 \in F_1, y_2 \in F_2,$ 使得
 $$0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,$$

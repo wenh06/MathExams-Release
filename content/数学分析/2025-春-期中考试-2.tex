@@ -280,7 +280,7 @@ $$\varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert \leqslan
 \end{question}
 
 \begin{solution}
-极限 $\displaystyle \lim_{c\to+\infty} \int_{-c}^{c} \cos x ~ \mathrm{d}x = \lim_{c\to+\infty} -2\sin c$ 不存在, 发散.
+极限 $\displaystyle \lim_{c\to+\infty} \int_{-c}^{c} \cos x ~ \mathrm{d}x = \lim_{c\to+\infty} 2\sin c$ 不存在, 发散.
 \end{solution}
 
 \begin{question}
@@ -476,7 +476,7 @@ $$
 \item 若 $0 < a < 1,$ 请证明: $f(x)$ 在 $\mathbb{R}$ 上连续.
 \item 设 $g(x)$ 为定义在 $\mathbb{R}$ 上任一函数, 请证明: 若 $g(x)$ 在某点 $x_0$ 处可导, 导数值等于 $A,$ 那么对于任意的序列 $u_n, v_n,$ 若满足 $u_n \leqslant x_0 \leqslant v_n,$ 且 $\displaystyle \lim_{n\to\infty} u_n = \lim_{n\to\infty} v_n = x_0,$ 那么必有
 $$
-\displaystyle \lim_{n\to\infty} \dfrac{g(u_n) - g(v_n)}{u_n - v_n} = A.
+\lim_{n\to\infty} \dfrac{g(u_n) - g(v_n)}{u_n - v_n} = A.
 $$
 \item 若 $0 < a < 1,$ $b \in 2 \mathbb{N}$ 为正偶数, 且满足 $ab \geqslant 1,$ 请证明: $f(x)$ 在 $\mathbb{R}$ 中任意点处都不可导.
 \end{enumerate}
@@ -540,7 +540,7 @@ b^m u_n = \dfrac{b^{m-n} \cdot k_n}{2}, ~~ b^m v_n = \dfrac{b^{m-n} \cdot (k_n+1
     \dfrac{\pm a^m / 2}{1 / (2 b^{m})} = \pm (ab)^m, & \text{当 } m = n \text{ 时}.
 \end{cases}
 \end{equation*}
-于是
+综合 $1^{\circ}$ 和 $2^{\circ}$ 有
 \begin{equation*}
 \dfrac{f(u_n) - f(v_n)}{u_n - v_n}
 = \dfrac{\sum\limits_{m=0}^{\infty} a^m (\varphi(b^m u_n) - \varphi(b^m v_n))}{u_n - v_n}
