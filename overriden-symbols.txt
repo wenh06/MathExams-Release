@@ -1,0 +1,14 @@
+subset
+nsubset
+subseteq
+nsubseteq
+subsetneqq
+supset
+nsupset
+supseteq
+nsupseteq
+supsetneqq
+cap
+cup
+sim
+cong
