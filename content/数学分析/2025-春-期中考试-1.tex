@@ -308,7 +308,7 @@ $s > 0$ 时由 Leibniz 判别法可知收敛, $s \leqslant 0$ 时通项不趋于
 
 \begin{solution}
 题目是两个绝对收敛级数的柯西乘积:
-$$\sum_{n=0}^{\infty} \sum_{k=0}^n \dfrac{(-1)^k}{k!(n-k)!} = \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{n!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{1^n}{n!} \right) = e^{-1} \cdot e = 1.$$
+\[\sum_{n=0}^{\infty} \sum_{k=0}^n \dfrac{(-1)^k}{k!(n-k)!} = \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{n!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{1^n}{n!} \right) = e^{-1} \cdot e = 1.\]
 \end{solution}
 
 \begin{question}
@@ -410,7 +410,7 @@ S(t) & = \int_0^{\arcsin t} (t - \sin x) ~ \mathrm{d}x + \int_{\arcsin t}^{\pi/2
 \end{solution}
 
 
-\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。}
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
 
 \examsetup{
   question/index = 1
@@ -457,7 +457,7 @@ D(x) = \begin{cases} 1, & x \in \mathbb{Q} \cap* [0, 1], \\ 0, & x \in [0, 1] \s
 
 \begin{question}[points = 10]
 设函数 $f(x)$ 在闭区间 $[a - 1, b + 1]$ 上黎曼可积, 并且对于所有 $-1 \leqslant h \leqslant 1,$ 记 $f_h(x) = f(x + h)$ 为定义在闭区间 $[a, b]$ 上的函数. 证明:
-$$\lim_{h \to 0} \int_a^b |f_h(x) - f(x)| ~ \mathrm{d} x = 0.$$
+\[\lim_{h \to 0} \int_a^b |f_h(x) - f(x)| ~ \mathrm{d} x = 0.\]
 % \noindent\scoringbox
 \end{question}
 
@@ -496,7 +496,7 @@ a < a + |h| < a + 2|h| < \cdots < a + k |h| < b, \quad k = \left\lceil \frac{b-a
 \begin{enumerate}
 \item 证明在 $x \in (0, +\infty)$ 上有 $\displaystyle \lvert f(x) \rvert < \dfrac{1}{x}.$
 \item 证明当 $x \to +\infty$ 时, 有
-$$f(x) = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} + O \left( \dfrac{1}{x^2} \right).$$
+\[f(x) = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} + O \left( \dfrac{1}{x^2} \right).\]
 \item 判断反常积分 $\displaystyle \int_0^{+\infty} \sin(t^2) ~ \mathrm{d}t$ 是否收敛, 并给出证明.
 \end{enumerate}
 
@@ -546,7 +546,7 @@ g(x) & = \int_x^{x+1} \left( \sin(t^2) + \dfrac{\cos(t^2)}{2t^2} \right) ~ \math
 \left| f(x) - g(x) \right| = \left| \int_x^{x+1} \dfrac{\cos(t^2)}{2t^2} ~ \mathrm{d}t \right| \leqslant \int_x^{x+1} \dfrac{\left| \cos(t^2) \right|}{2x^2} ~ \mathrm{d}t \leqslant \dfrac{1}{2x^2},
 \end{align*}
 由此可知 $\displaystyle f(x) - g(x) = O \left( \dfrac{1}{x^2} \right).$ 于是有
-$$f(x) = g(x) + \big(f(x) - g(x)\big) = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} + O \left( \dfrac{1}{x^2} \right).$$
+\[f(x) = g(x) + \big(f(x) - g(x)\big) = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1)^2)}{2(x+1)} + O \left( \dfrac{1}{x^2} \right).\]
 
 或者直接从 (1) 问后面的过程可知.
 
@@ -555,7 +555,7 @@ $$f(x) = g(x) + \big(f(x) - g(x)\big) = \dfrac{\cos(x^2)}{2x} - \dfrac{\cos((x+1
 \item[\ding{43}] $\displaystyle \int_0^{+\infty} \sin(t^2) ~ \mathrm{d}t = \int_0^{+\infty} \dfrac{\sin(u)}{2\sqrt{u}} ~ \mathrm{d}u.$ 由于 $\displaystyle \int_0^c \sin(u) ~ \mathrm{d}u$ 关于 $c$ 有界, 而 $\dfrac{1}{\sqrt{u}}$ 关于 $u$ 单调趋于 $0$ ($u \to + \infty$), 由狄利克雷判别法知反常积分 $\displaystyle \int_0^{+\infty} \sin(t^2) ~ \mathrm{d}t$ 收敛.
 
 \item[\ding{43}] 对充分大的 $c$ 有
-$$\int_0^c \sin(t^2) ~ \mathrm{d}t = f(0) + f(1) + \cdots + f(n-1) + \int_n^c \sin(t^2) ~ \mathrm{d}t,$$
+\[\int_0^c \sin(t^2) ~ \mathrm{d}t = f(0) + f(1) + \cdots + f(n-1) + \int_n^c \sin(t^2) ~ \mathrm{d}t,\]
 其中 $n = [c].$ 那么由第 (2) 小问可知
 \begin{equation*}
 f(1) + \cdots + f(n-1) = \dfrac{\cos 1}{2} - \dfrac{\cos((n+1)^2)}{2(n+1)} + \sum_{k=1}^n \alpha_k \dfrac{1}{k^2}

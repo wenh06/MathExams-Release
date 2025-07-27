@@ -185,7 +185,7 @@ A. 的反例: $a_n = \begin{cases}
 B. 的反例 $a_n = b_n = \dfrac{(-1)^n}{n^{1/3}}.$ 若 $a_n$还有单调性, 则B. 的命题正确.
 
 C. 的反例 $S_n(x) = \dfrac{1}{2n} \ln{\left( 1 + n^2x^2 \right)},$ 并约定$S_0(x) = 0.$ 令 $u_n(x) = S_{n}(x) - S_{n-1}(x).$ 那么 $\{S_n(x)\}$ 与 $\left\{\dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x} = \dfrac{nx}{1 + n^2x^2}\right\}$ 在 $[0,1]$ 上都点态收敛于常值函数 $f(x) = 0,$ 并且都不是一致收敛, 但仍有
-$$\dfrac{\mathrm{d}}{\mathrm{d} x} \left( \sum\limits_{n=1}^{\infty} u_n(x) \right) = \dfrac{\mathrm{d}}{\mathrm{d} x} \left( \lim\limits_{n\to\infty} S_n \right) = 0 = \lim\limits_{n\to\infty} \dfrac{\mathrm{d} S_n(x)}{\mathrm{d} x} = \sum\limits_{n=1}^{\infty} \dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x}.$$
+\[\dfrac{\mathrm{d}}{\mathrm{d} x} \left( \sum\limits_{n=1}^{\infty} u_n(x) \right) = \dfrac{\mathrm{d}}{\mathrm{d} x} \left( \lim\limits_{n\to\infty} S_n \right) = 0 = \lim\limits_{n\to\infty} \dfrac{\mathrm{d} S_n(x)}{\mathrm{d} x} = \sum\limits_{n=1}^{\infty} \dfrac{\mathrm{d} u_n(x)}{\mathrm{d} x}.\]
 \end{solution}
 
 \begin{question}
@@ -221,7 +221,7 @@ $$\dfrac{\mathrm{d}}{\mathrm{d} x} \left( \sum\limits_{n=1}^{\infty} u_n(x) \rig
 
 \begin{solution}
 见幂级数的逐项可导性定理. 若在一点 $x \neq 0$ 处 $\sum\limits_{n=0}^\infty (n + 1) a_{n+1} x^n$ 收敛, 那么由 Dirichlet 判别法, 通项为
-$$a_n x^n = x\cdot \left(\dfrac{1}{n} \cdot n a_n x^{n-1}\right)$$
+\[a_n x^n = x\cdot \left(\dfrac{1}{n} \cdot n a_n x^{n-1}\right)\]
 的级数也是收敛的. 反之不一定成立, 例如 $\sum\limits_{n=0}^\infty \dfrac{1}{n} x^n$ 的收敛域为 $[-1, 1),$ 而 $\sum\limits_{n=0}^\infty (n+1) \cdot \dfrac{1}{n+1} x^n = \sum\limits_{n=0}^\infty x^n$ 的收敛域为 $(-1, 1),$
 \end{solution}
 
@@ -301,9 +301,9 @@ $\cos nx, n = 0, 1, 2, \dots; \sin m x, m = 1, 2, \dots$ 在 $[-\pi, \pi]$ 上�
 
 \begin{solution}
 记 $a_n = \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{n^2 + 1},$ 直接利用 Cauchy-Hadamard 定理:
-$$\varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} = \varlimsup_{n\to\infty} \left( 3 + 2 \cdot (-1)^n \right) \cdot \lim\limits_{n\to\infty} \dfrac{1}{\nroot[n]{n^2 + 1}} = 5,$$
+\[\varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} = \varlimsup_{n\to\infty} \left( 3 + 2 \cdot (-1)^n \right) \cdot \lim\limits_{n\to\infty} \dfrac{1}{\nroot[n]{n^2 + 1}} = 5,\]
 于是幂级数 $\sum\limits_{n=0}^{\infty} \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{n^2 + 1} (x - 2)^n$ 的收敛半径为 $\dfrac{1}{5}.$ 在边界上, 由于
-$$\lvert a_n (\pm R)^n \rvert = \left\lvert \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{(\pm 5)^n} \cdot \dfrac{1}{n^2 + 1} \right\rvert \leqslant \dfrac{1}{n^2 + 1},$$
+\[\lvert a_n (\pm R)^n \rvert = \left\lvert \dfrac{\left( 3 + 2 \cdot (-1)^n \right)^n}{(\pm 5)^n} \cdot \dfrac{1}{n^2 + 1} \right\rvert \leqslant \dfrac{1}{n^2 + 1},\]
 由比较判别法知幂级数在收敛域边界上都是绝对收敛的, 故收敛域等于 $\left[2 - \dfrac{1}{5}, 2 + \dfrac{1}{5}\right] = \left[ \dfrac{9}{5}, \dfrac{11}{5} \right]$
 \end{solution}
 
@@ -360,22 +360,22 @@ $(\text{cpv}) \int_{-\infty}^{+\infty} \dfrac{\sin x}{x} \mathrm{d} x = \lim\lim
 本题是 (下册) 课本 \S 10.3 习题 8
 
 由于$\lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = 0,$ 所以有
-$$0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfrac{S_n - S_{n-1}}{S_n} = \lim\limits_{n\to\infty} \left( 1 - \dfrac{S_{n-1}}{S_n} \right) = 1 - \lim\limits_{n\to\infty} \dfrac{S_{n-1}}{S_n},$$
+\[0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfrac{S_n - S_{n-1}}{S_n} = \lim\limits_{n\to\infty} \left( 1 - \dfrac{S_{n-1}}{S_n} \right) = 1 - \lim\limits_{n\to\infty} \dfrac{S_{n-1}}{S_n},\]
 即知 $\lim\limits_{n\to\infty} \dfrac{S_n}{S_{n-1}} = 1 \left/ \lim\limits_{n\to\infty} \dfrac{S_{n-1}}{S_n} \right. = 1.$ 由 d'Alembert 定理知幂级数 $\sum\limits_{n=1}^{\infty} S_n x^n$ 收敛半径为 $1.$
 
 由于 $\sum\limits_{n=1}^{\infty} a_n$ 为正项级数, 即 $a_n \geqslant 0,$ 因此有 $a_n \leqslant S_n,$ 从而有
-$$\varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert S_n \rvert},$$
+\[\varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert S_n \rvert},\]
 于是幂级数 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径大于等于幂级数 $\sum\limits_{n=1}^{\infty} S_n x^n$ 的收敛半径.
 
 另一方面, 由于 $\sum\limits_{n=1}^{\infty} a_n$ 发散, 所以 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径要小于等于 $1.$ 综上知 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径等于 $1.$
 
 另一种解法: 由于 $\sum\limits_{n=1}^{\infty} a_n$ 是正项级数且发散, 所以数列 $\{S_n\}$ 单调趋于无穷, 于是由 Stolz 公式, 有
-$$0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfrac{a_n-a_{n-1}}{S_n-S_{n-1}} = \lim\limits_{n\to\infty} \dfrac{a_n-a_{n-1}}{a_n} = 1 -\lim\limits_{n\to\infty} \dfrac{a_{n-1}}{a_n},$$
+\[0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfrac{a_n-a_{n-1}}{S_n-S_{n-1}} = \lim\limits_{n\to\infty} \dfrac{a_n-a_{n-1}}{a_n} = 1 -\lim\limits_{n\to\infty} \dfrac{a_{n-1}}{a_n},\]
 因此 $\lim\limits_{n\to\infty} \dfrac{a_{n+1}}{a_n} = 1,$ 由 d'Alembert 定理知 $\sum\limits_{n=1}^{\infty} a_n$ 收敛半径为 $1.$
 \end{solution}
 
 
-\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。}
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
 
 \examsetup{
   question/index = 1
@@ -393,13 +393,13 @@ $$0 = \lim\limits_{n\to\infty} \dfrac{a_n}{S_n} = \lim\limits_{n\to\infty} \dfra
 方法一：利用有界函数 Riemann 可积的勒贝格判别法. 设 $x_0$ 为 $f(x)$ 的连续点, 由于 $g(u)$ 在 $u=f(x_0)$ 点处连续, 因此 $x_0$ 为 $g(f(x))$ 的连续点. 所以 $f(x)$ 的连续点集为 $g(f(x))$ 连续点集的子集, 也就是说, $g(f(x))$ 的不连续点集是 $f(x)$ 的不连续点集的子集. 由于 $f(x)$ 在闭区间 $[a, b]$ 上 Riemann 可积, 因此 $f(x)$ 在 $[a, b]$ 上的不连续点集是零测集, 而零测集的子集都是零测集. 这就说明了 $g(f(x))$ 的不连续点集也是零测集, 故 $g(f(x))$ 在 $[a, b]$ 上 Riemann 可积.
 
 方法二: 由于 $g(x)$ 在闭区间 $[A, B]$ 上连续, 从而是一致连续的, 从而 $\forall ~ \varepsilon > 0,$ 存在 $\delta > 0,$ 对所有 $u, v \in [A, B],$ 只要 $\lvert u - v \rvert < \delta,$ 就有 $\lvert g(u) - g(v) \rvert < \varepsilon.$ 又由于 $f(x)$ 在闭区间 $[a, b]$ 上 Riemann 可积, 根据由振幅给出的闭区间上有界函数 Riemann 可积的等价条件, 对于已给定的 $\varepsilon, \delta,$ 存在 $\tau > 0,$ 使得对任意的 $[a, b]$ 区间的划分 $P: a = x_0 < x_1 < \cdots < x_n = b,$ 只要 $\lambda(P) < \tau,$ 即有
-$$\sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,$$
+\[\sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,\]
 其中 $\Delta x_i = x_i - x_{i-1}, \Delta_i = [x_{i-1}, x_i], \omega(f; \Delta_i) = \sup\limits_{t_1, t_2 \in \Delta_i} \lvert f(t_1) - f(t_2) \rvert.$
 
 若 $\omega(f, \Delta_i) < \delta,$ 则有 $\forall ~ t_1, t_2 \in \Delta_i, \lvert f(t_1) - f(t_2) \rvert < \delta,$ 进而有 $\lvert g(f(t_1)) - g(f(t_2)) \rvert < \varepsilon.$ 另一方面, 记集合 $T = \{ i: ~ \omega(f, \Delta_i) \geqslant \delta \},$ 有
-$$\sum\limits_{i \in T} \omega(f; \Delta_i) \Delta x_i \leqslant \sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,$$
+\[\sum\limits_{i \in T} \omega(f; \Delta_i) \Delta x_i \leqslant \sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,\]
 即知
-$$\sum\limits_{i \in T} \delta \Delta x_i \leqslant \sum\limits_{i \in T} \omega(f; \Delta_i) \Delta x_i \leqslant \sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,$$
+\[\sum\limits_{i \in T} \delta \Delta x_i \leqslant \sum\limits_{i \in T} \omega(f; \Delta_i) \Delta x_i \leqslant \sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon \delta,\]
 由上式可得 $\sum\limits_{i \in T} \Delta x_i < \varepsilon.$
 
 设 $M > 0$ 为连续函数 $g(u)$ 在闭区间 $[A, B]$ 上的一个界, 那么有
@@ -427,16 +427,16 @@ $$\sum\limits_{i \in T} \delta \Delta x_i \leqslant \sum\limits_{i \in T} \omega
 
 \begin{enumerate}
 \item 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 的收敛半径可由 Cauchy-Hadamard 定理计算:
-$$\dfrac{1}{R} = \varlimsup_{n\to\infty} \nroot[2n]{\lvert a_{n} \rvert} = \varlimsup_{n\to\infty} \left( \nroot[n]{\lvert a_{n} \rvert} \right)^{1/2} = \left( \varlimsup_{n\to\infty} \nroot[n]{\lvert a_{n} \rvert} \right)^{1/2} = \dfrac{1}{\sqrt{R_1}}.$$
+\[\dfrac{1}{R} = \varlimsup_{n\to\infty} \nroot[2n]{\lvert a_{n} \rvert} = \varlimsup_{n\to\infty} \left( \nroot[n]{\lvert a_{n} \rvert} \right)^{1/2} = \left( \varlimsup_{n\to\infty} \nroot[n]{\lvert a_{n} \rvert} \right)^{1/2} = \dfrac{1}{\sqrt{R_1}}.\]
 于是 $R = \sqrt{R_1}.$
 \item 任取 $r < \min\{R_1, R_2\},$ 由 Cauchy-Hadamard 定理知 $\sum\limits_{n=0}^\infty a_n r^n$ 与 $\sum\limits_{n=0}^\infty b_n r^n$ 都是 (绝对) 收敛, 因此
-$$\sum\limits_{n=0}^\infty (a_n + b_n) r^n = \sum\limits_{n=0}^\infty a_n r^n + \sum\limits_{n=0}^\infty b_n r^n$$
+\[\sum\limits_{n=0}^\infty (a_n + b_n) r^n = \sum\limits_{n=0}^\infty a_n r^n + \sum\limits_{n=0}^\infty b_n r^n\]
 也收敛. 那么由 Abel 第一定理知幂级数 $\sum\limits_{n=0}^\infty (a_n + b_n) x^n$ 的收敛半径 $R$ 必须满足
-$$R \geqslant r.$$
-由于上式对任意的满足 $r < \min\{R_1, R_2\}$ 的 $r$ 都成立, 因此必须有 $$R \geqslant \min\{R_1, R_2\}.$$
+\[R \geqslant r.\]
+由于上式对任意的满足 $r < \min\{R_1, R_2\}$ 的 $r$ 都成立, 因此必须有 \[R \geqslant \min\{R_1, R_2\}.\]
 
 使得 $R > \min\{R_1, R_2\}$ 成立的例子 (其他例子也可以):
-$$a_n = \dfrac{1}{n}, b_n = -\dfrac{1}{n} + \dfrac{1}{n!},$$
+\[a_n = \dfrac{1}{n}, b_n = -\dfrac{1}{n} + \dfrac{1}{n!},\]
 那么 $\sum\limits_{n=0}^\infty a_n x^n$ 与 $\sum\limits_{n=0}^\infty b_n x^n$ 的收敛半径都是 $1,$ 但 $\sum\limits_{n=0}^\infty (a_n + b_n) x^n = \sum\limits_{n=0}^\infty \dfrac{1}{n!} x^n$ 的收敛半径为 $+\infty.$
 \end{enumerate}
 \end{solution}
@@ -457,15 +457,15 @@ $$a_n = \dfrac{1}{n}, b_n = -\dfrac{1}{n} + \dfrac{1}{n!},$$
 
 \begin{enumerate}
 \item 由正项级数敛散性的 Cauchy 判别法, 由于
-$$\varlimsup_{n\to\infty} \nroot[n]{\lvert u_n(x) \rvert} = \varlimsup_{n\to\infty} \nroot[n]{n} \cdot \left\lvert x + \dfrac{1}{n} \right\rvert = \lvert x \rvert,$$
+\[\varlimsup_{n\to\infty} \nroot[n]{\lvert u_n(x) \rvert} = \varlimsup_{n\to\infty} \nroot[n]{n} \cdot \left\lvert x + \dfrac{1}{n} \right\rvert = \lvert x \rvert,\]
 于是 $\lvert x \rvert < 1$ 时函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x) = \sum\limits_{n=1}^{\infty} n \left( x + \dfrac{1}{n} \right)^n$ (绝对) 收敛; $x > 1$ 时发散. 当 $x = 1$ 时, 通项 $u_n(1) = n \left( 1 + \dfrac{1}{n} \right)^n \to +\infty,$ 当 $n \to \infty,$ 级数发散. 当 $x \leqslant -1$ 时, 通项绝对值 $\lvert u_n(x) \rvert = n \left( -x - \dfrac{1}{n} \right)^n \geqslant n \left( 1 - \dfrac{1}{n} \right)^n \to +\infty,$ 当 $n \to \infty,$ 级数发散.
 
 综上知, 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 的收敛域 $D = (-1, 1).$
 \item 在 $D = (-1, 1)$ 中取一个数列 $x_n = 1 - \dfrac{1}{n},$ 那么
-$$u_n(x_n) = n \left( 1 - \dfrac{1}{n} + \dfrac{1}{n} \right)^n = n,$$
+\[u_n(x_n) = n \left( 1 - \dfrac{1}{n} + \dfrac{1}{n} \right)^n = n,\]
 $u_n(x_n)$ 不一致收敛于 $0,$ 故函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在 $D$ 上一致收敛的必要性条件不满足, 因此 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在 $D$ 上不一致收敛.
 \item 任取闭区间 $[a, b] \subset* D = (-1, 1),$ 那么可取实数 $r$ 满足 $\max\{\lvert a \rvert, \lvert b \rvert\} < r < 1.$ 于是 $\forall ~ x \in [a, b],$ 有
-$$\lvert u_n(x) \rvert = n \left\lvert x + \dfrac{1}{n} \right\rvert^n < n \left( r + \dfrac{1}{n} \right)^n.$$
+\[\lvert u_n(x) \rvert = n \left\lvert x + \dfrac{1}{n} \right\rvert^n < n \left( r + \dfrac{1}{n} \right)^n.\]
 在第 (1) 问中已经看到, 正项级数 $\sum\limits_{n=1}^{\infty} n \left( r + \dfrac{1}{n} \right)^n$ 是收敛的, 于是根据 Weierstra\ss 判别法, 函数项级数 $\sum\limits_{n=1}^{\infty} u_n(x)$ 在闭区间 $[a, b]$ 上一致收敛, 从而在收敛域 $D = (-1, 1)$ 上内闭一致收敛.
 \end{enumerate}
 \end{solution}
@@ -486,7 +486,7 @@ $$\lvert u_n(x) \rvert = n \left\lvert x + \dfrac{1}{n} \right\rvert^n < n \left
 
 \begin{enumerate}
 \item 记 $u_n(x) = \dfrac{1}{2^n + x}.$ 由于在 $[0, +\infty)$ 上有
-$$0 < u_n(x) < \dfrac{1}{2^n},$$
+\[0 < u_n(x) < \dfrac{1}{2^n},\]
 那么由 Weierstra\ss 判别法知 $f(x)$ 在 $[0, +\infty)$ 上一致收敛. 现任取 $x, y \in [0, +\infty),$ 有
 \begin{align*}
   \lvert f(x) - f(y) \rvert & = \left\lvert \sum\limits_{n=1}^\infty \dfrac{1}{2^n + x} - \sum\limits_{n=1}^\infty \dfrac{1}{2^n + y} \right\rvert = \left\lvert \sum\limits_{n=1}^\infty \dfrac{x - y}{(2^n + x)(2^n + y)} \right\rvert \\
@@ -495,9 +495,9 @@ $$0 < u_n(x) < \dfrac{1}{2^n},$$
 \end{align*}
 这便证明了 $f(x)$ 在 $[0, +\infty)$ 上的一致连续性.
 \item $u_n'(x) = -\dfrac{1}{\left(2^n + x\right)^2},$ 那么在 $[0, +\infty)$ 上有 $\lvert u_n'(x) \rvert = \dfrac{1}{\left(2^n + x\right)^2} \leqslant \dfrac{1}{4^n},$ 同样由 Weierstra\ss 判别法可知函数项级数 $\sum\limits_{n=1}^\infty u_n'(x)$ 在 $[0, +\infty)$ 上一致收敛. 那么由函数项级数的逐项求导定理知 $f(x)$ 在 $[0, +\infty)$ 上可导, 且有
-$$f'(x) = \sum\limits_{n=1}^\infty u_n'(x).$$
+\[f'(x) = \sum\limits_{n=1}^\infty u_n'(x).\]
 \item 任取闭区间 $[0, A] \subset* [0, +\infty),$ 由一致收敛函数项级数的逐项积分定理有
-$$\int_0^{A} f(x) \mathrm{d} x = \sum\limits_{n=1}^\infty \int_0^{A} \dfrac{1}{2^n + x} \mathrm{d} x = \sum\limits_{n=1}^\infty \ln \left( 1 + \dfrac{A}{2^n} \right) \geqslant \ln \left( 1 + \dfrac{A}{2} \right) \to +\infty, ~~ A \to +\infty,$$
+\[\int_0^{A} f(x) \mathrm{d} x = \sum\limits_{n=1}^\infty \int_0^{A} \dfrac{1}{2^n + x} \mathrm{d} x = \sum\limits_{n=1}^\infty \ln \left( 1 + \dfrac{A}{2^n} \right) \geqslant \ln \left( 1 + \dfrac{A}{2} \right) \to +\infty, ~~ A \to +\infty,\]
 于是, 反常积分 $\int_0^{+\infty} f(x) \mathrm{d} x := \lim\limits_{A \to +\infty} \int_0^{A} f(x) \mathrm{d} x$ 发散.
 \end{enumerate}
 \end{solution}
@@ -506,7 +506,7 @@ $$\int_0^{A} f(x) \mathrm{d} x = \sum\limits_{n=1}^\infty \int_0^{A} \dfrac{1}{2
 \begin{enumerate}
 \item 设 $f(x)$ 是闭区间 $[a, b]$ 上的有界函数, 请叙述由达布 (Darboux) 和给出的 $f(x)$ 在 $[a, b]$ 上 Riemann 可积的充要条件. (不需要证明)
 \item 设函数列 $\{f_n(x)\}$ 的每一项 $f_n(x)$ 都是 $[a, b]$ 上 Riemann 可积的函数, 且在 $[a, b]$ 上一致收敛于函数 $f(x),$ 求证: $f(x)$ 也是 $[a, b]$ 区间上 Riemann 可积的函数, 并且有
-$$\int_a^b f(x) \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) \mathrm{d} x.$$
+\[\int_a^b f(x) \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) \mathrm{d} x.\]
 \item 在第 (2) 问中, 设 $\{f_n(x)\}$ 在 $[a, b]$ 上点态收敛于函数 $f(x),$ 但不是一致收敛的, 并假设 $f(x)$ 在 $[a, b]$ 上 Riemann 可积, 其余条件保持不变, 请问积分和极限可交换次序的结论 $\int_a^b f(x) \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) \mathrm{d} x$ 是否仍然成立? 若是, 请给出证明; 若否, 请给出反例, 并添加一个你认为可以使原结论仍成立的条件 (除“$\{f_n(x)\}$ 在 $[a, b]$ 上一致收敛于 $f(x)$”之外的条件), 不需要证明.
 \end{enumerate}
 
@@ -521,9 +521,9 @@ S(f; P) & := \sum\limits_{i = 1}^n M_i \Delta x_i, \\
 s(f; P) & := \sum\limits_{i = 1}^n m_i \Delta x_i.
 \end{align*}
 记 $\lambda(P) = \max\limits_{1\leqslant i \leqslant n} \Delta x_i,$ 那么有界函数 $f(x)$ 在 $[a, b]$ 上 Riemann 可积的充要条件为
-$$\lim\limits_{\lambda(P) \to 0} S(f; P) =: \overline{\int}_a^b f(x) \mathrm{d} x = \underline{\int}_a^b f(x) \mathrm{d} x := \lim\limits_{\lambda(P) \to 0} s(f; P).$$
+\[\lim\limits_{\lambda(P) \to 0} S(f; P) =: \overline{\int}_a^b f(x) \mathrm{d} x = \underline{\int}_a^b f(x) \mathrm{d} x := \lim\limits_{\lambda(P) \to 0} s(f; P).\]
 \item 由 $f_n(x)$ 在 $[a, b]$ 上 Riemann 可积知, $f_n(x)$ 在 $[a, b]$ 上有界. 设 $M_n > 0$ 为它的一个界. 又由 $\{f_n(x)\}$ 在 $[a, b]$ 上一致收敛于函数 $f(x)$ 知 $\forall ~ \varepsilon > 0,$ 存在 $N(\varepsilon),$ 使得 $\forall ~ n > N(\varepsilon),$ 以及 $\forall ~ x \in [a, b],$ 有 $\lvert f(x) - f_n(x) \rvert < \varepsilon,$ 从而有
-$$\lvert f(x) \rvert < \lvert f_n(x) \rvert + \varepsilon,$$
+\[\lvert f(x) \rvert < \lvert f_n(x) \rvert + \varepsilon,\]
 特别地有 $\lvert f(x) \rvert < \lvert f_{N(\varepsilon) + 1}(x) \rvert + \varepsilon \leqslant M_{N(\varepsilon) + 1} + \varepsilon,$ 故 $f(x)$ 有界.
 
 另一方面, 可以由 $\lvert f(x) - f_n(x) \rvert < \varepsilon$ 知 $f_n(x) - \varepsilon < f(x) < f_n(x) +\varepsilon,$ 因此有
@@ -532,19 +532,19 @@ $$\lvert f(x) \rvert < \lvert f_n(x) \rvert + \varepsilon,$$
 \int_a^b (f_n(x) - \varepsilon) \mathrm{d} x = \underline{\int}_a^b (f_n(x) - \varepsilon) \mathrm{d} x \leqslant \underline{\int}_a^b f(x) \mathrm{d} x \leqslant \underline{\int}_a^b (f_n(x) + \varepsilon) \mathrm{d} x = \int_a^b (f_n(x) + \varepsilon) \mathrm{d} x,
 \end{gather*}
 于是有
-$$0 \leqslant \overline{\int}_a^b f(x) \mathrm{d} x - \underline{\int}_a^b f(x) \mathrm{d} x \leqslant \int_a^b 2\varepsilon \mathrm{d} x = 2\varepsilon (b-a).$$
+\[0 \leqslant \overline{\int}_a^b f(x) \mathrm{d} x - \underline{\int}_a^b f(x) \mathrm{d} x \leqslant \int_a^b 2\varepsilon \mathrm{d} x = 2\varepsilon (b-a).\]
 由于 $\varepsilon > 0$ 是任取的, 所以有 $\overline{\int}_a^b f(x) \mathrm{d} x - \underline{\int}_a^b f(x) \mathrm{d} x = 0,$ 即
-$$\overline{\int}_a^b f(x) \mathrm{d} x = \underline{\int}_a^b f(x) \mathrm{d} x.$$
+\[\overline{\int}_a^b f(x) \mathrm{d} x = \underline{\int}_a^b f(x) \mathrm{d} x.\]
 由第 (1) 问知 $f(x)$ Riemann 可积.
 
 又由 $\lvert f(x) - f_n(x) \rvert < \varepsilon$ 知 $\int_a^b \lvert f(x) - f_n(x) \rvert ~ \mathrm{d} x < \varepsilon (b - a).$ 这表明了 $\int_a^b f(x) ~ \mathrm{d} x = \lim\limits_{n\to\infty} \int_a^b f_n(x) ~ \mathrm{d} x.$
 \item 不一定成立. 反例可取为: 区间 $[a, b] = [0, 1],$ Riemann 可积函数列
-$$f_n(x) = \begin{cases}
+\[f_n(x) = \begin{cases}
 n^2, & x \in \left[ \dfrac{1}{5n}, \dfrac{1}{4n} \right], \\
 0, & x \in \left[0, \dfrac{1}{5n} \right) \cup* \left(\dfrac{1}{4n}, 1 \right]
-\end{cases}$$
+\end{cases}\]
 点态收敛到 $f(x) = 0,$ 但不是一致收敛. 有
-$$\int_0^1 f(x) \mathrm{d} x = 0, ~~ \int_0^1 f(x) \mathrm{d} x = \dfrac{n}{20} \to +\infty ~ (n \to \infty).$$
+\[\int_0^1 f(x) \mathrm{d} x = 0, ~~ \int_0^1 f(x) \mathrm{d} x = \dfrac{n}{20} \to +\infty ~ (n \to \infty).\]
 分和极限可交换次序的结论仍然成立可以取的条件为 (不局限以下几个. 注意, 第 (2) 问中已有 $f$ 在 $[a, b]$ 上 Riemann 可积这个条件, 此问不需要再添加这个条件)
 \begin{itemize}
 \item 存在 $[a, b]$ 上 Riemann 可积的非负函数 $g(x),$ 使得 $\lvert f_n(x) \rvert \leqslant g(x)$ 对所有 $n$ 以及所有 $x \in [a, b]$ 都成立.

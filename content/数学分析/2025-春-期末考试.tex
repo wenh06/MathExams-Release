@@ -276,7 +276,7 @@ D 是黎曼可积函数空间的有界收敛定理.
 
 \begin{solution}
 有不等式
-$$A = \varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert \leqslant \varliminf_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty}  \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert,$$
+\[A = \varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert \leqslant \varliminf_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty}  \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert,\]
 而收敛半径等于 $1 / \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert},$ 因此相关极限的存在性都不是必然的, 但是极限若存在的话, 必然都会等于 $1 / R.$
 \end{solution}
 
@@ -310,7 +310,7 @@ x = a \cos^3 t, \\ y = a \sin^3 t
 
 \begin{solution}
 由对称性, 可只计算 $0 \leqslant t \leqslant \dfrac{\pi}{2}$ 对应的弧长, 整个曲线的长度等于 4 倍的此弧长. 接下来可以直接利用公式
-$$\ell = \int_0^{\pi/2} \sqrt{(x_t')^2 + (y_t')^2} ~ \mathrm{d} t$$
+\[\ell = \int_0^{\pi/2} \sqrt{(x_t')^2 + (y_t')^2} ~ \mathrm{d} t\]
 进行计算.
 \end{solution}
 
@@ -357,13 +357,13 @@ $\cos nx, n = 0, 1, 2, \dots; \sin m x, m = 1, 2, \dots$ 在任何一个长度�
 \end{question}
 
 \begin{solution}
-二重极限 $\lim\limits_{(x,y) \to (0,0)} f(x,y)$ 存在: 由于
+二重极限 $\lim\limits_{(x,y) \to (0,0)} f(x,y)$ 存在. \score{2} 由于
 \begin{equation*}
-\left| x\sin\dfrac{1}{y} + y\sin\dfrac{1}{x} \right| \leqslant |x| \cdot \left| \sin\dfrac{1}{y} \right| + |y| \cdot \left| \sin\dfrac{1}{x} \right| \leqslant |x| + |y| \leqslant \sqrt{2(x^2 + y^2)}
+\left| x\sin\dfrac{1}{y} + y\sin\dfrac{1}{x} \right| \leqslant |x| \cdot \left| \sin\dfrac{1}{y} \right| + |y| \cdot \left| \sin\dfrac{1}{x} \right| \leqslant |x| + |y| \leqslant \sqrt{2(x^2 + y^2)} \score{2}
 \end{equation*}
-所以 $\lim\limits_{(x,y) \to (0,0)} f(x,y) = 0.$
+所以 $\lim\limits_{(x,y) \to (0,0)} f(x,y) = 0.$ \score{1}
 
-二次极限 $\lim\limits_{x \to 0}\lim\limits_{y \to 0} f(x,y)$ 不存在: 对固定的 $x \neq 0,$ 极限 $\lim\limits_{y \to 0} x\sin\dfrac{1}{y}$ 不存在, 极限 $\lim\limits_{y \to 0} y\sin\dfrac{1}{x} = 0,$ 所以极限 $\lim\limits_{y \to 0} f(x,y) = \lim\limits_{y \to 0} \left( x\sin\dfrac{1}{y} + y\sin\dfrac{1}{x} \right)$ 不存在, 进而二次极限不存在.
+二次极限 $\lim\limits_{x \to 0}\lim\limits_{y \to 0} f(x,y)$ 不存在. \score{2} 对固定的 $x \neq 0,$ 极限 $\lim\limits_{y \to 0} x\sin\dfrac{1}{y}$ 不存在, 极限 $\lim\limits_{y \to 0} y\sin\dfrac{1}{x} = 0,$ \score{2} 所以极限 $\lim\limits_{y \to 0} f(x,y) = \lim\limits_{y \to 0} \left( x\sin\dfrac{1}{y} + y\sin\dfrac{1}{x} \right)$ 不存在, 进而二次极限不存在. \score{1}
 \end{solution}
 
 
@@ -374,7 +374,7 @@ $\cos nx, n = 0, 1, 2, \dots; \sin m x, m = 1, 2, \dots$ 在任何一个长度�
 \end{question}
 
 \begin{solution}
-容易算出
+容易算出 \score{2}
 \begin{equation*}
 \begin{aligned}
 I_1 & = \int_0^{\frac{\pi}{2}} \mathrm{d}x = \dfrac{\pi}{2}, \\
@@ -388,7 +388,7 @@ I_{n+1} - I_{n} & = \int_0^{\frac{\pi}{2}} \dfrac{\sin^2((n+1)x) - \sin^2(nx)}{\
 & = \int_0^{\frac{\pi}{2}} \dfrac{\cos(2nx) - \cos(2(n+1)x)}{2\sin^2 x} \mathrm{d}x \\
 & = \int_0^{\frac{\pi}{2}} \dfrac{\sin x (\sin(2n+1)x)}{\sin^2 x} \mathrm{d}x \\
 & = \int_0^{\frac{\pi}{2}} \dfrac{\sin((2n+1)x)}{\sin x} \mathrm{d}x =: J_n.
-\end{aligned}
+\end{aligned} \score{4}
 \end{equation*}
 对于 $J_n$ 有
 \begin{equation*}
@@ -396,11 +396,11 @@ I_{n+1} - I_{n} & = \int_0^{\frac{\pi}{2}} \dfrac{\sin^2((n+1)x) - \sin^2(nx)}{\
 J_{n+1} - J_n & = \int_0^{\frac{\pi}{2}} \dfrac{\sin((2n+3)x) - \sin((2n+1)x)}{\sin x} \mathrm{d}x \\
 & = \int_0^{\frac{\pi}{2}} \dfrac{2 \cos(2(n+1)x) \sin x}{\sin x} \mathrm{d}x \\
 & = \int_0^{\frac{\pi}{2}} 2 \cos(2(n+1)x) ~ \mathrm{d}x = 0.
-\end{aligned}
+\end{aligned} \score{2}
 \end{equation*}
 于是 $\displaystyle J_n = J_1 = I_2 - I_1 = \dfrac{\pi}{2}.$ 即有 $I_{n+1} - I_n = J_n = \dfrac{\pi}{2},$ 所以
 \begin{equation*}
-I_n = I_1 + \dfrac{\pi}{2}(n - 1) = \dfrac{n\pi}{2}.
+I_n = I_1 + \dfrac{\pi}{2}(n - 1) = \dfrac{n\pi}{2}. \score{1}
 \end{equation*}
 \end{solution}
 
@@ -453,7 +453,7 @@ e^{-1/x^2}, & x \neq 0, \\ 0, & x = 0.
 
 \begin{question}[points = 10]
 设 $x = (x_1, \dots, x_n) \in \mathbb{R}^n,$ $E$ 是 $\mathbb{R}^n$ 中的非空点集, 定义点 $x$ 到集合 $E$ 的距离为
-$$\rho(x, E) = \inf_{y \in E} ~ \lVert x - y \rVert,$$
+\[\rho(x, E) = \inf_{y \in E} ~ \lVert x - y \rVert,\]
 其中 $\lVert x - y \rVert = \sqrt{(x_1 - y_1)^2 + \cdots + (x_n - y_n)^2}.$
 \begin{enumerate}
 \item 设 $F$ 为 $\mathbb{R}^n$ 中的非空闭集, 证明存在点 $y_0 \in F,$ 使得 $\rho(x, F) = \lVert x - y_0 \rVert.$
@@ -488,7 +488,7 @@ $\overline{B} \cap* F$ 是有界闭集, 从而是紧集, 关于 $x$ 的连续函
 证法二: 由下确界定义, 可以取到 $F$ 中点列 $\{y_n\},$ 使得 $\lim\limits_{n\to\infty} \rho(x, y_n) = \rho(x, F).$ 这可以说明 $\{y_n\}$ 是有界点列, 从而存在收敛子列, 而 $F$ 是闭集, 该收敛子列收敛到 $F$ 中的某点, $y_0$ 即取为该点.
 
 \item 由于 $F_1, F_2$ 为 $\mathbb{R}^n$ 中两个不交的非空闭集, 那么 $\forall ~ x \in \mathbb{R}^n,$ $\rho(x, F_1), \rho(x, F_2)$ 不同时为 $0,$ 否则根据第 (1) 问, 存在 $y_1 \in F_1, y_2 \in F_2,$ 使得
-$$0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,$$
+\[0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,\]
 那么会有 $x = y_1$ 以及 $x = y_2,$ 于是 $x \in F_1 \cap* F_2,$ 这与 $F_1, F_2$ 不交的已知条件矛盾.
 
 定义 $\mathbb{R}^n$ 上的函数
@@ -496,13 +496,13 @@ $$0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,$$
 f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)}, ~~ x \in \mathbb{R}^n \score{5}
 \end{equation*}
 由于 $\rho(x, F_1), \rho(x, F_2)$ 都是关于 $x$ 的连续非负函数, 且分母恒大于 $0,$ 因此$f(x)$ 是 $\mathbb{R}^n$ 上的连续函数. 由于
-$$0 \leqslant \rho(x, F_1) \leqslant \rho(x, F_1) + \rho(x, F_2),$$
+\[0 \leqslant \rho(x, F_1) \leqslant \rho(x, F_1) + \rho(x, F_2),\]
 因此 $0 \leqslant f(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n.$
 
 对于 $x \in F_1,$ 有 $\rho(x, F_1) = 0,$ 从而有
-$$f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{0}{0 + \rho(x, F_2)} = 0;$$
+\[f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{0}{0 + \rho(x, F_2)} = 0;\]
 对于 $x \in F_2,$ 有 $\rho(x, F_2) = 0,$ 从而有
-$$f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + 0} = 1.$$
+\[f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + 0} = 1.\]
 
 % \item 由于 $F_2, F_3$ 为 $\mathbb{R}^n$ 中不交的非空闭集, 由第 (2) 问知, 存在 $\mathbb{R}^n$ 上的连续函数 $g(x),$ 满足
 % \begin{align*}
@@ -628,9 +628,9 @@ a_n = \dfrac{b_np_n - b_{n-1}p_{n-1}}{p_n} = b_n - b_{n-1} + b_{n-1}\dfrac{p_n-p
 \end{equation*}
 
 \item 取 $p_n = 1$ 为常数列, 那么
-$$\lim\limits_{n\to\infty} \dfrac{q_n}{q_n - q_{n-1}} \cdot \dfrac{p_n - p_{n-1}}{p_n} = \lim\limits_{n\to\infty} \dfrac{q_n}{q_n - q_{n-1}} \cdot \dfrac{0}{1} = 0,$$
+\[\lim\limits_{n\to\infty} \dfrac{q_n}{q_n - q_{n-1}} \cdot \dfrac{p_n - p_{n-1}}{p_n} = \lim\limits_{n\to\infty} \dfrac{q_n}{q_n - q_{n-1}} \cdot \dfrac{0}{1} = 0,\]
 并且
-$$\lim\limits_{n \to \infty} \dfrac{1}{p_n} \sum\limits_{k=1}^n p_ka_k = \lim\limits_{n \to \infty} \sum\limits_{k=1}^n a_k \quad \text{收敛,}$$
+\[\lim\limits_{n \to \infty} \dfrac{1}{p_n} \sum\limits_{k=1}^n p_ka_k = \lim\limits_{n \to \infty} \sum\limits_{k=1}^n a_k \quad \text{收敛,}\]
 于是由第 (1) 问的结论知
 \begin{equation*}
 \lim\limits_{n \to \infty} \dfrac{1}{q_n} \sum\limits_{k=1}^n q_ka_k = \left( \lim\limits_{n \to \infty} \sum\limits_{k=1}^n a_k \right) \cdot 0 = 0.

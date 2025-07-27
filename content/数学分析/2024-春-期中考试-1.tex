@@ -349,12 +349,12 @@ V & = \int_{-a}^a \pi y^2 \mathrm{d} x = 2 \int_0^a \pi y^2 \mathrm{d} x = 2 \pi
 由 $\sin \pi x = \pi x \prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right)$ 知 $\dfrac{\sin \pi x}{\pi x} = \prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right).$
 
 上式左边在 $0$ 处的Taylor展式为
-$$\dfrac{\sin \pi x}{\pi x} = \dfrac{\pi x - \dfrac{(\pi x)^3}{3!} + O(x^5)}{\pi x} = 1 - \dfrac{\pi^2}{6} x^2 + O(x^4), $$
+\[\dfrac{\sin \pi x}{\pi x} = \dfrac{\pi x - \dfrac{(\pi x)^3}{3!} + O(x^5)}{\pi x} = 1 - \dfrac{\pi^2}{6} x^2 + O(x^4), \]
 右边展开有 $\prod\limits_{n=1}^{\infty} \left( 1 - \dfrac{x^2}{n^2} \right) = 1 - \left( \sum\limits_{n=1}^{\infty} \dfrac{1}{n^2} \right) x^2 + O(x^4).$ 比较 $x^2$ 的系数有 $\sum\limits_{n=1}^{\infty} \dfrac{1}{n^2} = \dfrac{\pi^2}{6}.$
 \end{solution}
 
 
-\section{解答题：本题共 5 小题, 共 48 分。解答应写出文字说明或者证明过程。}
+\section{解答题：本题共 5 小题, 共 48 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
 
 \examsetup{
   question/index = 1
@@ -375,7 +375,7 @@ $$\dfrac{\sin \pi x}{\pi x} = \dfrac{\pi x - \dfrac{(\pi x)^3}{3!} + O(x^5)}{\pi
 & \leqslant \sum\limits_{k=1}^n \int_{a_k}^{b_k} M \mathrm{d}x = M \sum\limits_{k=1}^n (b_k - a_k).
 \end{align*}
 于是, 只要这有限个互不交叠的子区间长度之和满足 $\sum\limits_{k=1}^n (b_k - a_k) < \delta = \dfrac{\varepsilon}{M},$ 就有
-$$\sum\limits_{k=1}^n \lvert F(b_k) - F(a_k) \rvert \leqslant M \sum\limits_{k=1}^n (b_k - a_k) < M \cdot \dfrac{\varepsilon}{M} = \varepsilon.$$
+\[\sum\limits_{k=1}^n \lvert F(b_k) - F(a_k) \rvert \leqslant M \sum\limits_{k=1}^n (b_k - a_k) < M \cdot \dfrac{\varepsilon}{M} = \varepsilon.\]
 这就证明了区间 $[a, b]$ 上的黎曼可积函数 $f(x)$ 的变上限积分函数$F(x) : = \int_{a}^{x} f(t) dt$ 是 $[a, b]$ 上的绝对连续函数.
 
 这题主要考察了闭区间上黎曼可积函数的必要条件: 函数有界. 之后学实分析, 勒贝格可积函数 (不一定有界) 的变上限积分仍然是绝对连续的.
@@ -385,11 +385,11 @@ $$\sum\limits_{k=1}^n \lvert F(b_k) - F(a_k) \rvert \leqslant M \sum\limits_{k=1
 设 $y = f(x)$ 和 $x = g(y)$ 是互逆的连续、非负、单调递增的函数, 并且满足 $f(0) = g(0) = 0.$
 \begin{enumerate}
 \item 证明对任意 $x \geqslant 0,$ 有如下的等式成立：
-$$xf(x) = \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t.$$
+\[xf(x) = \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t.\]
 \item 证明对任意 $x, y \geqslant 0,$ 有如下的不等式成立：
-$$xy \leqslant \int_0^x f(t) \mathrm{d}t + \int_0^y g(t) \mathrm{d}t.$$
+\[xy \leqslant \int_0^x f(t) \mathrm{d}t + \int_0^y g(t) \mathrm{d}t.\]
 \item 证明对任意 $x, y \geqslant 0,$ 以及 $p, q > 0, \dfrac{1}{p} + \dfrac{1}{q} = 1,$ 有
-$$xy \leqslant \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.$$
+\[xy \leqslant \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.\]
 \end{enumerate}
 
 % \noindent\scoringbox
@@ -398,9 +398,9 @@ $$xy \leqslant \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.$$
 \begin{solution}
 \begin{enumerate}
 \item 考虑闭区间 $[0, x],$ 那么函数 $f$ 在其上一致连续, 且黎曼可积. 类似地, 函数 $g$ 在闭区间 $[0, f(x)]$ 上一致连续且黎曼可积. 设
-$$P: ~ 0 = t_0 < t_1 < t_2 < \cdots < t_n = x$$
+\[P: ~ 0 = t_0 < t_1 < t_2 < \cdots < t_n = x\]
 为 $[0, x]$ 的一个划分,
-$$\widetilde{P}: ~ 0 = f(t_0) < f(t_1) < f(t_2) < \cdots < f(t_n) = f(x)$$
+\[\widetilde{P}: ~ 0 = f(t_0) < f(t_1) < f(t_2) < \cdots < f(t_n) = f(x)\]
 为对应的 $[0, f(x)]$ 的划分, 那么当 $\lambda(P) \to 0$ 时, 有 $\lambda(\widetilde{P}) \to 0.$ 由于 $f, g$ 都黎曼可积, 所以有
 \begin{align*}
 \int_0^x f(t) \mathrm{d}t + \int_0^{f(x)} g(t) \mathrm{d}t & = \lim\limits_{\lambda(P) \to 0} \sum\limits_{i=1}^n f(t_{i - 1}) (t_i - t_{i-1}) + \lim\limits_{\lambda(\widetilde{P}) \to 0} \sum\limits_{i=1}^n g(f(t_i)) (f(t_i) - f(t_{i - 1})) \\
@@ -418,7 +418,7 @@ $$\widetilde{P}: ~ 0 = f(t_0) < f(t_1) < f(t_2) < \cdots < f(t_n) = f(x)$$
 \end{align*}
 当 $y < f(x)$ 时类似可证. 结合第(1)问即有 $xy \leqslant \int_0^x f(t) \mathrm{d}t + \int_0^y g(t) \mathrm{d}t.$
 \item 由于 $\dfrac{1}{p} + \dfrac{1}{q} = 1, p, q > 0,$ 所以 $(p - 1) (q - 1) = 1,$ 故 $f(t) = t^{p-1}$ 与 $g(t) = t^{q-1}$ 互为反函数, 于是根据第 (2) 问有
-$$xy \leqslant \int_0^x t^{p-1} \mathrm{d}t + \int_0^y t^{q-1} \mathrm{d}t = \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.$$
+\[xy \leqslant \int_0^x t^{p-1} \mathrm{d}t + \int_0^y t^{q-1} \mathrm{d}t = \dfrac{1}{p} x^p + \dfrac{1}{q} y^q.\]
 \end{enumerate}
 \end{solution}
 
@@ -430,7 +430,7 @@ $$xy \leqslant \int_0^x t^{p-1} \mathrm{d}t + \int_0^y t^{q-1} \mathrm{d}t = \df
 
 \begin{solution}
 设 $f(x)$ 是 $n$ 次多项式, $n \geqslant 2.$ 那么 $f(x), f'(x), \dots, f^{(n-1)}(x)$ 都是非常数多项式, 这些多项式所有实根构成一个有限集, 从而存在足够大的实数 $a,$ 使得 $a$ 大于所有的这些根. 于是, 反常积分 $\int_{0}^{+\infty} \sin(f(x)) \mathrm{d}x$ 收敛性的证明归结到反常积分 $\int_{a}^{+\infty} \sin(f(x)) \mathrm{d}x$ 收敛性的证明. 在 $[a, +\infty)$ 上, 由于多项式 $f(x), f'(x), \dots, f^{(n-1)}(x)$ 都没有根, 因此他们要么都是恒正的, 要么都是恒负的（依赖于 $f(x)$ 的最高次项系数的符号）, 并且有
-$$\lim\limits_{x \to +\infty} \lvert f^{(k)}(x) \rvert = +\infty, \quad k = 0, 1, \dots, n-1$$
+\[\lim\limits_{x \to +\infty} \lvert f^{(k)}(x) \rvert = +\infty, \quad k = 0, 1, \dots, n-1\]
 
 利用分部积分计算反常积分 $\int_{a}^{+\infty} \sin(f(x)) \mathrm{d}x:$
 \begin{align*}
@@ -438,11 +438,11 @@ $$\lim\limits_{x \to +\infty} \lvert f^{(k)}(x) \rvert = +\infty, \quad k = 0, 1
 & = - \left. \dfrac{\cos(f(x))}{f'(x)} \right|_{a}^{+\infty} - \int_{a}^{+\infty} \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \mathrm{d}x.
 \end{align*}
 由于 $\lim\limits_{x \to +\infty} \lvert f'(x) \rvert = +\infty, \lvert \cos(f(x)) \rvert \leqslant 1,$ 因此有
-$$- \left. \dfrac{\cos(f(x))}{f'(x)} \right|_{a}^{+\infty} = 0 + \dfrac{\cos(f(a))}{f'(a)} = \dfrac{\cos(f(a))}{f'(a)}.$$
+\[- \left. \dfrac{\cos(f(x))}{f'(x)} \right|_{a}^{+\infty} = 0 + \dfrac{\cos(f(a))}{f'(a)} = \dfrac{\cos(f(a))}{f'(a)}.\]
 于是我们又归结到反常积分 $\int_{a}^{+\infty} \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \mathrm{d}x$ 收敛性的证明. 不妨设 $f'(x), f''(x)$ 在 $[a, +\infty)$ 上恒正, 那么有
-$$\left\lvert \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \right\rvert \leqslant \dfrac{f''(x)}{\left(f'(x)\right)^2}.$$
+\[\left\lvert \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \right\rvert \leqslant \dfrac{f''(x)}{\left(f'(x)\right)^2}.\]
 又由于有
-$$\int_{a}^{+\infty} \dfrac{f''(x)}{\left(f'(x)\right)^2} \mathrm{d}x = - \left. \dfrac{1}{f'(x)} \right|_{a}^{+\infty} = \dfrac{1}{f'(a)}, $$
+\[\int_{a}^{+\infty} \dfrac{f''(x)}{\left(f'(x)\right)^2} \mathrm{d}x = - \left. \dfrac{1}{f'(x)} \right|_{a}^{+\infty} = \dfrac{1}{f'(a)}, \]
 知反常积分 $\int_{a}^{+\infty} \dfrac{f''(x) \cos(f(x))}{\left(f'(x)\right)^2} \mathrm{d}x$ 是绝对收敛的, 从而也是收敛的.
 \end{solution}
 
@@ -451,7 +451,7 @@ $$\int_{a}^{+\infty} \dfrac{f''(x)}{\left(f'(x)\right)^2} \mathrm{d}x = - \left.
 \begin{enumerate}
 \item 证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{1 + a_n}$ 发散.
 % \item 证明不等式
-% $$\sum\limits_{i=1}^{k} \dfrac{a_{n+i}}{s_{n+i}} = \dfrac{a_{n+1}}{s_{n+1}} + \cdots + \dfrac{a_{n+k}}{s_{n+k}}$$
+% \[\sum\limits_{i=1}^{k} \dfrac{a_{n+i}}{s_{n+i}} = \dfrac{a_{n+1}}{s_{n+1}} + \cdots + \dfrac{a_{n+k}}{s_{n+k}}\]
 % 对任意的正整数 $n, k$ 成立。由此, 进一步证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 发散。
 \item 证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 发散.
 \item 证明级数 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n^2}$ 收敛.
@@ -463,7 +463,7 @@ $$\int_{a}^{+\infty} \dfrac{f''(x)}{\left(f'(x)\right)^2} \mathrm{d}x = - \left.
 \begin{solution}
 \begin{enumerate}
 \item 用反证法. 记 $b_n = \dfrac{a_n}{1 + a_n},$ 那么有 $0 < b_n < a_n,$ 并且有 $b_n < 1.$ 假设正项级数 $\sum\limits_{n=1}^{\infty} b_n$ 收敛, 那么 $\lim\limits_{n \to \infty} b_n = 0,$ 从而有 $\lim\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} \dfrac{b_n}{1 - b_n} = 0.$ 所以有
-$$\lim\limits_{n \to \infty} \dfrac{b_n}{a_n} = \lim\limits_{n \to \infty} \dfrac{a_n}{1 + a_n} \cdot \dfrac{1}{a_n} = \lim\limits_{n \to \infty} \dfrac{1}{1 + a_n} = 1.$$
+\[\lim\limits_{n \to \infty} \dfrac{b_n}{a_n} = \lim\limits_{n \to \infty} \dfrac{a_n}{1 + a_n} \cdot \dfrac{1}{a_n} = \lim\limits_{n \to \infty} \dfrac{1}{1 + a_n} = 1.\]
 根据正项级数的比较定理, $\sum\limits_{n=1}^{\infty} a_n$ 与 $\sum\limits_{n=1}^{\infty} b_n$ 具有相同的敛散性, 这与 $\sum\limits_{n=1}^{\infty} a_n$ 发散的条件矛盾.
 \item 记 $c_n = \dfrac{a_n}{s_n},$ 我们来考察 $c_{n + 1} + \cdots + c_{n + k}.$ 由于 $\sum\limits_{n=1}^{\infty} a_n$ 是正项级数, $a_n \geqslant 0,$ 那么 $\{s_n\}$ 是递增数列, 于是有
 \begin{align*}
@@ -477,17 +477,17 @@ $$\lim\limits_{n \to \infty} \dfrac{b_n}{a_n} = \lim\limits_{n \to \infty} \dfra
 设 $\sum\limits_{n=1}^\infty d_n$ 收敛, $\{ p_n \}_{n \in \mathbb{N}}$ 是一个单增且趋于正无穷的数列, 那么 $\lim\limits_{n\to\infty} \dfrac{p_1d_1 + \cdots + p_nd_n}{p_n} = 0.$
 
 那么可以使用反证法, 假设 $\sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n}$ 收敛, 那么可以利用上面的结论, 取 $d_n = \dfrac{a_n}{s_n}, p_n = s_n,$ 那么有
-$$0 = \lim\limits_{n\to\infty} \dfrac{s_1 \dfrac{a_1}{s_1} + \cdots + s_n \dfrac{a_n}{s_n}}{s_n} = \lim\limits_{n\to\infty} \dfrac{s_n}{s_n} = 1,$$
+\[0 = \lim\limits_{n\to\infty} \dfrac{s_1 \dfrac{a_1}{s_1} + \cdots + s_n \dfrac{a_n}{s_n}}{s_n} = \lim\limits_{n\to\infty} \dfrac{s_n}{s_n} = 1,\]
 从而产生矛盾.
 \item 记 $d_n = \dfrac{a_n}{s_n^2},$ 那么有
-$$0 < d_n = \dfrac{s_n - s_{n - 1}}{s_n^2} < \dfrac{s_n - s_{n - 1}}{s_n s_{n - 1}} = \dfrac{1}{s_{n - 1}} - \dfrac{1}{s_n}.$$
+\[0 < d_n = \dfrac{s_n - s_{n - 1}}{s_n^2} < \dfrac{s_n - s_{n - 1}}{s_n s_{n - 1}} = \dfrac{1}{s_{n - 1}} - \dfrac{1}{s_n}.\]
 以上式右端为通项的级数前 $n$ 项和为 $\dfrac{1}{s_1} - \dfrac{1}{s_{n + 1}} \to \dfrac{1}{s_1} = \dfrac{1}{a_1}$, 当 $n \to \infty.$ 由正项级数的比较定理知级数 $\sum\limits_{n=1}^{\infty} d_n = \sum\limits_{n=1}^{\infty} \dfrac{a_n}{s_n^2}$ 收敛.
 \end{enumerate}
 \end{solution}
 
 \begin{question}[points = 12]
 考虑数项级数 $\sum\limits_{n=1}^{\infty} a_n,$ 记 $s_n = \sum\limits_{k=1}^n a_k$ 为它的部分和（前 $n$ 项和）. 令
-$$\sigma_n = \dfrac{1}{n} \sum\limits_{k=1}^n s_k = \dfrac{s_1 + s_2 + \cdots + s_n}{n}$$
+\[\sigma_n = \dfrac{1}{n} \sum\limits_{k=1}^n s_k = \dfrac{s_1 + s_2 + \cdots + s_n}{n}\]
 为级数 $\sum\limits_{n=1}^{\infty} a_n$ 部分和序列 $\{s_n\}$ 的前 $n$ 项均值. 我们称级数 $\sum\limits_{n=1}^{\infty} a_n$ 是 $(c, 1)$ 可和的, 若序列$\sigma_n$收敛到一个有限的实数$A,$ 即 $\lim\limits_{n \to \infty} \sigma_n = A,$ 并记为 $\sum\limits_{n=1}^{\infty} a_n = A~(c, 1).$ 实数 $A$ 称作是级数 $\sum\limits_{n=1}^{\infty} a_n$ 在 $(c, 1)$ 意义下的和.
 \begin{enumerate}
 \item 求级数 $\sum\limits_{n=1}^{\infty} (-1)^{n+1}$ 在 $(c, 1)$ 意义下的和.
@@ -501,23 +501,23 @@ $$\sigma_n = \dfrac{1}{n} \sum\limits_{k=1}^n s_k = \dfrac{s_1 + s_2 + \cdots + 
 \begin{solution}
 \begin{enumerate}
 \item 记 $a_n = (-1)^{n+1},$ 那么有
-$$s_n = \sum\limits_{i=1}^n a_i = \begin{cases}
+\[s_n = \sum\limits_{i=1}^n a_i = \begin{cases}
 1, & n = 2k - 1\\
 0, & n = 2k
-\end{cases} \quad k = 1, 2, \dots$$
+\end{cases} \quad k = 1, 2, \dots\]
 进而有
-$$\sigma_n = \sum\limits_{i=1}^n s_i = \begin{cases}
+\[\sigma_n = \sum\limits_{i=1}^n s_i = \begin{cases}
 \dfrac{k}{2k - 1}, & n = 2k - 1\\
 \dfrac{1}{2}, & n = 2k
-\end{cases} \quad k = 1, 2, \dots$$
+\end{cases} \quad k = 1, 2, \dots\]
 于是, $\lim\limits_{n \to \infty} \sigma_n = \dfrac{1}{2},$ 即级数 $\sum\limits_{n=1}^{\infty} (-1)^{n+1}$ 在 $(c, 1)$ 意义下的和为 $\dfrac{1}{2}.$
 \item 若 $\sum\limits_{n=1}^{\infty} a_n$ 在通常意义下收敛到有限实数 $A,$ 那么
-$$A = \lim\limits_{n \to \infty} s_n = \lim\limits_{n \to \infty} \dfrac{n\sigma_n - (n-1)\sigma_{n-1}}{n - (n-1)}, $$
+\[A = \lim\limits_{n \to \infty} s_n = \lim\limits_{n \to \infty} \dfrac{n\sigma_n - (n-1)\sigma_{n-1}}{n - (n-1)}, \]
 于是根据Stolz公式, 有
-$$\lim\limits_{n \to \infty} \sigma_n = \lim\limits_{n \to \infty} \dfrac{n\sigma_n}{n} = \lim\limits_{n \to \infty} \dfrac{n\sigma_n - (n-1)\sigma_{n-1}}{n - (n-1)} = A.$$
+\[\lim\limits_{n \to \infty} \sigma_n = \lim\limits_{n \to \infty} \dfrac{n\sigma_n}{n} = \lim\limits_{n \to \infty} \dfrac{n\sigma_n - (n-1)\sigma_{n-1}}{n - (n-1)} = A.\]
 这表明了 $\sum\limits_{n=1}^{\infty} a_n = A~(c, 1).$
 \item 我们考察 $s_n - \sigma_n,$ 有
-$$s_n - \sigma_n = \sum\limits_{k=1}^n a_k - \sum\limits_{k=1}^n \left( 1 - \dfrac{k-1}{n} \right) a_k = \dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n}.$$
+\[s_n - \sigma_n = \sum\limits_{k=1}^n a_k - \sum\limits_{k=1}^n \left( 1 - \dfrac{k-1}{n} \right) a_k = \dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n}.\]
 由于 $n \to \infty$ 时有 $a_n = \mathrm{o}\left( \dfrac{1}{n} \right),$ 那么 $\lim\limits_{n \to \infty} n a_n = 0,$ 这也等价于 $\lim\limits_{n \to \infty} (n - 1) a_n = 0.$ 于是可以对 $\dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n}$ 使用Stolz公式：
 \begin{align*}
 \lim\limits_{n \to \infty} (s_n - \sigma_n) & = \lim\limits_{n \to \infty} \dfrac{\sum\limits_{k=1}^n (k-1)a_k}{n} = \lim\limits_{n \to \infty} \dfrac{\sum\limits_{k=1}^n (k-1)a_k - \sum\limits_{k=1}^{n-1} (k-1)a_k}{n - (n-1)} \\

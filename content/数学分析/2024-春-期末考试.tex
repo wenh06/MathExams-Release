@@ -178,7 +178,7 @@ headsep=8pt
 
 \begin{solution}
 有不等式
-$$A = \varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert \leqslant \varliminf_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty}  \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert,$$
+\[A = \varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert \leqslant \varliminf_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert} \leqslant \varlimsup_{n\to\infty}  \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert,\]
 而收敛半径等于 $1 / \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert},$ 因此而收敛半径小于 $\dfrac{1}{A},$ 等于 $\dfrac{1}{A}$ 都是可能的.
 
 等于 $\dfrac{1}{A}$ 的例子: $a_n = \dfrac{1}{n},$ 那么 $1 = \varliminf_{n\to\infty} \left\lvert \dfrac{a_{n+1}}{a_n} \right\rvert = \varlimsup_{n\to\infty} \nroot[n]{\lvert a_n \rvert}.$
@@ -303,11 +303,11 @@ $\cos nx, n = 0, 1, 2, \dots; \sin m x, m = 1, 2, \dots$ 在任何一个长度�
 
 \begin{solution}
 对任意非负整数 $k,$ $\int_{k\pi}^{(k+1)\pi} \lvert \sin t \rvert \mathrm{d} t = 2.$ 令 $n = \left[ \dfrac{x}{\pi} \right],$ 那么
-$$2n = \int_0^{n\pi} \lvert \sin t \rvert \mathrm{d} t \leqslant \int_0^x \lvert \sin t \rvert \mathrm{d} t \leqslant \int_0^{(n+1)\pi} \lvert \sin t \rvert \mathrm{d} t = 2(n+1).$$
+\[2n = \int_0^{n\pi} \lvert \sin t \rvert \mathrm{d} t \leqslant \int_0^x \lvert \sin t \rvert \mathrm{d} t \leqslant \int_0^{(n+1)\pi} \lvert \sin t \rvert \mathrm{d} t = 2(n+1).\]
 那么在区间 $[n\pi, (n+1)\pi]$ 上有
-$$\dfrac{2n}{(n+1)\pi} \leqslant \dfrac{\int_0^x \lvert \sin t \rvert \mathrm{d} t}{x} \leqslant \dfrac{2(n+1)}{n\pi}.$$
+\[\dfrac{2n}{(n+1)\pi} \leqslant \dfrac{\int_0^x \lvert \sin t \rvert \mathrm{d} t}{x} \leqslant \dfrac{2(n+1)}{n\pi}.\]
 由夹逼准则知
-$$\lim\limits_{x\to+\infty} \dfrac{S(x)}{x} = \lim\limits_{x\to+\infty} \dfrac{\int_0^x \lvert \sin t \rvert \mathrm{d} t}{x} = \dfrac{2}{\pi}.$$
+\[\lim\limits_{x\to+\infty} \dfrac{S(x)}{x} = \lim\limits_{x\to+\infty} \dfrac{\int_0^x \lvert \sin t \rvert \mathrm{d} t}{x} = \dfrac{2}{\pi}.\]
 \end{solution}
 
 \begin{question}
@@ -333,9 +333,9 @@ $$\lim\limits_{x\to+\infty} \dfrac{S(x)}{x} = \lim\limits_{x\to+\infty} \dfrac{\
 
 \begin{solution}
 令 $x = r\cos\theta, y = r\sin\theta,$ $r \geqslant 0, \theta \in [0, 2\pi).$ 不妨设 $r < 1,$ 那么有
-$$\left\lvert \dfrac{\sin(x^3 + y^5)}{x^2 + y^2} \right\rvert \leqslant \left\lvert \dfrac{x^3 + y^5}{x^2 + y^2} \right\rvert = r \cdot \left\lvert r^2\sin^5\theta + \cos^3\theta \right\rvert \leqslant r \cdot \left( \left\lvert r^2\sin^5\theta \right\rvert + \left\lvert \cos^3\theta \right\rvert \right) \leqslant 2 r.$$
+\[\left\lvert \dfrac{\sin(x^3 + y^5)}{x^2 + y^2} \right\rvert \leqslant \left\lvert \dfrac{x^3 + y^5}{x^2 + y^2} \right\rvert = r \cdot \left\lvert r^2\sin^5\theta + \cos^3\theta \right\rvert \leqslant r \cdot \left( \left\lvert r^2\sin^5\theta \right\rvert + \left\lvert \cos^3\theta \right\rvert \right) \leqslant 2 r.\]
 于是, 对任意 $\varepsilon > 0,$ 取 $\delta = \varepsilon / 2 > 0,$ 那么对任意满足 $\lVert (x, y) \rVert = \sqrt{x^2 + y^2} = r < \delta,$ 有
-$$\left\lvert \dfrac{\sin(x^3 + y^5)}{x^2 + y^2} \right\rvert \leqslant 2r < 2\delta = \varepsilon,$$
+\[\left\lvert \dfrac{\sin(x^3 + y^5)}{x^2 + y^2} \right\rvert \leqslant 2r < 2\delta = \varepsilon,\]
 所以二重极限 $\lim\limits_{(x,y) \to (0,0)} \dfrac{\sin(x^3 + y^5)}{x^2 + y^2} = 0.$
 \end{solution}
 
@@ -372,18 +372,18 @@ $$\left\lvert \dfrac{\sin(x^3 + y^5)}{x^2 + y^2} \right\rvert \leqslant 2r < 2\d
 首先 $\lim\limits_{x \to 0} x\cot x = 1,$ 所以 函数 $f(x) = x\cot x$ 在 $x = 0$ 处有定义.
 
 由于 $x\cot x$ 是偶函数, 可以用待定系数法令$x\cot x = c_0 + c_2 x^2 + c_4 x^4 + \cdots,$ 有
-$$x\cos x = x\left( 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots \right) = x\cot x \cdot \sin x = \left( c_0 + c_2 x^2 + c_4 x^4 + \cdots \right) \cdot \left(x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} + \cdots\right),$$
+\[x\cos x = x\left( 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} + \cdots \right) = x\cot x \cdot \sin x = \left( c_0 + c_2 x^2 + c_4 x^4 + \cdots \right) \cdot \left(x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} + \cdots\right),\]
 令对应系数相等, 得方程组
-$$\begin{cases}
+\[\begin{cases}
 1 = c_0 \\
 -\dfrac{1}{2} = c_2 - \dfrac{1}{6} \cdot c_0 \\
 \dfrac{1}{24} = c_4 - \dfrac{1}{6} \cdot c_2 + \dfrac{1}{120} \cdot c_0
-\end{cases}$$
+\end{cases}\]
 解得 $c_0 = 1, c_3 = - \dfrac{1}{3}, c_4 = - \dfrac{1}{45}.$ 于是幂级数展开为
-$$x\cot x = 1 - \dfrac{x^2}{3} - \dfrac{x^4}{45} + \cdots$$
+\[x\cot x = 1 - \dfrac{x^2}{3} - \dfrac{x^4}{45} + \cdots\]
 \end{solution}
 
-\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。}
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
 
 \examsetup{
   question/index = 1
@@ -391,14 +391,14 @@ $$x\cot x = 1 - \dfrac{x^2}{3} - \dfrac{x^4}{45} + \cdots$$
 
 \begin{question}[points = 8]
 记 $\operatorname{M}_n(\mathbb{R})$ 为 $n$ 阶实方阵全体构成的集合, 通过如下的一一映射
-$$\begin{pmatrix}
+\[\begin{pmatrix}
 a_{11} & \cdots & a_{1n} \\
 a_{21} & \cdots & a_{2n} \\
 \vdots & & \vdots \\
 a_{n1} & \cdots & a_{nn}
-\end{pmatrix} \mapsto (a_{11}, \dots, a_{1n}, a_{21}, \dots, a_{2n}, \dots, a_{nn})$$
+\end{pmatrix} \mapsto (a_{11}, \dots, a_{1n}, a_{21}, \dots, a_{2n}, \dots, a_{nn})\]
 可以将 $\operatorname{M}_n(\mathbb{R})$ 视作 $n^2$ 维Euclid空间 $\mathbb{R}^{n^2}.$ 记 $\operatorname{M}_n(\mathbb{R})$ 中所有可逆方阵构成的集合为 $\operatorname{GL}_n(\mathbb{R}),$ 即
-$$\operatorname{GL}_n(\mathbb{R}) = \left\{ A \in \operatorname{M}_n(\mathbb{R}): ~ \det A \neq 0 \right\}.$$
+\[\operatorname{GL}_n(\mathbb{R}) = \left\{ A \in \operatorname{M}_n(\mathbb{R}): ~ \det A \neq 0 \right\}.\]
 证明 $\operatorname{GL}_n(\mathbb{R})$ 在 $\operatorname{M}_n(\mathbb{R})$ 中不是道路连通的.
 
 % \noindent\scoringbox
@@ -406,10 +406,10 @@ $$\operatorname{GL}_n(\mathbb{R}) = \left\{ A \in \operatorname{M}_n(\mathbb{R})
 
 \begin{solution}
 令矩阵 $A_1 = \operatorname{diag}(1, 1, \dots, 1)$ 为 $n$ 阶单位阵, 其行列式等于 $1;$ 令矩阵 $A_2 = \operatorname{diag}(-1, 1, \dots, 1)$ 为将矩阵 $A_1$ 的第 $1$ 行第 $1$ 列元素改为 $-1$ 所得矩阵, 其行列式等于 $-1.$ 假设 $\operatorname{GL}_n(\mathbb{R})$ 是道路连通的, 那么存在一条道路
-$$\gamma: [0, 1] \longrightarrow \operatorname{GL}_n(\mathbb{R}),$$
+\[\gamma: [0, 1] \longrightarrow \operatorname{GL}_n(\mathbb{R}),\]
 使得 $\gamma(0) = A_1, \gamma(1) = A_2.$
 由于行列式 $\det$ 是关于方阵元素的多项式, 因此是连续的. 于是
-$$\det\circ\gamma: [0, 1] \longrightarrow \mathbb{R}$$
+\[\det\circ\gamma: [0, 1] \longrightarrow \mathbb{R}\]
 是连续的一元函数, 并且有 $\det(\gamma(0)) = \det A_1 = 1, \det(\gamma(1)) = \det A_2 = -1.$ 于是根据闭区间上连续函数的零点存在定理 (或者中间值定理), 存在 $\xi \in [0, 1],$ 使得 $0 = \det(\gamma(\xi)).$ 记 $B = \gamma(\xi),$ 那么上式表明 $\det B = 0,$ 从而有 $B \not\in \operatorname{GL}_n(\mathbb{R}),$ 这与 $\gamma$ 是 $\operatorname{GL}_n(\mathbb{R})$ 中的一条道路矛盾.
 \end{solution}
 
@@ -440,7 +440,7 @@ f^{(k+2)}(0) & = \lim\limits_{x \to 0} \dfrac{f^{(k)}(x) - f^{(k)}(0)}{x} = \lim
 & \vdots
 \end{align*}
 假设 $f(x)$ 等于某个在 $(-a, a)$ 上收敛的幂级数的和函数 $f(x) = \sum\limits_{k=0}^\infty a_k x^k$, 那么根据幂级数的逐项可导性有
-$$a_k \cdot k! = f^{(k)}(0) = 0,$$
+\[a_k \cdot k! = f^{(k)}(0) = 0,\]
 那么有 $a_k = 0$ 对所有的 $k = 0, 1, \dots$ 都成立, 相应幂级数的和函数显然等于常值函数 $0,$ 不等于 $f(x),$ 矛盾. 所以 $f(x)$ 在任何形如 $(-a, a), ~ a > 0,$ 的区间上, 都不能表示为某个在 $(-a, a)$ 上收敛的幂级数的和函数.
 \end{solution}
 
@@ -459,23 +459,23 @@ $$a_k \cdot k! = f^{(k)}(0) = 0,$$
 \begin{solution}
 \begin{enumerate}
 % \item 对任意取定的 $x \geqslant x_0,$ (作为数项级数通项的) $\tau_n(x) := \dfrac{1}{n^{x-x_0}}$ 关于 $n$ 单调非增, 且以 $1$ 为界, 又有数项级数 $\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}}$ 收敛, 于是根据数项级数的 Abel 判别法,
-% $$\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \tau_n(x) = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \dfrac{1}{n^{x-x_0}} = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x}}$$
+% \[\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \tau_n(x) = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \dfrac{1}{n^{x-x_0}} = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x}}\]
 % 收敛. 于是 $\sum\limits_{n=1}^\infty \dfrac{a_n}{n^x}$ 的收敛域包含 $[x_0, +\infty).$
 % \item 任取 $x_1 > x_2 \geqslant x_0,$ 记 $\delta = x_1 - x_2 > 0.$ 有
-% $$\dfrac{a_n}{n^{x_2}} - \dfrac{a_n}{n^{x_1}} = \dfrac{a_n}{n^{x_2}} \left( 1 - \dfrac{1}{n^{x_1-x_2}} \right) = \dfrac{a_n}{n^{x_2}} \left( 1 - \dfrac{1}{n^{\delta}} \right) = \dfrac{a_n}{n^{x_0}} \left( 1 - \dfrac{1}{n^{\delta}} \right) \dfrac{1}{n^{x_2-x_0}}.$$
+% \[\dfrac{a_n}{n^{x_2}} - \dfrac{a_n}{n^{x_1}} = \dfrac{a_n}{n^{x_2}} \left( 1 - \dfrac{1}{n^{x_1-x_2}} \right) = \dfrac{a_n}{n^{x_2}} \left( 1 - \dfrac{1}{n^{\delta}} \right) = \dfrac{a_n}{n^{x_0}} \left( 1 - \dfrac{1}{n^{\delta}} \right) \dfrac{1}{n^{x_2-x_0}}.\]
 % 由于数项级数 $b_n := 1 - \dfrac{1}{n^{\delta}}$ 关于 $n$ 单调非减, 满足 $0 < b_n < 1,$ 又有数项级数 $\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}}$ 收敛, 于是根据数项级数的 Abel 判别法, 数项级数
-% $$\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \left( 1 - \dfrac{1}{n^{\delta}} \right)$$
+% \[\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \left( 1 - \dfrac{1}{n^{\delta}} \right)\]
 % 收敛, 那么 $\forall \varepsilon > 0,$ 存在正整数 $N$ (这个 $N$ 只与 $\varepsilon$ 以及 $x_0$ 有关, 与 $x_1, x_2$ 无关), 使得对任意 $n_2 > n_1 > N$ 有
-% $$\sum\limits_{n=n_1+1}^{n_2} \dfrac{a_n}{n^{x_0}} \left( 1 - \dfrac{1}{n^{\delta}} \right)$$
+% \[\sum\limits_{n=n_1+1}^{n_2} \dfrac{a_n}{n^{x_0}} \left( 1 - \dfrac{1}{n^{\delta}} \right)\]
 \item 记 $\tau_n(x) := \dfrac{1}{n^{x-x_0}},$ 那么 $\tau_n(x)$ 对每个固定的 $x \in [x_0, +\infty)$ 关于 $n$ 单调非增, 且一致地以 $1$ 为界:
-$$\lvert \tau_n(x) \rvert \leqslant 1, ~~ \forall x \in [x_0, +\infty), n \in \mathbb{N}.$$
+\[\lvert \tau_n(x) \rvert \leqslant 1, ~~ \forall x \in [x_0, +\infty), n \in \mathbb{N}.\]
 又由于数项级数 $\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}}$ 收敛, 把它视作关于 $x$ 的函数项级数, 则它关于 $x$ 一致收敛. 于是根据函数项级数的 Abel 判别法,
-$$\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \tau_n(x) = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \dfrac{1}{n^{x-x_0}} = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x}}$$
+\[\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \tau_n(x) = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}} \cdot \dfrac{1}{n^{x-x_0}} = \sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x}}\]
 在 $[x_0, +\infty)$ 上一致收敛.
 \item 由于数项级数 $\sum\limits_{n=1}^\infty \dfrac{a_n}{n^{x_0}}$ 收敛, 因此其通项$\dfrac{a_n}{n^{x_0}} \to 0 ~ (n\to\infty).$ 于是, 存在正整数 $N,$ 使得对任意 $n > N$ 有
-$$\left\lvert \dfrac{a_n}{n^{x_0}} \right\rvert = \left\lvert \dfrac{a_n}{n^{x_0}} - 0 \right\rvert < 1.$$
+\[\left\lvert \dfrac{a_n}{n^{x_0}} \right\rvert = \left\lvert \dfrac{a_n}{n^{x_0}} - 0 \right\rvert < 1.\]
 记 $s = x - x_0 > 1,$ 那么对任意 $n > N$ 有
-$$\left\lvert \dfrac{a_n}{n^x} \right\rvert = \left\lvert \dfrac{a_n}{n^{x_0}} \right\rvert \cdot \dfrac{1}{n^s} < \dfrac{1}{n^s}.$$
+\[\left\lvert \dfrac{a_n}{n^x} \right\rvert = \left\lvert \dfrac{a_n}{n^{x_0}} \right\rvert \cdot \dfrac{1}{n^s} < \dfrac{1}{n^s}.\]
 $\sum\limits_{n=1}^\infty \dfrac{1}{n^s}$ 是收敛的正项级数, 因此由正项级数的比较判别法知 $\sum\limits_{n=1}^\infty \left\lvert \dfrac{a_n}{n^{x}} \right\rvert$ 也收敛.
 \end{enumerate}
 \end{solution}
@@ -488,9 +488,9 @@ $\sum\limits_{n=1}^\infty \dfrac{1}{n^s}$ 是收敛的正项级数, 因此由正
 
 \begin{solution}
 Cantor 闭区域套定理: 设
-$$D_1 \supset* D_2 \supset* \cdots \supset* D_k \supset* D_{k+1} \supset* \cdots$$
+\[D_1 \supset* D_2 \supset* \cdots \supset* D_k \supset* D_{k+1} \supset* \cdots\]
 为 $\mathbb{R}^n$ 中的闭集 (闭区域) 套, 且满足 $\lim\limits_{k \to \infty} \operatorname{diam} D_k = 0,$ 其中
-$$\operatorname{diam} D_k = \sup\limits_{x_1, x_2 \in D_k} \lVert x_1 - x_2 \rVert,$$
+\[\operatorname{diam} D_k = \sup\limits_{x_1, x_2 \in D_k} \lVert x_1 - x_2 \rVert,\]
 那么存在唯一一点 $x \in \bigcap\limits_{k=1}^\infty D_k.$
 
 Cantor 闭区域套定理的证明: 首先证明 $x$ 的存在性, 即 $\bigcap\limits_{k=1}^{\infty} E_k \neq \emptyset.$
@@ -504,10 +504,10 @@ Cantor 闭区域套定理的证明: 首先证明 $x$ 的存在性, 即 $\bigcap\
 
 % \begin{question}[points = 15]
 %   考虑定义在闭区间 $[0, 1]$ 上的函数
-%   $$\varphi_0(x) = \begin{cases}
+%   \[\varphi_0(x) = \begin{cases}
 %     x, & \text{ 若 } ~ 0 \leqslant x \leqslant \dfrac{1}{2}, \\
 %     1 - x, & \text{ 若 } ~ \dfrac{1}{2} < x \leqslant 1,
-%   \end{cases}$$
+%   \end{cases}\]
 %   并以 $1$ 为周期将其延拓为定义在整个实数域 $\mathbb{R}$ 上的函数 $\varphi(x).$ 设 $1 < q \leqslant p$ 为正整数. 定义函数 $f(x) = \sum\limits_{n=1}^{\infty} a^n\varphi(b^nx),$ 其中 $0 < a < 1,$ $b$ 是正整数.
 %   \begin{enumerate}
 %     \item 证明函数 $f(x)$ 是 $\mathbb{R}$ 上良定义的, 即喊数项级数 $\sum\limits_{n=1}^{\infty} a^n\varphi(b^nx)$ 的收敛域为 $\mathbb{R},$ 并证明 $f(x)$ 是 $\mathbb{R}$ 上的连续函数.
@@ -524,9 +524,9 @@ Cantor 闭区域套定理的证明: 首先证明 $x$ 的存在性, 即 $\bigcap\
 \item 若数项级数 $\sum\limits_{n=1}^{\infty} a_n$ 收敛, 证明幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 的和函数在闭区间 $[0, 1]$ 上有定义 (即幂级数在此区间上收敛) 且连续.
 \item 设 $\lim\limits_{n\to\infty} \sigma_n = A \in \mathbb{R}, A \neq 0.$ 证明幂级数 $\sum\limits_{n=1}^{\infty} n\sigma_n x^n,$ $\sum\limits_{n=1}^{\infty} s_n x^n,$ $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径都大于等于 $1,$ 并证明等式 $\sum\limits_{n=1}^{\infty} a_n x^n = (1-x)^2 \sum\limits_{n=1}^{\infty} n\sigma_n x^n$ 在 $\lvert x \rvert < 1$ 时恒成立.
 \item 利用 $(1-x)^{-1}$ 在 $\lvert x \rvert < 1$ 内的幂级数展开
-$$(1-x)^{-1} = 1 + x + x^2 + \cdots$$
+\[(1-x)^{-1} = 1 + x + x^2 + \cdots\]
 求函数 $\dfrac{1}{(1-x)^2}$ 的幂级数展开, 并验证等式 $1 = (1-x)^2 \sum\limits_{n=0}^\infty (n+1)x^n$ 在 $\lvert x \rvert < 1$ 时恒成立. 由此证明
-$$\lim\limits_{x \to 1-} \sum\limits_{n=1}^{\infty} a_n x^n = A.$$
+\[\lim\limits_{x \to 1-} \sum\limits_{n=1}^{\infty} a_n x^n = A.\]
 \end{enumerate}
 
 % \noindent\scoringbox
@@ -536,17 +536,17 @@ $$\lim\limits_{x \to 1-} \sum\limits_{n=1}^{\infty} a_n x^n = A.$$
 \begin{enumerate}
 \item 由题设知幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 在 $x = 1$ 处收敛, 于是由幂级数的 Abel 第二定理知幂级数 $\sum\limits_{n=1}^{\infty} a_nx^n$ 在任意闭区间 $[a, b] \subset* (-1, 1]$ 上一致收敛, 特别地在 $[0, 1]$ 上一致收敛, 从而和函数在 $[0, 1]$ 上连续.
 \item 由于 $\lim\limits_{n\to\infty} \sigma_n = A \in \mathbb{R}, A \neq 0,$ 所以当 $n$ 充分大时有
-$$\dfrac{\lvert A \rvert}{2} \leqslant \lvert \sigma_n \rvert \leqslant \dfrac{3\lvert A \rvert}{2},$$
+\[\dfrac{\lvert A \rvert}{2} \leqslant \lvert \sigma_n \rvert \leqslant \dfrac{3\lvert A \rvert}{2},\]
 由夹逼准则知 $\lim\limits_{n\to\infty} \nroot[n]{\lvert \sigma_n \rvert} = 1.$ 另一方面, 有 $\lim\limits_{n\to\infty} \nroot[n]{n} = 1,$ 于是
-$$\varlimsup_{n\to\infty} \nroot[n]{\lvert n\sigma_n \rvert} = \lim\limits_{n\to\infty} \nroot[n]{\lvert \sigma_n \rvert} \cdot \lim\limits_{n\to\infty} \nroot[n]{n} = 1.$$
+\[\varlimsup_{n\to\infty} \nroot[n]{\lvert n\sigma_n \rvert} = \lim\limits_{n\to\infty} \nroot[n]{\lvert \sigma_n \rvert} \cdot \lim\limits_{n\to\infty} \nroot[n]{n} = 1.\]
 由 Cauchy-Hadamard 定理知, 幂级数 $\sum\limits_{n=1}^{\infty} n\sigma_n x^n$ 收敛半径等于 $1.$
 
 由于 $\sum\limits_{n=1}^{\infty} n\sigma_n x^n$ 收敛半径等于 $1,$ 所以任取 $\lvert x \rvert < 1,$ $\sum\limits_{n=1}^{\infty} n\sigma_n x^n$ 与 $\sum\limits_{n=1}^{\infty} (n-1) \sigma_{n-1} x^n = x \cdot \sum\limits_{n=1}^{\infty} (n-1) \sigma_{n-1} x^{n-1}$ 都收敛, 其中约定 $\sigma_0 = 0.$ 于是
-$$\sum\limits_{n=1}^{\infty} s_n x^n = \sum\limits_{n=1}^{\infty} n\sigma_n x^n - \sum\limits_{n=1}^{\infty} (n-1) \sigma_{n-1} x^n = (1-x) \sum\limits_{n=1}^{\infty} n\sigma_n x^n$$
+\[\sum\limits_{n=1}^{\infty} s_n x^n = \sum\limits_{n=1}^{\infty} n\sigma_n x^n - \sum\limits_{n=1}^{\infty} (n-1) \sigma_{n-1} x^n = (1-x) \sum\limits_{n=1}^{\infty} n\sigma_n x^n\]
 也收敛. 于是幂级数 $\sum\limits_{n=1}^{\infty} s_n x^n$ 的收敛半径 $r$ 要满足 $r \geqslant \lvert x \rvert.$ 由于 $x$ 是任取的满足 $\lvert x \rvert < 1$ 的数, 因此有 $r \geqslant 1.$
 
 用类似的方法可以算得, 当 $\lvert x \rvert < 1$ 时,
-$$\sum\limits_{n=1}^{\infty} a_n x^n = (1 - x) \sum\limits_{n=1}^{\infty} s_n x^n$$
+\[\sum\limits_{n=1}^{\infty} a_n x^n = (1 - x) \sum\limits_{n=1}^{\infty} s_n x^n\]
 收敛, 进而推出 $\sum\limits_{n=1}^{\infty} a_n x^n$ 的收敛半径要大于等于 $1.$
 
 我们将当 $\lvert x \rvert < 1$ 时证明成立的两式
@@ -556,7 +556,7 @@ $$\sum\limits_{n=1}^{\infty} a_n x^n = (1 - x) \sum\limits_{n=1}^{\infty} s_n x^
 \end{gather*}
 综合起来, 便是 $\sum\limits_{n=1}^{\infty} a_n x^n = (1-x)^2 \sum\limits_{n=1}^{\infty} n\sigma_n x^n.$
 \item 由 $(1-x)^{-1}$ 的幂级数展开
-$$(1-x)^{-1} = 1 + x + x^2 + \cdots,$$
+\[(1-x)^{-1} = 1 + x + x^2 + \cdots,\]
 利用待定系数法
 \begin{align*}
 (1-x)^{-2} & = (1-x)^{-1} \cdot (1-x)^{-1} = (1 + x + x^2 + \cdots) \cdot (1 + x + x^2 + \cdots) \\
@@ -564,7 +564,7 @@ $$(1-x)^{-1} = 1 + x + x^2 + \cdots,$$
 \end{align*}
 那么有 $a_nx^n = 1\cdot x^n + x\cdot x^{n-1} + \cdots + x^n\cdot 1 = (n+1) x^n,$
 故有 $(1-x)^{-2} = \sum\limits_{n=0}^\infty (n+1) x^n,$ 并且容易看出其收敛半径大于等于 $(1-x)^{-1}$ 的收敛半径. 于是在 $\lvert x \rvert < 1$ 的范围内, 有
-$$1 = (1-x)^2 \sum\limits_{n=0}^\infty (n+1) x^n.$$
+\[1 = (1-x)^2 \sum\limits_{n=0}^\infty (n+1) x^n.\]
 
 下面证明 $\lim\limits_{x \to 1-} \sum\limits_{n=1}^{\infty} a_n x^n = A.$ 在 $\lvert x \rvert < 1$ 的范围内有
 \begin{align*}
@@ -577,7 +577,7 @@ $$1 = (1-x)^2 \sum\limits_{n=0}^\infty (n+1) x^n.$$
 当 $x \to 1-$ 时, 上式后两项 $-(1 - x) A$ 与 $-(1-x)^2 A$ 都趋于 $0,$ 因此接下来只要证明 $\lim\limits_{x \to 1-} (1-x)^2 \sum\limits_{n=1}^\infty x^n n (\sigma_n - A) = 0$ 即可.
 
 由于 $\lim\limits_{n\to\infty} \sigma_n = A,$ 所以 $\forall \varepsilon > 0,$ 存在正整数 $N,$ 使得对任意 $n > N,$ 有 $\lvert \sigma_n - A \rvert < \varepsilon / 2.$ 令
-$$M = \max\limits_{1\leqslant n \leqslant N} n \lvert \sigma_n - A \rvert,$$
+\[M = \max\limits_{1\leqslant n \leqslant N} n \lvert \sigma_n - A \rvert,\]
 对于 $0 < x < 1,$ 有
 \begin{align*}
 \left\lvert (1-x)^2 \sum\limits_{n=1}^\infty x^n n (\sigma_n - A) \right\rvert & \leqslant (1-x)^2 \sum\limits_{n=1}^\infty x^n n \lvert \sigma_n - A \rvert \\
@@ -587,7 +587,7 @@ $$M = \max\limits_{1\leqslant n \leqslant N} n \lvert \sigma_n - A \rvert,$$
 & = M x (1 - x) (1 - x^N) + \dfrac{\varepsilon}{2} \leqslant M (1 - x) + \dfrac{\varepsilon}{2}
 \end{align*}
 对于取定的 $\varepsilon > 0,$ 进一步令 $1 - \dfrac{\varepsilon}{2M} < x < 1,$ 代入上式有
-$$\left\lvert (1-x)^2 \sum\limits_{n=1}^\infty x^n n (\sigma_n - A) \right\rvert \leqslant M \cdot \dfrac{\varepsilon}{2M} + \dfrac{\varepsilon}{2} = \varepsilon.$$
+\[\left\lvert (1-x)^2 \sum\limits_{n=1}^\infty x^n n (\sigma_n - A) \right\rvert \leqslant M \cdot \dfrac{\varepsilon}{2M} + \dfrac{\varepsilon}{2} = \varepsilon.\]
 这样就完成了 $\lim\limits_{x \to 1-} (1-x)^2 \sum\limits_{n=1}^\infty x^n n (\sigma_n - A) = 0$ 的证明.
 \end{enumerate}
 \end{solution}
