@@ -177,7 +177,7 @@ dmypy.json
 .pyre/
 
 .vs
-.vscode
+# .vscode
 .idea
 .DS_Store
 
@@ -196,3 +196,5 @@ build/*
 !build/.keep
 
 *.ipynb
+
+/*.pdf

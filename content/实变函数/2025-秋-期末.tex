@@ -1,0 +1,360 @@
+\setcourse{实变函数}
+\setyear{2025\textasciitilde 2026}
+\setterm{秋季}
+\settotal{4}
+% \setexamtype{期末考试}
+
+\begin{document}
+
+\makeexamtitle
+
+
+% \begin{xiaosihao}
+
+
+\section{%
+  证明题：本题共 2 小题，第 1 题 6 分，第 2 题 9 分，共 15 分。请写出证明详细过程。
+}
+
+% \noindent\scoringbox
+
+\begin{question}[points = 6]
+设 $A, B$ 为包含在基本集 $X$ 中的两个集合, 分别记 $A^c, B^c$ 为集合 $A, B$ 在 $X$ 中的补集. 集合 $A, B$ 的对称差定义为
+\[A \triangle B = (A \setminus B) \cup* (B \setminus A) = (A \cup* B) \setminus (A \cap* B).\]
+请证明 $A^c \triangle B^c = A \triangle B.$
+\end{question}
+
+\begin{solution}
+由对称差的定义, 有
+\begin{align*}
+A \triangle B & = (A \setminus B) \cup* (B \setminus A) = (A \cap* B^c) \cup* (B \cap* A^c) \\
+& = (B^c \cap* A) \cup* (A^c \cap* B) = (B^c \setminus A^c) \cup* (A^c \setminus B^c) \\
+& = A^c \triangle B^c.
+\end{align*}
+\end{solution}
+
+\begin{question}[points = 9]
+设 $f(x)$ 是 $\mathbb{R}$ 上的非负可积函数, 令
+\[F(x) = \int_{(-\infty, x]} f(t) ~ \mathrm{d} t.\]
+若 $F(x)$ 也是 $\mathbb{R}$ 上的可积函数, 请证明 $f(x)$ 几乎处处等于 $0.$
+\end{question}
+
+\begin{solution}
+由勒贝格积分的 (绝对) 连续性, 以及 $f(x)$ 非负知, $\displaystyle F(x) = \int_{(-\infty, x]} f(t) ~ \mathrm{d} t$ 是 $\mathbb{R}$ 上连续且单调递增的函数. \score{2}
+于是 $\displaystyle \lim_{x\to\infty} F(x)$ 为有限实数或者等于 $\infty.$ 由于 $f(x)$ 可积, 所以
+\begin{equation*}
+\lim_{x\to\infty} F(x) = \int_{\mathbb{R}} f(x) ~ \mathrm{d} x < \infty \score{2}
+\end{equation*}
+令 $\displaystyle \lim_{x\to\infty} F(x) = c \geqslant 0.$ 由于$F(x)$ 是 $\mathbb{R}$ 上的可积函数, 可设 $\displaystyle \int_{\mathbb{R}} F(x) ~ \mathrm{d} x = a \in \mathbb{R}_{\geqslant 0}.$
+
+假设 $c > 0,$ 那么由 $F(x)$ 的连续性知存在 $X \in \mathbb{R},$ 对任意 $x > X,$ 有 $F(x) > c / 2,$ 从而有
+\begin{equation*}
+a = \int_{\mathbb{R}} F(x) ~ \mathrm{d} x \geqslant \int_{[X, X + 2a / c + 1]} F(x) \geqslant a + c / 2, \score{2}
+\end{equation*}
+矛盾. 所以 $c > 0$ 的假设不成立, 即有
+\begin{equation*}
+0 = c = \lim_{x\to\infty} F(x) = \int_{\mathbb{R}} f(x) ~ \mathrm{d} x. \score{2}
+\end{equation*}
+由勒贝格积分的唯一性知, $f(x)$ 几乎处处等于 $0.$
+\end{solution}
+
+
+\section{简答题：本题共 2 小题，第 1 题 15 分，第 2 题 10 分，共 25 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+
+\begin{question}[points = 15]
+设基本集 $X = \mathbb{R},$ 称集合 $A \subset* X$ 被称作是无处稠密集, 指的是它的闭包的内部是空集, 即
+\[
+\mathring{\overline{A}} := \{ x \in \overline{A} ~:~ x ~ \text{为} ~ \overline{A} ~ \text{的内点} \} = \emptyset.
+\]
+称集合 $A\subset* X$ 被称作是稀疏集, 指的是它的余集是稠密集, 即它的余集的闭包等于全集:
+\[
+\overline{ X \setminus A } = X.
+\]
+\begin{enumerate}
+\item 请问无处稠密集是否一定是稀疏集? 若是, 请给出证明; 否则, 请举反例.
+\item 反过来, 请问稀疏集是否一定是无处稠密集? 若是, 请给出证明; 否则, 请举反例.
+\item 请问 Cantor 三分集是否是无处稠密集? 是否是稀疏集? (不需要证明)
+\end{enumerate}
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 无处稠密集一定是稀疏集. \score{3}
+证明如下: 设 $A$ 是无处稠密集, 那么对于任意的 $x \in X,$ $x$ 不是 $A$ 的内点, 否则 $A$ 本身的内部就非空, 它的闭包的内部也必然不是空集. 于是, 对于 $x$ 的任意邻域 $U(x),$ 总有 $U(x) \cap* A^c \neq \emptyset,$ 也就是说, $x$ 是 $A^c$ 的闭包中的点. 由于 $x$ 的任意性, 可知 $\overline{A^c} = X$. 这就证明了 $A$ 是稀疏集. \score{2}
+\item 稀疏集不一定是无处稠密集. \score{3}
+反例如下: 取 $A = \mathbb{Q},$ \score{2}
+那么 $X \setminus A$ 是所有无理数构成的集合, 其闭包就是 $X = \mathbb{R},$ 因此 $A = \mathbb{Q}$ 是一个稀疏集. 但是它不是无处稠密集, 因为它的闭包 $\overline{\mathbb{Q}} = \mathbb{R},$ 内部显然是非空的.
+\item Cantor 三分集是闭集且其内部为空集, 所以 Cantor 三分集是无处稠密集. \score{3}
+
+Cantor 三分集的补集 (只要看在 $[0,1]$ 区间中的补集) 容易证明是稠密集, 所以 Cantor 三分集是稀疏集. \score{2}
+\end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+请叙述 (\chemph{不需要证明}) $\mathbb{R}$ 上内测度的半可加性, 并举例说明其中不等式严格大于号可以成立 (\chemph{提示: 考虑不可测集}).
+\end{question}
+
+\begin{solution}
+$\mathbb{R}$ 上内测度的半可加性: \score{6}
+
+设 $E \subset* \mathbb{R},$ $\displaystyle E = \bigcup_{k=1}^\infty E_k,$ 且 $E_k$ 互不相交, 那么
+\[
+m_* E \geqslant \sum_{k=1}^\infty m_* E_k.
+\]
+
+不等式严格大于号成立的例子: \score{4}
+
+考虑 $E = [0, 1]$ 区间, $E_1 \subset* E$ 为 $E$ 中一个不可测集, 并取 $E_2 = E \setminus E_1.$ 那么 $E_2$ 也是不可测集. 由不可测集定义, 有
+\[
+m_* E_1 < m^* E_1, ~~ m_* E_2 < m^* E_2.
+\]
+另一方面, 由内、外测度的关系
+\[
+m_* E_1 + m^* E_2 = m E = 1 = m_* E_2 + m^* E_1,
+\]
+从而有
+\[
+m_* E_1 + m_* E_2 = 2 - (m^* E_1 + m^* E_2) < 2 - (m_* E_1 + m_* E_2),
+\]
+上式变形即可得
+\[
+m_* E_1 + m_* E_2 < 1 = m E.
+\]
+\end{solution}
+
+
+\section{解答题：本题共 4 小题，每小题 10 分，共 40 分。请写出具体解题步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+设 $f(x)$ 是定义在可测集 $E$ 上的函数, 若对任意的 $r \in \mathbb{Q},$ 集合 $E(f = r) = \{ x \in E ~ : ~ f(x) = r \}$ 都是可测集, 请问 $f(x)$ 是否一定是可测函数? 若是, 请给出证明; 若否, 请举反例.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+$f(x)$ 不一定是可测函数 \score{6}
+
+反例如下 (不限于如下例子): \score{4}
+
+设 $E = [0, 1],$ 集合 $A \subset* E$ 是不可测集, 函数 $f(x) = \chi_A(x) + \alpha,$ 其中 $\alpha$ 为某个无理数, 那么任取 $r \in \mathbb{Q},$ 有 $E(f = r) = \emptyset,$ 是可测集, 但 $f$ 不是可测函数.
+\end{solution}
+
+\begin{question}[points = 10]
+设 $f(x)$ 是定义在区间 $[a, b)$ 上的\chemph{非负有限}的可测函数, $a < b.$ 若 $f(x)$ 在任意闭区间 $[a, c] \subset* [a, b)$ 上黎曼可积, 并且\chemph{反常积分} $\displaystyle \int_a^b f(x) ~ \mathrm{d}x$ 收敛, 请问 $f(x)$ 是否在 $[a, b)$ 上勒贝格可积? 若是, 请给出证明; 若否, 请给出反例.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+$f(x)$ 是在 $[a, b)$ 上勒贝格可积的函数. \score{5}
+
+考虑区间列 $E_n = \left[ a, b_n \right] \subset* [a, b), n \in \mathbb{N},$ 其中 $b_n = a + (b - a) \dfrac{n}{n+1},$ 以及相应的定义在 $[a, b)$ 区间上的非负可测函数列
+\[f_n(x) := f(x) \cdot \chi_{E_n}(x),\]
+其中 $\chi_{E_n}$ 为 $E_n$ 的特征函数. 那么对任意 $x \in [a, b)$ 有 $\displaystyle \lim_{n \to \infty} f_n(x) = f(x).$ \score{2}
+
+由 Levi 定理 (注意题设中 $f$ 是非负的) 有
+\begin{equation*}
+\begin{aligned}
+\int_{[a, b)} f ~ \mathrm{d} m & = \int_{[a, b)} \lim_{n \to \infty} f_n ~ \mathrm{d} m = \lim_{n \to \infty} \int_{[a, b)} f_n ~ \mathrm{d} m = \lim_{n \to \infty} \int_{E_n} f ~ \mathrm{d} m \\
+& = \lim_{n \to \infty} (R) \int_a^{b_n} f(x) ~ \mathrm{d} x = \int_a^b f(x) ~ \mathrm{d} x.
+\end{aligned} \score{3}
+\end{equation*}
+\end{solution}
+
+\begin{question}[points = 10]
+设 $1 \leqslant p < \infty,$ $E \subset* \mathbb{R}$ 为可测集, $f, f_n \in L^p(E),$ $n \in \mathbb{N}.$
+\begin{enumerate}
+\item 请叙述 $L^p(E)$ 中函数列 $\{f_n\}$ 弱收敛于 $f$ 的定义;
+\item 若 $L^p(E)$ 中函数列 $\{f_n\}$ 在 $E$ 上一致收敛于 $f,$ 请问是否必有 $\{f_n\}$ 弱收敛于 $f$? 若是, 请给出证明; 若否, 请举反例.
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item $L^p(E)$ 中的序列 $\{f_n\}$ 弱收敛于 $f \in L^p(E)$ 指的是, 对任意函数 $g \in L^q(E),$ 有
+\[
+\lim_{n \to \infty} \int_E f_n g ~ \mathrm{d} m = \int_E f g ~ \mathrm{d} m,
+\]
+其中 $q$ 满足 $1/p + 1/q = 1$ (若 $p=1$ 则 $q=\infty$). \score{6}
+
+\item 不一定有 $\{f_n\}$ 弱收敛于 $f.$ \score{2}
+
+反例如下 (不限于如下例子): \score{2}
+
+$E = \mathbb{R},$ $\displaystyle f_n(x) = \dfrac{1}{n} \chi_{[1, e^n]}(x).$ 容易验证 $\{f_n\}$ 一致收敛到 $f(x) = 0,$ 并且由于 $f_n$ 有界且具有紧支集, 从而 $f_n \in L^p(E),$ $\forall 1 \leqslant p < \infty.$ 取
+\[
+g(x) = \dfrac{1}{x}\chi_{[1, +\infty)}(x),
+\]
+那么 $g \in L^q(E), \forall 1 < q \leqslant \infty,$ 但是有
+\[
+\int_{\mathbb{R}} f_n(x) g(x) ~ \mathrm{d} x = \dfrac{1}{n} \int_{1}^{e^n} \dfrac{1}{x} ~ \mathrm{d} x = 1,
+\]
+故 $\{f_n\}$ 不弱收敛于 $f.$
+\end{enumerate}
+\end{solution}
+
+\begin{question}[points = 10]
+设 $f(x), g(x)$ 为定义在 $E = (0, 1)$ 上的正值可测函数, 满足 $f(x)g(x) \geqslant \dfrac{1}{x},$ 求
+\[
+\int_E f(x) ~ \mathrm{d} m \int_E g(x) ~ \mathrm{d} m
+\]
+的最小值.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+由于 $f(x), g(x)$ 为 $E = (0, 1)$ 上非负可测函数, 满足 $f(x)g(x) \geqslant x^{-1},$ 故有
+
+\begin{equation*}
+g(x) \geqslant \dfrac{1}{x f(x)},
+\end{equation*}
+由 Hölder 不等式知
+\begin{equation*}
+\begin{aligned}
+\int_E f(x) ~ \mathrm{d} m \int_E g(x) ~ \mathrm{d} m
+& \geqslant \int_E f(x) ~ \mathrm{d} m \int_E \dfrac{1}{x f(x)} ~ \mathrm{d} m \\
+& = \left( \left( \int_E \left( (f(x))^{1/2} \right)^2 ~ \mathrm{d} m \right)^{1/2} \left( \int_E \left( \left(\dfrac{1}{x f(x)}\right)^{1/2} \right)^2 ~ \mathrm{d} m \right)^{1/2} \right)^2 \\
+& \geqslant \left( \int_E (f(x))^{1/2} \cdot \left(\dfrac{1}{x f(x)}\right)^{1/2} ~ \mathrm{d} m \right)^2 \\
+& = \left( \int_E x^{-1/2} ~ \mathrm{d} m \right)^2 = \left( 2 x^{1/2} \bigg|_0^1 \right)^2 \\
+& = 4.
+\end{aligned} \score{5}
+\end{equation*}
+等号当 $f(x) = g(x) = x^{-1/2}$ 时可取到, 故最小值就是 $4.$ \score{5}
+
+\end{solution}
+
+
+\section{证明题：本题共 2 小题，每题 10 分，共 20 分。请写出详细证明过程。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \begin{question}[points = 10]
+% 设 $S$ 为某集合, 对 $n \in \mathbb{N},$ 考虑它的 $n$ 重直积
+% \[S^n = \prod_{1\leqslant i \leqslant n} S = \underbrace{S \times \cdots \times S}_{n ~ \text{个}} = \{ (s_1, s_2, \dots, s_n) ~ : ~ s_i \in S, i = 1, 2, \dots, n\},\]
+% 以及无穷直积
+% \[S^\infty = \prod_{i \in \mathbb{N}} S = \{ (s_1, s_2, \dots, s_i, \dots) ~ : ~ s_i \in S, i \in \mathbb{N}\}.\]
+
+% % \noindent\scoringbox
+% \end{question}
+
+\begin{question}[points = 10]
+设 $\{ f_n \}_{n\in\mathbb{N}}$ 是定义在可测集 $E \subset* \mathbb{R}$ 上的可测函数列, 考虑函数列 $\{ f_n \}_{n\in\mathbb{N}}$ 的收敛点集
+\[
+A := \{ x \in E ~ : ~ \text{$\mathbb{R}$ 中数列 $\{ f_n(x) \}$ 收敛} \},
+\]
+请证明集合 $A$ 可测. (\chemph{提示: 写出 $\{ f_n(x) \}_{n\in\mathbb{N}}$ 点态收敛的定义 (例如作为柯西列), 并将其转化为集合运算的语言})
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+任取 $x \in A,$ 由于数列 $\{ f_n(x) \}$ 收敛, 那么它是 $\mathbb{R}$ 中柯西列, 即有
+\begin{equation*}
+\forall ~ k \in \mathbb{N}, \exists ~ N \in \mathbb{N}, \text{ 使得 } \forall ~ n, m \geqslant N, \text{ 有 } \lvert f_n(x) - f_m(x) \rvert \leqslant \dfrac{1}{k}, \score{2}
+\end{equation*}
+这表明
+\begin{equation*}
+x \in \bigcap_{k = 1}^{\infty} \left( \bigcup_{N=1}^{\infty} \left( \bigcap_{n = N}^{\infty} \bigcap_{m = N}^{\infty} E \left( \lvert f_n - f_m \rvert \leqslant \dfrac{1}{k} \right) \right) \right). \score{2}
+\end{equation*}
+反之, 从以上集合中任取一个元素 $x,$ 它也满足之前提到的 $\{ f_n(x) \}$ 是 $\mathbb{R}$ 中柯西列的条件, \score{2}
+于是有
+\[A = \bigcap_{k = 1}^{\infty} \left( \bigcup_{N=1}^{\infty} \left( \bigcap_{n = N}^{\infty} \bigcap_{m = N}^{\infty} E \left( \lvert f_n - f_m \rvert \leqslant \dfrac{1}{k} \right) \right) \right).\]
+由于每个 $f_n(x)$ 都是可测函数, 所以对任意的 $n, m \in \mathbb{N},$ $f_n - f_m$ 也是可测函数, 从而 $\lvert f_n - f_m \rvert$ 也是可测函数. \score{2}
+由可测函数的定义知 $E \left( \lvert f_n - f_m \rvert \leqslant \dfrac{1}{k} \right)$ 都是可测集, 而可测集全体 $\mathscr{M}$ 构成一个 $\sigma$-代数, 于是有 $A \in \mathscr{M}$ 也是一个可测集. \score{2}
+
+\end{solution}
+
+
+\begin{question}[points = 10]
+设 $\Phi$ 为 $[0, 1]$ 区间上的 Cantor 函数, 其定义为
+\[
+\Phi: [0, 1] \to [0, 1], \quad \Phi(x) = \sup_{P_0 \ni y \leqslant x} \phi(y),
+\]
+其中 $P_0$ 为 $[0, 1]$ 上的 Cantor 集, 函数 $\phi$ 定义为
+\[
+\phi: P_0 \to [0, 1], \quad \phi \left( \sum_{k=1}^{\infty} \dfrac{2 a_k}{3^k} \right) = \sum_{k=1}^{\infty} \dfrac{a_k}{2^k}, ~~ a_k \in \{0, 1\}.
+\]
+容易验证 $\Phi$ 为 $[0, 1] \to [0, 1]$ 的单调非减的连续满射. 令 $f(x) = \Phi(x) + x,$ $0 \leqslant x \leqslant 1$; $g = f^{-1}$ 为 $f$ 的逆映射.
+\begin{enumerate}
+\item 请证明存在可测集 $B \subset* [0, 1]$ 使 $g^{-1}(B)$ 不可测;
+\item 验证映射 $g$ 满足 Lipschitz 条件, 即存在常数 $L > 0,$ 使对任意 $y_1, y_2 \in [0, 2]$ 有
+\[
+\lvert g(y_1) - g(y_2) \rvert \leqslant L \cdot \lvert y_1 - y_2 \rvert,
+\]
+并证明一般的满足 Lipschitz 条件的映射 $h$ 都将零测集映为零测集;
+\item 请证明映射 $f = g^{-1}$ 将 $[0, 1]$ 区间中的不可测集映为 $[0, 2]$ 区间中的不可测集.
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 任取 $[0, 1]$ 上 Cantor 三分集 $P_0$ 的补集 $G_0$ 的构成区间 $I = (a, b)$,
+Cantor 函数 $\Phi$ 在 $I$ 上为常值函数, 因此 $f(I) = (a + \Phi(a), b + \Phi(b))$.
+于是有 $m (f(I)) = b - a = m I$, 且 $f(G_0)$ 为构成区间为 $f(I)$ 的开集, 从而可测.
+依据测度的可列可加性, 有
+\[
+m (f(G_0)) = \sum_{n = 1}^\infty m (f(I_n)) = \sum_{n = 1}^\infty m (I_n) = m (G_0) = 1
+\]
+成立, 从而知
+\[
+m (f (P_0)) = m ([0, 2]) - m (f (G_0)) = 2 - 1 = 1.
+\]
+于是可以从正测度集 $f (P_0)$ 中取出不可测集 $B_0$, 并令 $B = g (B_0) = f^{-1} (B_0) \subset* P_0$.
+由于 $P_0$ 是零测集, 所以它的子集 $B$ 也是零测集, 从而是可测集. 而 $g^{-1} (B) = B_0$ 不可测.
+
+\item 任取 $[0, 1]$ 区间内的不可测集 $E$, 假设 $A := g^{-1} (E) = f (E)$ 可测. 由于 Cantor 函数 $\Phi$
+在 $[0, 1]$ 上为增函数, 所以对于任意 $x_1 < x_2 \in [0, 1]$, 有
+\[
+f(x_2) - f(x_1) = \Phi(x_2) - \Phi(x_1) + x_2 - x_1 \geqslant x_2 - x_1 > 0.
+\]
+令 $[0, 2] \ni y_i = f(x_i), i = 1, 2,$ 则 $x_i = g(y_i) = f^{-1}(y_i),$ 因此上式可写为
+\[
+g(y_2) - g(y_1) \leqslant y_2 - y_1.
+\]
+这说明映射 $g$ 满足 Lipschitz 条件, 其中 Lipschitz 常数 $L = 1$.
+
+接下来证明满足 Lipschitz 条件的映射 $h$ 将零测集映为零测集. 设 $M \subset* \mathbb{R}$ 是零测集, 则对任意 $\varepsilon > 0$, 开区间列 $\{ I_n \}$ 覆盖 $M$,
+且有
+\[
+\sum_{n = 1}^\infty m (I_n) < \varepsilon.
+\]
+由于映射 $h$ 满足 Lipschitz 条件, 假设其 Lipschitz 常数为 $L,$ 那么对任意区间 $I_n$, 有 $m (h(I_n)) \leqslant L \cdot m (I_n).$ 于是有
+\[
+m (h(M)) \leqslant m \left( \bigcup_{n = 1}^\infty h(I_n) \right) \leqslant \sum_{n = 1}^\infty m (h(I_n)) \leqslant \sum_{n = 1}^\infty L \cdot m (I_n) < \varepsilon L.
+\]
+由于 $\varepsilon > 0$ 任意, 故 $m (h(M)) = 0$, 即映射 $h$ 将零测集映为零测集.
+
+\item 用反证法. 任取 $[0, 1]$ 区间内的不可测集 $E$, 假设 $A := g^{-1} (E) = f (E)$ 可测. 取 $K \subset* A$ 为 $A$ 的等测核,
+即 $K$ 为一个 $F_{\sigma}$ 集, 且满足 $m A = m K$. 记
+\[
+A = K \cup* Z, ~~ \text{其中} ~ Z = A \setminus K ~ \text{为零测集}.
+\]
+$A$ 在 $g$ 下的像满足
+\[
+E = g(A) = g(K \cup* Z) = g(K) \cup* g(Z).
+\]
+由于 $f$ 为连续映射, 而且 $K$ 为 Borel 集 ($F_{\sigma}$ 集), 于是 $g(K) = f^{-1}(K)$ 也是 Borel 集,
+从而可测. 又由于 $Z$ 为零测集, 所以由上面已经证明的结论知 $g(Z)$ 也是零测集, 因此 $E$ 可测,
+这与 $E$ 为不可测集的假设矛盾. 综上所述, $g^{-1}$ 映不可测集为不可测集.
+\end{enumerate}
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}

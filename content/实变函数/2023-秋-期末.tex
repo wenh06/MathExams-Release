@@ -1,161 +1,12 @@
-\makeatletter
-\@ifundefined{ifShowAnswer}{%
-  \newif\ifShowAnswer
-}{}
-\makeatother
-
-% \ShowAnswerfalse
-% \ShowAnswertrue
-
-\examsetup{
-  page = {
-    size            = a4paper,
-    show-columnline = true,
-    foot-content    = {第~;~页~~共~;页\quad 实变函数\quad 中国农业大学制}
-  },
-  solution = {
-    show-solution = show-stay,
-    % blank-type = manual,
-    blank-type = none,
-    % blank-vsep = 120ex plus 1ex minus 1ex
-    blank-vsep = 15cm
-  },
-  fillin = {
-    no-answer-type = none,
-    show-answer = true
-  },
-  % style/fullwidth-stop = catcode,
-  style/fullwidth-stop = false,
-  % sealline = {
-  %   show        = true,
-  %   scope       = mod-2,
-  %   circle-show = false,
-  %   line-type   = solid,
-  %   odd-info-content = {
-  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
-  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
-  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
-  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
-  %   },
-  %   odd-info-xshift = 12mm,
-  %   text = {此卷只装订不密封},
-  %   text-width = 0.98\textheight,
-  %   text-format  = \zihao{-3}\sffamily,
-  %   text-xshift = 20mm
-  % },
-  question/show-points = true,
-  paren = {
-    show-answer = true
-  },
-  square = {
-    x-length = 1.8em,
-    y-length = 1.6em
-  },
-  font = times
-}
-
-\ifShowAnswer
-\examsetup{
-  solution/show-solution = show-stay,
-  fillin/show-answer = true,
-  paren/show-answer = true,
-  page/size = a3paper
-}
-\else
-\examsetup{
-  solution/show-solution = hide,
-  fillin/show-answer = false,
-  paren/show-answer = false,
-  page/size = a4paper,
-  page/show-head = true,
-  page/head-content = {
-  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
-  }
-}
-\fi
-
-
-\ifShowAnswer
-% do nothing
-\else
-\AtEndPreamble{%
-\geometry{
-left=20mm,
-right=20mm,
-top=20mm,
-bottom=20mm,
-% includehead=true,
-% includefoot=true,
-% heightrounded,
-% showframe,% <--- just for debugging
-% verbose,% <--- just for debugging
-headsep=8pt
-}
-}
-\fi
-
-
-\title{
-\erhao
-\simli
-\ifUseImageTitle
-{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
-\else
-中国农业大学\\
-\fi
-2023\textasciitilde 2024学年秋季学期\\
-\textbf{%
-% \uline{\hspace{1.5cm}实变函数\hspace{1.5cm}}}
-\dunderline[-1pt]{0.9pt}{\hspace{0.5cm}实变函数\hspace{0.5cm}}}
-\ifShowAnswer
-课程考试试题解答
-\else
-课程考试试题
-\fi
-}
+\setcourse{实变函数}
+\setyear{2023\textasciitilde 2024}
+\setterm{秋季}
+\settotal{4}
+% \setexamtype{期末考试}
 
 \begin{document}
 
-\maketitle
-
-\ifShowAnswer
-% do nothing
-\else
-\vspace{-0.6cm}
-
-{
-\begin{table}[H]
-\sihao
-\centering
-\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
-\hline
-题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
-分数 & & & & & \\[12pt] \hline
-\end{tabular}
-\end{table}
-}
-
-\vspace{-0.6cm}
-
-\begin{center}
-% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
-{\sihao （本试卷共~4~道大题）}
-\end{center}
-
-\vspace{-0.5cm}
-\begin{center}
-\textbf{\sihao 考生诚信承诺}
-\end{center}
-\vspace{-0.3cm}
-% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
-% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
-% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
-\noindent\begin{minipage}[t]{1.05\linewidth}
-{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
-本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
-\end{minipage}
-
-\fi
+\makeexamtitle
 
 
 \section{%
@@ -458,13 +309,13 @@ f_n(x) = \chi_{\left[ \dfrac{i}{2^k}, \dfrac{i+1}{2^k} \right]}(x) = \begin{case
 \begin{enumerate}
 \item 证明$P_0$是闭集, 不可列, 并且具有零测度.
 \item 已知$P_0$中的元素可以唯一地表示为$\displaystyle \sum\limits_{n=1}^{\infty} \dfrac{2a_n}{3^n}, a_n \in \{0, 1\},$ 定义函数
-$$
+\[
 \phi: ~ P_0 \rightarrow [0, 1], ~ \sum\limits_{n=1}^{\infty} \dfrac{2a_n}{3^n} \mapsto \sum\limits_{n=1}^{\infty} \dfrac{a_n}{2^n},
-$$
+\]
 以及 Cantor 函数
-$$
+\[
 \Phi: ~ [0, 1] \rightarrow [0, 1], ~ x \mapsto \sup\limits_{P_0 \ni y \leqslant x} \phi(y).
-$$
+\]
 证明 Cantor 函数$\Phi$连续, 有几乎处处为0的导数, 但不是绝对连续函数.
   \end{enumerate}
 

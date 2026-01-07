@@ -1,161 +1,12 @@
-\makeatletter
-\@ifundefined{ifShowAnswer}{%
-  \newif\ifShowAnswer
-}{}
-\makeatother
-
-% \ShowAnswerfalse
-% \ShowAnswertrue
-
-\examsetup{
-  page = {
-    size            = a4paper,
-    show-columnline = true,
-    foot-content    = {第~;~页~~共~;页\quad 实变函数\quad 中国农业大学制}
-  },
-  solution = {
-    show-solution = show-stay,
-    % blank-type = manual,
-    blank-type = none,
-    % blank-vsep = 120ex plus 1ex minus 1ex
-    blank-vsep = 15cm
-  },
-  fillin = {
-    no-answer-type = none,
-    show-answer = true
-  },
-  % style/fullwidth-stop = catcode,
-  style/fullwidth-stop = false,
-  % sealline = {
-  %   show        = true,
-  %   scope       = mod-2,
-  %   circle-show = false,
-  %   line-type   = solid,
-  %   odd-info-content = {
-  %     {\heiti \zihao{4}姓名} {\underline{\hspace*{8em}}},
-  %     {\heiti \zihao{4}准考证号} {\examsquare{9}},
-  %     {\heiti \zihao{4}考场号} {\examsquare{2}},
-  %     {\heiti \zihao{4}座位号} {\examsquare{2}},
-  %   },
-  %   odd-info-xshift = 12mm,
-  %   text = {此卷只装订不密封},
-  %   text-width = 0.98\textheight,
-  %   text-format  = \zihao{-3}\sffamily,
-  %   text-xshift = 20mm
-  % },
-  question/show-points = true,
-  paren = {
-    show-answer = true
-  },
-  square = {
-    x-length = 1.8em,
-    y-length = 1.6em
-  },
-  font = times
-}
-
-\ifShowAnswer
-\examsetup{
-  solution/show-solution = show-stay,
-  fillin/show-answer = true,
-  paren/show-answer = true,
-  page/size = a3paper
-}
-\else
-\examsetup{
-  solution/show-solution = hide,
-  fillin/show-answer = false,
-  paren/show-answer = false,
-  page/size = a4paper,
-  page/show-head = true,
-  page/head-content = {
-  \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
-  }
-}
-\fi
-
-
-\ifShowAnswer
-% do nothing
-\else
-\AtEndPreamble{%
-\geometry{
-left=20mm,
-right=20mm,
-top=20mm,
-bottom=20mm,
-% includehead=true,
-% includefoot=true,
-% heightrounded,
-% showframe,% <--- just for debugging
-% verbose,% <--- just for debugging
-headsep=8pt
-}
-}
-\fi
-
-
-\title{
-\erhao
-\simli
-\ifUseImageTitle
-{\includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png}}\\
-\else
-中国农业大学\\
-\fi
-2024\textasciitilde 2025学年秋季学期\\
-\textbf{%
-% \uline{\hspace{1.5cm}实变函数\hspace{1.5cm}}}
-\dunderline[-1pt]{0.9pt}{\hspace{0.5cm}实变函数\hspace{0.5cm}}}
-\ifShowAnswer
-课程考试试题解答
-\else
-课程考试试题
-\fi
-}
+\setcourse{实变函数}
+\setyear{2024\textasciitilde 2025}
+\setterm{秋季}
+\settotal{4}
+% \setexamtype{期末考试}
 
 \begin{document}
 
-\maketitle
-
-\ifShowAnswer
-% do nothing
-\else
-\vspace{-0.6cm}
-
-{
-\begin{table}[H]
-\sihao
-\centering
-\begin{tabular}{|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2cm}|wc{2.5cm}|}
-\hline
-题号 & 一 & 二 & 三 & 四 & 总分 \\ \hline
-分数 & & & & & \\[12pt] \hline
-\end{tabular}
-\end{table}
-}
-
-\vspace{-0.6cm}
-
-\begin{center}
-% \textbf{\larger 全卷满分 100 分。考试用时 100 分钟。}
-{\sihao （本试卷共~4~道大题）}
-\end{center}
-
-\vspace{-0.5cm}
-\begin{center}
-\textbf{\sihao 考生诚信承诺}
-\end{center}
-\vspace{-0.3cm}
-% {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
-% 本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
-% 注意，这里不强行超过 linewidth 的话，第二行会自动断行
-\noindent\begin{minipage}[t]{1.05\linewidth}
-{\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
-本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
-\end{minipage}
-
-\fi
+\makeexamtitle
 
 
 % \begin{xiaosihao}
@@ -178,12 +29,12 @@ headsep=8pt
 
 由于 $f$ 在 $[0, 1]$ 上勒贝格可积当且仅当 $\lvert f \rvert$勒贝格可积. \score{2}
 另一方面, 在 $[0, 1]$ 上恒有
-$$\lvert f(x) x^n \rvert \leqslant \lvert f(x) \rvert \leqslant M,$$
+\[\lvert f(x) x^n \rvert \leqslant \lvert f(x) \rvert \leqslant M,\]
 于是由勒贝格控制收敛定理 (或者由界收敛定理) 知 \score{3}
-$$\lim\limits_{n\to\infty} \int_{[0, 1]} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \lim\limits_{n\to\infty} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \begin{cases}
+\[\lim\limits_{n\to\infty} \int_{[0, 1]} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \lim\limits_{n\to\infty} f(x) x^n ~ \mathrm{d} x = \int_{[0, 1]} \begin{cases}
 0, & x \in [0, 1), \\
 f(1), & x = 1.
-\end{cases} ~ \mathrm{d} x = 0.$$
+\end{cases} ~ \mathrm{d} x = 0.\]
 \end{solution}
 
 \begin{question}[points = 8]
@@ -228,7 +79,7 @@ f(1), & x = 1.
 
 \begin{question}[points = 15]
 设 $x = (x_1, \dots, x_n) \in \mathbb{R}^n,$ $E$ 是 $\mathbb{R}^n$ 中的非空点集, 定义点 $x$ 到 $E$ 的距离为
-$$\rho(x, E) = \inf \{ \lVert x - y \rVert: ~ y \in E \},$$
+\[\rho(x, E) = \inf \{ \lVert x - y \rVert: ~ y \in E \},\]
 其中 $\lVert x - y \rVert = \sqrt{(x_1 - y_1)^2 + \cdots + (x_n - y_n)^2}.$
 \begin{enumerate}
 \item 设 $F$ 为 $\mathbb{R}^n$ 中的非空闭集, 证明存在 $y_0 \in F,$ 使得 $\rho(x, F) = \lVert x - y_0 \rVert.$
@@ -263,7 +114,7 @@ $\overline{B} \cap* F$ 是有界闭集, 从而是紧集, 关于 $x$ 的连续函
 这题也可以利用书上的证明方法, 即取 $F$ 中点列 $\{y_n\},$ 使得 $\lim\limits_{n\to\infty} \rho(x, y_n) = \rho(x, F).$ 这可以说明 $\{y_n\}$ 是有界点列, 从而存在收敛子列, 而 $F$ 是闭集, 该收敛子列收敛到 $F$ 中的某点, $y_0$ 即取为该点.
 
 \item 由于 $F_1, F_2$ 为 $\mathbb{R}^n$ 中两个不交的非空闭集, 那么 $\forall ~ x \in \mathbb{R}^n,$ $\rho(x, F_1), \rho(x, F_2)$ 不同时为 $0,$ 否则根据第 (1) 问, 存在 $y_1 \in F_1, y_2 \in F_2,$ 使得
-$$0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,$$
+\[0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,\]
 那么会有 $x = y_1$ 以及 $x = y_2,$ 于是 $x \in F_1 \cap* F_2,$ 这与 $F_1, F_2$ 不交的已知条件矛盾.
 
 定义 $\mathbb{R}^n$ 上的函数
@@ -271,13 +122,13 @@ $$0 = \lVert x - y_1 \rVert = \lVert x - y_2 \rVert,$$
 f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)}, ~~ x \in \mathbb{R}^n \score{5}
 \end{equation*}
 由于 $\rho(x, F_1), \rho(x, F_2)$ 都是关于 $x$ 的连续非负函数, 且分母恒大于 $0,$ 因此$f(x)$ 是 $\mathbb{R}^n$ 上的连续函数. 由于
-$$0 \leqslant \rho(x, F_1) \leqslant \rho(x, F_1) + \rho(x, F_2),$$
+\[0 \leqslant \rho(x, F_1) \leqslant \rho(x, F_1) + \rho(x, F_2),\]
 因此 $0 \leqslant f(x) \leqslant 1, ~ \forall ~ x \in \mathbb{R}^n.$
 
 对于 $x \in F_1,$ 有 $\rho(x, F_1) = 0,$ 从而有
-$$f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{0}{0 + \rho(x, F_2)} = 0;$$
+\[f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{0}{0 + \rho(x, F_2)} = 0;\]
 对于 $x \in F_2,$ 有 $\rho(x, F_2) = 0,$ 从而有
-$$f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + 0} = 1.$$
+\[f(x) = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + \rho(x, F_2)} = \dfrac{\rho(x, F_1)}{\rho(x, F_1) + 0} = 1.\]
 
 \item 由于 $F_2, F_3$ 为 $\mathbb{R}^n$ 中不交的非空闭集, 由第 (2) 问知, 存在 $\mathbb{R}^n$ 上的连续函数 $g(x),$ 满足
 \begin{align*}
@@ -336,17 +187,17 @@ f(Z) \subset* f(G) = f \left( \bigcup_{n=1}^{\infty} (a_n, b_n) \right) \subset*
 m^* (f(Z)) \leqslant \sum_{n=1}^{\infty} m^* (f ( [a_n, b_n] ))
 \end{equation*}
 由闭区间上连续函数的最大最小值定理, 存在 $c_{n, min}, c_{n, max} \in [a_n, b_n],$ 使得
-$$f ( [a_n, b_n] ) = [f(c_{n, min}), f(c_{n, max})],$$
+\[f ( [a_n, b_n] ) = [f(c_{n, min}), f(c_{n, max})],\]
 从而知 $f ( [a_n, b_n] )$ 实际是可测集.
 
 记 $I_n = [a_n, b_n],$ $J_n$ 为以 $c_{n, min}, c_{n, max}$ 为端点的闭区间, 那么 $J_n \subset* I_n.$ 由于 $\{I_n\}_{n \in \mathbb{N}}$ 互不相交, 所以对任意 $n \in \mathbb{N},$ $J_1, \dots, J_n$ 构成 $n$ 个互不交叠的闭区间, 并且满足
-$$m \left( \bigcup_{k=1}^n J_k \right) \leqslant m \left( \bigcup_{k=1}^n I_k \right) \leqslant m \left( \bigcup_{k=1}^{\infty} I_k \right) = m G \leqslant \delta,$$
+\[m \left( \bigcup_{k=1}^n J_k \right) \leqslant m \left( \bigcup_{k=1}^n I_k \right) \leqslant m \left( \bigcup_{k=1}^{\infty} I_k \right) = m G \leqslant \delta,\]
 由 $f$ 的绝对连续性, 有
-$$
+\[
 \varepsilon/2 > \sum_{k=1}^n (f(c_{k, max}) - f(c_{k, mmin})) = \sum_{k=1}^n m (f ( [a_k, b_k] )).
-$$
+\]
 由 $n$ 的任意性 (或者说令 $n \to \infty$) 有
-$$\varepsilon > \varepsilon / 2 \geqslant \sum_{k=1}^{\infty} m (f ( [a_k, b_k] )) \geqslant m^* (f(Z)) \geqslant 0.$$
+\[\varepsilon > \varepsilon / 2 \geqslant \sum_{k=1}^{\infty} m (f ( [a_k, b_k] )) \geqslant m^* (f(Z)) \geqslant 0.\]
 由 $\varepsilon$ 的任意性, 得 $0 = m^* (f(Z)) = m (f(Z)),$ 即 $f(Z)$ 是零测集.
 \end{enumerate}
 \end{solution}
@@ -359,27 +210,27 @@ $$\varepsilon > \varepsilon / 2 \geqslant \sum_{k=1}^{\infty} m (f ( [a_k, b_k] 
 
 \begin{solution}
 可测集 $E$ 上可测函数的定义: 称定义在可测集 $E$ 上的实值函数 $f$ 是可测的, 若对任意 $\alpha \in \mathbb{R},$ 集合
-$$
+\[
 E(f > \alpha) = \left\{ x \in \mathbb{R} ~ : ~ f(x) > \alpha \right\}
-$$
+\]
 都是可测集. \score{6}
 
 对一个一般的取值恒正的函数 $F(x),$ 由于有
-$$
+\[
 E(F > \alpha) = \begin{cases}
 E( \ln F > \ln \alpha), & \alpha > 0, \\
 E, & \alpha \leqslant 0,
 \end{cases}
-$$
+\]
 所以 $F$ 与 $\ln F$ 有相同的可测性. 故要证明 $h(x) = f(x)^{g(x)}$ 是可测函数, 只要证明 $\ln h(x) = g(x) \cdot \ln f(x)$ 可测即可. \score{2}
 由于 $f$ 可测, 所以 $\ln f(x)$ 也是可测的. 由于两个可测函数的代数运算所得的函数也是可测的, 所以 $\ln h(x)$ 是可测函数. \score{2}
 \end{solution}
 
 \begin{question}[points = 10]
 设 $E \subset* \mathbb{R}$ 为可测集, $1 \leqslant p < q \leqslant \infty,$ 请问两个关系式
-$$
+\[
 L^p(E) \subset* L^q(E), \quad L^q(E) \subset* L^p(E)
-$$
+\]
 是否必成立其一? 若是, 请证明; 若否, 请举反例.
 
 % \noindent\scoringbox
@@ -391,15 +242,15 @@ $$
 反例每个3分, 包括但不限于下面的例子: \score{6}
 
 取 $E = (0, +\infty),$ $\displaystyle f(x) = x^{-1/p} \chi_{(1, \infty)},$ 那么对于$p < q,$ 有
-$$
+\[
 f \in L^q, \quad f \not\in L^p,
-$$
+\]
 即有 $L^p \not\subset* L^q.$
 
 而对于 $\displaystyle g(x) = x^{-1/q} \chi_{(0,1)}$ 那么
-$$
+\[
 g \in L^p, \quad g \not\in L^q,
-$$
+\]
 从而有 $L^q \not\subset* L^p.$
 \end{solution}
 
@@ -439,9 +290,9 @@ m E ( \lvert f_n - f \rvert \geqslant \varepsilon) & = m E ( \lvert f_n - f \rve
 \end{aligned} \score{2}
 \end{equation*}
 所以, 若 $\{ f_n \}$ 依范数收敛于 $f,$ 则$\lim\limits_{n \to\infty} \lVert f_n - f \rVert_p = 0,$ 从而有
-$$
+\[
 0 \leqslant \lim\limits_{n \to\infty} m E ( \lvert f_n - f \rvert \geqslant \varepsilon) \leqslant \lim\limits_{n \to\infty} \dfrac{\lVert f_n - f \rVert_p^p}{\varepsilon^p} = 0.
-$$
+\]
 
 以下不计分. 但如果本小问的分数没有拿满, 以下可最高赋2分.
 

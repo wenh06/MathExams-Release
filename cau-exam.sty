@@ -1,0 +1,210 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cau-exam}[2024/05/22 CAU Exam Style]
+
+\RequirePackage{kvoptions}
+\RequirePackage{etoolbox}
+\RequirePackage{zhnumber} 
+\RequirePackage{expl3}
+\RequirePackage{geometry}
+
+\RequirePackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\SetupKeyvalOptions{family=CAU, prefix=CAU@}
+
+% --- 选项定义 ---
+\DeclareBoolOption[false]{answer}
+\DeclareBoolOption[false]{score}
+\DeclareBoolOption[false]{imagetitle}
+
+\DeclareStringOption[考试]{type}
+\DeclareStringOption[【请设置学年】]{year}
+\DeclareStringOption[【请设置学期】]{term}
+\DeclareStringOption[【请设置课程名】]{course}
+\DeclareStringOption[4]{total}  % 总大题数选项
+
+\ProcessKeyvalOptions*
+
+% --- 提供 Override 命令 ---
+\newcommand{\setyear}[1]{\renewcommand{\CAU@year}{#1}}
+\newcommand{\setterm}[1]{\renewcommand{\CAU@term}{#1}}
+\newcommand{\setcourse}[1]{\renewcommand{\CAU@course}{#1}}
+\newcommand{\settotal}[1]{\renewcommand{\CAU@total}{#1}}
+\newcommand{\setexamtype}[1]{\renewcommand{\CAU@type}{#1}}
+
+% 基础包加载
+\RequirePackage{siunitx}
+\RequirePackage{relsize}
+\RequirePackage{ulem}
+\RequirePackage{array}
+\RequirePackage{float}
+\RequirePackage{cancel}
+\RequirePackage{stackengine}
+\RequirePackage{pifont}
+\stackMath
+
+% --- 字体设置 ---
+\defaultCJKfontfeatures{
+  Script=CJK,
+  Mapping=full-stop
+}
+
+\newCJKfontfamily\simfang{simfang.ttf}[Extension = .ttf, AutoFakeBold=3.5, BoldFont=simfang.ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\boldhei{boldhei.ttf}[Extension = .ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simhei{simhei.ttf}[Extension = .ttf, BoldFont=boldhei.ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simkai{simkai.ttf}[Extension = .ttf, AutoFakeBold=3.5, BoldFont=simkai.ttf, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simsun{simsun.ttc}[Extension = .ttc, AutoFakeBold=3.5, BoldFont=simsun.ttc, Mapping = full-stop, Path=fonts/]
+\newCJKfontfamily\simli{SIMLI.TTF}[Extension = .TTF, AutoFakeBold=3.5, BoldFont=SIMLI.TTF, Mapping = full-stop, Path=fonts/]
+
+\setCJKmainfont[Path = fonts/, Extension = .ttc, AutoFakeBold=3.5, BoldFont=simsun.ttc, ItalicFont=simkai.ttf, Mapping = full-stop]{simsun.ttc}
+\setCJKsansfont[Path = fonts/, Extension = .ttf, BoldFont=boldhei.ttf, AutoFakeBold=3.5, Mapping = full-stop]{simhei.ttf}
+\setCJKmonofont[Path = fonts/, Extension = .ttf, BoldFont=simfang.ttf]{simfang.ttf}
+
+% --- 字号定义 ---
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{26pt}{\baselineskip}\selectfont}
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoliuhao}{\fontsize{6.5pt}{\baselineskip}\selectfont}
+\newcommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}
+\newcommand{\bahao}{\fontsize{5pt}{\baselineskip}\selectfont}
+
+% --- 考试设置逻辑 ---
+\ifCAU@answer
+  \examsetup{
+    solution/show-solution = show-stay,
+    fillin/show-answer = true,
+    paren/show-answer = true,
+    page/size = a3paper,
+    page/show-columnline = true
+  }
+\else
+  \examsetup{
+    solution/show-solution = hide,
+    fillin/show-answer = false,
+    paren/show-answer = false,
+    page/size = a4paper,
+    page/show-columnline = true,
+    page/show-head = true,
+    page/head-content = {
+      \fancyhead[LE]{\xiaosihao 学院：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 班级：\rule[-0.45mm]{2.5cm}{0.15mm} \hspace{0.0cm} 学号：\rule[-0.45mm]{3.5cm}{0.15mm} \hspace{0.0cm} 姓名：\rule[-0.45mm]{2.5cm}{0.15mm}}
+    }
+  }
+  \AtEndPreamble{
+    \geometry{left=20mm, right=20mm, top=25mm, bottom=25mm, headsep=10pt}
+  }
+\fi
+
+% 分数显示控制
+\ifCAU@score
+  \examsetup{question/show-points = true}
+\else
+  \examsetup{question/show-points = false}
+  \AtBeginDocument{\renewcommand{\score}[1]{}}
+\fi
+
+% 基础 examsetup：动态注入导言区的课程名 \CAU@course
+\examsetup{
+  page/foot-content = {第~;~页~~共~;页\quad \CAU@course\quad 中国农业大学制},
+  solution/blank-type = none,
+  solution/blank-vsep = 15cm,
+  style/fullwidth-stop = false,
+  square = {x-length = 1.8em, y-length = 1.6em},
+  font = times
+}
+
+% --- 核心逻辑：使用 Expl3 ---
+\ExplSyntaxOn
+
+% 声明变量
+\tl_new:N \l_cau_table_body_a_tl
+\tl_new:N \l_cau_table_body_b_tl
+\int_new:N \l_cau_total_int
+
+\cs_new:Npn \__cau_render_score_table:n #1 {
+    \tl_set:Nn \l_cau_table_body_a_tl { 题号 }
+    \tl_set:Nn \l_cau_table_body_b_tl { 分数 }
+    \int_set:Nn \l_cau_total_int {#1}
+    
+    % 1. 生成大题部分的列内容
+    \int_step_inline:nn { \l_cau_total_int } {
+        \tl_put_right:Nn \l_cau_table_body_a_tl { & \zhnumber{##1} }
+        \tl_put_right:Nn \l_cau_table_body_b_tl { & }
+    }
+    
+    % 2. 加上总分列的内容
+    \tl_put_right:Nn \l_cau_table_body_a_tl { & 总分 \\ \hline }
+    \tl_put_right:Nn \l_cau_table_body_b_tl { & \\[12pt] \hline }
+    
+    % 3. 渲染表格
+    \par \addvspace{1em}
+    \noindent \group_begin:
+    \sihao \centering
+    % 说明：
+    % |wc{1.5cm}| -> 第一列“题号”固定宽度，保证稳定
+    % *{...}{Y|}  -> 后面的“大题数 + 1（总分列）”全部使用 Y，实现完美均分
+    \begin{tabularx}{0.9\linewidth}{|wc{1.5cm}| *{\int_eval:n {\l_cau_total_int + 1}}{Y|}}
+        \hline
+        \l_cau_table_body_a_tl
+        \l_cau_table_body_b_tl
+    \end{tabularx}
+    \par
+    \group_end:
+    \addvspace{1em}
+}
+
+% 定义主标题命令 (零参数)
+\NewDocumentCommand{\makeexamtitle}{ }{
+    % 每次调用时实时同步页脚，确保 Override 命令生效
+    \examsetup{
+      page/foot-content = {第~;~页~~共~;页\quad \CAU@course\quad 中国农业大学制}
+    }
+
+    \begin{center}
+        \erhao\simli
+        \ifCAU@imagetitle
+            \includegraphics[height=0.85\baselineskip]{figures/logo_cau_name.png} \\[0.4ex]
+        \else
+            中国农业大学 \\[0.4ex]
+        \fi
+        \CAU@year 学年 \CAU@term 学期 \\[0.4ex]
+        \textbf{\dunderline[-1pt]{0.9pt}{\hspace{0.5cm}\CAU@course\hspace{0.5cm}}}
+        课程\CAU@type 试题\ifCAU@answer 解答\fi
+    \end{center}
+
+    \ifCAU@answer \else
+        % \vspace{0.7em}
+        \__cau_render_score_table:n { \CAU@total }
+        % \vspace{0.7em}
+        \begin{center}
+            {\sihao （本试卷共~\CAU@total~道大题）}
+        \end{center}
+
+        % \vspace{0.5em}
+
+        \begin{center}
+            \textbf{\sihao 考生诚信承诺}
+        \end{center}
+        \noindent\begin{minipage}[t]{1.05\linewidth}
+        {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+        本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+        \end{minipage}
+    \fi
+}
+\ExplSyntaxOff
+
+\newcommand*{\nroot}[2][2]{\sqrt[\leftroot{-3}\uproot{3}#1]{#2}}
+
+% 辅助格式
+\newcommand{\sectiontitle}[1]{\section{#1}\examsetup{question/index = 1}}
+\everymath{\displaystyle}
+\allowdisplaybreaks
+\newcommand\dunderline[3][-1pt]{{\sbox0{#3}\ooalign{\copy0\cr\rule[\dimexpr#1-#2\relax]{\wd0}{#2}}}}
+\newcommand{\chemph}[2][$\triangle$]{\CJKunderanysymbol[textformat=\bfseries, sep=0.1em]{0.2em}{\tiny#1}{#2}}

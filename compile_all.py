@@ -29,7 +29,7 @@ def compile_all():
 
         cmd = f"""xelatex "{str(tmp_main_file)}" """
         try:
-            exitcode, _ = execute_cmd(cmd)
+            exitcode = execute_cmd(cmd)
         except KeyboardInterrupt:
             # clean up
             cmd = f"""latexmk -C -outdir="{str(project_dir)}" "{str(tmp_main_file)}" """
@@ -46,7 +46,7 @@ def compile_all():
         shutil.move(generated_pdf_file, (build_dir / content_file.replace(".tex", "").replace("/", "-")).with_suffix(".pdf"))
         # clean up
         cmd = f"""latexmk -C -outdir="{str(project_dir)}" "{str(tmp_main_file)}" """
-        exitcode, _ = execute_cmd(cmd)
+        exitcode = execute_cmd(cmd)
         if exitcode != 0:
             tmp_main_file.unlink(missing_ok=True)
             sys.exit(exitcode)

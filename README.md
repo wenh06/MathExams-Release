@@ -32,3 +32,14 @@ sudo fc-cache -f
 ```
 
 参考 [StackExchange](https://askubuntu.com/a/651442/980818).
+
+## 其它问题
+
+- [exam-zh](https://ctan.org/pkg/exam-zh) 重新绘制了 `\cup`, `\cap`, `\subset` 等数学符号,
+  想得到原来默认的数学符号的话, 需要在这些命令后面加上 `*`，例如 `\cup*`, `\cap*`, `\subset*` 等.
+  此类数学符号的详细列表可见 [overriden-symbols.txt](overriden-symbols.txt).
+  可以通过 [utils.py](utils.py) 中提供的工具进行检测整个项目中是否有未转回默认形式的数学符号:
+
+  ```bash
+  python utils.py --find-overriden-symbols
+  ```
