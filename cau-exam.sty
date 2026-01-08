@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{cau-exam}[2024/05/22 CAU Exam Style]
+\ProvidesPackage{cau-exam}[2026/01/08 CAU Exam Style]
 
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
@@ -179,30 +179,40 @@
         课程\CAU@type 试题\ifCAU@answer 解答\fi
     \end{center}
 
+    % 3. 判断是否打印考试附件（得分表、题数统计、承诺书）
+    % 只有在 [非答案模式] 且 [total > 0] 时才打印
     \ifCAU@answer \else
-        % \vspace{0.7em}
-        \__cau_render_score_table:n { \CAU@total }
-        % \vspace{0.7em}
-        \begin{center}
-            {\sihao （本试卷共~\CAU@total~道大题）}
-        \end{center}
+        % 将字符串 total 转为整数进行判断
+        \int_set:Nn \l_cau_total_int { \CAU@total }
+        
+        \int_compare:nNnTF { \l_cau_total_int } > { 0 }
+        {
+            % 如果 total > 0，打印以下三项
+            \__cau_render_score_table:n { \CAU@total }
+            
+            \begin{center}
+                {\sihao （本试卷共~\CAU@total~道大题）}
+            \end{center}
 
-        % \vspace{0.5em}
-
-        \begin{center}
-            \textbf{\sihao 考生诚信承诺}
-        \end{center}
-        \noindent\begin{minipage}[t]{1.05\linewidth}
-        {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
-        本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
-        \end{minipage}
+            \begin{center}
+                \textbf{\sihao 考生诚信承诺}
+            \end{center}
+            \noindent\begin{minipage}[t]{1.05\linewidth}
+            {\sihao 本人承诺自觉遵守考试纪律，诚信应考，服从监考人员管理。\\
+            本人清楚学校考试考场规则，如有违纪行为，将按照学校违纪处分规定严肃处理。}
+            \end{minipage}
+            \vspace{1em}
+        }
+        {
+            % 如果 total = 0，什么都不打印，可以加一点点间距防挤
+            \vspace{1em}
+        }
     \fi
 }
 \ExplSyntaxOff
 
-\newcommand*{\nroot}[2][2]{\sqrt[\leftroot{-3}\uproot{3}#1]{#2}}
-
 % 辅助格式
+\newcommand*{\nroot}[2][2]{\sqrt[\leftroot{-3}\uproot{3}#1]{#2}}
 \newcommand{\sectiontitle}[1]{\section{#1}\examsetup{question/index = 1}}
 \everymath{\displaystyle}
 \allowdisplaybreaks
