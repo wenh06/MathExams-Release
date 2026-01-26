@@ -3,7 +3,7 @@
 
 \RequirePackage{kvoptions}
 \RequirePackage{etoolbox}
-\RequirePackage{zhnumber} 
+\RequirePackage{zhnumber}
 \RequirePackage{expl3}
 \RequirePackage{geometry}
 
@@ -132,17 +132,17 @@
     \tl_set:Nn \l_cau_table_body_a_tl { 题号 }
     \tl_set:Nn \l_cau_table_body_b_tl { 分数 }
     \int_set:Nn \l_cau_total_int {#1}
-    
+
     % 1. 生成大题部分的列内容
     \int_step_inline:nn { \l_cau_total_int } {
         \tl_put_right:Nn \l_cau_table_body_a_tl { & \zhnumber{##1} }
         \tl_put_right:Nn \l_cau_table_body_b_tl { & }
     }
-    
+
     % 2. 加上总分列的内容
     \tl_put_right:Nn \l_cau_table_body_a_tl { & 总分 \\ \hline }
     \tl_put_right:Nn \l_cau_table_body_b_tl { & \\[12pt] \hline }
-    
+
     % 3. 渲染表格
     \par \addvspace{1em}
     \noindent \group_begin:
@@ -184,12 +184,12 @@
     \ifCAU@answer \else
         % 将字符串 total 转为整数进行判断
         \int_set:Nn \l_cau_total_int { \CAU@total }
-        
+
         \int_compare:nNnTF { \l_cau_total_int } > { 0 }
         {
             % 如果 total > 0，打印以下三项
             \__cau_render_score_table:n { \CAU@total }
-            
+
             \begin{center}
                 {\sihao （本试卷共~\CAU@total~道大题）}
             \end{center}

@@ -98,7 +98,7 @@ D 中的无穷乘积发散到 $0.$
 \begin{solution}
 C成立的原因: $\max \{ f(x), g(x) \} = \dfrac{f(x) + g(x) + |f(x) - g(x)|}{2}.$
 
-A 的反例: $[a, b] = [-1, 1],$ $g(x) = \begin{cases} 
+A 的反例: $[a, b] = [-1, 1],$ $g(x) = \begin{cases}
 x, & x \neq 0, \\ 1, & x = 0. \end{cases}$
 
 B 的反例: $g(x) = x^2 \sin\frac{1}{x^2},$ 或者 Volterra 函数.
@@ -213,7 +213,7 @@ I & = \int_{-1}^1 \dfrac{t^2 + 1}{t^2 + (t+1)^2(t-1)^2} \mathrm{d} t \\
 先把图画出来, 可以看到灰色部分就是要求的面积, 分为了两部分:
 \begin{center}
 \begin{tikzpicture}[scale=3.8,declare function={f(\x)=sin(\x r);}]
- 
+
 % 坐标系
 \draw[->,thick] (-0.3,0) -- (1.8,0) node[right] {$x$};
 \draw[->,thick] (0,-0.2) -- (0,1.3) node[above] {$y$};
@@ -221,28 +221,28 @@ I & = \int_{-1}^1 \dfrac{t^2 + 1}{t^2 + (t+1)^2(t-1)^2} \mathrm{d} t \\
 
 \def\t{0.5} % 设置 t = 0.5
 \pgfmathsetmacro{\intersection}{pi/6}
- 
+
 % 填充区域（分两段闭合路径）
-\fill[gray!30] 
-    (0,\t) -- (\intersection,\t) 
+\fill[gray!30]
+    (0,\t) -- (\intersection,\t)
     -- plot[domain=\intersection:0,smooth] (\x,{f(\x)}) -- cycle; % 下方区域
-\fill[gray!30] 
-    (\intersection,\t) -- plot[domain=\intersection:pi/2,smooth] (\x,{f(\x)}) 
+\fill[gray!30]
+    (\intersection,\t) -- plot[domain=\intersection:pi/2,smooth] (\x,{f(\x)})
     -- (pi/2,\t) -- cycle; % 上方区域
- 
+
 % 曲线与直线绘制
-\draw[blue,thick] plot[domain=0:1.65,samples=50,smooth] (\x,{f(\x)}) 
+\draw[blue,thick] plot[domain=0:1.65,samples=50,smooth] (\x,{f(\x)})
     node[right] {$y=\sin x$};
 \draw[red,thick] (0,-0.05) -- (0,1.1) node[above left] {$x=0$};
 \draw[red,thick] (pi/2,0) -- (pi/2,1.1) node[above] {$x=\frac{\pi}{2}$};
 \draw[green!60!black,thick] (0,\t) -- (1.7,\t) node[right] {$y=t$};
 \draw[dashed, thick] (\intersection,0) -- (\intersection,\t);
- 
+
 % 刻度标注
 \draw (pi/2,0) node[below] {$\frac{\pi}{2}$} -- (pi/2,0.05);
 \draw (0,\t) node[left] {$t$} -- (0.05,\t);
 \draw (\intersection,0) node[below] {$\arcsin t$} -- (\intersection,0.05); % 交点标注
- 
+
 \end{tikzpicture}
 \end{center}
 所以面积
