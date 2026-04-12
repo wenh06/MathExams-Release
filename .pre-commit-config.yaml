@@ -23,3 +23,11 @@ repos:
     hooks:
       - id: isort
         args: [--profile=black, --line-length=128]
+  - repo: local
+    hooks:
+      - id: check-exam-zh-symbols
+        name: Check exam-zh overridden symbols
+        entry: python check-exam-zh-symbols.py
+        language: system
+        types: [tex]
+        pass_filenames: false
