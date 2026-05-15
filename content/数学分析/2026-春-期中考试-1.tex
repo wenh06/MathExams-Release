@@ -1,0 +1,485 @@
+\setcourse{数学分析II}
+\setyear{2025\textasciitilde 2026}
+\setterm{春季}
+\settotal{4}
+\setexamtype{期中考试}
+
+\begin{document}
+
+\makeexamtitle
+
+% \begin{xiaosihao}
+
+
+\section{%
+  选择题：本题共 5 小题, 每小题 3 分, 共 15 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+设 $f(x), g(x)$ 都是定义在 $[1, +\infty)$ 上的\chemph{非负连续}函数. 令 $F(x) = \int_1^x f(t) ~ \mathrm{d}t$ 和 $G(x) = \int_1^x g(t) ~ \mathrm{d}t.$ 以下说法正确的是 (\chemph{注意}, 这里称 $f(x) = O(g(x))$ 当 $x \to +\infty$ 时, 若存在常数 $C > 0$ 和 $x_0 \geq 1$ 使得 $f(x) \leqslant C g(x)$ 对所有 $x \geq x_0$ 成立; 称 $f(x) = o(g(x))$ 当 $x \to +\infty$ 时, 若 $\lim_{x \to +\infty} f(x)/g(x) = 0.$) \paren[A]
+
+\begin{choices}
+\item 若 $f(x) = O(g(x))$ 当 $x \to +\infty,$ 则必有 $F(x) = O(G(x))$ 当 $x \to +\infty.$
+\item 若 $f(x) = o(g(x))$ 当 $x \to +\infty,$ 则必有 $F(x) = o(G(x))$ 当 $x \to +\infty.$
+\item 若 $F(x) = O(G(x))$ 当 $x \to +\infty,$ 则必有 $f(x) = O(g(x))$ 当 $x \to +\infty.$
+\item 若 $F(x) = o(G(x))$ 当 $x \to +\infty,$ 则必有 $f(x) = o(g(x))$ 当 $x \to +\infty.$
+\end{choices}
+\end{question}
+
+\begin{solution}
+A 可以直接由 Riemann 积分的保序性/单调性得到: $F(x) = \int_1^x f(t) ~ \mathrm{d}t \leqslant \int_1^x C g(t) ~ \mathrm{d}t = C G(x).$
+
+B 的反例: 取 $f(x) = \frac{1}{(1 + x)^3},$ $g(x) = \frac{1}{(1 + x)^2}.$ 则 $f(x) = o(g(x))$ 当 $x \to +\infty,$ 但 $F(x) = \int_1^x \frac{1}{(1+t)^3} ~ \mathrm{d}t = \frac{1}{2} - \frac{1}{2(1+x)^2},$ $G(x) = \int_1^x \frac{1}{(1+t)^2} ~ \mathrm{d}t = 1 - \frac{1}{1+x},$ 故 $F(x)/G(x) \to 1/2 \neq 0$ 当 $x \to +\infty,$ 即 $F(x) \neq o(G(x)).$
+
+C, D 的反例: 取
+\[
+f(x) = \begin{cases}
+2n^4 (x - n), & x \in \left[n, n + \frac{1}{2n^3}\right), \\[6pt]
+-2n^4 \left(x - n - \frac{1}{n^3}\right), & x \in \left[n + \frac{1}{2n^3}, n + \frac{1}{n^3}\right), \\[6pt]
+0, & \text{其余情况}.
+\end{cases}
+\]
+那么 $\int_1^{+\infty} f(x) ~ \mathrm{d}x = \sum_{n=1}^\infty \frac{1}{2} \cdot n \cdot \frac{1}{n^3} = \sum_{n=1}^\infty \frac{1}{2n^2}$ 收敛, 但 $f(n + 1/(2n^3)) = n \to +\infty.$ 取 $g(x) = 1,$ 则 $G(x) = x - 1 \to +\infty,$ $F(x) = \int_1^x f(t) ~ \mathrm{d}t$ 有界, 故 $F(x) = o(G(x))$ 当 $x \to +\infty,$ 但 $f(x) \neq O(g(x))$ 当 $x \to +\infty.$ 所以 C 错误. 同样地, 有 $F(x) = O(G(x))$ 当 $x \to +\infty$ (常数 $C$ 可以取任意正实数), 但 $f(x) \neq o(g(x))$ 当 $x \to +\infty,$ 所以 D 错误.
+\end{solution}
+
+
+
+
+\begin{question}
+设 $f(x)$ 在 $[a, b]$ 上 Riemann 可积, 则以下说法正确的是 \paren[C]
+
+\begin{choices}
+\item $f^2(x)$ 不一定 Riemann 可积.
+\item 若 $f(x)$ 在 $[a, b]$ 上恒不等于 0, 则 $1/f(x)$ 必然 Riemann 可积.
+\item $|f(x)|$ 必然 Riemann 可积.
+\item $f(x)$ 的间断点集必为有限集.
+\end{choices}
+\end{question}
+
+\begin{solution}
+C 正确: Riemann 可积函数的绝对可积性.
+
+A 错: $f$ 有界可积, $f^2$ 也必可积, 这是由 Riemann 可积函数的乘积可积性得出的.
+
+B 错: $f(x) = \begin{cases} 1, & x = 0, \\ x, & x \in (0, 1], \end{cases}$ 在 $[0, 1]$ 上可积, 但 $1/f(x)$ 在 $(0, 1]$ 上无界, 从而不可积.
+
+D 错: Riemann 可积函数的间断点集只需为零测集 (如 Cantor 集), 不一定有限.
+\end{solution}
+
+\begin{question}
+以下反常积分中, 收敛的是 \paren[D]
+
+\begin{choices}
+\item $\displaystyle\int_2^{+\infty} \dfrac{|\sin x|}{x} ~ \mathrm{d}x$
+\item $\displaystyle\int_0^{+\infty} \dfrac{x}{1+x} ~ \mathrm{d}x$
+\item $\displaystyle\int_0^1 \dfrac{1}{\sqrt{x}\,(1-x)} ~ \mathrm{d}x$
+\item $\displaystyle\int_0^1 \dfrac{\sin x}{x^{3/2}} ~ \mathrm{d}x$
+\end{choices}
+\end{question}
+
+\begin{solution}
+A 发散: $|\sin x|/x \geqslant \sin^2 x / x,$ 而 $\int_2^\infty \sin^2 x / x\,\mathrm{d}x = \int_2^\infty (1-\cos 2x)/(2x)\,\mathrm{d}x,$ 其中 $\int 1/(2x)\,\mathrm{d}x$ 发散, $\int \cos 2x/(2x)\,\mathrm{d}x$ 收敛 (Dirichlet 判别法), 故 A 发散.
+
+B 发散: 被积函数 $x/(1+x) \to 1 \neq 0,$ 积分发散.
+
+C 发散: $x \to 1^-$ 时 $1/(\sqrt{x}(1-x)) \sim* 1/(1-x),$ 由 $p=1$ 的 $p$-积分知端点 $x=1$ 处发散.
+
+D 收敛: 当 $x \to 0^+$ 时 $\dfrac{\sin x}{x^{3/2}} \sim* \dfrac{x}{x^{3/2}} = x^{-1/2},$ 故奇点处被积函数 $\sim* x^{-1/2},$ 由 $p < 1$ 的 $p$-积分知收敛.
+\end{solution}
+
+\begin{question}
+设 $\displaystyle\sum_{n=1}^\infty a_n$ 为\chemph{条件收敛}级数. 以下说法\chemph{不正确}的是 \paren[B]
+
+\begin{choices}
+\item 存在重排 $\displaystyle\sum_{n=1}^\infty a_{\sigma(n)}$ 使其发散.
+\item $\displaystyle\sum_{n=1}^\infty a_n^2$ 必然收敛.
+\item $\displaystyle\sum_{n=1}^\infty |a_n|$ 必然发散.
+\item $\displaystyle\sum_{n=1}^\infty a_n^+$ 与 $\displaystyle\sum_{n=1}^\infty a_n^-$ 均发散, 其中 $a_n^+ = \max\{a_n, 0\},$ $a_n^- = \max\{-a_n, 0\}.$
+\end{choices}
+\end{question}
+
+\begin{solution}
+B 不正确: 反例取 $a_n = (-1)^n / \sqrt{n}.$ 此时 $\sum a_n$ 由 Leibniz 判别法收敛, 且 $\sum |a_n| = \sum 1/\sqrt{n}$ 发散, 故为条件收敛. 但 $\sum a_n^2 = \sum 1/n$ 发散.
+
+A 正确: Riemann 重排定理.
+
+C 正确: 条件收敛的定义.
+
+D 正确: 若 $\sum a_n^+$ 收敛, 由 $a_n = a_n^+ - a_n^-$ 知 $\sum a_n^-$ 也收敛, 从而 $\sum |a_n| = \sum a_n^+ + \sum a_n^-$ 收敛, 与条件收敛矛盾.
+\end{solution}
+
+
+\begin{question}
+设实数列 $\{a_n\}$ 满足 $\displaystyle \varlimsup_{n\to\infty} a_n = A$ (有限实数). 以下说法正确的是 \paren[B]
+
+\begin{choices}
+\item 存在子列 $\{a_{n_k}\}$ 使得 $\lim_{k\to\infty} a_{n_k} > A.$
+\item 对任意 $\varepsilon > 0,$ $a_n < A + \varepsilon$ 对所有充分大的 $n$ 成立.
+\item $a_n \leqslant A$ 对所有充分大的 $n$ 成立.
+\item $\lim_{n\to\infty} a_n = A.$
+\end{choices}
+\end{question}
+
+\begin{solution}
+B 正确: 由上极限的定义, $\varlimsup a_n = A$ 等价于 $\forall \varepsilon > 0$ 存在 $N$ 使 $n > N$ 时 $a_n < A + \varepsilon.$
+
+A 错: $A$ 是最大的极限点, 不存在以大于 $A$ 为极限的子列.
+
+C 错: 取 $a_{2k-1} = A + 1/(2k-1),$ $a_{2k} = A - 1/(2k).$ 则 $\varlimsup a_n = A$ 但奇数项均大于 $A.$
+
+D 错: 取 $a_{2k-1} = A,$ $a_{2k} = A - 1.$ 则奇数子列 $\to A,$ 偶数子列 $\to A - 1,$ 故 $\varlimsup a_n = A$ 但 $\lim a_n$ 不存在 (在 $A$ 与 $A-1$ 之间振荡).
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 3 分, 共 15 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+设 $a > 0$ 为常数, 则定积分 $\int_{-1}^1 \frac{e^x + e^{-x}}{1 + a^x} ~ \mathrm{d}x =$ \fillin[$e - 1/e$].
+\end{question}
+
+\begin{solution}
+这个积分的积分区间关于原点对称, 因此
+\begin{align*}
+I & = \frac{1}{2} \int_{-1}^1 (f(x) + f(-x)) ~ \mathrm{d}x = \frac{1}{2} \int_{-1}^1 \frac{e^x + e^{-x}}{1 + a^x} (1 + a^x) ~ \mathrm{d}x \\
+& = \frac{1}{2} \int_{-1}^1 (e^x + e^{-x}) ~ \mathrm{d}x = e - 1/e.
+\end{align*}
+\end{solution}
+
+\begin{question}
+曲线 $y = \ln(\cos x)$ 在 $\left[0, \dfrac{\pi}{3}\right]$ 上的弧长为 \fillin[$\ln(2+\sqrt{3})$].
+\end{question}
+
+\begin{solution}
+$y' = -\tan x,$ 弧长元素 $\mathrm{d}s = \sqrt{1 + \tan^2 x}\,\mathrm{d}x = \sec x\,\mathrm{d}x.$ 因此
+\begin{equation*}
+L = \int_0^{\pi/3} \sec x ~ \mathrm{d}x = \ln|\sec x + \tan x| \big|_0^{\pi/3} = \ln(2 + \sqrt{3}).
+\end{equation*}
+\end{solution}
+
+
+\begin{question}  % Added by Qwen3.6
+反常积分 $\displaystyle \int_0^{+\infty} \frac{\ln x}{1+x^2} ~ \mathrm{d}x =$ \fillin[$0$].
+\end{question}
+
+\begin{solution}
+容易验证这个反常积分收敛. 令 $x = 1/t,$ 则 $\mathrm{d}x = -\mathrm{d}t/t^2,$
+\begin{equation*}
+\int_0^{+\infty} \frac{\ln x}{1+x^2} ~ \mathrm{d}x = \int_{+\infty}^0 \frac{\ln(1/t)}{1+1/t^2}\left(-\frac{\mathrm{d}t}{t^2}\right) = \int_0^{+\infty} \frac{-\ln t}{1+t^2} ~ \mathrm{d}t.
+\end{equation*}
+故 $I = -I,$ 即 $I = 0.$
+\end{solution}
+
+
+\begin{question}
+数项级数 $\displaystyle \sum_{n=1}^{\infty} \dfrac{n}{2^n} =$ \fillin[$2$].
+\end{question}
+
+\begin{solution}
+由比较判别法极限形式易知级数 $\displaystyle \sum_{n=1}^{\infty} \dfrac{n}{2^n} = I$ 收敛, 那么
+\[
+I - \frac{1}{2} I = \sum_{n=1}^{\infty} \dfrac{n}{2^n} - \sum_{n=1}^{\infty} \dfrac{n}{2^{n+1}} = \sum_{n=1}^{\infty} \dfrac{n}{2^n} - \sum_{n=1}^{\infty} \dfrac{n-1}{2^n} = \sum_{n=1}^{\infty} \dfrac{1}{2^n} = 1,
+\]
+所以 $I = 2.$
+
+% 另解: 由几何级数 $\sum_{n=0}^\infty x^n = \dfrac{1}{1-x}$ ($|x| < 1$) 逐项求导, 得 $\sum_{n=1}^\infty n x^{n-1} = \dfrac{1}{(1-x)^2},$ 从而 $\sum_{n=1}^\infty n x^n = \dfrac{x}{(1-x)^2}.$ 令 $x = 1/2$:
+% \begin{equation*}
+% \sum_{n=1}^\infty \frac{n}{2^n} = \frac{1/2}{(1/2)^2} = 2.
+% \end{equation*}
+\end{solution}
+
+\begin{question}
+无穷乘积 $\prod_{n=2}^\infty \left( 1 - \frac{1}{n^2} \right) =$ \fillin[$1/2$].
+\end{question}
+
+\begin{solution}
+\[
+\prod_{n=2}^\infty \left( 1 - \frac{1}{n^2} \right) = \prod_{n=2}^\infty \frac{(n-1)(n+1)}{n^2} = \frac{1 \cdot 3}{2^2} \cdot \frac{2 \cdot 4}{3^2} \cdot \frac{3 \cdot 5}{4^2} \cdots = \frac{1}{2}.
+\]
+\end{solution}
+
+
+\section{计算题：本题共 2 小题, 共 20 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+请计算椭圆 $\displaystyle \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1, ~ b > a > 0,$ 绕 $x$ 轴旋转一周形成的椭球的表面积.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+用参数方程形式求解: $\begin{cases} x(t) = a \sin t, \\ y(t) = b \cos t,\end{cases}$ $t \in \left[ -\frac{\pi}{2}, \frac{\pi}{2} \right],$ 那么表面积 $S$ 有
+\begin{align*}
+S & = 2\pi \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} y(t) \sqrt{(x'(t))^2 + (y'(t))^2} ~ \mathrm{d}t = 2\pi \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} b \cos t \sqrt{a^2 \cos^2 t + b^2 \sin^2 t} ~ \mathrm{d}t \\
+& = 2\pi b \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos t \sqrt{a^2 + (b^2 - a^2)\sin^2 t} ~ \mathrm{d}t = 4\pi ab \int_{0}^{\frac{\pi}{2}} \cos t \sqrt{1 + k^2 \sin^2 t} ~ \mathrm{d}t \\
+& = 4\pi ab \int_{0}^{1} \sqrt{1 + k^2 u^2} ~ \mathrm{d}u \quad (u = \sin t) \\
+& = 4\pi ab \left( \dfrac{u}{2} \sqrt{1 + k^2 u^2} + \dfrac{1}{2k} \ln\left( k u + \sqrt{1 + k^2 u^2} \right) \right) \bigg|_{0}^{1} \\
+& = 4\pi ab \left( \dfrac{b}{2a} + \dfrac{a}{2\sqrt{b^2 - a^2}} \ln\dfrac{b + \sqrt{b^2 - a^2}}{a} \right) \\
+& = 2\pi b^2 + \dfrac{2\pi a^2 b}{\sqrt{b^2 - a^2}} \ln\left( \dfrac{b + \sqrt{b^2 - a^2}}{a} \right).
+\end{align*}
+上式中的 $k = \dfrac{\sqrt{b^2 - a^2}}{a}.$
+\end{solution}
+
+
+\begin{question}[points = 10]
+计算定积分 $\displaystyle \int_{0}^{\frac{\pi}{2}} \ln(\sin x) ~ \mathrm{d}x$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+记 $\displaystyle I = \int_{0}^{\frac{\pi}{2}} \ln(\sin x) ~ \mathrm{d}x.$ 令 $t = \dfrac{\pi}{2} - x,$ 那么
+\[
+I = \int_{\frac{\pi}{2}}^{0} \ln \left( \sin \left( \dfrac{\pi}{2} - t \right) \right) ~ \mathrm{d} \left( \dfrac{\pi}{2} - t \right) = \int_{0}^{\frac{\pi}{2}} \ln(\cos t) ~ \mathrm{d}t.
+\]
+将 $I$ 的两种表达相加有
+\begin{align*}
+2I & = \int_{0}^{\frac{\pi}{2}} \ln(\sin x) ~ \mathrm{d}x + \int_{0}^{\frac{\pi}{2}} \ln(\cos x) ~ \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \ln(\sin x \cos x) ~ \mathrm{d}x \\
+& = \int_{0}^{\frac{\pi}{2}} (\ln(\sin 2x) - \ln 2) ~ \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \ln(\sin 2x) ~ \mathrm{d}x - \dfrac{\pi}{2} \ln 2 \\
+& = \dfrac{1}{2}\int_{0}^{\frac{\pi}{2}} \ln(\sin 2x) ~ \mathrm{d}(2x) - \dfrac{\pi}{2} \ln 2 \\
+& = \dfrac{1}{2}\int_{0}^{\pi} \ln(\sin x) ~ \mathrm{d}x - \dfrac{\pi}{2} \ln 2 \\
+& = \dfrac{1}{2}\int_{0}^{\pi/2} \ln(\sin x) ~ \mathrm{d}x + \dfrac{1}{2}\int_{\pi/2}^{\pi} \ln(\sin x) ~ \mathrm{d}x - \dfrac{\pi}{2} \ln 2 \\
+& = \dfrac{1}{2} I + \dfrac{1}{2}\int_{\pi/2}^{0} \ln(\sin (\pi - x)) ~ \mathrm{d}(\pi-x) - \dfrac{\pi}{2} \ln 2 \\
+& = \dfrac{1}{2} I + \dfrac{1}{2}\int_{0}^{\pi/2} \ln(\sin x) ~ \mathrm{d}x - \dfrac{\pi}{2} \ln 2 \\
+& = I - \dfrac{\pi}{2} \ln 2.
+\end{align*}
+由上式可知 $I = - \dfrac{\pi}{2} \ln 2.$
+\end{solution}
+
+
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 8]
+请证明: 对于任意 $x \neq 0,$ 有 $\prod_{n=1}^\infty \cos \left( \frac{x}{2^n} \right) = \frac{\sin x}{x}.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+记 $p_n = \cos \dfrac{x}{2^n}.$ 则 $\lim\limits_{n \to \infty} p_n = \cos 0 = 1,$ 无穷乘积收敛的必要条件满足.
+
+计算部分积 $P_n = \prod_{k=1}^n \cos \dfrac{x}{2^k}.$ 利用二倍角公式 $\sin\theta \cos\theta = \dfrac{1}{2}\sin 2\theta,$ 注意到
+\begin{align*}
+\sin\frac{x}{2^n} \cdot P_n
+  &= \cos\frac{x}{2} \cdot \cos\frac{x}{4} \cdots \left( \cos\frac{x}{2^n} \cdot \sin\frac{x}{2^n} \right)
+   = \cos\frac{x}{2} \cdot \cos\frac{x}{4} \cdots \cos\frac{x}{2^{n-1}} \cdot \frac{1}{2}\sin\frac{x}{2^{n-1}} \\
+  &\quad \vdots \\
+  &= \cos\frac{x}{2} \cdot \frac{1}{2^{n-1}}\sin\frac{x}{2} = \frac{1}{2^n}\sin x.
+\end{align*}
+故对所有正整数 $n$ 均有 $\sin\dfrac{x}{2^n} \cdot P_n = \dfrac{\sin x}{2^n}.$ 当 $n$ 充分大时 $\dfrac{x}{2^n} \to 0,$ $\sin\dfrac{x}{2^n} \neq 0,$ 从而
+\[
+P_n = \frac{\sin x}{2^n \sin\dfrac{x}{2^n}} = \frac{\sin x}{x} \cdot \frac{x/2^n}{\sin(x/2^n)} \xrightarrow[]{n\to\infty} \frac{\sin x}{x},
+\]
+上式最后的取极限成立是因为 $\dfrac{t}{\sin t} \to 1$ 当 $t \to 0.$ 故无穷乘积收敛且 $\prod_{n=1}^\infty \cos \dfrac{x}{2^n} = \dfrac{\sin x}{x}.$
+\end{solution}
+
+
+\begin{question}[points = 10]
+设 $\{x_n\}_{n \in \mathbb{N}}$ 为有界数列, 考虑这个数列的所有极限点构成的集合
+\[
+E = \{ \xi \in \mathbb{R} ~:~ \xi ~ \text{为 $\{x_n\}$ 的某个子列的极限} \},
+\]
+% 请证明:
+% \begin{enumerate}
+% \item 记 $h = \inf E,$ 则 $h \in E,$ 即 $E$ 有最小值;
+% \item $h = \sup_{n\geqslant 1} \inf_{k \geqslant n} x_k.$
+% \end{enumerate}
+记 $h = \inf E,$ 请证明 $h \in E,$ 即 $E$ 有最小值.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+由于 $h = \inf E,$ 对任意 $\varepsilon > 0,$ 存在 $\xi \in E$ 使得 $0 \leqslant \xi - h < \varepsilon.$ 由于 $\xi \in E$ 是 $\{x_n\}$ 的极限点, $\xi$ 的任意邻域中包含 $\{x_n\}$ 的无穷多项. 取 $\delta = \dfrac{(h + \varepsilon) - \xi}{2},$ 则
+\[
+\xi + \delta = \frac{\xi + h + \varepsilon}{2} < h + \varepsilon, \qquad \xi - \delta = \frac{3\xi - h - \varepsilon}{2} \geqslant \frac{3h - h - \varepsilon}{2} = h - \frac{\varepsilon}{2} > h - \varepsilon,
+\]
+故 $O(\xi, \delta) \subset* O(h, \varepsilon).$ 因此 $h$ 的 $\varepsilon$ 邻域也包含 $\{x_n\}$ 的无穷多项. 由 $\varepsilon$ 的任意性, $h$ 是 $\{x_n\}$ 的极限点, 即 $h \in E,$ 故 $h = \min E.$
+\end{solution}
+
+
+\begin{question}[points = 10]
+设 $f(x), g(x)$ 是定义在 $[0, +\infty)$ 上的连续函数, $f(x)$ 在任何闭区间 $[a, b] \subset* [0, +\infty)$ 上黎曼可积. 假设反常积分 $\displaystyle \int_0^{+\infty} f(x) ~ \mathrm{d} x$ 收敛, 并且有 $\displaystyle \lim_{x\to+\infty} g(x) = 0.$ 请问反常积分 $\displaystyle \int_0^{+\infty} f(x)g(x) ~ \mathrm{d} x$ 是否一定收敛? 若是, 请给出证明; 若否, 请给出反例.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+不一定收敛. 反例如下:
+\begin{equation*}
+f(x) = \dfrac{\sin x}{x}; \quad g(x) = \begin{cases}
+0, & 0 \leqslant x \leqslant \pi, \\
+\dfrac{\sin x}{\ln^q x}, & x > \pi,
+\end{cases} \quad 0 < q \leqslant 1.
+\end{equation*}
+$\displaystyle \int_0^{+\infty} f(x) ~ \mathrm{d} x = \int_0^{+\infty} \dfrac{\sin x}{x} ~ \mathrm{d} x$ 是 (条件) 收敛的. 而
+\begin{align*}
+\int_\pi^{+\infty} f(x)g(x) ~ \mathrm{d} x & = \int_\pi^{+\infty} \dfrac{\sin^2 x}{x \ln^q x} ~ \mathrm{d} x = \int_\pi^{+\infty} \dfrac{1 - \cos 2x}{2x \ln^q x} ~ \mathrm{d} x \\
+& = \int_\pi^{+\infty} \dfrac{1}{2x \ln^q x} ~ \mathrm{d} x - \int_\pi^{+\infty} \dfrac{\cos 2x}{2x \ln^q x} ~ \mathrm{d} x,
+\end{align*}
+首先, $\displaystyle \int_\pi^{+\infty} \dfrac{1}{2x \ln^q x} ~ \mathrm{d} x = \begin{cases}
+\dfrac{\ln^{1-q} x}{2(1 -q)} \bigg|_\pi^{+\infty}, & 0 < q < 1, \\
+\dfrac{1}{2} \ln (\ln x) \bigg|_\pi^{+\infty}, & q = 1,
+\end{cases}$ 发散. 另一方面, 由于 $\displaystyle \int_\pi^{A} \cos 2x ~ \mathrm{d} x$ 关于 $A$ 有界, $\dfrac{1}{2x \ln^q x}$ 关于 $x \to +\infty$ 单调趋于 $0,$ 由狄利克雷判别法知 $\displaystyle \int_\pi^{+\infty} \dfrac{\cos 2x}{2x \ln^q x} ~ \mathrm{d} x$ 收敛. 综合可知 $\displaystyle \int_0^{+\infty} f(x)g(x) ~ \mathrm{d} x$ 是发散的.
+\end{solution}
+
+
+\begin{question}[points = 10]
+设函数 $f(x)$ 在闭区间 $[0,1]$ 上具有二阶连续导数 (即 $f \in C^2[0,1]$).
+\begin{enumerate}
+\item 证明: 存在与 $n$ 和 $k$ 均无关的常数 $M > 0$, 使得对于任意的 $n \geqslant 1$ 和 $1 \leqslant k \leqslant n$, 均有
+$$ \left| \int_{\frac{k-1}{n}}^{\frac{k}{n}} f(x) ~ \mathrm{d}x - \frac{1}{n} f\left(\frac{k}{n}\right) + \frac{1}{2n^2} f'\left(\frac{k}{n}\right) \right| \leqslant \frac{M}{6n^3}. $$
+
+\item 利用 (1) 的结论, 证明:
+$$ \lim_{n \to \infty} n \left( \frac{1}{n} \sum_{k=1}^n f\left(\frac{k}{n}\right) - \int_0^1 f(x) ~ \mathrm{d}x \right) = \frac{f(1) - f(0)}{2}. $$
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 由于 $f \in C^2[0,1],$ 其二阶导数 $f''(x)$ 在闭区间 $[0,1]$ 上连续, 从而有界. 故存在常数 $M > 0,$ 使得对于任意 $x \in [0,1],$ 都有 $|f''(x)| \leqslant M.$
+
+在小区间 $\left[\frac{k-1}{n}, \frac{k}{n}\right]$ 上, 在右端点 $x_k = \frac{k}{n}$ 处对 $f(x)$ 使用带有 Lagrange 余项的 Taylor 公式:
+\[
+f(x) = f\left(\frac{k}{n}\right) + f'\left(\frac{k}{n}\right)\left(x - \frac{k}{n}\right) + \frac{f''(\xi_x)}{2}\left(x - \frac{k}{n}\right)^2,
+\]
+其中 $\xi_x$ 介于 $x$ 与 $\frac{k}{n}$ 之间. 对上式在 $\left[\frac{k-1}{n}, \frac{k}{n}\right]$ 上进行积分. 注意到:
+\[ \int_{\frac{k-1}{n}}^{\frac{k}{n}} \mathrm{d}x = \frac{1}{n}, \quad \int_{\frac{k-1}{n}}^{\frac{k}{n}} \left(x - \frac{k}{n}\right) ~ \mathrm{d}x = \left[ \frac{1}{2}\left(x - \frac{k}{n}\right)^2 \right]_{\frac{k-1}{n}}^{\frac{k}{n}} = -\frac{1}{2n^2}, \]
+于是有:
+\[
+\int_{\frac{k-1}{n}}^{\frac{k}{n}} f(x) ~ \mathrm{d}x = \frac{1}{n} f\left(\frac{k}{n}\right) - \frac{1}{2n^2} f'\left(\frac{k}{n}\right) + R_k,
+\]
+其中余项 $R_k = \int_{\frac{k-1}{n}}^{\frac{k}{n}} \frac{f''(\xi_x)}{2}\left(x - \frac{k}{n}\right)^2 ~ \mathrm{d}x.$
+对 $R_k$ 取绝对值并放缩:
+\begin{align*}
+|R_k| &\leqslant \int_{\frac{k-1}{n}}^{\frac{k}{n}} \frac{|f''(\xi_x)|}{2}\left(x - \frac{k}{n}\right)^2 ~ \mathrm{d}x \\
+& \leqslant \frac{M}{2} \int_{\frac{k-1}{n}}^{\frac{k}{n}} \left(x - \frac{k}{n}\right)^2 ~ \mathrm{d}x \\
+& = \frac{M}{2} \left[ \frac{1}{3}\left(x - \frac{k}{n}\right)^3 \right]_{\frac{k-1}{n}}^{\frac{k}{n}} = \frac{M}{6n^3}.
+\end{align*}
+移项即得所证不等式:
+\[
+\left| \int_{\frac{k-1}{n}}^{\frac{k}{n}} f(x) ~ \mathrm{d}x - \frac{1}{n} f\left(\frac{k}{n}\right) + \frac{1}{2n^2} f'\left(\frac{k}{n}\right) \right| = |R_k| \leqslant \frac{M}{6n^3}.
+\]
+
+\item 根据黎曼积分的区间可加性, 将 $k=1, 2, \dots, n$ 的所有区间积分相加:
+\[
+\int_0^1 f(x) ~ \mathrm{d}x = \sum_{k=1}^n \int_{\frac{k-1}{n}}^{\frac{k}{n}} f(x) ~ \mathrm{d}x = \frac{1}{n} \sum_{k=1}^n f\left(\frac{k}{n}\right) - \frac{1}{2n^2} \sum_{k=1}^n f'\left(\frac{k}{n}\right) + \sum_{k=1}^n R_k.
+\]
+将其整理并两边同乘 $n,$ 构造出目标表达式:
+\[
+n \left( \frac{1}{n} \sum_{k=1}^n f\left(\frac{k}{n}\right) - \int_0^1 f(x) ~ \mathrm{d}x \right) = \frac{1}{2n} \sum_{k=1}^n f'\left(\frac{k}{n}\right) - n \sum_{k=1}^n R_k.
+\]
+对于右侧第一项, 由于 $f'(x)$ 在 $[0,1]$ 上连续, 其构成了 $f'(x)$ 的黎曼和, 由微积分基本定理:
+\[
+\lim_{n\to\infty} \frac{1}{2} \left( \frac{1}{n} \sum_{k=1}^n f'\left(\frac{k}{n}\right) \right) = \frac{1}{2} \int_0^1 f'(x) ~ \mathrm{d}x = \frac{f(1) - f(0)}{2}.
+\]
+对于右侧第二项, 利用第 (1) 问的误差估计:
+\[
+\left| n \sum_{k=1}^n R_k \right| \leqslant n \sum_{k=1}^n |R_k| \leqslant n \sum_{k=1}^n \frac{M}{6n^3} = n \cdot n \cdot \frac{M}{6n^3} = \frac{M}{6n}.
+\]
+当 $n \to \infty$ 时, $\frac{M}{6n} \to 0,$ 故 $\lim_{n \to \infty} n \sum_{k=1}^n R_k = 0.$
+
+综合上述两个极限, 即可得出:
+\[
+\lim_{n \to \infty} n \left( \frac{1}{n} \sum_{k=1}^n f\left(\frac{k}{n}\right) - \int_0^1 f(x) ~ \mathrm{d}x \right) = \frac{f(1) - f(0)}{2} - 0 = \frac{f(1) - f(0)}{2}.
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{question}[points = 12]
+考虑对数积分 $\displaystyle \mathrm{Li}(x) = \int_2^x \frac{\mathrm{d}t}{\ln t}\ (x \ge 2),$ 并对正整数 $n$ 记 $\displaystyle I_n(x) = \int_2^x \frac{\mathrm{d}t}{(\ln t)^n}.$
+\begin{enumerate}
+\item 证明递推关系: $I_n(x) = \dfrac{x}{(\ln x)^n} - \dfrac{2}{(\ln 2)^n} + n I_{n+1}(x).$
+\item 证明: 存在仅依赖于 $k$ 的常数 $C_k,$ 使得
+$$\mathrm{Li}(x) = \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} - C_k + k! I_{k+1}(x).$$
+\item 证明余项估计: $I_{k+1}(x) = O_k\left( \dfrac{x}{(\ln x)^{k+1}} \right).$ 这里, 对于两个函数 $f(x), g(x),$ 以及 $k \in \mathbb{N}^+,$ 若存在仅依赖于 $k$ 的常数 $C_k > 0$ 与 $X_k \ge 2,$ 使得当 $x > X_k$ 时恒有 $|f(x)| \leqslant C_k|g(x)|,$ 则记 $f(x) = O_k(g(x))\ (x \to +\infty).$
+\item 证明渐近展开式 $\displaystyle \mathrm{Li}(x) = \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} + O_k\left( \frac{x}{(\ln x)^{k+1}} \right),$ 并由此得出 $\mathrm{Li}(x) \sim* \dfrac{x}{\ln x} ~ (x \to +\infty),$ 或者等价地, $\displaystyle \lim\limits_{x \to +\infty} \dfrac{\mathrm{Li}(x)}{x / \ln x} = 1.$
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+\begin{enumerate}
+\item 对 $I_n(x)$ 利用分部积分, 令 $u = \dfrac{1}{(\ln t)^n},$ 则 $\mathrm{d}u = -\dfrac{n}{t(\ln t)^{n+1}} ~ \mathrm{d}t.$ 于是
+\begin{equation*}
+I_n(x) = \left[ \frac{t}{(\ln t)^n} \right]_2^x + n \int_2^x \frac{\mathrm{d}t}{(\ln t)^{n+1}} = \frac{x}{(\ln x)^n} - \frac{2}{(\ln 2)^n} + n I_{n+1}(x).
+\end{equation*}
+
+\item 对 $k$ 进行数学归纳法.
+
+\textbf{基础步骤 ($k = 1$):} 由 (1) 取 $n = 1,$ 得
+\begin{equation*}
+\mathrm{Li}(x) = I_1(x) = \frac{x}{\ln x} - \frac{2}{\ln 2} + I_2(x) = \frac{x}{\ln x} \sum_{i=0}^{0} \frac{i!}{(\ln x)^i} - C_1 + 1! \cdot I_2(x),
+\end{equation*}
+其中 $C_1 = \dfrac{2}{\ln 2}$ 仅依赖于 $k = 1,$ 基础步骤成立.
+
+\textbf{归纳步骤:} 假设命题对某个 $k$ 成立, 即存在仅依赖于 $k$ 的常数 $C_k$ 使得
+\begin{equation*}
+\mathrm{Li}(x) = \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} - C_k + k! \, I_{k+1}(x).
+\end{equation*}
+由 (1) 取 $n = k+1,$ 得 $I_{k+1}(x) = \dfrac{x}{(\ln x)^{k+1}} - \dfrac{2}{(\ln 2)^{k+1}} + (k+1) I_{k+2}(x).$ 代入归纳假设,
+\begin{align*}
+\mathrm{Li}(x)
+&= \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} - C_k + k! \left( \frac{x}{(\ln x)^{k+1}} - \frac{2}{(\ln 2)^{k+1}} + (k+1) I_{k+2}(x) \right) \\
+&= \frac{x}{\ln x} \sum_{i=0}^{k} \frac{i!}{(\ln x)^i} - C_{k+1} + (k+1)! \, I_{k+2}(x),
+\end{align*}
+其中 $C_{k+1} = C_k + \dfrac{k! \cdot 2}{(\ln 2)^{k+1}}$ 仅依赖于 $k+1.$ 故命题对 $k+1$ 成立.
+
+\item 对 $x > 4,$ 将积分拆成两段:
+\begin{equation*}
+I_{k+1}(x) = \int_2^{\sqrt{x}} \frac{\mathrm{d}t}{(\ln t)^{k+1}} + \int_{\sqrt{x}}^{x} \frac{\mathrm{d}t}{(\ln t)^{k+1}}.
+\end{equation*}
+对第一段, 由 $\ln t \ge \ln 2$ ($t \ge 2$), 有 $\displaystyle\int_2^{\sqrt{x}} \frac{\mathrm{d}t}{(\ln t)^{k+1}} \le \dfrac{\sqrt{x}}{(\ln 2)^{k+1}}.$ 注意到
+\begin{equation*}
+\frac{\sqrt{x}/(\ln 2)^{k+1}}{x / (\ln x)^{k+1}} = \frac{(\ln x)^{k+1}}{(\ln 2)^{k+1} \sqrt{x}} \to 0 \quad (x \to +\infty),
+\end{equation*}
+故存在仅依赖于 $k$ 的 $X_k \ge 4,$ 当 $x > X_k$ 时第一段不超过 $\dfrac{x}{(\ln x)^{k+1}}.$
+
+对第二段, 由 $\ln t \ge \dfrac{\ln x}{2}$ ($t \in [\sqrt{x}, x]$), 有
+\begin{equation*}
+\int_{\sqrt{x}}^{x} \frac{\mathrm{d}t}{(\ln t)^{k+1}} \le \frac{x}{\bigl(\frac{\ln x}{2}\bigr)^{k+1}} = \frac{2^{k+1} x}{(\ln x)^{k+1}}.
+\end{equation*}
+综合两段, 当 $x > X_k$ 时, $I_{k+1}(x) \le \dfrac{(2^{k+1}+1)\,x}{(\ln x)^{k+1}},$ 即 $I_{k+1}(x) = O_k\!\left(\dfrac{x}{(\ln x)^{k+1}}\right).$
+
+\item 由 (2),
+\begin{equation*}
+\mathrm{Li}(x) - \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} = -C_k + k! \, I_{k+1}(x).
+\end{equation*}
+由 (3), 存在仅依赖于 $k$ 的常数 $A_k > 0$ 及 $X_k^{(1)} \ge 2,$ 当 $x > X_k^{(1)}$ 时有 $k! \, I_{k+1}(x) \le \dfrac{A_k x}{(\ln x)^{k+1}}.$ 又 $C_k \ge 0$ 为常数, 而 $\dfrac{x}{(\ln x)^{k+1}} \to +\infty$ $(x \to +\infty),$ 故存在仅依赖于 $k$ 的 $X_k^{(2)} \ge 2,$ 当 $x > X_k^{(2)}$ 时有 $C_k \le \dfrac{x}{(\ln x)^{k+1}}.$ 因此, 当 $x > \max\!\left\{ X_k^{(1)}, X_k^{(2)} \right\}$ 时,
+\begin{equation*}
+\left| \mathrm{Li}(x) - \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} \right| \le C_k + k! \, I_{k+1}(x) \le (1 + A_k) \frac{x}{(\ln x)^{k+1}},
+\end{equation*}
+从而渐近展开式成立:
+\begin{equation*}
+\mathrm{Li}(x) = \frac{x}{\ln x} \sum_{i=0}^{k-1} \frac{i!}{(\ln x)^i} + O_k\!\left(\frac{x}{(\ln x)^{k+1}}\right).
+\end{equation*}
+取 $k = 1,$ 得 $\mathrm{Li}(x) = \dfrac{x}{\ln x} + O_1\!\left(\dfrac{x}{(\ln x)^2}\right),$ 即存在 $C_1' > 0$ 及 $X_1 \ge 2,$ 当 $x > X_1$ 时
+\begin{equation*}
+\left| \frac{\mathrm{Li}(x)}{x/\ln x} - 1 \right| = \frac{\bigl|\mathrm{Li}(x) - x/\ln x\bigr|}{x/\ln x} \le \frac{C_1' x / (\ln x)^2}{x / \ln x} = \frac{C_1'}{\ln x} \to 0 \quad (x \to +\infty),
+\end{equation*}
+故 $\displaystyle\lim_{x \to +\infty} \dfrac{\mathrm{Li}(x)}{x/\ln x} = 1,$ 即 $\mathrm{Li}(x) \sim* \dfrac{x}{\ln x}$ $(x \to +\infty).$
+\end{enumerate}
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}
