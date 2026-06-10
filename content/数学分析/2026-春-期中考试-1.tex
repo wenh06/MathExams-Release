@@ -207,6 +207,7 @@ I - \frac{1}{2} I = \sum_{n=1}^{\infty} \dfrac{n}{2^n} - \sum_{n=1}^{\infty} \df
 \end{solution}
 
 
+\showquestionpoints
 \section{计算题：本题共 2 小题, 共 20 分。本题应写出具体演算步骤。}
 
 \examsetup{
@@ -259,6 +260,7 @@ I = \int_{\frac{\pi}{2}}^{0} \ln \left( \sin \left( \dfrac{\pi}{2} - t \right) \
 \end{solution}
 
 
+\showquestionpoints
 \section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
 
 \examsetup{
@@ -277,10 +279,10 @@ I = \int_{\frac{\pi}{2}}^{0} \ln \left( \sin \left( \dfrac{\pi}{2} - t \right) \
 计算部分积 $P_n = \prod_{k=1}^n \cos \dfrac{x}{2^k}.$ 利用二倍角公式 $\sin\theta \cos\theta = \dfrac{1}{2}\sin 2\theta,$ 注意到
 \begin{align*}
 \sin\frac{x}{2^n} \cdot P_n
-  &= \cos\frac{x}{2} \cdot \cos\frac{x}{4} \cdots \left( \cos\frac{x}{2^n} \cdot \sin\frac{x}{2^n} \right)
-   = \cos\frac{x}{2} \cdot \cos\frac{x}{4} \cdots \cos\frac{x}{2^{n-1}} \cdot \frac{1}{2}\sin\frac{x}{2^{n-1}} \\
-  &\quad \vdots \\
-  &= \cos\frac{x}{2} \cdot \frac{1}{2^{n-1}}\sin\frac{x}{2} = \frac{1}{2^n}\sin x.
+&= \cos\frac{x}{2} \cdot \cos\frac{x}{4} \cdots \left( \cos\frac{x}{2^n} \cdot \sin\frac{x}{2^n} \right)
+= \cos\frac{x}{2} \cdot \cos\frac{x}{4} \cdots \cos\frac{x}{2^{n-1}} \cdot \frac{1}{2}\sin\frac{x}{2^{n-1}} \\
+&\quad \vdots \\
+&= \cos\frac{x}{2} \cdot \frac{1}{2^{n-1}}\sin\frac{x}{2} = \frac{1}{2^n}\sin x.
 \end{align*}
 故对所有正整数 $n$ 均有 $\sin\dfrac{x}{2^n} \cdot P_n = \dfrac{\sin x}{2^n}.$ 当 $n$ 充分大时 $\dfrac{x}{2^n} \to 0,$ $\sin\dfrac{x}{2^n} \neq 0,$ 从而
 \[

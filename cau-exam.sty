@@ -6,6 +6,7 @@
 \RequirePackage{zhnumber}
 \RequirePackage{expl3}
 \RequirePackage{geometry}
+\RequirePackage{extarrows}
 
 \RequirePackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
@@ -104,12 +105,18 @@
 \fi
 
 % 分数显示控制
-\ifCAU@score
-  \examsetup{question/show-points = true}
-\else
-  \examsetup{question/show-points = false}
+% question/show-points = true 只在 points > 0 时才渲染分数，对没有指定 [points=N] 的
+% 选择题和填空题不产生任何输出，因此可以固定为 true。
+% score=false 选项仅控制解答中的给分点标记 \score{} 是否显示。
+\examsetup{question/show-points = true}
+\ifCAU@score\else
   \AtBeginDocument{\renewcommand{\score}[1]{}}
 \fi
+
+% 局部开关：在 \section 前调用 \showquestionpoints / \hidequestionpoints
+% 用于让某几节的 question 环境显示（或隐藏）分数
+\newcommand{\showquestionpoints}{\examsetup{question/show-points = true}}
+\newcommand{\hidequestionpoints}{\examsetup{question/show-points = false}}
 
 % 基础 examsetup：动态注入导言区的课程名 \CAU@course
 \examsetup{
