@@ -1,0 +1,433 @@
+\setcourse{数学分析II}
+\setyear{2025\textasciitilde 2026}
+\setterm{春季}
+\settotal{4}
+\setexamtype{第二次期中考试}
+
+\begin{document}
+
+\makeexamtitle
+
+% \begin{xiaosihao}
+
+
+\section{%
+  选择题：本题共 5 小题, 每小题 3 分, 共 15 分。
+  在每小题给出的四个选项中, 只有一项是符合题目要求的。
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+反常积分 $\int_0^{+\infty} \dfrac{\sin^2 x}{x} dx =$ \paren[D]
+
+\begin{choices}
+\item $1$
+\item $\dfrac{\pi^2}{2}$
+\item $2$
+\item 发散
+\end{choices}
+\end{question}
+
+\begin{solution}
+反常积分 $\int_0^{+\infty} \dfrac{\sin^2 x}{x} dx$ 的敛散性等价于$\int_1^{+\infty} \dfrac{\sin^2 x}{x} dx$ 的敛散性. 有
+\[
+\dfrac{\sin^2 x}{x} = \dfrac{1}{2x} - \dfrac{\cos 2x}{2x}.
+\]
+由 Dirichlet 判别法可知 $\int_1^{+\infty} \dfrac{\cos x}{x} dx$ 收敛, 而 $\int_1^{+\infty} \dfrac{1}{x} dx$ 发散, 所以 $\int_0^{+\infty} \dfrac{\sin^2 x}{x} dx$ 发散.
+\end{solution}
+
+
+\begin{question}
+Cauchy 主值积分 $\displaystyle (\text{cpv}) \int_{-\infty}^{+\infty} \sin^2 x ~ \mathrm{d}x =$ \paren[D]
+
+\begin{choices}
+\item $0$
+\item $1$
+\item $\pi$
+\item 发散
+\end{choices}
+\end{question}
+
+\begin{solution}
+先算不定积分
+\[
+\int \sin^2 x ~ \mathrm{d}x = \int \frac{1 - \cos 2x}{2} ~ \mathrm{d}x = \frac{2x - \sin 2x}{4}.
+\]
+所以 Cauchy 主值积分
+\[
+(\text{cpv}) \int_{-\infty}^{+\infty} \sin^2 x ~ \mathrm{d}x = \lim_{A \to +\infty} \int_{-A}^{A} \sin^2 x ~ \mathrm{d}x = \left. \frac{2x - \sin 2x}{4} \right|_{-A}^{A} = A - \frac{\sin 2A}{2} ~~ \implies ~~ \text{发散}
+\]
+\end{solution}
+
+
+\begin{question}
+设定义在闭区间 $[a, b]$ 上的函数列 $\{ S_n(x) \}$ 满足
+\begin{enumerate}
+\item 每一项 $S_n(x)$ 都是连续可微函数;
+\item 导函数列 $\{ S_n'(x) \}$ 在 $[a, b]$ 上一致收敛到函数 $\sigma(x).$
+\end{enumerate}
+则以下说法正确的是 \paren[B]
+
+\begin{choices}
+\item $\sigma(x)$ 可能有间断点
+\item $\sigma(x)$ 必然是 Riemann 可积的
+\item $\sigma(x)$ 在开区间 $(a, b)$ 上必然可微
+\item 函数列 $\{ S_n(x) \}$ 必然收敛到某个连续函数 $S(x)$
+\end{choices}
+\end{question}
+
+\begin{solution}
+由题设知, $\{ S_n'(x) \}$ 每一项都是连续函数, 且在 $[a, b]$ 上一致收敛到函数 $\sigma(x),$ 所以极限函数 $\sigma(x)$ 是 $[a, b]$ 上连续函数. 所以选项 A 是错的, 选项 B 是对的.
+
+C 的反例: 取 $[a, b] = [-1, 1],$ 令 $S_n(x) = \displaystyle\int_0^x \sqrt{t^2 + \frac{1}{n^2}} \, \mathrm{d}t.$ 则 $S_n'(x) = \sqrt{x^2 + \frac{1}{n^2}} \rightrightarrows |x|$ 在 $[-1, 1]$ 上一致收敛, 但极限函数 $\sigma(x) = |x|$ 在 $x = 0 \in (-1, 1)$ 处不可微.
+
+D 的反例: $S_n(x) = (-1)^n$ 为常值函数, 则 $S_n'(x) = 0 \rightrightarrows 0,$ 但 $\{ S_n(x) \}$ 本身发散.
+\end{solution}
+
+\begin{question}
+设正数列 $\{ a_n \}$ 单调递减收敛于 $0,$ 那么幂级数 $\sum_{n=1}^\infty a_n x^n$ \paren[A]
+
+\begin{choices}
+\item 收敛半径 $R$ 可能等于 $+\infty$
+\item 收敛半径 $R$ 可能小于 $1$
+\item 收敛域必然包含 $(-1, 1]$
+\item 收敛域可能包含于 $(-1, 1]$
+\end{choices}
+\end{question}
+
+\begin{solution}
+幂级数 $\sum_{n=1}^\infty a_n x^n$ 在 $x = -1$ 处为 Leibniz 级数 $\sum_{n=1}^\infty (-1)^n a_n,$ 是收敛的, 所以收敛半径 $R \geqslant 1,$ 并且收敛域包含 $[-1, 1).$
+
+A 的例子 $a_n = \frac{1}{n!}.$
+\end{solution}
+
+\begin{question}
+设函数 $f(x)$ 在 $(-a, a)$ 上无穷次可微, $a > 0,$ $\sum_{n=0}^{\infty} u_n(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!} x^n$ 为 $f(x)$ 在 $0$ 附近的 Taylor 级数, 以下说法\chemph{不正确}的是 \paren[D]
+
+\begin{choices}
+\item $\sum_{n=0}^{\infty} u_n(x)$ 的收敛半径可能等于 $+\infty$
+\item $\sum_{n=0}^{\infty} u_n(x)$ 的收敛半径可能等于 $0$
+\item 若 $\sum_{n=0}^{\infty} u_n(x)$ 在 $x = -2$ 处收敛, 则它必然也在 $x = 1$ 处收敛
+\item 若 $\sum_{n=0}^{\infty} u_n(x)$ 在 $0$ 的某个邻域内收敛, 则在该邻域内必有 $f(x) = \sum_{n=0}^{\infty} u_n(x)$
+\end{choices}
+\end{question}
+
+\begin{solution}
+A 的例子: $f(x) = e^x$
+
+B 的例子稍微复杂一些: 取 $a_n = (n!)^2,$ 利用 Borel 引理 (Borel's lemma, 其本身是通过所谓的截断函数进行构造性证明的), 存在无穷次可微函数 $f(x),$ 使得 $f^{(n)}(0) = a_n.$ 那么 $\displaystyle \sum_{n=0}^{\infty} u_n(x) = \sum_{n=0}^{\infty} n! x^n$ 的收敛半径就是 $0.$
+
+C 是幂级数的一般性质.
+
+D 的反例: $f(x) = \begin{cases}
+e^{-1/x^2}, & x \neq 0, \\ 0, & x = 0.
+\end{cases}$
+\end{solution}
+
+
+\section{填空题：本题共 5 小题, 每小题 3 分, 共 15 分。}
+
+\examsetup{
+  question/index = 1
+}
+
+% \noindent\scoringbox
+
+\begin{question}
+椭圆 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1, a, b >0,$ 的面积 = \fillin[$\pi ab$].
+\end{question}
+
+\begin{solution}
+上半椭圆 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ 的参数方程为
+\[
+x = a \cos t, \quad y = b \sin t, \quad t \in [0, \pi].
+\]
+由对称性, 椭圆面积 $S$ 为上半部分面积的 $2$ 倍, 即 $S = 2 \int_{-a}^a y ~ \mathrm{d}x.$ 将参数方程代入, 当 $t$ 从 $0$ 变到 $\pi$ 时，$x$ 从 $a$ 变到 $-a,$ 且 $\mathrm{d}x = -a \sin t ~ \mathrm{d}t,$ 故
+\begin{align*}
+A & = 2 \int_0^\pi (b \sin t) (-a \sin t) ~ \mathrm{d}t = 2ab \int_0^\pi \sin^2 t ~ \mathrm{d}t \\
+& = 2ab \int_0^\pi \frac{1 - \cos 2t}{2} ~ \mathrm{d}t = ab \left[ t - \frac{1}{2} \sin 2t \right]_0^\pi \\
+& = \pi ab.
+\end{align*}
+\end{solution}
+
+
+\begin{question}
+$\displaystyle \lim_{x \to 0+} \dfrac{\displaystyle\int_0^x \sin(t^2) ~ \mathrm{d}t}{x^3} =$ \fillin[$\dfrac{1}{3}$].
+\end{question}
+
+\begin{solution}
+当 $t \to 0$ 时 $\sin(t^2) \sim* t^2,$ 故 $\displaystyle\int_0^x \sin(t^2)\,\mathrm{d}t \sim* \int_0^x t^2\,\mathrm{d}t = \dfrac{x^3}{3}.$ 因此极限为 $\dfrac{1}{3}.$
+
+或直接用 L'Hopital 法则: $\displaystyle\lim_{x\to 0+} \dfrac{\int_0^x \sin(t^2)\,\mathrm{d}t}{x^3} = \lim_{x\to 0+} \dfrac{\sin(x^2)}{3x^2} = \dfrac{1}{3}.$
+\end{solution}
+
+
+\begin{question}
+若数项级数 $\displaystyle \sum_{n=2}^\infty \dfrac{(-1)^n}{n \ln^q n}$ 收敛, 则实数 $q$ 的取值范围为 \fillin[$\mathbb{R}$].
+\end{question}
+
+\begin{solution}
+函数 $\displaystyle f(x) = \dfrac{1}{x \ln^q x}$ 的导数为 $\displaystyle f'(x) = -\dfrac{\ln^q x + q\ln^{q-1} x}{x^2 \ln^{2q} x}.$ 当 $x$ 充分大时, $f'(x) < 0.$ 故当 $n$ 充分大时, $\displaystyle \dfrac{1}{n \ln^q n}$ 是递减的, 由 Leibniz 判别法知数项级数 $\displaystyle \sum_{n=2}^\infty \dfrac{(-1)^n}{n \ln^q n}$ 是收敛的.
+\end{solution}
+
+
+\begin{question}
+幂级数 $\sum_{n=0}^\infty \frac{1}{2^n}x^{2n}$ 的收敛半径 = \fillin[$\sqrt{2}$].
+\end{question}
+
+\begin{solution}
+直接应用 Cauchy-Hadamard 定理计算, 不过要注意的是, $\frac{1}{2^n}$ 是第 $2n$ 项的系数.
+\end{solution}
+
+
+\begin{question}
+令 $a = -1,$ 那么 $\displaystyle \lim_{x \to a+} \sum_{n=0}^{\infty} x^n =$ \fillin[$1/2$].
+\end{question}
+
+\begin{solution}
+容易算得幂级数的和函数 $\sum_{n=0}^{\infty} x^n = \frac{1}{1-x},$ 所以对于 $a = -1,$
+\[
+\lim_{x \to a+} \sum_{n=0}^{\infty} x^n = \lim_{x \to a+} \frac{1}{1-x} = \frac{1}{2}.
+\]
+这里不是一致收敛的, 所以不能逐项求极限.
+\end{solution}
+
+
+\showquestionpoints
+
+\section{计算题：本题共 2 小题, 共 20 分。本题应写出具体演算步骤。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 10]
+计算定积分 $\displaystyle \int_{-\pi/2}^{\pi/2} \frac{\cos x}{1+e^x} ~ \mathrm{d}x.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+设 $\displaystyle I = \int_{-\pi/2}^{\pi/2} \frac{\cos x}{1+e^x} ~ \mathrm{d}x.$ 令 $x = -t,$ 则
+\begin{align*}
+I & = \int_{\pi/2}^{-\pi/2} \frac{\cos (-t)}{1+e^{-t}} ~ \mathrm{d}(-t) = \int_{-\pi/2}^{\pi/2} \frac{\cos t}{1+e^{-t}} ~ \mathrm{d}t = \int_{-\pi/2}^{\pi/2} \frac{e^t \cos t}{1+e^t} ~ \mathrm{d}t.
+\end{align*}
+于是
+\begin{align*}
+2I & = \int_{-\pi/2}^{\pi/2} \frac{\cos x}{1+e^x} ~ \mathrm{d}x + \int_{-\pi/2}^{\pi/2} \frac{e^x \cos x}{1+e^x} ~ \mathrm{d}x = \int_{-\pi/2}^{\pi/2} \cos x ~ \mathrm{d}x = \sin x \bigg|_{-\pi/2}^{\pi/2} = 2.
+\end{align*}
+因此, $I = 1.$
+\end{solution}
+
+\begin{question}[points = 10]
+设 $\{ a_n \}$ 是等差数列, 公差为 $c,$ 设 $b > 1$ 为固定实数. 计算数项级数 $\displaystyle \sum_{n=1}^\infty \frac{a_n}{b^n}$ 的和.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (下册) 课本 \S 10.4 习题 6 (已布置为作业)
+
+等差数列 $\{ a_n \}$ 的首项为 $a_1,$ 公差为 $c,$ 则 $a_n = a_1 + (n-1)c.$
+
+\textbf{解法一: 直接利用数项级数计算}
+
+首先验证收敛性. 因为 $b > 1,$ 所以
+\begin{equation*}
+\lim_{n \to \infty} \left| \frac{a_{n+1}/b^{n+1}}{a_n/b^n} \right| = \frac{1}{b} \lim_{n \to \infty} \left| \frac{a_1 + nc}{a_1 + (n-1)c} \right| = \frac{1}{b} < 1,
+\end{equation*}
+由 d'Alembert 判别法知, 级数 $\displaystyle \sum_{n=1}^\infty \frac{a_n}{b^n}$ 绝对收敛.
+
+设 $\displaystyle S = \sum_{n=1}^\infty \frac{a_n}{b^n},$ 则有
+\begin{equation*}
+\frac{1}{b} S = \sum_{n=1}^\infty \frac{a_n}{b^{n+1}} = \sum_{n=2}^\infty \frac{a_{n-1}}{b^n}.
+\end{equation*}
+两式相减, 可得
+\begin{align*}
+S - \frac{1}{b} S & = \frac{a_1}{b} + \sum_{n=2}^\infty \frac{a_n - a_{n-1}}{b^n} = \frac{a_1}{b} + \sum_{n=2}^\infty \frac{c}{b^n} \\
+& = \frac{a_1}{b} + c \sum_{n=2}^\infty \frac{1}{b^n} = \frac{a_1}{b} + c \cdot \frac{1/b^2}{1 - 1/b} = \frac{a_1}{b} + \frac{c}{b(b-1)}.
+\end{align*}
+于是 $\displaystyle \frac{b-1}{b} S = \frac{a_1(b-1) + c}{b(b-1)},$ 解得 $\displaystyle S = \frac{a_1}{b-1} + \frac{c}{(b-1)^2}.$
+
+\textbf{解法二: 利用幂级数的逐项求导与连续性}
+
+考虑幂级数 $\displaystyle f(x) = \sum_{n=1}^\infty a_n x^n.$ 由 $\lim_{n \to \infty} \sqrt[n]{|a_n|} = \lim_{n \to \infty} \sqrt[n]{|a_1 + (n-1)c|} = 1$ 可知其收敛半径为 $R = 1.$
+
+对于任意 $x \in (-1, 1),$ 由于幂级数在收敛区间内绝对收敛, 且可逐项求导, 我们有
+\begin{equation*}
+\sum_{n=1}^\infty x^n = \frac{x}{1-x}.
+\end{equation*}
+两端同乘 $x$ 后对 $x$ 逐项求导, 可得
+\begin{equation*}
+\sum_{n=1}^\infty n x^n = x \left( \sum_{n=1}^\infty x^n \right)' = x \left( \frac{x}{1-x} \right)' = \frac{x}{(1-x)^2}.
+\end{equation*}
+
+将 $a_n = a_1 + (n-1)c$ 代入 $f(x),$ 有
+\begin{align*}
+f(x) & = \sum_{n=1}^\infty [a_1 + (n-1)c] x^n = a_1 \sum_{n=1}^\infty x^n + c \sum_{n=1}^\infty (n-1) x^n \\
+& = a_1 \cdot \frac{x}{1-x} + c x^2 \sum_{n=2}^\infty (n-1) x^{n-2} \\
+& = a_1 \cdot \frac{x}{1-x} + c x^2 \left( \sum_{n=2}^\infty x^{n-1} \right)' \\
+& = a_1 \cdot \frac{x}{1-x} + c x^2 \left( \frac{x}{1-x} \right)' = \frac{a_1 x}{1-x} + \frac{c x^2}{(1-x)^2}.
+\end{align*}
+
+由于 $b > 1,$ 所以 $x_0 = \frac{1}{b} \in (-1, 1),$ 即 $x_0$ 落在收敛区间内部, 因此可以直接代入求值:
+\[
+\sum_{n=1}^\infty \frac{a_n}{b^n} = f\left( \frac{1}{b} \right) = \frac{a_1 \cdot \frac{1}{b}}{1 - \frac{1}{b}} + \frac{c \cdot \frac{1}{b^2}}{\left( 1 - \frac{1}{b} \right)^2} = \frac{a_1}{b-1} + \frac{c}{(b-1)^2}.
+\]
+\end{solution}
+
+
+\section{解答题：本题共 5 小题, 共 50 分。解答应写出文字说明或者证明过程。\chemph{注意，若一道题分为多个小问，则该题前面小问的结论可以用于后面的小问，但反过来不行}。}
+
+\examsetup{
+  question/index = 1
+}
+
+\begin{question}[points = 8]
+设 $f(x)$ 是定义在闭区间 $[a, b]$ 上的有界函数, 请任意给出一个 $f(x)$ 在 $[a, b]$ 上 Riemann 可积的\chemph{充要条件}.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+可以写以下任意一个:
+\begin{itemize}
+\item Cauchy 收敛原理: $\forall ~ \varepsilon > 0, \exists ~ \delta > 0,$ 使得任意带标志点的划分 $(P_1, \xi_1), (P_2, \xi_2),$ 若满足 $\lambda(P_1) < \delta, \lambda(P_2) < \delta,$ 总有
+\[\lvert S(f; P_1; \xi_1) - S(f; P_2; \xi_2) \rvert < \varepsilon.\]
+\item Darboux 和条件: $\lim\limits_{\lambda(P) \to 0} \overline{S}(f; P) =: \overline{\int}_a^b f(x) ~ \mathrm{d} x = \underline{\int}_a^b f(x) ~ \mathrm{d} x := \lim\limits_{\lambda(P) \to 0} \underline{S}(f; P).$ 其中, Darboux 大和: $\overline{S}(f; P) = \sum\limits_{i=1}^n \sup_{t\in\Delta_i} f(t) \cdot \Delta x_i =: \sum\limits_{i=1}^n M_i(f) \cdot \Delta x_i;$ Darboux 小和: $\underline{S}(f; P) = \sum\limits_{i=1}^n \inf_{t\in\Delta_i} f(t) \cdot \Delta x_i =: \sum\limits_{i=1}^n m_i(f) \cdot \Delta x_i.$
+\item 振幅条件: $\forall ~ \varepsilon > 0, \exists ~ \delta > 0,$ 使得任意满足 $\lambda(P) < \delta$ 的划分 $P$ 总有
+$\sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon,$ 振幅 $\omega(f; \Delta_i) := \sup\limits_{t_1, t_2 \in \Delta_i} \lvert f(t_1) - f(t_2) \rvert.$
+\item 振幅条件加强版 (条件减弱): $\forall ~ \varepsilon > 0,$ 存在划分 $P$ 满足
+$\sum\limits_{i=1}^n \omega(f; \Delta_i) \Delta x_i < \varepsilon.$
+\item Lebesgue 判别法: $f(x)$ 几乎处处连续 (不连续点集是零测集).
+\end{itemize}
+\end{solution}
+
+
+\begin{question}[points = 10]
+设实数列 $\{a_n\}_{n\in\mathbb{N}}$ 满足 $a_n > 0,$ $1 > \dfrac{a_{n+1}}{a_n} > 1 - \dfrac{1}{n+1}$ 对所有 $n \in \mathbb{N}$ 都成立. 请问正项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 是否收敛? 并请进一步证明你的结论.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (下册) 课本 \S 9.3 习题 11 (已布置为作业)
+
+正项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.
+
+证明如下: 由 $\dfrac{a_{n+1}}{a_n} > 1 - \dfrac{1}{n+1} = \dfrac{n}{n+1}$ 可知
+\begin{equation*}
+\dfrac{a_{n+1}}{a_n} \cdot \dfrac{a_n}{a_{n-1}} \cdots \dfrac{a_2}{a_1} > \dfrac{n}{n+1} \cdot \dfrac{n-1}{n} \cdots \dfrac{1}{2},
+\end{equation*}
+于是有
+\begin{equation*}
+a_{n+1} > \dfrac{1}{(n+1)} \cdot a_1,
+\end{equation*}
+由于 $\displaystyle \sum_{n=1}^{\infty} \dfrac{1}{n}$ 发散, 由正项级数的比较判别法知 $\displaystyle \sum_{n=1}^{\infty} a_n$ 也是发散的.
+\end{solution}
+
+\begin{question}[points = 10]
+设反常积分 $\displaystyle \int_0^{+\infty} f(x) ~ \mathrm{d} x$ 绝对收敛, 且 $\displaystyle \lim_{x \to +\infty} f(x) = 0.$ 请证明: $\displaystyle \int_0^{+\infty} f^2(x) ~ \mathrm{d} x$ 收敛.
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (上册) 课本 \S 8.2 习题 11
+
+因为 $\displaystyle \int_0^{+\infty} f(x) ~ \mathrm{d} x$ 为区间无限的反常积分, 故 $f(x)$ 在任意有限区间 $[0, A]$ ($A > 0$) 上可积, 从而 $f^2(x)$ 在 $[0, A]$ 上也可积. 因此, 只需证明 $\displaystyle \int_A^{+\infty} f^2(x) ~ \mathrm{d} x$ 收敛即可.
+
+由于 $\displaystyle \lim_{x \to +\infty} f(x) = 0,$ 故存在 $X > 0,$ 使得当 $x > X$ 时, 有
+\begin{equation*}
+|f(x)| < 1.
+\end{equation*}
+取 $A = X,$ 则当 $x \in (A, +\infty)$ 时, 有
+\begin{equation*}
+0 \leqslant f^2(x) = |f(x)|^2 < |f(x)|.
+\end{equation*}
+已知 $\displaystyle \int_0^{+\infty} f(x) ~ \mathrm{d} x$ 绝对收敛, 即 $\displaystyle \int_0^{+\infty} |f(x)| ~ \mathrm{d} x$ 收敛, 从而其尾部积分 $\displaystyle \int_A^{+\infty} |f(x)| ~ \mathrm{d} x$ 也收敛. 由比较判别法可知, $\displaystyle \int_A^{+\infty} f^2(x) ~ \mathrm{d} x$ 收敛.
+
+综上, $\displaystyle \int_0^{+\infty} f^2(x) ~ \mathrm{d} x = \int_0^A f^2(x) ~ \mathrm{d} x + \int_A^{+\infty} f^2(x) ~ \mathrm{d} x$ 收敛.
+\end{solution}
+
+
+\begin{question}[points = 10]
+设函数 $S_0(x)$ 在闭区间 $[0, a]$ 上连续, $a > 0,$ 令
+\[
+S_n(x) = \int_0^x S_{n-1}(x) ~ \mathrm{d} x, ~~ n = 1, 2, \cdots
+\]
+请证明: 函数列 $\{ S_n(x) \}$ 在 $[0, a]$ 上一致收敛于常值函数 $0.$
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (下册) 课本 \S 10.1 习题 7 (已布置为作业)
+
+因为 $S_0(x)$ 在闭区间 $[0, a]$ 上连续, 所以必有界, 即存在 $M > 0,$ 使得
+\begin{equation*}
+|S_0(x)| \leqslant M, ~ \forall ~ x \in [0, a].
+\end{equation*}
+下用数学归纳法证明: 对任意 $n \in \mathbb{N},$ 均有
+\begin{equation*}
+|S_n(x)| \leqslant M \frac{x^n}{n!}, ~ \forall ~ x \in [0, a].
+\end{equation*}
+当 $n = 1$ 时, 有
+\begin{equation*}
+|S_1(x)| = \left| \int_0^x S_0(t) ~ \mathrm{d} t \right| \leqslant \int_0^x |S_0(t)| ~ \mathrm{d} t \leqslant Mx,
+\end{equation*}
+结论成立. 假设当 $n = k-1$ 时结论成立, 即 $|S_{k-1}(x)| \leqslant M \frac{x^{k-1}}{(k-1)!},$ 则当 $n = k$ 时, 有
+\begin{equation*}
+|S_k(x)| = \left| \int_0^x S_{k-1}(t) ~ \mathrm{d} t \right| \leqslant \int_0^x |S_{k-1}(t)| ~ \mathrm{d} t \leqslant \int_0^x M \frac{t^{k-1}}{(k-1)!} ~ \mathrm{d} t = M \frac{x^k}{k!},
+\end{equation*}
+故结论对一切 $n \in \mathbb{N}$ 均成立.
+
+于是, 对任意 $x \in [0, a],$ 有
+\begin{equation*}
+|S_n(x) - 0| = |S_n(x)| \leqslant M \frac{a^n}{n!}.
+\end{equation*}
+从而有
+\begin{equation*}
+\lim_{n \to \infty} \sup_{x \in [0, a]} |S_n(x) - 0| \leqslant \lim_{n \to \infty} M \frac{a^n}{n!} = 0.
+\end{equation*}
+这表明函数列 $\{ S_n(x) \}$ 在 $[0, a]$ 上一致收敛于常值函数 $0.$
+\end{solution}
+
+
+\begin{question}[points = 12]
+考虑函数 $\displaystyle f(x) = \sum_{n=1}^{\infty} \frac{1}{2^n} \tan \frac{x}{2^n},$
+\begin{enumerate}
+\item 请证明: $f(x)$ 在 $\left[ 0, \frac{\pi}{2} \right]$ 上连续;
+\item 计算 $\displaystyle \int_{0}^{\frac{\pi}{2}} f(x) ~ \mathrm{d}x.$
+\end{enumerate}
+
+% \noindent\scoringbox
+\end{question}
+
+\begin{solution}
+本题是 (下册) 课本 \S 10.2 习题 11 (已布置为作业)
+
+\begin{enumerate}
+\item 记函数 $u_n(x) = \frac{1}{2^n} \tan \frac{x}{2^n},$ 那么每个 $u_n(x)$ 都是 $\left[ 0, \frac{\pi}{2} \right]$ 上的连续函数. 在闭区间 $\left[ 0, \frac{\pi}{4} \right]$ 上, 函数 $g(x) = \tan x$ 单调递增, 满足
+\begin{equation*}
+0 \leqslant g(x) \leqslant g\left( \frac{\pi}{4} \right) = 1, ~ \forall ~ x \in \left[ 0, \frac{\pi}{4} \right],
+\end{equation*}
+于是 $\forall ~ n \in \mathbb{N}, ~ \forall ~ x \in \left[ 0, \frac{\pi}{2} \right],$ 有
+\begin{equation*}
+0 \leqslant u_n(x) = \frac{1}{2^n} g \left( \frac{x}{2^n} \right) \leqslant \frac{1}{2^n}.
+\end{equation*}
+由于 $\displaystyle \sum_{n=1}^{\infty} \frac{1}{2^n}$ 收敛, 由 Weierstraß 判别法知 $\displaystyle f(x) = \sum_{n=1}^{\infty} u_n(x)$ 在 $\left[ 0, \frac{\pi}{2} \right]$ 上一致收敛, 从而连续.
+
+\item 由一致收敛函数项级数的逐项积分定理, 有
+\begin{align*}
+\int_{0}^{\frac{\pi}{2}} f(x) ~ \mathrm{d}x & = \int_{0}^{\frac{\pi}{2}} \sum_{n=1}^{\infty} u_n(x) ~ \mathrm{d}x = \sum_{n=1}^{\infty} \int_{0}^{\frac{\pi}{2}} u_n(x) ~ \mathrm{d}x = \sum_{n=1}^{\infty} \int_{0}^{\frac{\pi}{2}} \tan \frac{x}{2^n} ~ \mathrm{d} \frac{x}{2^n} \\
+& = -\sum_{n=1}^{\infty} \ln \left( \cos \frac{x}{2^n} \right) \bigg|_{0}^{\frac{\pi}{2}} = -\ln \left( \prod_{n=1}^{\infty} \cos \left( \dfrac{\pi}{2^{n+1}} \right) \right) \\
+& = -\ln \left( \dfrac{\sin \frac{\pi}{2}}{\frac{\pi}{2}} \right) = \ln \frac{\pi}{2}
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+% \end{xiaosihao}
+
+\end{document}
